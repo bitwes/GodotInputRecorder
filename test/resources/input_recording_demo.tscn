@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://test/resources/input_recording_demo.gd" id="1_wxqnx"]
 [ext_resource type="PackedScene" uid="uid://gtmjxp2qk5wf" path="res://test/resources/gut_player.tscn" id="2_yl1el"]
-[ext_resource type="PackedScene" uid="uid://crkll8afh5da" path="res://addons/input_recorder/input_recorder.tscn" id="3_s8cgx"]
+[ext_resource type="Script" path="res://addons/input_recorder/input_recorder_ctrl.gd" id="3_lhsjx"]
 
 [sub_resource type="ButtonGroup" id="ButtonGroup_eaeau"]
 
@@ -98,6 +98,12 @@ text = "Reset
 
 [node name="SomeNode" type="Node" parent="."]
 
-[node name="InputRecorder" parent="SomeNode" instance=ExtResource("3_s8cgx")]
+[node name="InputRecorder" type="Control" parent="SomeNode"]
+custom_minimum_size = Vector2(271, 149)
+layout_mode = 3
+anchors_preset = 0
+offset_right = 421.0
+offset_bottom = 413.0
+script = ExtResource("3_lhsjx")
 
 [connection signal="pressed" from="Reset" to="." method="_on_reset_pressed"]

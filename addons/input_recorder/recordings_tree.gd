@@ -13,6 +13,10 @@ func _tree_item_for_recorder(key, recorder):
 	item.set_text(1, str(recorder.duration(), 'f: ', recorder.get_number_of_events()))
 	return item
 
+func _notification(what):
+	if(what == NOTIFICATION_PREDELETE):
+		for key in input_recorders:
+			input_recorders[key].queue_free()
 
 # -----------
 # Events
