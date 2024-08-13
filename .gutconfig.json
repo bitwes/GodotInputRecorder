@@ -7,16 +7,12 @@
 
     "compact_mode": true,
     "log_level": 1,
-    "should_exit": false,
+    "should_exit": true,
 
     "double_strategy": "SCRIPT_ONLY",
     "errors_do_not_cause_failure": false,
-    "font_color": "ccccccff",
-    "font_name": "CourierPrime",
-    "font_size": 16,
     "hide_orphans": false,
     "ignore_pause": false,
 
-    "opacity": 100,
-    "should_maximize": false
+    "opacity": 100
   }

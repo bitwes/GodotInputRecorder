@@ -1,7 +1,9 @@
 @tool
 extends Control
+class_name IRInputRecorderControl
+## This is the control for recording input
 
-var scene = load('res://addons/input_recorder/input_recorder_controls.tscn')
+var _ControlsScene = load('res://addons/input_recorder/input_recorder_controls.tscn')
 var _controls = null
 var _recorders = null
 
@@ -10,6 +12,9 @@ var _playback := IR_InputPlayer.new()
 var _config_file := ConfigFile.new()
 var _parent_scene = null
 
+## A method that resets the scene the recorder is in.  This will be called
+## before recording and playback to make sure the scene is in the same state
+## everytime.
 var reset_method : Callable = _do_nothing
 
 ## The path to save/load recordings to.  When not set, this will be the same
@@ -18,11 +23,12 @@ var reset_method : Callable = _do_nothing
 ## also call load_config_file() after setting it, if you want to load the file.
 @export var save_path : String = ""
 
+## Emitted when playing a recording has finished.
 signal playback_done
 
 
 func _ready():
-	_controls = scene.instantiate()
+	_controls = _ControlsScene.instantiate()
 	add_child(_controls)
 	custom_minimum_size = _controls.custom_minimum_size
 	_controls.anchors_preset = PRESET_FULL_RECT
@@ -122,17 +128,7 @@ func _recorder_totals_text():
 
 
 func _on_stop_pressed():
-	if(_recorder.is_recording):
-		_recorder.stop()
-		_controls.event_output.text = _recorder.to_s()
-		_controls.event_output.text += "\n" + _recorder_totals_text()
-		_controls.tree_recordings.populate_tree_control(save_path)
-	elif(_playback.is_playing):
-		_playback.stop()
-	_update_buttons()
-	_controls.btn_stop.release_focus()
-	compact(false)
-
+	stop()
 
 func _on_play_pressed():
 	await reset_method.call()
@@ -175,7 +171,7 @@ func playback(do_it_fast):
 	_controls.progress.value = 0.0
 	compact(true)
 
-
+## Start a new recording
 func record():
 	await reset_method.call()
 	_recorder = _recorders.new_recorder()
@@ -187,10 +183,23 @@ func record():
 	compact(true)
 
 
+## Stop playing or recording, whichever is occurring.
 func stop():
-	pass
+	if(_recorder.is_recording):
+		_recorder.stop()
+		_controls.event_output.text = _recorder.to_s()
+		_controls.event_output.text += "\n" + _recorder_totals_text()
+		_controls.tree_recordings.populate_tree_control(save_path)
+	elif(_playback.is_playing):
+		_playback.stop()
+
+	_update_buttons()
+	_controls.btn_stop.release_focus()
+	compact(false)
 
 
+
+## Loads the config file at the specified path
 func load_config_file(path=save_path):
 	if(FileAccess.file_exists(path)):
 		_config_file.load(path)
@@ -198,11 +207,13 @@ func load_config_file(path=save_path):
 	_recorders.populate_tree_control(save_path)
 
 
+# Saves all recordings to a config file at the specified path
 func save_config_file(path=save_path):
 	_recorders.save_to_config_file(_config_file)
 	_config_file.save(path)
 
 
+## Plays the recording with the passed in name.
 func play_recording(recording_name):
 	var to_play = _recorders.input_recorders.get(recording_name, null)
 	if(to_play != null):
@@ -211,7 +222,8 @@ func play_recording(recording_name):
 		return to_play.duration()
 	return 0
 
-
+## Returns the amount of time the playback will take based on the number of
+## frames in the recording and Engine.physics_ticks_per_second
 func get_playback_time():
 	return float(_recorder.duration()) / float(Engine.physics_ticks_per_second)
 
