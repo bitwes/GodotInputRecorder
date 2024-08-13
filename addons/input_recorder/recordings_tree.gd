@@ -1,7 +1,6 @@
 extends Tree
 
 var InputRecorder = load("res://addons/input_recorder/input_recorder.gd").InputRecorder
-
 var input_recorders = {}
 var recording_name = 'Recording '
 var num_recordings = 0
@@ -9,6 +8,26 @@ var num_recordings = 0
 signal recorder_selected(input_recorder)
 
 
+func _tree_item_for_recorder(key, recorder):
+	var item = create_item(get_root())
+	item.set_text(0, key)
+	item.set_text(1, str(recorder.duration(), 'f: ', recorder.get_number_of_events()))
+	return item
+
+
+# -----------
+# Events
+# -----------
+func _on_item_selected():
+	var selected = get_selected()
+	if(selected != null and selected != get_root()):
+		var rec_name = selected.get_text(0)
+		recorder_selected.emit(input_recorders[rec_name])
+
+
+# -----------
+# Public
+# -----------
 func new_recorder():
 	var r = InputRecorder.new()
 	num_recordings += 1
@@ -33,13 +52,6 @@ func load_from_config_file(config_file : ConfigFile):
 		recorder._queue = config_file.get_value(section, "recordings")
 		input_recorders[section] = recorder
 	
-
-func _tree_item_for_recorder(key, recorder):
-	var item = create_item(get_root())
-	item.set_text(0, key)
-	item.set_text(1, str(recorder.duration(), 'f: ', recorder.get_number_of_events()))
-	return item
-	
 	
 func populate_tree_control(path):
 	clear()
@@ -48,11 +60,4 @@ func populate_tree_control(path):
 	root_item.set_selectable(0, false)
 	for key in input_recorders:
 		_tree_item_for_recorder(key, input_recorders[key])
-
-
-func _on_item_selected():
-	var selected = get_selected()
-	if(selected != null and selected != get_root()):
-		var rec_name = selected.get_text(0)
-		recorder_selected.emit(input_recorders[rec_name])
 

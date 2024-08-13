@@ -5,10 +5,11 @@
 [ext_resource type="FontFile" uid="uid://bnh0lslf4yh87" path="res://addons/gut/fonts/CourierPrime-Regular.ttf" id="2_qdw5k"]
 
 [node name="InputRecorder" type="ColorRect"]
+custom_minimum_size = Vector2(271, 149)
 offset_left = 12.0
 offset_top = 14.0
-offset_right = 351.0
-offset_bottom = 479.0
+offset_right = 329.0
+offset_bottom = 519.0
 color = Color(0.113049, 0.113049, 0.113049, 1)
 script = ExtResource("1_1iam4")
 
@@ -69,6 +70,7 @@ size_flags_vertical = 1
 max_value = 1.0
 
 [node name="Row3" type="VBoxContainer" parent="Layout"]
+visible = false
 layout_mode = 2
 size_flags_vertical = 3
 
@@ -120,15 +122,6 @@ grow_vertical = 2
 [node name="TabContainer" type="TabContainer" parent="Output/Layout"]
 layout_mode = 2
 size_flags_vertical = 3
-current_tab = 1
-
-[node name="SenderOutput" type="TextEdit" parent="Output/Layout/TabContainer"]
-visible = false
-layout_mode = 2
-size_flags_vertical = 3
-theme_override_fonts/font = ExtResource("2_qdw5k")
-editable = false
-autowrap_mode = 0
 
 [node name="EventOutput" type="TextEdit" parent="Output/Layout/TabContainer"]
 layout_mode = 2
