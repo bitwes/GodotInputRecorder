@@ -1,6 +1,5 @@
 extends Tree
 
-var InputRecorder = load("res://addons/input_recorder/input_recorder.gd").InputRecorder
 var input_recorders = {}
 var recording_name = 'Recording '
 var num_recordings = 0
@@ -29,30 +28,30 @@ func _on_item_selected():
 # Public
 # -----------
 func new_recorder():
-	var r = InputRecorder.new()
+	var r = IR_InputRecorder.new()
 	num_recordings += 1
 	var key = str(recording_name, num_recordings)
 	input_recorders[key] = r
 	var item = _tree_item_for_recorder(key, r)
 	item.select(0)
 	return r
-	
+
 
 func save_to_config_file(config_file: ConfigFile):
 	config_file.clear()
 	for key in input_recorders:
 		config_file.set_value(key, "recordings", input_recorders[key]._queue)
-	
-	
+
+
 func load_from_config_file(config_file : ConfigFile):
 	input_recorders.clear()
 	for section in config_file.get_sections():
 		num_recordings += 1
-		var recorder = InputRecorder.new()
+		var recorder = IR_InputRecorder.new()
 		recorder._queue = config_file.get_value(section, "recordings")
 		input_recorders[section] = recorder
-	
-	
+
+
 func populate_tree_control(path):
 	clear()
 	var root_item = create_item()

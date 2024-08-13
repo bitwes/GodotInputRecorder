@@ -3,192 +3,11 @@ extends ColorRect
 
 # ------------------------------------------------------------------------------
 # ------------------------------------------------------------------------------
-class InputRecorder:
-	extends Node
-
-	var _frame_counter := 0
-	var _queue := {}
-
-	var _is_recording := false
-	var is_recording = _is_recording :
-		get: return _is_recording
-		set(val): pass
-
-	var record_mouse := true
-
-
-	func _physics_process(_delta):
-		if(is_recording):
-			_frame_counter += 1
-
-
-	func _input(event):
-		if(is_recording):
-			if(record_mouse or !(event is InputEventMouse)):
-				add(event)
-
-
-	# -------------
-	# Public
-	# -------------
-	func add(event):
-		if(_queue.has(_frame_counter)):
-			_queue[_frame_counter].append(event)
-		else:
-			_queue[_frame_counter] = [event]
-
-
-	func get_events_for_frame(frame):
-		return _queue.get(frame, [])
-
-
-	func get_events_for_index(idx):
-		return _queue[_queue.keys()[idx]]
-
-
-	func record():
-		_queue.clear()
-		_frame_counter = 0
-		_is_recording = true
-
-
-	func stop():
-		_is_recording = false
-
-
-	func size():
-		return _queue.size()
-
-
-	func get_number_of_events():
-		var total = 0
-		for key in _queue:
-			total += _queue[key].size()
-		return total
-
-
-	func to_s():
-		var to_return = ""
-		for key in _queue:
-			to_return += str("f: ", key).rpad(10, ' ')
-			for i in range(_queue[key].size()):
-				if(i != 0):
-					to_return += " ".rpad(10)
-				to_return += str(_queue[key][i].as_text(), "\n").replace("InputEvent", "")
-		return to_return
-
-
-	func duration():
-		var to_return = 0
-		if(_queue.size() > 0):
-			to_return =  _queue.keys()[-1] - _queue.keys()[0]
-		return to_return
-
-
-
-	func save_to_config_file(config_file, section):
-		pass
-
-	func load_from_config_file(config_file, section):
-		pass
-
-
-# ------------------------------------------------------------------------------
-# ------------------------------------------------------------------------------
-class InputPlayer:
-	extends Node
-
-	var _frame_counter = 0
-	var _is_playing = false
-	var _queue = null
-	var _num_played = 0
-	var _key_index = 0
-	var _ff = false
-
-	var warp_mouse := true
-	var is_playing = _is_playing :
-		get: return _is_playing
-		set(val): pass
-
-	signal done
-
-	func _physics_process(_delta):
-		if(_is_playing):
-			if(_ff):
-				_play_next()
-			else:
-				_play_real_time()
-			_frame_counter += 1
-
-
-	func _play_events(events):
-		for event in events:
-			Input.parse_input_event(event)
-			if(warp_mouse and event is InputEventMouse):
-				DisplayServer.warp_mouse(event.position)
-
-
-	func _play_next():
-		var events = _queue.get_events_for_index(_key_index)
-		_play_events(events)
-
-		_key_index += 1
-		if(_key_index >= _queue.size()):
-			_is_playing = false
-			done.emit()
-
-
-	func _play_real_time():
-		var events = _queue.get_events_for_frame(_frame_counter)
-		_play_events(events)
-
-		if(events.size() > 0):
-			_num_played += 1
-			if(_num_played == _queue.size()):
-				_is_playing = false
-				done.emit()
-
-
-	func _play_queue(iq):
-		_key_index = 0
-		_frame_counter = 0
-		_num_played = 0
-		_is_playing = true
-		_queue = iq
-
-
-	# -------------
-	# Public
-	# -------------
-	func play_input_queue(iq):
-		_ff = false
-		_play_queue(iq)
-
-
-	func play_input_queue_quick(iq):
-		_ff = true
-		_play_queue(iq)
-
-
-	func stop():
-		_is_playing = false
-
-
-	func percent_complete():
-		if(_ff):
-			return float(_key_index) / float(_queue.size() -1)
-		else:
-			return float(_frame_counter) / float(_queue.duration())
-
-
-
-
-
-# ------------------------------------------------------------------------------
-# ------------------------------------------------------------------------------
-var _recorder : InputRecorder = null
-var _playback := InputPlayer.new()
+var _recorder : IR_InputRecorder = null
+var _playback := IR_InputPlayer.new()
 var _config_file := ConfigFile.new()
+var _parent_scene = null
+
 var reset_method : Callable = _do_nothing
 
 @onready var btn_record = $Layout/Row1/Record
@@ -219,6 +38,7 @@ func _save_path_from_parent_filename():
 		var parent_file : String = saved_scene.scene_file_path.get_file()
 		var ext = parent_file.get_extension()
 		var save_file = saved_scene.scene_file_path.replace(parent_file, parent_file.replace(str(".", ext), "_input_recordings.cfg"))
+		_parent_scene = saved_scene
 
 		return save_file
 	if(get_parent() == get_tree().root):
@@ -236,8 +56,8 @@ func _ready():
 	_playback.warp_mouse = true
 	load_config_file(save_path)
 
-	if(get_parent().has_method("reset_scene")):
-		reset_method = get_parent().reset_scene
+	if(_parent_scene.has_method("reset_scene")):
+		reset_method = _parent_scene.reset_scene
 
 
 func _process(_delta):
@@ -378,7 +198,7 @@ func compact(should):
 		size = custom_minimum_size
 	else:
 		size = _last_size
-		
+
 	btn_stop.visible = true
 	btn_play.visible = !should
 	btn_play_fast.visible = !should
