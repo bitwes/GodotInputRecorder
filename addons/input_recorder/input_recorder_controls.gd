@@ -11,6 +11,7 @@ extends ColorRect
 @onready var event_output = $Output/Layout/TabContainer/EventOutput
 @onready var tree_recordings = $Layout/Row3/ScrollContainer/Tree
 @onready var tree_row = $Layout/Row3
+@onready var lbl_file_path = $Layout/Row3/FilePath
 
 
 signal play
@@ -19,6 +20,24 @@ signal record
 signal stop
 signal recorder_selected(input_recorder)
 signal save
+signal save_as(path)
+signal load_file(path)
+
+var _load_dlg = null
+var _save_dlg = null
+
+func _ready():
+	_load_dlg = FileDialog.new()
+	_load_dlg.file_mode = FileDialog.FILE_MODE_OPEN_FILE
+	_load_dlg.file_selected.connect(_on_load_file_selected)
+	_load_dlg.add_filter("*.cfg", "ConfigFile")
+	add_child(_load_dlg)
+	
+	_save_dlg = FileDialog.new()
+	_save_dlg.file_mode = FileDialog.FILE_MODE_SAVE_FILE
+	_save_dlg.file_selected.connect(_on_save_as_file_selected)
+	_save_dlg.add_filter("*.cfg", "ConfigFile")
+	add_child(_save_dlg)
 
 
 func _on_record_pressed():
@@ -47,3 +66,23 @@ func _on_save_pressed():
 
 func _process(_delta):
 	lbl_fps.text = str("fps: ", Engine.get_frames_per_second())
+
+
+func _on_load_pressed():
+	_load_dlg.popup_centered(Vector2i(300, 300))
+	
+	
+func _on_load_file_selected(path):
+	load_file.emit(path)
+	
+
+func _on_save_as_pressed():
+	_save_dlg.popup_centered(Vector2i(300, 300))
+
+	
+func _on_save_as_file_selected(path):
+	save_as.emit(path)
+	
+
+func _on_tree_recorder_activated(input_recorder):
+	play.emit()

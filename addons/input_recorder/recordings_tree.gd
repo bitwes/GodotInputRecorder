@@ -3,8 +3,10 @@ extends Tree
 var input_recorders = {}
 var recording_name = 'Recording '
 var num_recordings = 0
+var _path = "res://nothing.cfg"
 
 signal recorder_selected(input_recorder)
+signal recorder_activated(input_recorder)
 
 
 func _tree_item_for_recorder(key, recorder):
@@ -13,10 +15,12 @@ func _tree_item_for_recorder(key, recorder):
 	item.set_text(1, str(recorder.duration(), 'f: ', recorder.get_number_of_events()))
 	return item
 
+
 func _notification(what):
 	if(what == NOTIFICATION_PREDELETE):
 		for key in input_recorders:
-			input_recorders[key].queue_free()
+			if(is_instance_valid(input_recorders[key])):
+				input_recorders[key].queue_free()
 
 # -----------
 # Events
@@ -26,6 +30,13 @@ func _on_item_selected():
 	if(selected != null and selected != get_root()):
 		var rec_name = selected.get_text(0)
 		recorder_selected.emit(input_recorders[rec_name])
+
+
+func _on_item_activated():
+	var selected = get_selected()
+	if(selected != null and selected != get_root()):
+		var rec_name = selected.get_text(0)
+		recorder_activated.emit(input_recorders[rec_name])
 
 
 # -----------
@@ -48,19 +59,31 @@ func save_to_config_file(config_file: ConfigFile):
 
 
 func load_from_config_file(config_file : ConfigFile):
-	input_recorders.clear()
+	reset()
 	for section in config_file.get_sections():
 		num_recordings += 1
 		var recorder = IR_InputRecorder.new()
 		recorder._queue = config_file.get_value(section, "recordings")
 		input_recorders[section] = recorder
+	refresh()
 
 
-func populate_tree_control(path):
+func _populate_tree_control(path):
+	_path = path
+	refresh()
+
+
+func refresh():
 	clear()
 	var root_item = create_item()
-	root_item.set_text(0, path)
 	root_item.set_selectable(0, false)
 	for key in input_recorders:
 		_tree_item_for_recorder(key, input_recorders[key])
 
+
+func reset():
+	for key in input_recorders:
+		if(is_instance_valid(input_recorders[key])):
+			input_recorders[key].queue_free()
+	input_recorders.clear()
+	clear()

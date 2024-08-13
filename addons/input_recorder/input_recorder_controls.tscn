@@ -79,6 +79,9 @@ max_value = 1.0
 layout_mode = 2
 size_flags_vertical = 3
 
+[node name="FilePath" type="Label" parent="Layout/Row3"]
+layout_mode = 2
+
 [node name="ScrollContainer" type="ScrollContainer" parent="Layout/Row3"]
 layout_mode = 2
 size_flags_vertical = 3
@@ -139,6 +142,7 @@ autowrap_mode = 0
 [connection signal="pressed" from="Layout/Row1/Stop" to="." method="_on_stop_pressed"]
 [connection signal="pressed" from="Layout/Row1/PlayButtons/Play" to="." method="_on_play_pressed"]
 [connection signal="pressed" from="Layout/Row1/PlayButtons/PlayFast" to="." method="_on_play_fast_pressed"]
+[connection signal="recorder_activated" from="Layout/Row3/ScrollContainer/Tree" to="." method="_on_tree_recorder_activated"]
 [connection signal="recorder_selected" from="Layout/Row3/ScrollContainer/Tree" to="." method="_on_tree_recorder_selected"]
 [connection signal="pressed" from="Layout/Row3/Buttons/Load" to="." method="_on_load_pressed"]
 [connection signal="pressed" from="Layout/Row3/Buttons/Save" to="." method="_on_save_pressed"]

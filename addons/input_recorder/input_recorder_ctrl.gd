@@ -1,6 +1,6 @@
 @tool
 extends Control
-class_name IRInputRecorderControl
+class_name IR_InputRecorderControl
 ## This is the control for recording input
 
 var _ControlsScene = load('res://addons/input_recorder/input_recorder_controls.tscn')
@@ -52,6 +52,8 @@ func _ready_runtime():
 	_controls.play_fast.connect(_on_play_fast_pressed)
 	_controls.recorder_selected.connect(_on_tree_recorder_selected)
 	_controls.save.connect(_on_save_pressed)
+	_controls.save_as.connect(_on_save_as)
+	_controls.load_file.connect(_on_load_file)
 
 	_parent_scene = get_parent()
 	while(_parent_scene.scene_file_path == ""):
@@ -130,6 +132,7 @@ func _recorder_totals_text():
 func _on_stop_pressed():
 	stop()
 
+
 func _on_play_pressed():
 	await reset_method.call()
 	_controls.btn_play.release_focus()
@@ -150,12 +153,15 @@ func _on_save_pressed():
 	save_config_file(save_path)
 
 
-func _on_load_pressed():
-	pass # Replace with function body.
+func _on_load_file(path):
+	load_config_file(path)
+	save_path = path
+	
+	
+func _on_save_as(path):
+	save_config_file(path)
+	save_path = path
 
-
-func _on_save_as_pressed():
-	pass # Replace with function body.
 
 # -------------
 # Public?
@@ -170,6 +176,7 @@ func playback(do_it_fast):
 	_update_buttons()
 	_controls.progress.value = 0.0
 	compact(true)
+
 
 ## Start a new recording
 func record():
@@ -189,7 +196,7 @@ func stop():
 		_recorder.stop()
 		_controls.event_output.text = _recorder.to_s()
 		_controls.event_output.text += "\n" + _recorder_totals_text()
-		_controls.tree_recordings.populate_tree_control(save_path)
+		_controls.tree_recordings.refresh()
 	elif(_playback.is_playing):
 		_playback.stop()
 
@@ -198,19 +205,19 @@ func stop():
 	compact(false)
 
 
-
 ## Loads the config file at the specified path
 func load_config_file(path=save_path):
 	if(FileAccess.file_exists(path)):
 		_config_file.load(path)
 		_recorders.load_from_config_file(_config_file)
-	_recorders.populate_tree_control(save_path)
+		_controls.lbl_file_path.text = path.get_file()
 
 
-# Saves all recordings to a config file at the specified path
+## Saves all recordings to a config file at the specified path
 func save_config_file(path=save_path):
 	_recorders.save_to_config_file(_config_file)
 	_config_file.save(path)
+	_controls.lbl_file_path.text = path.get_file()
 
 
 ## Plays the recording with the passed in name.
@@ -222,12 +229,16 @@ func play_recording(recording_name):
 		return to_play.duration()
 	return 0
 
+
 ## Returns the amount of time the playback will take based on the number of
 ## frames in the recording and Engine.physics_ticks_per_second
 func get_playback_time():
 	return float(_recorder.duration()) / float(Engine.physics_ticks_per_second)
 
+
 var _last_size = size
+## Changes the display of the InputRecorder control to compact mode, or
+## normal mode if you pass false.
 func compact(should):
 	if(should):
 		_last_size = size
