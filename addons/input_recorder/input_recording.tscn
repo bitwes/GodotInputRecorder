@@ -1,0 +1,103 @@
+[gd_scene load_steps=6 format=3 uid="uid://cx8qsum1eb8w3"]
+
+[ext_resource type="Script" path="res://scenes/input_recording.gd" id="1_yaxas"]
+[ext_resource type="PackedScene" uid="uid://crkll8afh5da" path="res://scenes/input_recorder.tscn" id="2_1tqae"]
+[ext_resource type="PackedScene" uid="uid://b1ww0cya1gkmx" path="res://scenes/gut_player.tscn" id="3_qj2vc"]
+
+[sub_resource type="ButtonGroup" id="ButtonGroup_eaeau"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_yyhao"]
+size = Vector2(1193, 20)
+
+[node name="InputRecording" type="Node2D"]
+script = ExtResource("1_yaxas")
+
+[node name="Things" type="ColorRect" parent="."]
+offset_left = 608.0
+offset_top = 17.0
+offset_right = 1120.0
+offset_bottom = 121.0
+color = Color(0.277528, 0.277528, 0.277528, 1)
+metadata/_edit_group_ = true
+
+[node name="Layout" type="VBoxContainer" parent="Things"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TextBoxes" type="HBoxContainer" parent="Things/Layout"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="Edit1" type="TextEdit" parent="Things/Layout/TextBoxes"]
+layout_mode = 2
+size_flags_horizontal = 3
+wrap_mode = 1
+
+[node name="Edit2" type="TextEdit" parent="Things/Layout/TextBoxes"]
+layout_mode = 2
+size_flags_horizontal = 3
+wrap_mode = 1
+
+[node name="RadioButtons" type="HBoxContainer" parent="Things/Layout"]
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.35
+
+[node name="Radio1" type="Button" parent="Things/Layout/RadioButtons"]
+layout_mode = 2
+size_flags_horizontal = 3
+toggle_mode = true
+button_pressed = true
+button_group = SubResource("ButtonGroup_eaeau")
+text = "1"
+
+[node name="Radio2" type="Button" parent="Things/Layout/RadioButtons"]
+layout_mode = 2
+size_flags_horizontal = 3
+toggle_mode = true
+button_group = SubResource("ButtonGroup_eaeau")
+text = "2"
+
+[node name="Radio3" type="Button" parent="Things/Layout/RadioButtons"]
+layout_mode = 2
+size_flags_horizontal = 3
+toggle_mode = true
+button_group = SubResource("ButtonGroup_eaeau")
+text = "3"
+
+[node name="Radio4" type="Button" parent="Things/Layout/RadioButtons"]
+layout_mode = 2
+size_flags_horizontal = 3
+toggle_mode = true
+button_group = SubResource("ButtonGroup_eaeau")
+text = "4"
+
+[node name="2DStuff" type="Node" parent="."]
+
+[node name="GutPlayer" parent="2DStuff" instance=ExtResource("3_qj2vc")]
+position = Vector2(293, 512)
+
+[node name="StaticBody2D" type="StaticBody2D" parent="2DStuff"]
+position = Vector2(132, 617)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="2DStuff/StaticBody2D"]
+position = Vector2(439, 3)
+shape = SubResource("RectangleShape2D_yyhao")
+
+[node name="Reset" type="Button" parent="."]
+offset_left = 361.0
+offset_top = 12.0
+offset_right = 478.0
+offset_bottom = 43.0
+text = "Reset
+"
+
+[node name="SomeNode" type="Node" parent="."]
+
+[node name="InputRecorder" parent="SomeNode" instance=ExtResource("2_1tqae")]
+
+[connection signal="pressed" from="Reset" to="." method="_on_reset_pressed"]

@@ -1,0 +1,22 @@
+[gd_scene load_steps=4 format=3 uid="uid://gtmjxp2qk5wf"]
+
+[ext_resource type="Script" path="res://test/resources/gut_player.gd" id="1_3yvq5"]
+[ext_resource type="Texture2D" uid="uid://bq0lgstdrf5n8" path="res://images/gut_icon_128x128.png" id="1_bcbnb"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_01fde"]
+radius = 56.0357
+
+[node name="GutPlayer" type="CharacterBody2D"]
+input_pickable = true
+script = ExtResource("1_3yvq5")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_bcbnb")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 3)
+shape = SubResource("CircleShape2D_01fde")
+
+[connection signal="input_event" from="." to="." method="_on_input_event"]
+[connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="." to="." method="_on_mouse_exited"]
