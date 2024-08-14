@@ -2,8 +2,6 @@ extends Tree
 
 var input_recorders = {}
 var recording_name = 'Recording '
-var num_recordings = 0
-var _path = "res://nothing.cfg"
 
 signal recorder_selected(input_recorder)
 signal recorder_activated(input_recorder)
@@ -43,9 +41,8 @@ func _on_item_activated():
 # Public
 # -----------
 func new_recorder():
-	var r = IR_InputRecorder.new()
-	num_recordings += 1
-	var key = str(recording_name, num_recordings)
+	var r = IR_Recorder.new()
+	var key = str(recording_name, input_recorders.size() + 1)
 	input_recorders[key] = r
 	var item = _tree_item_for_recorder(key, r)
 	item.select(0)
@@ -53,23 +50,16 @@ func new_recorder():
 
 
 func save_to_config_file(config_file: ConfigFile):
-	config_file.clear()
 	for key in input_recorders:
-		config_file.set_value(key, "recordings", input_recorders[key]._queue)
+		config_file.set_value(key, "recordings", input_recorders[key].queue)
 
 
 func load_from_config_file(config_file : ConfigFile):
 	reset()
 	for section in config_file.get_sections():
-		num_recordings += 1
-		var recorder = IR_InputRecorder.new()
-		recorder._queue = config_file.get_value(section, "recordings")
+		var recorder = IR_Recorder.new()
+		recorder.queue = config_file.get_value(section, "recordings")
 		input_recorders[section] = recorder
-	refresh()
-
-
-func _populate_tree_control(path):
-	_path = path
 	refresh()
 
 

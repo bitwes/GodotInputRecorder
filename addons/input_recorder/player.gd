@@ -1,4 +1,4 @@
-class_name IR_InputPlayer
+class_name IR_Player
 extends Node
 
 

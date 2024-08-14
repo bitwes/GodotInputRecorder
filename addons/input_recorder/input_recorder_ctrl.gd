@@ -7,8 +7,8 @@ var _ControlsScene = load('res://addons/input_recorder/input_recorder_controls.t
 var _controls = null
 var _recorders = null
 
-var _recorder : IR_InputRecorder = null
-var _playback := IR_InputPlayer.new()
+var _recorder : IR_Recorder = null
+var _playback := IR_Player.new()
 var _config_file := ConfigFile.new()
 var _parent_scene = null
 
@@ -72,7 +72,6 @@ func _ready_runtime():
 
 	if(_parent_scene.has_method("reset_scene")):
 		reset_method = _parent_scene.reset_scene
-
 
 
 func _save_path_from_parent_filename():
@@ -156,8 +155,8 @@ func _on_save_pressed():
 func _on_load_file(path):
 	load_config_file(path)
 	save_path = path
-	
-	
+
+
 func _on_save_as(path):
 	save_config_file(path)
 	save_path = path
@@ -208,13 +207,16 @@ func stop():
 ## Loads the config file at the specified path
 func load_config_file(path=save_path):
 	if(FileAccess.file_exists(path)):
+		_config_file.clear()
 		_config_file.load(path)
 		_recorders.load_from_config_file(_config_file)
 		_controls.lbl_file_path.text = path.get_file()
+		_controls.lbl_file_path.tooltip_text = path
 
 
 ## Saves all recordings to a config file at the specified path
 func save_config_file(path=save_path):
+	_config_file.clear()
 	_recorders.save_to_config_file(_config_file)
 	_config_file.save(path)
 	_controls.lbl_file_path.text = path.get_file()
@@ -248,6 +250,6 @@ func compact(should):
 
 	_controls.btn_stop.visible = true
 	_controls.btn_play.visible = !should
-	_controls.btn_play_fast.visible = !should
+	#_controls.btn_play_fast.visible = !should
 	_controls.btn_record.visible = !should
 	_controls.tree_row.visible = !should

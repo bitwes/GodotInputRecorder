@@ -38,6 +38,10 @@ func _ready():
 	_save_dlg.file_selected.connect(_on_save_as_file_selected)
 	_save_dlg.add_filter("*.cfg", "ConfigFile")
 	add_child(_save_dlg)
+	
+	# Hide these for now, maybe forever!
+	lbl_fps.visible = false
+	btn_play_fast.visible = false
 
 
 func _on_record_pressed():
@@ -64,8 +68,8 @@ func _on_save_pressed():
 	save.emit()
 
 
-func _process(_delta):
-	lbl_fps.text = str("fps: ", Engine.get_frames_per_second())
+#func _process(_delta):
+	#lbl_fps.text = str("fps: ", Engine.get_frames_per_second())
 
 
 func _on_load_pressed():
