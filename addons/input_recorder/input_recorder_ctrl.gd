@@ -23,7 +23,7 @@ var reset_method : Callable = _do_nothing
 ## also call load_config_file() after setting it, if you want to load the file.
 @export var save_path : String = ""
 
-## When set, changes to the list of recordings (add, delete, rename) will be 
+## When set, changes to the list of recordings (add, delete, rename) will be
 ## automatically saved.  When false, there is a save button you have to press
 ## to save changes.
 @export var autosave : bool = true
@@ -146,13 +146,13 @@ func _on_stop_pressed():
 func _on_play_pressed():
 	await reset_method.call()
 	_controls.btn_play.release_focus()
-	playback(false)
+	play_current()
 
 
 func _on_play_fast_pressed():
 	await reset_method.call()
 	_controls.btn_play_fast.release_focus()
-	playback(true)
+	play_current()
 
 
 func _on_list_recorder_selected(input_recorder):
@@ -180,22 +180,21 @@ func _on_save_as(path):
 # -------------
 # Public
 # -------------
-func playback(do_it_fast):
+## Play the currently selected recording.
+func play_current():
 	if(_recorder == null):
 		return
 
 	_playback.warp_mouse = _controls.chk_warp_mouse.button_pressed
-	if(do_it_fast):
-		_playback.play_input_queue_quick(_recorder)
-	else:
-		_playback.play_input_queue(_recorder)
+	_playback.play_input_queue(_recorder)
 
 	_update_buttons()
 	_controls.progress.value = 0.0
 	compact(true)
 
 
-## Start a new recording
+## Start a new recording.  This will be added to the list when recording
+## finishes
 func record():
 	await reset_method.call()
 	_recorder = _recorders.new_recorder()
@@ -246,7 +245,7 @@ func play_recording(recording_name):
 	var to_play = _recorders.input_recorders.get(recording_name, null)
 	if(to_play != null):
 		_recorder = to_play
-		playback(false)
+		play_current()
 		return to_play.duration()
 	return 0
 
