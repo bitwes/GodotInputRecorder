@@ -1,17 +1,15 @@
 [gd_scene load_steps=4 format=3 uid="uid://crkll8afh5da"]
 
-[ext_resource type="Script" path="res://addons/input_recorder/input_recorder.gd" id="1_1iam4"]
-[ext_resource type="PackedScene" uid="uid://ckdfn586m8gou" path="res://addons/input_recorder/recordings_tree.tscn" id="2_d0u1o"]
-[ext_resource type="FontFile" uid="uid://bnh0lslf4yh87" path="res://addons/gut/fonts/CourierPrime-Regular.ttf" id="2_qdw5k"]
+[ext_resource type="Script" path="res://addons/input_recorder/input_recorder_controls.gd" id="1_mx71a"]
+[ext_resource type="PackedScene" uid="uid://yf8tt17rywbr" path="res://addons/input_recorder/recording_list.tscn" id="2_ah7fy"]
+[ext_resource type="FontFile" uid="uid://bnh0lslf4yh87" path="res://addons/gut/fonts/CourierPrime-Regular.ttf" id="3_nq28u"]
 
 [node name="InputRecorder" type="ColorRect"]
 custom_minimum_size = Vector2(271, 149)
-offset_left = 12.0
-offset_top = 14.0
-offset_right = 329.0
-offset_bottom = 519.0
+offset_right = 317.0
+offset_bottom = 505.0
 color = Color(0.113049, 0.113049, 0.113049, 1)
-script = ExtResource("1_1iam4")
+script = ExtResource("1_mx71a")
 
 [node name="Layout" type="VBoxContainer" parent="."]
 layout_mode = 1
@@ -64,22 +62,29 @@ layout_mode = 2
 button_pressed = true
 text = "Warp Mouse"
 
-[node name="ProgressBar" type="ProgressBar" parent="Layout"]
+[node name="Row2_5" type="HBoxContainer" parent="Layout"]
 layout_mode = 2
+
+[node name="FPS" type="Label" parent="Layout/Row2_5"]
+layout_mode = 2
+text = "fps:  99"
+
+[node name="ProgressBar" type="ProgressBar" parent="Layout/Row2_5"]
+layout_mode = 2
+size_flags_horizontal = 3
 size_flags_vertical = 1
 max_value = 1.0
 
 [node name="Row3" type="VBoxContainer" parent="Layout"]
-visible = false
 layout_mode = 2
 size_flags_vertical = 3
 
-[node name="ScrollContainer" type="ScrollContainer" parent="Layout/Row3"]
+[node name="FilePath" type="Label" parent="Layout/Row3"]
+layout_mode = 2
+
+[node name="RecordingList" parent="Layout/Row3" instance=ExtResource("2_ah7fy")]
 layout_mode = 2
 size_flags_vertical = 3
-
-[node name="Tree" parent="Layout/Row3/ScrollContainer" instance=ExtResource("2_d0u1o")]
-layout_mode = 2
 
 [node name="Buttons" type="HBoxContainer" parent="Layout/Row3"]
 layout_mode = 2
@@ -126,7 +131,7 @@ size_flags_vertical = 3
 [node name="EventOutput" type="TextEdit" parent="Output/Layout/TabContainer"]
 layout_mode = 2
 size_flags_vertical = 3
-theme_override_fonts/font = ExtResource("2_qdw5k")
+theme_override_fonts/font = ExtResource("3_nq28u")
 editable = false
 autowrap_mode = 0
 
@@ -134,7 +139,8 @@ autowrap_mode = 0
 [connection signal="pressed" from="Layout/Row1/Stop" to="." method="_on_stop_pressed"]
 [connection signal="pressed" from="Layout/Row1/PlayButtons/Play" to="." method="_on_play_pressed"]
 [connection signal="pressed" from="Layout/Row1/PlayButtons/PlayFast" to="." method="_on_play_fast_pressed"]
-[connection signal="recorder_selected" from="Layout/Row3/ScrollContainer/Tree" to="." method="_on_tree_recorder_selected"]
+[connection signal="recorder_activated" from="Layout/Row3/RecordingList" to="." method="_on_recording_list_recorder_activated"]
+[connection signal="recorder_selected" from="Layout/Row3/RecordingList" to="." method="_on_recording_list_recorder_selected"]
 [connection signal="pressed" from="Layout/Row3/Buttons/Load" to="." method="_on_load_pressed"]
 [connection signal="pressed" from="Layout/Row3/Buttons/Save" to="." method="_on_save_pressed"]
 [connection signal="pressed" from="Layout/Row3/Buttons/SaveAs" to="." method="_on_save_as_pressed"]

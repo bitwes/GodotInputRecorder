@@ -9,5 +9,5 @@
 # Exclude everything
 *                       export-ignore
 # Un-exclude addons
-/addons                 -export-ignore
-/addons/input_recorder  -export-ignore%
+/addons                -export-ignore
+/addons/**             -export-ignore
