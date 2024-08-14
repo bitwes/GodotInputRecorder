@@ -1,10 +1,9 @@
 # Godot Input Recorder
-I made a thing, I'm hoping when people use it it'll get better.  I have no idea if this is a good idea or not...but here it is.  Open up an issue and let me know what it needs to be useful.
+I made a thing.  I have no idea if this is a good idea or not...but here it is.  Open up an issue and let me know what it needs to be useful.
 
 This records input (via `_input(event)`).  Hit the record button and it will make a new recording.  Select a recording from the list and hit play and it will play a recording.
 
 You can set the filename it will use to save/load in the editor.  If you don't set it, it will save in the same directory as the scene it is in, with a name of `<whatever the scene is called>_input_recording.cfg`.  This was done because I thought it would be helpful and lead to less configuring and remembering of paths.  It's either really smart, or "too smart".
-
 
 
 

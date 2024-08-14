@@ -34,21 +34,6 @@ offset_top = -206.0
 offset_right = 359.0
 offset_bottom = -152.0
 
-[node name="Edit" type="Button" parent="Entry"]
-layout_mode = 2
-toggle_mode = true
-text = "E"
-
-[node name="Name" type="LineEdit" parent="Entry"]
-layout_mode = 2
-size_flags_horizontal = 3
-editable = false
-
-[node name="Delete" type="Button" parent="Entry"]
-layout_mode = 2
-disabled = true
-text = "D"
-
 [node name="SelectButton" type="Button" parent="Entry"]
 layout_mode = 2
 size_flags_horizontal = 3
@@ -56,3 +41,19 @@ toggle_mode = true
 button_group = SubResource("ButtonGroup_3dk46")
 alignment = 0
 text_overrun_behavior = 1
+
+[node name="Name" type="LineEdit" parent="Entry"]
+layout_mode = 2
+size_flags_horizontal = 3
+editable = false
+select_all_on_focus = true
+
+[node name="Edit" type="Button" parent="Entry"]
+layout_mode = 2
+toggle_mode = true
+text = "Edit"
+
+[node name="Delete" type="Button" parent="Entry"]
+layout_mode = 2
+disabled = true
+text = "Delete"

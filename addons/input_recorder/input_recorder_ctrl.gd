@@ -23,6 +23,11 @@ var reset_method : Callable = _do_nothing
 ## also call load_config_file() after setting it, if you want to load the file.
 @export var save_path : String = ""
 
+## When set, changes to the list of recordings (add, delete, rename) will be 
+## automatically saved.  When false, there is a save button you have to press
+## to save changes.
+@export var autosave : bool = true
+
 ## Emitted when playing a recording has finished.
 signal playback_done
 
@@ -50,10 +55,13 @@ func _ready_runtime():
 	_controls.record.connect(_on_record_pressed)
 	_controls.stop.connect(_on_stop_pressed)
 	_controls.play_fast.connect(_on_play_fast_pressed)
-	_controls.recorder_selected.connect(_on_tree_recorder_selected)
+	_controls.recorder_selected.connect(_on_list_recorder_selected)
 	_controls.save.connect(_on_save_pressed)
 	_controls.save_as.connect(_on_save_as)
 	_controls.load_file.connect(_on_load_file)
+	_controls.recording_list.changed.connect(_on_list_changed)
+
+	_controls.btn_save.visible = !autosave
 
 	_parent_scene = get_parent()
 	while(_parent_scene.scene_file_path == ""):
@@ -101,6 +109,9 @@ func _update_buttons():
 func _do_nothing():
 	pass
 
+func _autosave():
+	if(autosave):
+		save_config_file(save_path)
 
 # -------------
 # Events
@@ -144,8 +155,12 @@ func _on_play_fast_pressed():
 	playback(true)
 
 
-func _on_tree_recorder_selected(input_recorder):
+func _on_list_recorder_selected(input_recorder):
 	_recorder = input_recorder
+
+
+func _on_list_changed():
+	_autosave()
 
 
 func _on_save_pressed():
@@ -168,7 +183,7 @@ func _on_save_as(path):
 func playback(do_it_fast):
 	if(_recorder == null):
 		return
-		
+
 	_playback.warp_mouse = _controls.chk_warp_mouse.button_pressed
 	if(do_it_fast):
 		_playback.play_input_queue_quick(_recorder)
@@ -199,6 +214,7 @@ func stop():
 		_controls.event_output.text = _recorder.to_s()
 		_controls.event_output.text += "\n" + _recorder_totals_text()
 		_controls.recording_list.refresh()
+		_autosave()
 	elif(_playback.is_playing):
 		_playback.stop()
 

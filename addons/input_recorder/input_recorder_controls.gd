@@ -12,6 +12,7 @@ extends ColorRect
 @onready var recording_list = $Layout/Row3/RecordingList
 @onready var tree_row = $Layout/Row3
 @onready var lbl_file_path = $Layout/Row3/FilePath
+@onready var btn_save = $Layout/Row3/Buttons/Save
 
 
 signal play

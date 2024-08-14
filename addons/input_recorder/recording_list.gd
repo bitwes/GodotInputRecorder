@@ -2,25 +2,25 @@ extends Control
 
 class RecordingListEntry:
 	extends Control
-	
+
 	signal delete(rec_name)
 	signal rename(old_name, new_name)
 	signal selected(rec_name)
 	signal play(rec_name)
-	
+
 	@onready var txt_name = $Name
 	@onready var btn_edit = $Edit
 	@onready var btn_delete = $Delete
 	@onready var btn_select = $SelectButton
-	
+
 	var recording_name = '__not set__' :
 		set(val):
 			btn_select.text = val
 			txt_name.text = val
 			recording_name = val
-			
+
 	var rename_callback : Callable
-	
+
 	func _ready():
 		txt_name.text = 'Default Text'
 		txt_name.text_submitted.connect(_on_name_submitted)
@@ -32,19 +32,21 @@ class RecordingListEntry:
 				if(event.double_click and event.button_index == MOUSE_BUTTON_LEFT):
 					play.emit(recording_name))
 		_edit_buttons(false)
-	
+
 	func _edit_buttons(editable):
 		txt_name.editable = editable
 		txt_name.visible = editable
 		btn_delete.disabled = !editable
 		btn_delete.visible = editable
 		btn_select.visible = !editable
-	
+		btn_edit.button_pressed = editable
+
 	func _start_edit():
 		_edit_buttons(true)
 		txt_name.grab_focus()
 		
-		
+
+
 	func _end_edit():
 		_edit_buttons(false)
 
@@ -63,15 +65,15 @@ class RecordingListEntry:
 			_start_edit()
 		else:
 			_end_edit()
-	
-	
+
+
 	func _on_name_submitted(_new_text):
 		_end_edit()
-	
-	
+
+
 	func _on_delete_pressed():
 		delete.emit(recording_name)
-		
+
 	func _on_select_toggled(toggled_on):
 		if(toggled_on):
 			selected.emit(recording_name)
@@ -87,6 +89,7 @@ var recording_name = 'Recording '
 
 signal recorder_selected(input_recorder)
 signal recorder_activated(input_recorder)
+signal changed
 
 func _notification(what):
 	if(what == NOTIFICATION_PREDELETE):
@@ -106,14 +109,14 @@ func _new_entry(display_name):
 	_the_list.add_child(new_ctrl)
 	new_ctrl.recording_name = display_name
 	new_ctrl.rename_callback = _can_change_name_of_entry
-	
+
 	new_ctrl.rename.connect(_on_entry_renamed)
 	new_ctrl.delete.connect(_on_entry_deleted)
 	new_ctrl.selected.connect(_on_entry_selected)
 	new_ctrl.play.connect(_on_entry_play)
 	return new_ctrl
-	
-	
+
+
 func _can_change_name_of_entry(old_name, new_name):
 	return !input_recorders.has(new_name)
 
@@ -129,16 +132,19 @@ func _clear_list_entries():
 func _on_entry_renamed(old_name, new_name):
 	input_recorders[new_name] = input_recorders[old_name]
 	input_recorders.erase(old_name)
+	changed.emit()
 
 
 func _on_entry_deleted(recording_name):
 	input_recorders.erase(recording_name)
 	refresh()
+	changed.emit()
 
 
 func _on_entry_selected(recording_name):
 	recorder_selected.emit(input_recorders[recording_name])
-	
+
+
 func _on_entry_play(recording_name):
 	recorder_activated.emit(input_recorders[recording_name])
 # ------------------
@@ -146,9 +152,11 @@ func _on_entry_play(recording_name):
 # ------------------
 func new_recorder():
 	var r = IR_Recorder.new()
-	var key = str(recording_name, input_recorders.size() + 1)
+	var counter = input_recorders.size() + 1
+	var key = str(recording_name, counter)
 	while(input_recorders.has(key)):
-		key += "-2"
+		counter += 1
+		key = str(recording_name, counter)
 	input_recorders[key] = r
 	_new_entry(key)
 	return r
