@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://crkll8afh5da"]
 
 [ext_resource type="Script" path="res://addons/input_recorder/input_recorder_controls.gd" id="1_mx71a"]
-[ext_resource type="PackedScene" uid="uid://ckdfn586m8gou" path="res://addons/input_recorder/recordings_tree.tscn" id="2_ae2k3"]
+[ext_resource type="PackedScene" uid="uid://yf8tt17rywbr" path="res://addons/input_recorder/recording_list.tscn" id="2_ah7fy"]
 [ext_resource type="FontFile" uid="uid://bnh0lslf4yh87" path="res://addons/gut/fonts/CourierPrime-Regular.ttf" id="3_nq28u"]
 
 [node name="InputRecorder" type="ColorRect"]
@@ -82,12 +82,9 @@ size_flags_vertical = 3
 [node name="FilePath" type="Label" parent="Layout/Row3"]
 layout_mode = 2
 
-[node name="ScrollContainer" type="ScrollContainer" parent="Layout/Row3"]
+[node name="RecordingList" parent="Layout/Row3" instance=ExtResource("2_ah7fy")]
 layout_mode = 2
 size_flags_vertical = 3
-
-[node name="Tree" parent="Layout/Row3/ScrollContainer" instance=ExtResource("2_ae2k3")]
-layout_mode = 2
 
 [node name="Buttons" type="HBoxContainer" parent="Layout/Row3"]
 layout_mode = 2
@@ -142,8 +139,8 @@ autowrap_mode = 0
 [connection signal="pressed" from="Layout/Row1/Stop" to="." method="_on_stop_pressed"]
 [connection signal="pressed" from="Layout/Row1/PlayButtons/Play" to="." method="_on_play_pressed"]
 [connection signal="pressed" from="Layout/Row1/PlayButtons/PlayFast" to="." method="_on_play_fast_pressed"]
-[connection signal="recorder_activated" from="Layout/Row3/ScrollContainer/Tree" to="." method="_on_tree_recorder_activated"]
-[connection signal="recorder_selected" from="Layout/Row3/ScrollContainer/Tree" to="." method="_on_tree_recorder_selected"]
+[connection signal="recorder_activated" from="Layout/Row3/RecordingList" to="." method="_on_recording_list_recorder_activated"]
+[connection signal="recorder_selected" from="Layout/Row3/RecordingList" to="." method="_on_recording_list_recorder_selected"]
 [connection signal="pressed" from="Layout/Row3/Buttons/Load" to="." method="_on_load_pressed"]
 [connection signal="pressed" from="Layout/Row3/Buttons/Save" to="." method="_on_save_pressed"]
 [connection signal="pressed" from="Layout/Row3/Buttons/SaveAs" to="." method="_on_save_as_pressed"]

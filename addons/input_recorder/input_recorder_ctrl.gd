@@ -36,7 +36,7 @@ func _ready():
 
 	resized.connect(_on_resized)
 	save_path = save_path
-	_recorders = _controls.tree_recordings
+	_recorders = _controls.recording_list
 
 	add_child(_playback)
 	_playback.done.connect(_on_playback_done)
@@ -163,9 +163,12 @@ func _on_save_as(path):
 
 
 # -------------
-# Public?
+# Public
 # -------------
 func playback(do_it_fast):
+	if(_recorder == null):
+		return
+		
 	_playback.warp_mouse = _controls.chk_warp_mouse.button_pressed
 	if(do_it_fast):
 		_playback.play_input_queue_quick(_recorder)
@@ -195,7 +198,7 @@ func stop():
 		_recorder.stop()
 		_controls.event_output.text = _recorder.to_s()
 		_controls.event_output.text += "\n" + _recorder_totals_text()
-		_controls.tree_recordings.refresh()
+		_controls.recording_list.refresh()
 	elif(_playback.is_playing):
 		_playback.stop()
 

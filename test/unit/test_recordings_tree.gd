@@ -1,6 +1,6 @@
 extends GutTest
 
-var RecordingsTree = load("res://addons/input_recorder/recordings_tree.tscn")
+var RecordingsTree = load("res://addons/input_recorder/recording_list.tscn")
 
 func test_can_make_one():
 	var rt = RecordingsTree.instantiate()

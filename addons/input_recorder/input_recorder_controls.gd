@@ -9,7 +9,7 @@ extends ColorRect
 @onready var chk_record_mouse = $Layout/Row2/RecordMouse
 @onready var chk_warp_mouse = $Layout/Row2/WarpMouse
 @onready var event_output = $Output/Layout/TabContainer/EventOutput
-@onready var tree_recordings = $Layout/Row3/ScrollContainer/Tree
+@onready var recording_list = $Layout/Row3/RecordingList
 @onready var tree_row = $Layout/Row3
 @onready var lbl_file_path = $Layout/Row3/FilePath
 
@@ -43,6 +43,9 @@ func _ready():
 	lbl_fps.visible = false
 	btn_play_fast.visible = false
 
+#func _process(_delta):
+	#lbl_fps.text = str("fps: ", Engine.get_frames_per_second())
+
 
 func _on_record_pressed():
 	record.emit()
@@ -60,16 +63,8 @@ func _on_play_fast_pressed():
 	play_fast.emit()
 
 
-func _on_tree_recorder_selected(input_recorder):
-	recorder_selected.emit(input_recorder)
-
-
 func _on_save_pressed():
 	save.emit()
-
-
-#func _process(_delta):
-	#lbl_fps.text = str("fps: ", Engine.get_frames_per_second())
 
 
 func _on_load_pressed():
@@ -88,5 +83,9 @@ func _on_save_as_file_selected(path):
 	save_as.emit(path)
 	
 
-func _on_tree_recorder_activated(input_recorder):
+func _on_recording_list_recorder_activated(input_recorder):
 	play.emit()
+
+
+func _on_recording_list_recorder_selected(input_recorder):
+	recorder_selected.emit(input_recorder)
