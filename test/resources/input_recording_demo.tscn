@@ -89,10 +89,10 @@ position = Vector2(439, 3)
 shape = SubResource("RectangleShape2D_yyhao")
 
 [node name="Reset" type="Button" parent="."]
-offset_left = 361.0
-offset_top = 12.0
-offset_right = 478.0
-offset_bottom = 43.0
+offset_left = 477.0
+offset_top = 16.0
+offset_right = 594.0
+offset_bottom = 47.0
 text = "Reset
 "
 
@@ -102,8 +102,8 @@ text = "Reset
 custom_minimum_size = Vector2(271, 149)
 layout_mode = 3
 anchors_preset = 0
-offset_right = 421.0
-offset_bottom = 413.0
+offset_right = 371.0
+offset_bottom = 343.0
 script = ExtResource("3_lhsjx")
 
 [connection signal="pressed" from="Reset" to="." method="_on_reset_pressed"]

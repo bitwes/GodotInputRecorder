@@ -41,11 +41,11 @@ class RecordingListEntry:
 		btn_select.visible = !editable
 		btn_edit.button_pressed = editable
 
+
 	func _start_edit():
 		_edit_buttons(true)
 		txt_name.grab_focus()
 		
-
 
 	func _end_edit():
 		_edit_buttons(false)
@@ -82,10 +82,11 @@ class RecordingListEntry:
 # ------------------------------------------------------------------------------
 # ------------------------------------------------------------------------------
 var input_recorders = {}
-var recording_name = 'Recording '
+var default_name = 'Recording '
 
 @onready var _entry_control = $Entry
 @onready var _the_list = $Scroller/TheList
+@onready var _dlg_delete = $DeleteDialog
 
 signal recorder_selected(input_recorder)
 signal recorder_activated(input_recorder)
@@ -100,6 +101,7 @@ func _notification(what):
 
 func _ready():
 	_entry_control.visible = false
+	_dlg_delete.add_cancel_button("Cancel")
 
 
 func _new_entry(display_name):
@@ -134,10 +136,14 @@ func _on_entry_renamed(old_name, new_name):
 	input_recorders.erase(old_name)
 	changed.emit()
 
-
+var _to_delete = '__not_set__'
 func _on_entry_deleted(recording_name):
-	input_recorders.erase(recording_name)
-	refresh()
+	_to_delete = recording_name
+	_dlg_delete.popup_centered(Vector2(200, 100))
+	
+
+func _on_delete_dialog_confirmed():
+	delete_recording(_to_delete)
 	changed.emit()
 
 
@@ -153,10 +159,10 @@ func _on_entry_play(recording_name):
 func new_recorder():
 	var r = IR_Recorder.new()
 	var counter = input_recorders.size() + 1
-	var key = str(recording_name, counter)
+	var key = str(default_name, counter)
 	while(input_recorders.has(key)):
 		counter += 1
-		key = str(recording_name, counter)
+		key = str(default_name, counter)
 	input_recorders[key] = r
 	_new_entry(key)
 	return r
@@ -188,4 +194,10 @@ func reset():
 			input_recorders[key].queue_free()
 	input_recorders.clear()
 	_clear_list_entries()
+
+
+func delete_recording(recording_name):
+	input_recorders.erase(recording_name)
+	refresh()
+
 
