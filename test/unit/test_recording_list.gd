@@ -14,7 +14,7 @@ func test_adding_recorder_creates_one_with_expected_name():
 
 func test_changing_recording_name_changes_generated_names():
 	var rt = add_child_autofree(RecordingsTree.instantiate())
-	rt.recording_name = "Foo"
+	rt.default_name = "Foo"
 	rt.new_recorder()
 	assert_has(rt.input_recorders, "Foo1")
 

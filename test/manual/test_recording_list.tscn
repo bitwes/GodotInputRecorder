@@ -1,0 +1,20 @@
+[gd_scene load_steps=3 format=3 uid="uid://cyu07teafbtwi"]
+
+[ext_resource type="Script" path="res://test/manual/test_recording_list.gd" id="1_4pjne"]
+[ext_resource type="PackedScene" uid="uid://yf8tt17rywbr" path="res://addons/input_recorder/recording_list.tscn" id="2_f2he8"]
+
+[node name="TestRecordingList" type="Node2D"]
+script = ExtResource("1_4pjne")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+offset_right = 202.0
+offset_bottom = 217.0
+color = Color(0.154876, 0.154876, 0.154876, 1)
+
+[node name="RecordingList" parent="ColorRect" instance=ExtResource("2_f2he8")]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = 0.0
+offset_bottom = 0.0

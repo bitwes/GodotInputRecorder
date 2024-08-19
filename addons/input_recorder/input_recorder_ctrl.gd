@@ -12,21 +12,29 @@ var _playback := IR_Player.new()
 var _config_file := ConfigFile.new()
 var _parent_scene = null
 
+## When set, changes to the list of recordings (add, delete, rename) will be
+## automatically saved.  When false, there is a save button you have to press
+## to save changes.
+## [br][br]
+## When autosave is disabled, quitting will lose all changes since last save.
+@export var autosave : bool = true
+
+
 ## A method that resets the scene the recorder is in.  This will be called
 ## before recording and playback to make sure the scene is in the same state
-## everytime.
-var reset_method : Callable = _do_nothing
+## everytime.  Awaits are supported.
+var reset_method : Callable = func(): pass
 
 ## The path to save/load recordings to.  When not set, this will be the same
 ## path as the parent scene with "_input_recordings.cfg" appended.  This path
 ## is loaded on start up.  If you want to change this path at runtime, you must
 ## also call load_config_file() after setting it, if you want to load the file.
+## [br][br]
+## [b]NOTE:[/b]  The parent scene is the first parent node that has a 
+## [member Node.scene_file_path].  This might too [i]smart[/i] for its own good.
+## Lemme know.
 @export var save_path : String = ""
 
-## When set, changes to the list of recordings (add, delete, rename) will be
-## automatically saved.  When false, there is a save button you have to press
-## to save changes.
-@export var autosave : bool = true
 
 ## Emitted when playing a recording has finished.
 signal playback_done
@@ -65,18 +73,15 @@ func _ready_runtime():
 
 	_parent_scene = get_parent()
 	while(_parent_scene.scene_file_path == ""):
-		print(_parent_scene)
 		_parent_scene = _parent_scene.get_parent()
-	print(_parent_scene)
 
 	if(save_path.get_file() == ""):
 		save_path = save_path.path_join(_save_path_from_parent_filename())
-		print("save path = ", save_path)
-
-	_update_buttons()
 
 	_playback.warp_mouse = true
 	load_config_file(save_path)
+	
+	_update_buttons()
 
 	if(_parent_scene.has_method("reset_scene")):
 		reset_method = _parent_scene.reset_scene
@@ -97,21 +102,41 @@ func _process(_delta):
 		_controls.progress.value = _playback.percent_complete()
 
 
+func _is_idle():
+	return _recorder == null or !(_recorder.is_recording or _playback.is_playing)
+
+	
+func _is_doing_something():
+	return !_is_idle()
+
+
 func _update_buttons():
-	_controls.btn_stop.disabled = _recorder == null or !(_recorder.is_recording or _playback.is_playing)
-	_controls.btn_play.disabled = !_controls.btn_stop.disabled
-	_controls.btn_play_fast.disabled = _controls.btn_play.disabled
+	_controls.btn_stop.disabled = _is_idle()
+	_controls.btn_play.disabled = !_recorders.has_selected() or _is_doing_something()
+	#_controls.btn_play_fast.disabled = _controls.btn_play.disabled
 	_controls.btn_record.disabled = !_controls.btn_stop.disabled
 	_controls.tree_row.visible = _controls.btn_stop.disabled
-
-
-# Default for reset_method
-func _do_nothing():
-	pass
+	
 
 func _autosave():
 	if(autosave):
 		save_config_file(save_path)
+
+
+var _last_size = size
+# Change the layout when recording or playing to get it out of the way.
+func _active_display(should):
+	if(should):
+		_last_size = size
+		size = custom_minimum_size
+	else:
+		size = _last_size
+
+	_controls.btn_stop.visible = true
+	_controls.btn_play.visible = !should
+	#_controls.btn_play_fast.visible = !should
+	_controls.btn_record.visible = !should
+	_controls.tree_row.visible = !should
 
 # -------------
 # Events
@@ -125,7 +150,7 @@ func _on_playback_done():
 	_update_buttons()
 	_controls.btn_stop.release_focus()
 	playback_done.emit()
-	compact(false)
+	_active_display(false)
 
 
 func _on_record_pressed():
@@ -157,10 +182,12 @@ func _on_play_fast_pressed():
 
 func _on_list_recorder_selected(input_recorder):
 	_recorder = input_recorder
+	_update_buttons()
 
 
 func _on_list_changed():
 	_autosave()
+	_update_buttons()
 
 
 func _on_save_pressed():
@@ -190,7 +217,7 @@ func play_current():
 
 	_update_buttons()
 	_controls.progress.value = 0.0
-	compact(true)
+	_active_display(true)
 
 
 ## Start a new recording.  This will be added to the list when recording
@@ -203,7 +230,7 @@ func record():
 	_recorder.record_mouse = _controls.chk_record_mouse.button_pressed
 	_recorder.record()
 	_update_buttons()
-	compact(true)
+	_active_display(true)
 
 
 ## Stop playing or recording, whichever is occurring.
@@ -217,13 +244,14 @@ func stop():
 	elif(_playback.is_playing):
 		_playback.stop()
 
-	_update_buttons()
 	_controls.btn_stop.release_focus()
-	compact(false)
+	_active_display(false)
+	_update_buttons()
 
 
-## Loads the config file at the specified path
-func load_config_file(path=save_path):
+## Defaults to the value in save_path.  This loads a config file at the specified path.  This does 
+## not set save_path when passed a value.
+func load_config_file(path:=save_path):
 	if(FileAccess.file_exists(path)):
 		_config_file.clear()
 		_config_file.load(path)
@@ -232,15 +260,17 @@ func load_config_file(path=save_path):
 		_controls.lbl_file_path.tooltip_text = path
 
 
-## Saves all recordings to a config file at the specified path
-func save_config_file(path=save_path):
+## Defaults to the value in save_path.  Saves all recordings to a config file at the specified path.  
+## This does not set save_path when passed a value.
+func save_config_file(path:=save_path):
 	_config_file.clear()
 	_recorders.save_to_config_file(_config_file)
 	_config_file.save(path)
 	_controls.lbl_file_path.text = path.get_file()
 
 
-## Plays the recording with the passed in name.
+## Plays the recording with the passed in name.  The duration in frames is
+## returned.  If the recording is not found, zero is returned.
 func play_recording(recording_name):
 	var to_play = _recorders.input_recorders.get(recording_name, null)
 	if(to_play != null):
@@ -250,24 +280,12 @@ func play_recording(recording_name):
 	return 0
 
 
-## Returns the amount of time the playback will take based on the number of
-## frames in the recording and Engine.physics_ticks_per_second
+## Returns the amount of time the playback of the current recording will take 
+## based on the number of frames in the recording and 
+## [member Engine.physics_ticks_per_second].  If there is no selected/active 
+## recording then zero is returned.
 func get_playback_time():
+	if(_recorder == null):
+		return 0.0
 	return float(_recorder.duration()) / float(Engine.physics_ticks_per_second)
 
-
-var _last_size = size
-## Changes the display of the InputRecorder control to compact mode, or
-## normal mode if you pass false.
-func compact(should):
-	if(should):
-		_last_size = size
-		size = custom_minimum_size
-	else:
-		size = _last_size
-
-	_controls.btn_stop.visible = true
-	_controls.btn_play.visible = !should
-	#_controls.btn_play_fast.visible = !should
-	_controls.btn_record.visible = !should
-	_controls.tree_row.visible = !should
