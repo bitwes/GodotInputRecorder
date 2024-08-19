@@ -269,7 +269,8 @@ func save_config_file(path:=save_path):
 	_controls.lbl_file_path.text = path.get_file()
 
 
-## Plays the recording with the passed in name.
+## Plays the recording with the passed in name.  The duration in frames is
+## returned.  If the recording is not found, zero is returned.
 func play_recording(recording_name):
 	var to_play = _recorders.input_recorders.get(recording_name, null)
 	if(to_play != null):
@@ -279,8 +280,12 @@ func play_recording(recording_name):
 	return 0
 
 
-## Returns the amount of time the playback will take based on the number of
-## frames in the recording and Engine.physics_ticks_per_second
+## Returns the amount of time the playback of the current recording will take 
+## based on the number of frames in the recording and 
+## [member Engine.physics_ticks_per_second].  If there is no selected/active 
+## recording then zero is returned.
 func get_playback_time():
+	if(_recorder == null):
+		return 0.0
 	return float(_recorder.duration()) / float(Engine.physics_ticks_per_second)
 
