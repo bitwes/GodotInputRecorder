@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<class name="SkeletonModification2DFABRIK" inherits="SkeletonModification2D" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../class.xsd">
+	<brief_description>
+	</brief_description>
+	<description>
+	</description>
+	<tutorials>
+	</tutorials>
+	<methods>
+		<method name="get_fabrik_joint_bone2d_node" qualifiers="const">
+			<return type="NodePath" />
+			<param index="0" name="joint_idx" type="int" />
+			<description>
+			</description>
+		</method>
+		<method name="get_fabrik_joint_bone_index" qualifiers="const">
+			<return type="int" />
+			<param index="0" name="joint_idx" type="int" />
+			<description>
+			</description>
+		</method>
+		<method name="get_fabrik_joint_magnet_position" qualifiers="const">
+			<return type="Vector2" />
+			<param index="0" name="joint_idx" type="int" />
+			<description>
+			</description>
+		</method>
+		<method name="get_fabrik_joint_use_target_rotation" qualifiers="const">
+			<return type="bool" />
+			<param index="0" name="joint_idx" type="int" />
+			<description>
+			</description>
+		</method>
+		<method name="set_fabrik_joint_bone2d_node">
+			<return type="void" />
+			<param index="0" name="joint_idx" type="int" />
+			<param index="1" name="bone2d_nodepath" type="NodePath" />
+			<description>
+			</description>
+		</method>
+		<method name="set_fabrik_joint_bone_index">
+			<return type="void" />
+			<param index="0" name="joint_idx" type="int" />
+			<param index="1" name="bone_idx" type="int" />
+			<description>
+			</description>
+		</method>
+		<method name="set_fabrik_joint_magnet_position">
+			<return type="void" />
+			<param index="0" name="joint_idx" type="int" />
+			<param index="1" name="magnet_position" type="Vector2" />
+			<description>
+			</description>
+		</method>
+		<method name="set_fabrik_joint_use_target_rotation">
+			<return type="void" />
+			<param index="0" name="joint_idx" type="int" />
+			<param index="1" name="use_target_rotation" type="bool" />
+			<description>
+			</description>
+		</method>
+	</methods>
+	<members>
+		<member name="fabrik_data_chain_length" type="int" setter="set_fabrik_data_chain_length" getter="get_fabrik_data_chain_length" default="0">
+		</member>
+		<member name="target_nodepath" type="NodePath" setter="set_target_node" getter="get_target_node" default="NodePath(&quot;&quot;)">
+		</member>
+	</members>
+</class>

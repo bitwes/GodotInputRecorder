@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<class name="XMLParser" inherits="RefCounted" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../class.xsd">
+	<brief_description>
+	</brief_description>
+	<description>
+	</description>
+	<tutorials>
+	</tutorials>
+	<methods>
+		<method name="get_attribute_count" qualifiers="const">
+			<return type="int" />
+			<description>
+			</description>
+		</method>
+		<method name="get_attribute_name" qualifiers="const">
+			<return type="String" />
+			<param index="0" name="idx" type="int" />
+			<description>
+			</description>
+		</method>
+		<method name="get_attribute_value" qualifiers="const">
+			<return type="String" />
+			<param index="0" name="idx" type="int" />
+			<description>
+			</description>
+		</method>
+		<method name="get_current_line" qualifiers="const">
+			<return type="int" />
+			<description>
+			</description>
+		</method>
+		<method name="get_named_attribute_value" qualifiers="const">
+			<return type="String" />
+			<param index="0" name="name" type="String" />
+			<description>
+			</description>
+		</method>
+		<method name="get_named_attribute_value_safe" qualifiers="const">
+			<return type="String" />
+			<param index="0" name="name" type="String" />
+			<description>
+			</description>
+		</method>
+		<method name="get_node_data" qualifiers="const">
+			<return type="String" />
+			<description>
+			</description>
+		</method>
+		<method name="get_node_name" qualifiers="const">
+			<return type="String" />
+			<description>
+			</description>
+		</method>
+		<method name="get_node_offset" qualifiers="const">
+			<return type="int" />
+			<description>
+			</description>
+		</method>
+		<method name="get_node_type">
+			<return type="int" enum="XMLParser.NodeType" />
+			<description>
+			</description>
+		</method>
+		<method name="has_attribute" qualifiers="const">
+			<return type="bool" />
+			<param index="0" name="name" type="String" />
+			<description>
+			</description>
+		</method>
+		<method name="is_empty" qualifiers="const">
+			<return type="bool" />
+			<description>
+			</description>
+		</method>
+		<method name="open">
+			<return type="int" enum="Error" />
+			<param index="0" name="file" type="String" />
+			<description>
+			</description>
+		</method>
+		<method name="open_buffer">
+			<return type="int" enum="Error" />
+			<param index="0" name="buffer" type="PackedByteArray" />
+			<description>
+			</description>
+		</method>
+		<method name="read">
+			<return type="int" enum="Error" />
+			<description>
+			</description>
+		</method>
+		<method name="seek">
+			<return type="int" enum="Error" />
+			<param index="0" name="position" type="int" />
+			<description>
+			</description>
+		</method>
+		<method name="skip_section">
+			<return type="void" />
+			<description>
+			</description>
+		</method>
+	</methods>
+	<constants>
+		<constant name="NODE_NONE" value="0" enum="NodeType">
+		</constant>
+		<constant name="NODE_ELEMENT" value="1" enum="NodeType">
+		</constant>
+		<constant name="NODE_ELEMENT_END" value="2" enum="NodeType">
+		</constant>
+		<constant name="NODE_TEXT" value="3" enum="NodeType">
+		</constant>
+		<constant name="NODE_COMMENT" value="4" enum="NodeType">
+		</constant>
+		<constant name="NODE_CDATA" value="5" enum="NodeType">
+		</constant>
+		<constant name="NODE_UNKNOWN" value="6" enum="NodeType">
+		</constant>
+	</constants>
+</class>

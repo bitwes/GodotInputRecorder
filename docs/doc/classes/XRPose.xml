@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<class name="XRPose" inherits="RefCounted" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../class.xsd">
+	<brief_description>
+	</brief_description>
+	<description>
+	</description>
+	<tutorials>
+	</tutorials>
+	<methods>
+		<method name="get_adjusted_transform" qualifiers="const">
+			<return type="Transform3D" />
+			<description>
+			</description>
+		</method>
+	</methods>
+	<members>
+		<member name="angular_velocity" type="Vector3" setter="set_angular_velocity" getter="get_angular_velocity" default="Vector3(0, 0, 0)">
+		</member>
+		<member name="has_tracking_data" type="bool" setter="set_has_tracking_data" getter="get_has_tracking_data" default="false">
+		</member>
+		<member name="linear_velocity" type="Vector3" setter="set_linear_velocity" getter="get_linear_velocity" default="Vector3(0, 0, 0)">
+		</member>
+		<member name="name" type="StringName" setter="set_name" getter="get_name" default="&amp;&quot;&quot;">
+		</member>
+		<member name="tracking_confidence" type="int" setter="set_tracking_confidence" getter="get_tracking_confidence" enum="XRPose.TrackingConfidence" default="0">
+		</member>
+		<member name="transform" type="Transform3D" setter="set_transform" getter="get_transform" default="Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)">
+		</member>
+	</members>
+	<constants>
+		<constant name="XR_TRACKING_CONFIDENCE_NONE" value="0" enum="TrackingConfidence">
+		</constant>
+		<constant name="XR_TRACKING_CONFIDENCE_LOW" value="1" enum="TrackingConfidence">
+		</constant>
+		<constant name="XR_TRACKING_CONFIDENCE_HIGH" value="2" enum="TrackingConfidence">
+		</constant>
+	</constants>
+</class>

@@ -1,0 +1,148 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<class name="AnimationNodeStateMachine" inherits="AnimationRootNode" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../class.xsd">
+	<brief_description>
+	</brief_description>
+	<description>
+	</description>
+	<tutorials>
+	</tutorials>
+	<methods>
+		<method name="add_node">
+			<return type="void" />
+			<param index="0" name="name" type="StringName" />
+			<param index="1" name="node" type="AnimationNode" />
+			<param index="2" name="position" type="Vector2" default="Vector2(0, 0)" />
+			<description>
+			</description>
+		</method>
+		<method name="add_transition">
+			<return type="void" />
+			<param index="0" name="from" type="StringName" />
+			<param index="1" name="to" type="StringName" />
+			<param index="2" name="transition" type="AnimationNodeStateMachineTransition" />
+			<description>
+			</description>
+		</method>
+		<method name="get_graph_offset" qualifiers="const">
+			<return type="Vector2" />
+			<description>
+			</description>
+		</method>
+		<method name="get_node" qualifiers="const">
+			<return type="AnimationNode" />
+			<param index="0" name="name" type="StringName" />
+			<description>
+			</description>
+		</method>
+		<method name="get_node_name" qualifiers="const">
+			<return type="StringName" />
+			<param index="0" name="node" type="AnimationNode" />
+			<description>
+			</description>
+		</method>
+		<method name="get_node_position" qualifiers="const">
+			<return type="Vector2" />
+			<param index="0" name="name" type="StringName" />
+			<description>
+			</description>
+		</method>
+		<method name="get_transition" qualifiers="const">
+			<return type="AnimationNodeStateMachineTransition" />
+			<param index="0" name="idx" type="int" />
+			<description>
+			</description>
+		</method>
+		<method name="get_transition_count" qualifiers="const">
+			<return type="int" />
+			<description>
+			</description>
+		</method>
+		<method name="get_transition_from" qualifiers="const">
+			<return type="StringName" />
+			<param index="0" name="idx" type="int" />
+			<description>
+			</description>
+		</method>
+		<method name="get_transition_to" qualifiers="const">
+			<return type="StringName" />
+			<param index="0" name="idx" type="int" />
+			<description>
+			</description>
+		</method>
+		<method name="has_node" qualifiers="const">
+			<return type="bool" />
+			<param index="0" name="name" type="StringName" />
+			<description>
+			</description>
+		</method>
+		<method name="has_transition" qualifiers="const">
+			<return type="bool" />
+			<param index="0" name="from" type="StringName" />
+			<param index="1" name="to" type="StringName" />
+			<description>
+			</description>
+		</method>
+		<method name="remove_node">
+			<return type="void" />
+			<param index="0" name="name" type="StringName" />
+			<description>
+			</description>
+		</method>
+		<method name="remove_transition">
+			<return type="void" />
+			<param index="0" name="from" type="StringName" />
+			<param index="1" name="to" type="StringName" />
+			<description>
+			</description>
+		</method>
+		<method name="remove_transition_by_index">
+			<return type="void" />
+			<param index="0" name="idx" type="int" />
+			<description>
+			</description>
+		</method>
+		<method name="rename_node">
+			<return type="void" />
+			<param index="0" name="name" type="StringName" />
+			<param index="1" name="new_name" type="StringName" />
+			<description>
+			</description>
+		</method>
+		<method name="replace_node">
+			<return type="void" />
+			<param index="0" name="name" type="StringName" />
+			<param index="1" name="node" type="AnimationNode" />
+			<description>
+			</description>
+		</method>
+		<method name="set_graph_offset">
+			<return type="void" />
+			<param index="0" name="offset" type="Vector2" />
+			<description>
+			</description>
+		</method>
+		<method name="set_node_position">
+			<return type="void" />
+			<param index="0" name="name" type="StringName" />
+			<param index="1" name="position" type="Vector2" />
+			<description>
+			</description>
+		</method>
+	</methods>
+	<members>
+		<member name="allow_transition_to_self" type="bool" setter="set_allow_transition_to_self" getter="is_allow_transition_to_self" default="false">
+		</member>
+		<member name="reset_ends" type="bool" setter="set_reset_ends" getter="are_ends_reset" default="false">
+		</member>
+		<member name="state_machine_type" type="int" setter="set_state_machine_type" getter="get_state_machine_type" enum="AnimationNodeStateMachine.StateMachineType" default="0">
+		</member>
+	</members>
+	<constants>
+		<constant name="STATE_MACHINE_TYPE_ROOT" value="0" enum="StateMachineType">
+		</constant>
+		<constant name="STATE_MACHINE_TYPE_NESTED" value="1" enum="StateMachineType">
+		</constant>
+		<constant name="STATE_MACHINE_TYPE_GROUPED" value="2" enum="StateMachineType">
+		</constant>
+	</constants>
+</class>

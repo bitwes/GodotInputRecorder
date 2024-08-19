@@ -1,0 +1,337 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<class name="ParticleProcessMaterial" inherits="Material" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../class.xsd">
+	<brief_description>
+	</brief_description>
+	<description>
+	</description>
+	<tutorials>
+	</tutorials>
+	<methods>
+		<method name="get_param_max" qualifiers="const">
+			<return type="float" />
+			<param index="0" name="param" type="int" enum="ParticleProcessMaterial.Parameter" />
+			<description>
+			</description>
+		</method>
+		<method name="get_param_min" qualifiers="const">
+			<return type="float" />
+			<param index="0" name="param" type="int" enum="ParticleProcessMaterial.Parameter" />
+			<description>
+			</description>
+		</method>
+		<method name="get_param_texture" qualifiers="const">
+			<return type="Texture2D" />
+			<param index="0" name="param" type="int" enum="ParticleProcessMaterial.Parameter" />
+			<description>
+			</description>
+		</method>
+		<method name="get_particle_flag" qualifiers="const">
+			<return type="bool" />
+			<param index="0" name="particle_flag" type="int" enum="ParticleProcessMaterial.ParticleFlags" />
+			<description>
+			</description>
+		</method>
+		<method name="set_param_max">
+			<return type="void" />
+			<param index="0" name="param" type="int" enum="ParticleProcessMaterial.Parameter" />
+			<param index="1" name="value" type="float" />
+			<description>
+			</description>
+		</method>
+		<method name="set_param_min">
+			<return type="void" />
+			<param index="0" name="param" type="int" enum="ParticleProcessMaterial.Parameter" />
+			<param index="1" name="value" type="float" />
+			<description>
+			</description>
+		</method>
+		<method name="set_param_texture">
+			<return type="void" />
+			<param index="0" name="param" type="int" enum="ParticleProcessMaterial.Parameter" />
+			<param index="1" name="texture" type="Texture2D" />
+			<description>
+			</description>
+		</method>
+		<method name="set_particle_flag">
+			<return type="void" />
+			<param index="0" name="particle_flag" type="int" enum="ParticleProcessMaterial.ParticleFlags" />
+			<param index="1" name="enable" type="bool" />
+			<description>
+			</description>
+		</method>
+	</methods>
+	<members>
+		<member name="alpha_curve" type="Texture2D" setter="set_alpha_curve" getter="get_alpha_curve">
+		</member>
+		<member name="angle_curve" type="Texture2D" setter="set_param_texture" getter="get_param_texture">
+		</member>
+		<member name="angle_max" type="float" setter="set_param_max" getter="get_param_max" default="0.0">
+		</member>
+		<member name="angle_min" type="float" setter="set_param_min" getter="get_param_min" default="0.0">
+		</member>
+		<member name="angular_velocity_curve" type="Texture2D" setter="set_param_texture" getter="get_param_texture">
+		</member>
+		<member name="angular_velocity_max" type="float" setter="set_param_max" getter="get_param_max" default="0.0">
+		</member>
+		<member name="angular_velocity_min" type="float" setter="set_param_min" getter="get_param_min" default="0.0">
+		</member>
+		<member name="anim_offset_curve" type="Texture2D" setter="set_param_texture" getter="get_param_texture">
+		</member>
+		<member name="anim_offset_max" type="float" setter="set_param_max" getter="get_param_max" default="0.0">
+		</member>
+		<member name="anim_offset_min" type="float" setter="set_param_min" getter="get_param_min" default="0.0">
+		</member>
+		<member name="anim_speed_curve" type="Texture2D" setter="set_param_texture" getter="get_param_texture">
+		</member>
+		<member name="anim_speed_max" type="float" setter="set_param_max" getter="get_param_max" default="0.0">
+		</member>
+		<member name="anim_speed_min" type="float" setter="set_param_min" getter="get_param_min" default="0.0">
+		</member>
+		<member name="attractor_interaction_enabled" type="bool" setter="set_attractor_interaction_enabled" getter="is_attractor_interaction_enabled" default="true">
+		</member>
+		<member name="collision_bounce" type="float" setter="set_collision_bounce" getter="get_collision_bounce">
+		</member>
+		<member name="collision_friction" type="float" setter="set_collision_friction" getter="get_collision_friction">
+		</member>
+		<member name="collision_mode" type="int" setter="set_collision_mode" getter="get_collision_mode" enum="ParticleProcessMaterial.CollisionMode" default="0">
+		</member>
+		<member name="collision_use_scale" type="bool" setter="set_collision_use_scale" getter="is_collision_using_scale" default="false">
+		</member>
+		<member name="color" type="Color" setter="set_color" getter="get_color" default="Color(1, 1, 1, 1)">
+		</member>
+		<member name="color_initial_ramp" type="Texture2D" setter="set_color_initial_ramp" getter="get_color_initial_ramp">
+		</member>
+		<member name="color_ramp" type="Texture2D" setter="set_color_ramp" getter="get_color_ramp">
+		</member>
+		<member name="damping_curve" type="Texture2D" setter="set_param_texture" getter="get_param_texture">
+		</member>
+		<member name="damping_max" type="float" setter="set_param_max" getter="get_param_max" default="0.0">
+		</member>
+		<member name="damping_min" type="float" setter="set_param_min" getter="get_param_min" default="0.0">
+		</member>
+		<member name="direction" type="Vector3" setter="set_direction" getter="get_direction" default="Vector3(1, 0, 0)">
+		</member>
+		<member name="directional_velocity_curve" type="Texture2D" setter="set_param_texture" getter="get_param_texture">
+		</member>
+		<member name="directional_velocity_max" type="float" setter="set_param_max" getter="get_param_max">
+		</member>
+		<member name="directional_velocity_min" type="float" setter="set_param_min" getter="get_param_min">
+		</member>
+		<member name="emission_box_extents" type="Vector3" setter="set_emission_box_extents" getter="get_emission_box_extents">
+		</member>
+		<member name="emission_color_texture" type="Texture2D" setter="set_emission_color_texture" getter="get_emission_color_texture">
+		</member>
+		<member name="emission_curve" type="Texture2D" setter="set_emission_curve" getter="get_emission_curve">
+		</member>
+		<member name="emission_normal_texture" type="Texture2D" setter="set_emission_normal_texture" getter="get_emission_normal_texture">
+		</member>
+		<member name="emission_point_count" type="int" setter="set_emission_point_count" getter="get_emission_point_count">
+		</member>
+		<member name="emission_point_texture" type="Texture2D" setter="set_emission_point_texture" getter="get_emission_point_texture">
+		</member>
+		<member name="emission_ring_axis" type="Vector3" setter="set_emission_ring_axis" getter="get_emission_ring_axis">
+		</member>
+		<member name="emission_ring_height" type="float" setter="set_emission_ring_height" getter="get_emission_ring_height">
+		</member>
+		<member name="emission_ring_inner_radius" type="float" setter="set_emission_ring_inner_radius" getter="get_emission_ring_inner_radius">
+		</member>
+		<member name="emission_ring_radius" type="float" setter="set_emission_ring_radius" getter="get_emission_ring_radius">
+		</member>
+		<member name="emission_shape" type="int" setter="set_emission_shape" getter="get_emission_shape" enum="ParticleProcessMaterial.EmissionShape" default="0">
+		</member>
+		<member name="emission_shape_offset" type="Vector3" setter="set_emission_shape_offset" getter="get_emission_shape_offset" default="Vector3(0, 0, 0)">
+		</member>
+		<member name="emission_shape_scale" type="Vector3" setter="set_emission_shape_scale" getter="get_emission_shape_scale" default="Vector3(1, 1, 1)">
+		</member>
+		<member name="emission_sphere_radius" type="float" setter="set_emission_sphere_radius" getter="get_emission_sphere_radius">
+		</member>
+		<member name="flatness" type="float" setter="set_flatness" getter="get_flatness" default="0.0">
+		</member>
+		<member name="gravity" type="Vector3" setter="set_gravity" getter="get_gravity" default="Vector3(0, -9.8, 0)">
+		</member>
+		<member name="hue_variation_curve" type="Texture2D" setter="set_param_texture" getter="get_param_texture">
+		</member>
+		<member name="hue_variation_max" type="float" setter="set_param_max" getter="get_param_max" default="0.0">
+		</member>
+		<member name="hue_variation_min" type="float" setter="set_param_min" getter="get_param_min" default="0.0">
+		</member>
+		<member name="inherit_velocity_ratio" type="float" setter="set_inherit_velocity_ratio" getter="get_inherit_velocity_ratio" default="0.0">
+		</member>
+		<member name="initial_velocity_max" type="float" setter="set_param_max" getter="get_param_max" default="0.0">
+		</member>
+		<member name="initial_velocity_min" type="float" setter="set_param_min" getter="get_param_min" default="0.0">
+		</member>
+		<member name="lifetime_randomness" type="float" setter="set_lifetime_randomness" getter="get_lifetime_randomness" default="0.0">
+		</member>
+		<member name="linear_accel_curve" type="Texture2D" setter="set_param_texture" getter="get_param_texture">
+		</member>
+		<member name="linear_accel_max" type="float" setter="set_param_max" getter="get_param_max" default="0.0">
+		</member>
+		<member name="linear_accel_min" type="float" setter="set_param_min" getter="get_param_min" default="0.0">
+		</member>
+		<member name="orbit_velocity_curve" type="Texture2D" setter="set_param_texture" getter="get_param_texture">
+		</member>
+		<member name="orbit_velocity_max" type="float" setter="set_param_max" getter="get_param_max" default="0.0">
+		</member>
+		<member name="orbit_velocity_min" type="float" setter="set_param_min" getter="get_param_min" default="0.0">
+		</member>
+		<member name="particle_flag_align_y" type="bool" setter="set_particle_flag" getter="get_particle_flag" default="false">
+		</member>
+		<member name="particle_flag_damping_as_friction" type="bool" setter="set_particle_flag" getter="get_particle_flag" default="false">
+		</member>
+		<member name="particle_flag_disable_z" type="bool" setter="set_particle_flag" getter="get_particle_flag" default="false">
+		</member>
+		<member name="particle_flag_rotate_y" type="bool" setter="set_particle_flag" getter="get_particle_flag" default="false">
+		</member>
+		<member name="radial_accel_curve" type="Texture2D" setter="set_param_texture" getter="get_param_texture">
+		</member>
+		<member name="radial_accel_max" type="float" setter="set_param_max" getter="get_param_max" default="0.0">
+		</member>
+		<member name="radial_accel_min" type="float" setter="set_param_min" getter="get_param_min" default="0.0">
+		</member>
+		<member name="radial_velocity_curve" type="Texture2D" setter="set_param_texture" getter="get_param_texture">
+		</member>
+		<member name="radial_velocity_max" type="float" setter="set_param_max" getter="get_param_max" default="0.0">
+		</member>
+		<member name="radial_velocity_min" type="float" setter="set_param_min" getter="get_param_min" default="0.0">
+		</member>
+		<member name="scale_curve" type="Texture2D" setter="set_param_texture" getter="get_param_texture">
+		</member>
+		<member name="scale_max" type="float" setter="set_param_max" getter="get_param_max" default="1.0">
+		</member>
+		<member name="scale_min" type="float" setter="set_param_min" getter="get_param_min" default="1.0">
+		</member>
+		<member name="scale_over_velocity_curve" type="Texture2D" setter="set_param_texture" getter="get_param_texture">
+		</member>
+		<member name="scale_over_velocity_max" type="float" setter="set_param_max" getter="get_param_max" default="0.0">
+		</member>
+		<member name="scale_over_velocity_min" type="float" setter="set_param_min" getter="get_param_min" default="0.0">
+		</member>
+		<member name="spread" type="float" setter="set_spread" getter="get_spread" default="45.0">
+		</member>
+		<member name="sub_emitter_amount_at_collision" type="int" setter="set_sub_emitter_amount_at_collision" getter="get_sub_emitter_amount_at_collision">
+		</member>
+		<member name="sub_emitter_amount_at_end" type="int" setter="set_sub_emitter_amount_at_end" getter="get_sub_emitter_amount_at_end">
+		</member>
+		<member name="sub_emitter_frequency" type="float" setter="set_sub_emitter_frequency" getter="get_sub_emitter_frequency">
+		</member>
+		<member name="sub_emitter_keep_velocity" type="bool" setter="set_sub_emitter_keep_velocity" getter="get_sub_emitter_keep_velocity" default="false">
+		</member>
+		<member name="sub_emitter_mode" type="int" setter="set_sub_emitter_mode" getter="get_sub_emitter_mode" enum="ParticleProcessMaterial.SubEmitterMode" default="0">
+		</member>
+		<member name="tangential_accel_curve" type="Texture2D" setter="set_param_texture" getter="get_param_texture">
+		</member>
+		<member name="tangential_accel_max" type="float" setter="set_param_max" getter="get_param_max" default="0.0">
+		</member>
+		<member name="tangential_accel_min" type="float" setter="set_param_min" getter="get_param_min" default="0.0">
+		</member>
+		<member name="turbulence_enabled" type="bool" setter="set_turbulence_enabled" getter="get_turbulence_enabled" default="false">
+		</member>
+		<member name="turbulence_influence_max" type="float" setter="set_param_max" getter="get_param_max" default="0.1">
+		</member>
+		<member name="turbulence_influence_min" type="float" setter="set_param_min" getter="get_param_min" default="0.1">
+		</member>
+		<member name="turbulence_influence_over_life" type="Texture2D" setter="set_param_texture" getter="get_param_texture">
+		</member>
+		<member name="turbulence_initial_displacement_max" type="float" setter="set_param_max" getter="get_param_max" default="0.0">
+		</member>
+		<member name="turbulence_initial_displacement_min" type="float" setter="set_param_min" getter="get_param_min" default="0.0">
+		</member>
+		<member name="turbulence_noise_scale" type="float" setter="set_turbulence_noise_scale" getter="get_turbulence_noise_scale" default="9.0">
+		</member>
+		<member name="turbulence_noise_speed" type="Vector3" setter="set_turbulence_noise_speed" getter="get_turbulence_noise_speed" default="Vector3(0, 0, 0)">
+		</member>
+		<member name="turbulence_noise_speed_random" type="float" setter="set_turbulence_noise_speed_random" getter="get_turbulence_noise_speed_random" default="0.2">
+		</member>
+		<member name="turbulence_noise_strength" type="float" setter="set_turbulence_noise_strength" getter="get_turbulence_noise_strength" default="1.0">
+		</member>
+		<member name="velocity_limit_curve" type="Texture2D" setter="set_velocity_limit_curve" getter="get_velocity_limit_curve">
+		</member>
+		<member name="velocity_pivot" type="Vector3" setter="set_velocity_pivot" getter="get_velocity_pivot" default="Vector3(0, 0, 0)">
+		</member>
+	</members>
+	<constants>
+		<constant name="PARAM_INITIAL_LINEAR_VELOCITY" value="0" enum="Parameter">
+		</constant>
+		<constant name="PARAM_ANGULAR_VELOCITY" value="1" enum="Parameter">
+		</constant>
+		<constant name="PARAM_ORBIT_VELOCITY" value="2" enum="Parameter">
+		</constant>
+		<constant name="PARAM_LINEAR_ACCEL" value="3" enum="Parameter">
+		</constant>
+		<constant name="PARAM_RADIAL_ACCEL" value="4" enum="Parameter">
+		</constant>
+		<constant name="PARAM_TANGENTIAL_ACCEL" value="5" enum="Parameter">
+		</constant>
+		<constant name="PARAM_DAMPING" value="6" enum="Parameter">
+		</constant>
+		<constant name="PARAM_ANGLE" value="7" enum="Parameter">
+		</constant>
+		<constant name="PARAM_SCALE" value="8" enum="Parameter">
+		</constant>
+		<constant name="PARAM_HUE_VARIATION" value="9" enum="Parameter">
+		</constant>
+		<constant name="PARAM_ANIM_SPEED" value="10" enum="Parameter">
+		</constant>
+		<constant name="PARAM_ANIM_OFFSET" value="11" enum="Parameter">
+		</constant>
+		<constant name="PARAM_RADIAL_VELOCITY" value="15" enum="Parameter">
+		</constant>
+		<constant name="PARAM_DIRECTIONAL_VELOCITY" value="16" enum="Parameter">
+		</constant>
+		<constant name="PARAM_SCALE_OVER_VELOCITY" value="17" enum="Parameter">
+		</constant>
+		<constant name="PARAM_MAX" value="18" enum="Parameter">
+		</constant>
+		<constant name="PARTICLE_FLAG_ALIGN_Y_TO_VELOCITY" value="0" enum="ParticleFlags">
+		</constant>
+		<constant name="PARTICLE_FLAG_ROTATE_Y" value="1" enum="ParticleFlags">
+		</constant>
+		<constant name="PARTICLE_FLAG_DISABLE_Z" value="2" enum="ParticleFlags">
+		</constant>
+		<constant name="PARTICLE_FLAG_DAMPING_AS_FRICTION" value="3" enum="ParticleFlags">
+		</constant>
+		<constant name="PARTICLE_FLAG_MAX" value="4" enum="ParticleFlags">
+		</constant>
+		<constant name="EMISSION_SHAPE_POINT" value="0" enum="EmissionShape">
+		</constant>
+		<constant name="EMISSION_SHAPE_SPHERE" value="1" enum="EmissionShape">
+		</constant>
+		<constant name="EMISSION_SHAPE_SPHERE_SURFACE" value="2" enum="EmissionShape">
+		</constant>
+		<constant name="EMISSION_SHAPE_BOX" value="3" enum="EmissionShape">
+		</constant>
+		<constant name="EMISSION_SHAPE_POINTS" value="4" enum="EmissionShape">
+		</constant>
+		<constant name="EMISSION_SHAPE_DIRECTED_POINTS" value="5" enum="EmissionShape">
+		</constant>
+		<constant name="EMISSION_SHAPE_RING" value="6" enum="EmissionShape">
+		</constant>
+		<constant name="EMISSION_SHAPE_MAX" value="7" enum="EmissionShape">
+		</constant>
+		<constant name="PARAM_TURB_VEL_INFLUENCE" value="13" enum="Parameter">
+		</constant>
+		<constant name="PARAM_TURB_INIT_DISPLACEMENT" value="14" enum="Parameter">
+		</constant>
+		<constant name="PARAM_TURB_INFLUENCE_OVER_LIFE" value="12" enum="Parameter">
+		</constant>
+		<constant name="SUB_EMITTER_DISABLED" value="0" enum="SubEmitterMode">
+		</constant>
+		<constant name="SUB_EMITTER_CONSTANT" value="1" enum="SubEmitterMode">
+		</constant>
+		<constant name="SUB_EMITTER_AT_END" value="2" enum="SubEmitterMode">
+		</constant>
+		<constant name="SUB_EMITTER_AT_COLLISION" value="3" enum="SubEmitterMode">
+		</constant>
+		<constant name="SUB_EMITTER_MAX" value="4" enum="SubEmitterMode">
+		</constant>
+		<constant name="COLLISION_DISABLED" value="0" enum="CollisionMode">
+		</constant>
+		<constant name="COLLISION_RIGID" value="1" enum="CollisionMode">
+		</constant>
+		<constant name="COLLISION_HIDE_ON_CONTACT" value="2" enum="CollisionMode">
+		</constant>
+		<constant name="COLLISION_MAX" value="3" enum="CollisionMode">
+		</constant>
+	</constants>
+</class>

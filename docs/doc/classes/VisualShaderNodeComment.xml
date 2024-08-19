@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<class name="VisualShaderNodeComment" inherits="VisualShaderNodeResizableBase" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../class.xsd">
+	<brief_description>
+	</brief_description>
+	<description>
+	</description>
+	<tutorials>
+	</tutorials>
+	<members>
+		<member name="description" type="String" setter="set_description" getter="get_description" default="&quot;&quot;">
+		</member>
+		<member name="title" type="String" setter="set_title" getter="get_title" default="&quot;Comment&quot;">
+		</member>
+	</members>
+</class>

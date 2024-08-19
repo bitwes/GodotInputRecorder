@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<class name="TextureRect" inherits="Control" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../class.xsd">
+	<brief_description>
+	</brief_description>
+	<description>
+	</description>
+	<tutorials>
+	</tutorials>
+	<members>
+		<member name="expand_mode" type="int" setter="set_expand_mode" getter="get_expand_mode" enum="TextureRect.ExpandMode" default="0">
+		</member>
+		<member name="flip_h" type="bool" setter="set_flip_h" getter="is_flipped_h" default="false">
+		</member>
+		<member name="flip_v" type="bool" setter="set_flip_v" getter="is_flipped_v" default="false">
+		</member>
+		<member name="mouse_filter" type="int" setter="set_mouse_filter" getter="get_mouse_filter" overrides="Control" enum="Control.MouseFilter" default="1" />
+		<member name="stretch_mode" type="int" setter="set_stretch_mode" getter="get_stretch_mode" enum="TextureRect.StretchMode" default="0">
+		</member>
+		<member name="texture" type="Texture2D" setter="set_texture" getter="get_texture">
+		</member>
+	</members>
+	<constants>
+		<constant name="EXPAND_KEEP_SIZE" value="0" enum="ExpandMode">
+		</constant>
+		<constant name="EXPAND_IGNORE_SIZE" value="1" enum="ExpandMode">
+		</constant>
+		<constant name="EXPAND_FIT_WIDTH" value="2" enum="ExpandMode">
+		</constant>
+		<constant name="EXPAND_FIT_WIDTH_PROPORTIONAL" value="3" enum="ExpandMode">
+		</constant>
+		<constant name="EXPAND_FIT_HEIGHT" value="4" enum="ExpandMode">
+		</constant>
+		<constant name="EXPAND_FIT_HEIGHT_PROPORTIONAL" value="5" enum="ExpandMode">
+		</constant>
+		<constant name="STRETCH_SCALE" value="0" enum="StretchMode">
+		</constant>
+		<constant name="STRETCH_TILE" value="1" enum="StretchMode">
+		</constant>
+		<constant name="STRETCH_KEEP" value="2" enum="StretchMode">
+		</constant>
+		<constant name="STRETCH_KEEP_CENTERED" value="3" enum="StretchMode">
+		</constant>
+		<constant name="STRETCH_KEEP_ASPECT" value="4" enum="StretchMode">
+		</constant>
+		<constant name="STRETCH_KEEP_ASPECT_CENTERED" value="5" enum="StretchMode">
+		</constant>
+		<constant name="STRETCH_KEEP_ASPECT_COVERED" value="6" enum="StretchMode">
+		</constant>
+	</constants>
+</class>

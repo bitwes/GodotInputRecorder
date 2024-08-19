@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<class name="VisualShaderNodeGroupBase" inherits="VisualShaderNodeResizableBase" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../class.xsd">
+	<brief_description>
+	</brief_description>
+	<description>
+	</description>
+	<tutorials>
+	</tutorials>
+	<methods>
+		<method name="add_input_port">
+			<return type="void" />
+			<param index="0" name="id" type="int" />
+			<param index="1" name="type" type="int" />
+			<param index="2" name="name" type="String" />
+			<description>
+			</description>
+		</method>
+		<method name="add_output_port">
+			<return type="void" />
+			<param index="0" name="id" type="int" />
+			<param index="1" name="type" type="int" />
+			<param index="2" name="name" type="String" />
+			<description>
+			</description>
+		</method>
+		<method name="clear_input_ports">
+			<return type="void" />
+			<description>
+			</description>
+		</method>
+		<method name="clear_output_ports">
+			<return type="void" />
+			<description>
+			</description>
+		</method>
+		<method name="get_free_input_port_id" qualifiers="const">
+			<return type="int" />
+			<description>
+			</description>
+		</method>
+		<method name="get_free_output_port_id" qualifiers="const">
+			<return type="int" />
+			<description>
+			</description>
+		</method>
+		<method name="get_input_port_count" qualifiers="const">
+			<return type="int" />
+			<description>
+			</description>
+		</method>
+		<method name="get_inputs" qualifiers="const">
+			<return type="String" />
+			<description>
+			</description>
+		</method>
+		<method name="get_output_port_count" qualifiers="const">
+			<return type="int" />
+			<description>
+			</description>
+		</method>
+		<method name="get_outputs" qualifiers="const">
+			<return type="String" />
+			<description>
+			</description>
+		</method>
+		<method name="has_input_port" qualifiers="const">
+			<return type="bool" />
+			<param index="0" name="id" type="int" />
+			<description>
+			</description>
+		</method>
+		<method name="has_output_port" qualifiers="const">
+			<return type="bool" />
+			<param index="0" name="id" type="int" />
+			<description>
+			</description>
+		</method>
+		<method name="is_valid_port_name" qualifiers="const">
+			<return type="bool" />
+			<param index="0" name="name" type="String" />
+			<description>
+			</description>
+		</method>
+		<method name="remove_input_port">
+			<return type="void" />
+			<param index="0" name="id" type="int" />
+			<description>
+			</description>
+		</method>
+		<method name="remove_output_port">
+			<return type="void" />
+			<param index="0" name="id" type="int" />
+			<description>
+			</description>
+		</method>
+		<method name="set_input_port_name">
+			<return type="void" />
+			<param index="0" name="id" type="int" />
+			<param index="1" name="name" type="String" />
+			<description>
+			</description>
+		</method>
+		<method name="set_input_port_type">
+			<return type="void" />
+			<param index="0" name="id" type="int" />
+			<param index="1" name="type" type="int" />
+			<description>
+			</description>
+		</method>
+		<method name="set_inputs">
+			<return type="void" />
+			<param index="0" name="inputs" type="String" />
+			<description>
+			</description>
+		</method>
+		<method name="set_output_port_name">
+			<return type="void" />
+			<param index="0" name="id" type="int" />
+			<param index="1" name="name" type="String" />
+			<description>
+			</description>
+		</method>
+		<method name="set_output_port_type">
+			<return type="void" />
+			<param index="0" name="id" type="int" />
+			<param index="1" name="type" type="int" />
+			<description>
+			</description>
+		</method>
+		<method name="set_outputs">
+			<return type="void" />
+			<param index="0" name="outputs" type="String" />
+			<description>
+			</description>
+		</method>
+	</methods>
+</class>

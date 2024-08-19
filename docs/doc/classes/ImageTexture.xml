@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<class name="ImageTexture" inherits="Texture2D" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../class.xsd">
+	<brief_description>
+	</brief_description>
+	<description>
+	</description>
+	<tutorials>
+	</tutorials>
+	<methods>
+		<method name="create_from_image" qualifiers="static">
+			<return type="ImageTexture" />
+			<param index="0" name="image" type="Image" />
+			<description>
+			</description>
+		</method>
+		<method name="get_format" qualifiers="const">
+			<return type="int" enum="Image.Format" />
+			<description>
+			</description>
+		</method>
+		<method name="set_image">
+			<return type="void" />
+			<param index="0" name="image" type="Image" />
+			<description>
+			</description>
+		</method>
+		<method name="set_size_override">
+			<return type="void" />
+			<param index="0" name="size" type="Vector2i" />
+			<description>
+			</description>
+		</method>
+		<method name="update">
+			<return type="void" />
+			<param index="0" name="image" type="Image" />
+			<description>
+			</description>
+		</method>
+	</methods>
+	<members>
+		<member name="resource_local_to_scene" type="bool" setter="set_local_to_scene" getter="is_local_to_scene" overrides="Resource" default="false" />
+	</members>
+</class>

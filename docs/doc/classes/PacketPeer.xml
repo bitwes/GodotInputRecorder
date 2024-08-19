@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<class name="PacketPeer" inherits="RefCounted" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../class.xsd">
+	<brief_description>
+	</brief_description>
+	<description>
+	</description>
+	<tutorials>
+	</tutorials>
+	<methods>
+		<method name="get_available_packet_count" qualifiers="const">
+			<return type="int" />
+			<description>
+			</description>
+		</method>
+		<method name="get_packet">
+			<return type="PackedByteArray" />
+			<description>
+			</description>
+		</method>
+		<method name="get_packet_error" qualifiers="const">
+			<return type="int" enum="Error" />
+			<description>
+			</description>
+		</method>
+		<method name="get_var">
+			<return type="Variant" />
+			<param index="0" name="allow_objects" type="bool" default="false" />
+			<description>
+			</description>
+		</method>
+		<method name="put_packet">
+			<return type="int" enum="Error" />
+			<param index="0" name="buffer" type="PackedByteArray" />
+			<description>
+			</description>
+		</method>
+		<method name="put_var">
+			<return type="int" enum="Error" />
+			<param index="0" name="var" type="Variant" />
+			<param index="1" name="full_objects" type="bool" default="false" />
+			<description>
+			</description>
+		</method>
+	</methods>
+	<members>
+		<member name="encode_buffer_max_size" type="int" setter="set_encode_buffer_max_size" getter="get_encode_buffer_max_size" default="8388608">
+		</member>
+	</members>
+</class>

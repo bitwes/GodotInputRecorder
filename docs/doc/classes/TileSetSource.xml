@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<class name="TileSetSource" inherits="Resource" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../class.xsd">
+	<brief_description>
+	</brief_description>
+	<description>
+	</description>
+	<tutorials>
+	</tutorials>
+	<methods>
+		<method name="get_alternative_tile_id" qualifiers="const">
+			<return type="int" />
+			<param index="0" name="atlas_coords" type="Vector2i" />
+			<param index="1" name="index" type="int" />
+			<description>
+			</description>
+		</method>
+		<method name="get_alternative_tiles_count" qualifiers="const">
+			<return type="int" />
+			<param index="0" name="atlas_coords" type="Vector2i" />
+			<description>
+			</description>
+		</method>
+		<method name="get_tile_id" qualifiers="const">
+			<return type="Vector2i" />
+			<param index="0" name="index" type="int" />
+			<description>
+			</description>
+		</method>
+		<method name="get_tiles_count" qualifiers="const">
+			<return type="int" />
+			<description>
+			</description>
+		</method>
+		<method name="has_alternative_tile" qualifiers="const">
+			<return type="bool" />
+			<param index="0" name="atlas_coords" type="Vector2i" />
+			<param index="1" name="alternative_tile" type="int" />
+			<description>
+			</description>
+		</method>
+		<method name="has_tile" qualifiers="const">
+			<return type="bool" />
+			<param index="0" name="atlas_coords" type="Vector2i" />
+			<description>
+			</description>
+		</method>
+	</methods>
+</class>

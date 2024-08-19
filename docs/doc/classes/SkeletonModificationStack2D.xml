@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<class name="SkeletonModificationStack2D" inherits="Resource" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../class.xsd">
+	<brief_description>
+	</brief_description>
+	<description>
+	</description>
+	<tutorials>
+	</tutorials>
+	<methods>
+		<method name="add_modification">
+			<return type="void" />
+			<param index="0" name="modification" type="SkeletonModification2D" />
+			<description>
+			</description>
+		</method>
+		<method name="delete_modification">
+			<return type="void" />
+			<param index="0" name="mod_idx" type="int" />
+			<description>
+			</description>
+		</method>
+		<method name="enable_all_modifications">
+			<return type="void" />
+			<param index="0" name="enabled" type="bool" />
+			<description>
+			</description>
+		</method>
+		<method name="execute">
+			<return type="void" />
+			<param index="0" name="delta" type="float" />
+			<param index="1" name="execution_mode" type="int" />
+			<description>
+			</description>
+		</method>
+		<method name="get_is_setup" qualifiers="const">
+			<return type="bool" />
+			<description>
+			</description>
+		</method>
+		<method name="get_modification" qualifiers="const">
+			<return type="SkeletonModification2D" />
+			<param index="0" name="mod_idx" type="int" />
+			<description>
+			</description>
+		</method>
+		<method name="get_skeleton" qualifiers="const">
+			<return type="Skeleton2D" />
+			<description>
+			</description>
+		</method>
+		<method name="set_modification">
+			<return type="void" />
+			<param index="0" name="mod_idx" type="int" />
+			<param index="1" name="modification" type="SkeletonModification2D" />
+			<description>
+			</description>
+		</method>
+		<method name="setup">
+			<return type="void" />
+			<description>
+			</description>
+		</method>
+	</methods>
+	<members>
+		<member name="enabled" type="bool" setter="set_enabled" getter="get_enabled" default="false">
+		</member>
+		<member name="modification_count" type="int" setter="set_modification_count" getter="get_modification_count" default="0">
+		</member>
+		<member name="strength" type="float" setter="set_strength" getter="get_strength" default="1.0">
+		</member>
+	</members>
+</class>

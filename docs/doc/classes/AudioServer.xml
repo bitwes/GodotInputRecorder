@@ -1,0 +1,288 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<class name="AudioServer" inherits="Object" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../class.xsd">
+	<brief_description>
+	</brief_description>
+	<description>
+	</description>
+	<tutorials>
+	</tutorials>
+	<methods>
+		<method name="add_bus">
+			<return type="void" />
+			<param index="0" name="at_position" type="int" default="-1" />
+			<description>
+			</description>
+		</method>
+		<method name="add_bus_effect">
+			<return type="void" />
+			<param index="0" name="bus_idx" type="int" />
+			<param index="1" name="effect" type="AudioEffect" />
+			<param index="2" name="at_position" type="int" default="-1" />
+			<description>
+			</description>
+		</method>
+		<method name="generate_bus_layout" qualifiers="const">
+			<return type="AudioBusLayout" />
+			<description>
+			</description>
+		</method>
+		<method name="get_bus_channels" qualifiers="const">
+			<return type="int" />
+			<param index="0" name="bus_idx" type="int" />
+			<description>
+			</description>
+		</method>
+		<method name="get_bus_effect">
+			<return type="AudioEffect" />
+			<param index="0" name="bus_idx" type="int" />
+			<param index="1" name="effect_idx" type="int" />
+			<description>
+			</description>
+		</method>
+		<method name="get_bus_effect_count">
+			<return type="int" />
+			<param index="0" name="bus_idx" type="int" />
+			<description>
+			</description>
+		</method>
+		<method name="get_bus_effect_instance">
+			<return type="AudioEffectInstance" />
+			<param index="0" name="bus_idx" type="int" />
+			<param index="1" name="effect_idx" type="int" />
+			<param index="2" name="channel" type="int" default="0" />
+			<description>
+			</description>
+		</method>
+		<method name="get_bus_index" qualifiers="const">
+			<return type="int" />
+			<param index="0" name="bus_name" type="StringName" />
+			<description>
+			</description>
+		</method>
+		<method name="get_bus_name" qualifiers="const">
+			<return type="String" />
+			<param index="0" name="bus_idx" type="int" />
+			<description>
+			</description>
+		</method>
+		<method name="get_bus_peak_volume_left_db" qualifiers="const">
+			<return type="float" />
+			<param index="0" name="bus_idx" type="int" />
+			<param index="1" name="channel" type="int" />
+			<description>
+			</description>
+		</method>
+		<method name="get_bus_peak_volume_right_db" qualifiers="const">
+			<return type="float" />
+			<param index="0" name="bus_idx" type="int" />
+			<param index="1" name="channel" type="int" />
+			<description>
+			</description>
+		</method>
+		<method name="get_bus_send" qualifiers="const">
+			<return type="StringName" />
+			<param index="0" name="bus_idx" type="int" />
+			<description>
+			</description>
+		</method>
+		<method name="get_bus_volume_db" qualifiers="const">
+			<return type="float" />
+			<param index="0" name="bus_idx" type="int" />
+			<description>
+			</description>
+		</method>
+		<method name="get_input_device_list">
+			<return type="PackedStringArray" />
+			<description>
+			</description>
+		</method>
+		<method name="get_mix_rate" qualifiers="const">
+			<return type="float" />
+			<description>
+			</description>
+		</method>
+		<method name="get_output_device_list">
+			<return type="PackedStringArray" />
+			<description>
+			</description>
+		</method>
+		<method name="get_output_latency" qualifiers="const">
+			<return type="float" />
+			<description>
+			</description>
+		</method>
+		<method name="get_speaker_mode" qualifiers="const">
+			<return type="int" enum="AudioServer.SpeakerMode" />
+			<description>
+			</description>
+		</method>
+		<method name="get_time_since_last_mix" qualifiers="const">
+			<return type="float" />
+			<description>
+			</description>
+		</method>
+		<method name="get_time_to_next_mix" qualifiers="const">
+			<return type="float" />
+			<description>
+			</description>
+		</method>
+		<method name="is_bus_bypassing_effects" qualifiers="const">
+			<return type="bool" />
+			<param index="0" name="bus_idx" type="int" />
+			<description>
+			</description>
+		</method>
+		<method name="is_bus_effect_enabled" qualifiers="const">
+			<return type="bool" />
+			<param index="0" name="bus_idx" type="int" />
+			<param index="1" name="effect_idx" type="int" />
+			<description>
+			</description>
+		</method>
+		<method name="is_bus_mute" qualifiers="const">
+			<return type="bool" />
+			<param index="0" name="bus_idx" type="int" />
+			<description>
+			</description>
+		</method>
+		<method name="is_bus_solo" qualifiers="const">
+			<return type="bool" />
+			<param index="0" name="bus_idx" type="int" />
+			<description>
+			</description>
+		</method>
+		<method name="lock">
+			<return type="void" />
+			<description>
+			</description>
+		</method>
+		<method name="move_bus">
+			<return type="void" />
+			<param index="0" name="index" type="int" />
+			<param index="1" name="to_index" type="int" />
+			<description>
+			</description>
+		</method>
+		<method name="remove_bus">
+			<return type="void" />
+			<param index="0" name="index" type="int" />
+			<description>
+			</description>
+		</method>
+		<method name="remove_bus_effect">
+			<return type="void" />
+			<param index="0" name="bus_idx" type="int" />
+			<param index="1" name="effect_idx" type="int" />
+			<description>
+			</description>
+		</method>
+		<method name="set_bus_bypass_effects">
+			<return type="void" />
+			<param index="0" name="bus_idx" type="int" />
+			<param index="1" name="enable" type="bool" />
+			<description>
+			</description>
+		</method>
+		<method name="set_bus_effect_enabled">
+			<return type="void" />
+			<param index="0" name="bus_idx" type="int" />
+			<param index="1" name="effect_idx" type="int" />
+			<param index="2" name="enabled" type="bool" />
+			<description>
+			</description>
+		</method>
+		<method name="set_bus_layout">
+			<return type="void" />
+			<param index="0" name="bus_layout" type="AudioBusLayout" />
+			<description>
+			</description>
+		</method>
+		<method name="set_bus_mute">
+			<return type="void" />
+			<param index="0" name="bus_idx" type="int" />
+			<param index="1" name="enable" type="bool" />
+			<description>
+			</description>
+		</method>
+		<method name="set_bus_name">
+			<return type="void" />
+			<param index="0" name="bus_idx" type="int" />
+			<param index="1" name="name" type="String" />
+			<description>
+			</description>
+		</method>
+		<method name="set_bus_send">
+			<return type="void" />
+			<param index="0" name="bus_idx" type="int" />
+			<param index="1" name="send" type="StringName" />
+			<description>
+			</description>
+		</method>
+		<method name="set_bus_solo">
+			<return type="void" />
+			<param index="0" name="bus_idx" type="int" />
+			<param index="1" name="enable" type="bool" />
+			<description>
+			</description>
+		</method>
+		<method name="set_bus_volume_db">
+			<return type="void" />
+			<param index="0" name="bus_idx" type="int" />
+			<param index="1" name="volume_db" type="float" />
+			<description>
+			</description>
+		</method>
+		<method name="set_enable_tagging_used_audio_streams">
+			<return type="void" />
+			<param index="0" name="enable" type="bool" />
+			<description>
+			</description>
+		</method>
+		<method name="swap_bus_effects">
+			<return type="void" />
+			<param index="0" name="bus_idx" type="int" />
+			<param index="1" name="effect_idx" type="int" />
+			<param index="2" name="by_effect_idx" type="int" />
+			<description>
+			</description>
+		</method>
+		<method name="unlock">
+			<return type="void" />
+			<description>
+			</description>
+		</method>
+	</methods>
+	<members>
+		<member name="bus_count" type="int" setter="set_bus_count" getter="get_bus_count" default="1">
+		</member>
+		<member name="input_device" type="String" setter="set_input_device" getter="get_input_device" default="&quot;Default&quot;">
+		</member>
+		<member name="output_device" type="String" setter="set_output_device" getter="get_output_device" default="&quot;Default&quot;">
+		</member>
+		<member name="playback_speed_scale" type="float" setter="set_playback_speed_scale" getter="get_playback_speed_scale" default="1.0">
+		</member>
+	</members>
+	<signals>
+		<signal name="bus_layout_changed">
+			<description>
+			</description>
+		</signal>
+		<signal name="bus_renamed">
+			<param index="0" name="bus_index" type="int" />
+			<param index="1" name="old_name" type="StringName" />
+			<param index="2" name="new_name" type="StringName" />
+			<description>
+			</description>
+		</signal>
+	</signals>
+	<constants>
+		<constant name="SPEAKER_MODE_STEREO" value="0" enum="SpeakerMode">
+		</constant>
+		<constant name="SPEAKER_SURROUND_31" value="1" enum="SpeakerMode">
+		</constant>
+		<constant name="SPEAKER_SURROUND_51" value="2" enum="SpeakerMode">
+		</constant>
+		<constant name="SPEAKER_SURROUND_71" value="3" enum="SpeakerMode">
+		</constant>
+	</constants>
+</class>

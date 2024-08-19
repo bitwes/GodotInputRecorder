@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<class name="GradientTexture2D" inherits="Texture2D" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../class.xsd">
+	<brief_description>
+	</brief_description>
+	<description>
+	</description>
+	<tutorials>
+	</tutorials>
+	<members>
+		<member name="fill" type="int" setter="set_fill" getter="get_fill" enum="GradientTexture2D.Fill" default="0">
+		</member>
+		<member name="fill_from" type="Vector2" setter="set_fill_from" getter="get_fill_from" default="Vector2(0, 0)">
+		</member>
+		<member name="fill_to" type="Vector2" setter="set_fill_to" getter="get_fill_to" default="Vector2(1, 0)">
+		</member>
+		<member name="gradient" type="Gradient" setter="set_gradient" getter="get_gradient">
+		</member>
+		<member name="height" type="int" setter="set_height" getter="get_height" default="64">
+		</member>
+		<member name="repeat" type="int" setter="set_repeat" getter="get_repeat" enum="GradientTexture2D.Repeat" default="0">
+		</member>
+		<member name="resource_local_to_scene" type="bool" setter="set_local_to_scene" getter="is_local_to_scene" overrides="Resource" default="false" />
+		<member name="use_hdr" type="bool" setter="set_use_hdr" getter="is_using_hdr" default="false">
+		</member>
+		<member name="width" type="int" setter="set_width" getter="get_width" default="64">
+		</member>
+	</members>
+	<constants>
+		<constant name="FILL_LINEAR" value="0" enum="Fill">
+		</constant>
+		<constant name="FILL_RADIAL" value="1" enum="Fill">
+		</constant>
+		<constant name="FILL_SQUARE" value="2" enum="Fill">
+		</constant>
+		<constant name="REPEAT_NONE" value="0" enum="Repeat">
+		</constant>
+		<constant name="REPEAT" value="1" enum="Repeat">
+		</constant>
+		<constant name="REPEAT_MIRROR" value="2" enum="Repeat">
+		</constant>
+	</constants>
+</class>

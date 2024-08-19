@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<class name="EngineDebugger" inherits="Object" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../class.xsd">
+	<brief_description>
+	</brief_description>
+	<description>
+	</description>
+	<tutorials>
+	</tutorials>
+	<methods>
+		<method name="has_capture">
+			<return type="bool" />
+			<param index="0" name="name" type="StringName" />
+			<description>
+			</description>
+		</method>
+		<method name="has_profiler">
+			<return type="bool" />
+			<param index="0" name="name" type="StringName" />
+			<description>
+			</description>
+		</method>
+		<method name="is_active">
+			<return type="bool" />
+			<description>
+			</description>
+		</method>
+		<method name="is_profiling">
+			<return type="bool" />
+			<param index="0" name="name" type="StringName" />
+			<description>
+			</description>
+		</method>
+		<method name="profiler_add_frame_data">
+			<return type="void" />
+			<param index="0" name="name" type="StringName" />
+			<param index="1" name="data" type="Array" />
+			<description>
+			</description>
+		</method>
+		<method name="profiler_enable">
+			<return type="void" />
+			<param index="0" name="name" type="StringName" />
+			<param index="1" name="enable" type="bool" />
+			<param index="2" name="arguments" type="Array" default="[]" />
+			<description>
+			</description>
+		</method>
+		<method name="register_message_capture">
+			<return type="void" />
+			<param index="0" name="name" type="StringName" />
+			<param index="1" name="callable" type="Callable" />
+			<description>
+			</description>
+		</method>
+		<method name="register_profiler">
+			<return type="void" />
+			<param index="0" name="name" type="StringName" />
+			<param index="1" name="profiler" type="EngineProfiler" />
+			<description>
+			</description>
+		</method>
+		<method name="send_message">
+			<return type="void" />
+			<param index="0" name="message" type="String" />
+			<param index="1" name="data" type="Array" />
+			<description>
+			</description>
+		</method>
+		<method name="unregister_message_capture">
+			<return type="void" />
+			<param index="0" name="name" type="StringName" />
+			<description>
+			</description>
+		</method>
+		<method name="unregister_profiler">
+			<return type="void" />
+			<param index="0" name="name" type="StringName" />
+			<description>
+			</description>
+		</method>
+	</methods>
+</class>

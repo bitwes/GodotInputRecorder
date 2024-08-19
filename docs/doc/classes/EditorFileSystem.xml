@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<class name="EditorFileSystem" inherits="Node" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../class.xsd">
+	<brief_description>
+	</brief_description>
+	<description>
+	</description>
+	<tutorials>
+	</tutorials>
+	<methods>
+		<method name="get_file_type" qualifiers="const">
+			<return type="String" />
+			<param index="0" name="path" type="String" />
+			<description>
+			</description>
+		</method>
+		<method name="get_filesystem">
+			<return type="EditorFileSystemDirectory" />
+			<description>
+			</description>
+		</method>
+		<method name="get_filesystem_path">
+			<return type="EditorFileSystemDirectory" />
+			<param index="0" name="path" type="String" />
+			<description>
+			</description>
+		</method>
+		<method name="get_scanning_progress" qualifiers="const">
+			<return type="float" />
+			<description>
+			</description>
+		</method>
+		<method name="is_scanning" qualifiers="const">
+			<return type="bool" />
+			<description>
+			</description>
+		</method>
+		<method name="reimport_files">
+			<return type="void" />
+			<param index="0" name="files" type="PackedStringArray" />
+			<description>
+			</description>
+		</method>
+		<method name="scan">
+			<return type="void" />
+			<description>
+			</description>
+		</method>
+		<method name="scan_sources">
+			<return type="void" />
+			<description>
+			</description>
+		</method>
+		<method name="update_file">
+			<return type="void" />
+			<param index="0" name="path" type="String" />
+			<description>
+			</description>
+		</method>
+	</methods>
+	<signals>
+		<signal name="filesystem_changed">
+			<description>
+			</description>
+		</signal>
+		<signal name="resources_reimported">
+			<param index="0" name="resources" type="PackedStringArray" />
+			<description>
+			</description>
+		</signal>
+		<signal name="resources_reload">
+			<param index="0" name="resources" type="PackedStringArray" />
+			<description>
+			</description>
+		</signal>
+		<signal name="script_classes_updated">
+			<description>
+			</description>
+		</signal>
+		<signal name="sources_changed">
+			<param index="0" name="exist" type="bool" />
+			<description>
+			</description>
+		</signal>
+	</signals>
+</class>

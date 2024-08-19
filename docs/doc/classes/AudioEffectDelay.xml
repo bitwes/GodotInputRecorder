@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<class name="AudioEffectDelay" inherits="AudioEffect" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../class.xsd">
+	<brief_description>
+	</brief_description>
+	<description>
+	</description>
+	<tutorials>
+	</tutorials>
+	<members>
+		<member name="dry" type="float" setter="set_dry" getter="get_dry" default="1.0">
+		</member>
+		<member name="feedback_active" type="bool" setter="set_feedback_active" getter="is_feedback_active" default="false">
+		</member>
+		<member name="feedback_delay_ms" type="float" setter="set_feedback_delay_ms" getter="get_feedback_delay_ms" default="340.0">
+		</member>
+		<member name="feedback_level_db" type="float" setter="set_feedback_level_db" getter="get_feedback_level_db" default="-6.0">
+		</member>
+		<member name="feedback_lowpass" type="float" setter="set_feedback_lowpass" getter="get_feedback_lowpass" default="16000.0">
+		</member>
+		<member name="tap1_active" type="bool" setter="set_tap1_active" getter="is_tap1_active" default="true">
+		</member>
+		<member name="tap1_delay_ms" type="float" setter="set_tap1_delay_ms" getter="get_tap1_delay_ms" default="250.0">
+		</member>
+		<member name="tap1_level_db" type="float" setter="set_tap1_level_db" getter="get_tap1_level_db" default="-6.0">
+		</member>
+		<member name="tap1_pan" type="float" setter="set_tap1_pan" getter="get_tap1_pan" default="0.2">
+		</member>
+		<member name="tap2_active" type="bool" setter="set_tap2_active" getter="is_tap2_active" default="true">
+		</member>
+		<member name="tap2_delay_ms" type="float" setter="set_tap2_delay_ms" getter="get_tap2_delay_ms" default="500.0">
+		</member>
+		<member name="tap2_level_db" type="float" setter="set_tap2_level_db" getter="get_tap2_level_db" default="-12.0">
+		</member>
+		<member name="tap2_pan" type="float" setter="set_tap2_pan" getter="get_tap2_pan" default="-0.4">
+		</member>
+	</members>
+</class>

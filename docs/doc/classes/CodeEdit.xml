@@ -1,0 +1,560 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<class name="CodeEdit" inherits="TextEdit" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../class.xsd">
+	<brief_description>
+	</brief_description>
+	<description>
+	</description>
+	<tutorials>
+	</tutorials>
+	<methods>
+		<method name="_confirm_code_completion" qualifiers="virtual">
+			<return type="void" />
+			<param index="0" name="replace" type="bool" />
+			<description>
+			</description>
+		</method>
+		<method name="_filter_code_completion_candidates" qualifiers="virtual const">
+			<return type="Dictionary[]" />
+			<param index="0" name="candidates" type="Dictionary[]" />
+			<description>
+			</description>
+		</method>
+		<method name="_request_code_completion" qualifiers="virtual">
+			<return type="void" />
+			<param index="0" name="force" type="bool" />
+			<description>
+			</description>
+		</method>
+		<method name="add_auto_brace_completion_pair">
+			<return type="void" />
+			<param index="0" name="start_key" type="String" />
+			<param index="1" name="end_key" type="String" />
+			<description>
+			</description>
+		</method>
+		<method name="add_code_completion_option">
+			<return type="void" />
+			<param index="0" name="type" type="int" enum="CodeEdit.CodeCompletionKind" />
+			<param index="1" name="display_text" type="String" />
+			<param index="2" name="insert_text" type="String" />
+			<param index="3" name="text_color" type="Color" default="Color(1, 1, 1, 1)" />
+			<param index="4" name="icon" type="Resource" default="null" />
+			<param index="5" name="value" type="Variant" default="0" />
+			<param index="6" name="location" type="int" default="1024" />
+			<description>
+			</description>
+		</method>
+		<method name="add_comment_delimiter">
+			<return type="void" />
+			<param index="0" name="start_key" type="String" />
+			<param index="1" name="end_key" type="String" />
+			<param index="2" name="line_only" type="bool" default="false" />
+			<description>
+			</description>
+		</method>
+		<method name="add_string_delimiter">
+			<return type="void" />
+			<param index="0" name="start_key" type="String" />
+			<param index="1" name="end_key" type="String" />
+			<param index="2" name="line_only" type="bool" default="false" />
+			<description>
+			</description>
+		</method>
+		<method name="can_fold_line" qualifiers="const">
+			<return type="bool" />
+			<param index="0" name="line" type="int" />
+			<description>
+			</description>
+		</method>
+		<method name="cancel_code_completion">
+			<return type="void" />
+			<description>
+			</description>
+		</method>
+		<method name="clear_bookmarked_lines">
+			<return type="void" />
+			<description>
+			</description>
+		</method>
+		<method name="clear_breakpointed_lines">
+			<return type="void" />
+			<description>
+			</description>
+		</method>
+		<method name="clear_comment_delimiters">
+			<return type="void" />
+			<description>
+			</description>
+		</method>
+		<method name="clear_executing_lines">
+			<return type="void" />
+			<description>
+			</description>
+		</method>
+		<method name="clear_string_delimiters">
+			<return type="void" />
+			<description>
+			</description>
+		</method>
+		<method name="confirm_code_completion">
+			<return type="void" />
+			<param index="0" name="replace" type="bool" default="false" />
+			<description>
+			</description>
+		</method>
+		<method name="convert_indent">
+			<return type="void" />
+			<param index="0" name="from_line" type="int" default="-1" />
+			<param index="1" name="to_line" type="int" default="-1" />
+			<description>
+			</description>
+		</method>
+		<method name="create_code_region">
+			<return type="void" />
+			<description>
+			</description>
+		</method>
+		<method name="do_indent">
+			<return type="void" />
+			<description>
+			</description>
+		</method>
+		<method name="duplicate_lines">
+			<return type="void" />
+			<description>
+			</description>
+		</method>
+		<method name="fold_all_lines">
+			<return type="void" />
+			<description>
+			</description>
+		</method>
+		<method name="fold_line">
+			<return type="void" />
+			<param index="0" name="line" type="int" />
+			<description>
+			</description>
+		</method>
+		<method name="get_auto_brace_completion_close_key" qualifiers="const">
+			<return type="String" />
+			<param index="0" name="open_key" type="String" />
+			<description>
+			</description>
+		</method>
+		<method name="get_bookmarked_lines" qualifiers="const">
+			<return type="PackedInt32Array" />
+			<description>
+			</description>
+		</method>
+		<method name="get_breakpointed_lines" qualifiers="const">
+			<return type="PackedInt32Array" />
+			<description>
+			</description>
+		</method>
+		<method name="get_code_completion_option" qualifiers="const">
+			<return type="Dictionary" />
+			<param index="0" name="index" type="int" />
+			<description>
+			</description>
+		</method>
+		<method name="get_code_completion_options" qualifiers="const">
+			<return type="Dictionary[]" />
+			<description>
+			</description>
+		</method>
+		<method name="get_code_completion_selected_index" qualifiers="const">
+			<return type="int" />
+			<description>
+			</description>
+		</method>
+		<method name="get_code_region_end_tag" qualifiers="const">
+			<return type="String" />
+			<description>
+			</description>
+		</method>
+		<method name="get_code_region_start_tag" qualifiers="const">
+			<return type="String" />
+			<description>
+			</description>
+		</method>
+		<method name="get_delimiter_end_key" qualifiers="const">
+			<return type="String" />
+			<param index="0" name="delimiter_index" type="int" />
+			<description>
+			</description>
+		</method>
+		<method name="get_delimiter_end_position" qualifiers="const">
+			<return type="Vector2" />
+			<param index="0" name="line" type="int" />
+			<param index="1" name="column" type="int" />
+			<description>
+			</description>
+		</method>
+		<method name="get_delimiter_start_key" qualifiers="const">
+			<return type="String" />
+			<param index="0" name="delimiter_index" type="int" />
+			<description>
+			</description>
+		</method>
+		<method name="get_delimiter_start_position" qualifiers="const">
+			<return type="Vector2" />
+			<param index="0" name="line" type="int" />
+			<param index="1" name="column" type="int" />
+			<description>
+			</description>
+		</method>
+		<method name="get_executing_lines" qualifiers="const">
+			<return type="PackedInt32Array" />
+			<description>
+			</description>
+		</method>
+		<method name="get_folded_lines" qualifiers="const">
+			<return type="int[]" />
+			<description>
+			</description>
+		</method>
+		<method name="get_text_for_code_completion" qualifiers="const">
+			<return type="String" />
+			<description>
+			</description>
+		</method>
+		<method name="get_text_for_symbol_lookup" qualifiers="const">
+			<return type="String" />
+			<description>
+			</description>
+		</method>
+		<method name="get_text_with_cursor_char" qualifiers="const">
+			<return type="String" />
+			<param index="0" name="line" type="int" />
+			<param index="1" name="column" type="int" />
+			<description>
+			</description>
+		</method>
+		<method name="has_auto_brace_completion_close_key" qualifiers="const">
+			<return type="bool" />
+			<param index="0" name="close_key" type="String" />
+			<description>
+			</description>
+		</method>
+		<method name="has_auto_brace_completion_open_key" qualifiers="const">
+			<return type="bool" />
+			<param index="0" name="open_key" type="String" />
+			<description>
+			</description>
+		</method>
+		<method name="has_comment_delimiter" qualifiers="const">
+			<return type="bool" />
+			<param index="0" name="start_key" type="String" />
+			<description>
+			</description>
+		</method>
+		<method name="has_string_delimiter" qualifiers="const">
+			<return type="bool" />
+			<param index="0" name="start_key" type="String" />
+			<description>
+			</description>
+		</method>
+		<method name="indent_lines">
+			<return type="void" />
+			<description>
+			</description>
+		</method>
+		<method name="is_in_comment" qualifiers="const">
+			<return type="int" />
+			<param index="0" name="line" type="int" />
+			<param index="1" name="column" type="int" default="-1" />
+			<description>
+			</description>
+		</method>
+		<method name="is_in_string" qualifiers="const">
+			<return type="int" />
+			<param index="0" name="line" type="int" />
+			<param index="1" name="column" type="int" default="-1" />
+			<description>
+			</description>
+		</method>
+		<method name="is_line_bookmarked" qualifiers="const">
+			<return type="bool" />
+			<param index="0" name="line" type="int" />
+			<description>
+			</description>
+		</method>
+		<method name="is_line_breakpointed" qualifiers="const">
+			<return type="bool" />
+			<param index="0" name="line" type="int" />
+			<description>
+			</description>
+		</method>
+		<method name="is_line_code_region_end" qualifiers="const">
+			<return type="bool" />
+			<param index="0" name="line" type="int" />
+			<description>
+			</description>
+		</method>
+		<method name="is_line_code_region_start" qualifiers="const">
+			<return type="bool" />
+			<param index="0" name="line" type="int" />
+			<description>
+			</description>
+		</method>
+		<method name="is_line_executing" qualifiers="const">
+			<return type="bool" />
+			<param index="0" name="line" type="int" />
+			<description>
+			</description>
+		</method>
+		<method name="is_line_folded" qualifiers="const">
+			<return type="bool" />
+			<param index="0" name="line" type="int" />
+			<description>
+			</description>
+		</method>
+		<method name="remove_comment_delimiter">
+			<return type="void" />
+			<param index="0" name="start_key" type="String" />
+			<description>
+			</description>
+		</method>
+		<method name="remove_string_delimiter">
+			<return type="void" />
+			<param index="0" name="start_key" type="String" />
+			<description>
+			</description>
+		</method>
+		<method name="request_code_completion">
+			<return type="void" />
+			<param index="0" name="force" type="bool" default="false" />
+			<description>
+			</description>
+		</method>
+		<method name="set_code_completion_selected_index">
+			<return type="void" />
+			<param index="0" name="index" type="int" />
+			<description>
+			</description>
+		</method>
+		<method name="set_code_hint">
+			<return type="void" />
+			<param index="0" name="code_hint" type="String" />
+			<description>
+			</description>
+		</method>
+		<method name="set_code_hint_draw_below">
+			<return type="void" />
+			<param index="0" name="draw_below" type="bool" />
+			<description>
+			</description>
+		</method>
+		<method name="set_code_region_tags">
+			<return type="void" />
+			<param index="0" name="start" type="String" default="&quot;region&quot;" />
+			<param index="1" name="end" type="String" default="&quot;endregion&quot;" />
+			<description>
+			</description>
+		</method>
+		<method name="set_line_as_bookmarked">
+			<return type="void" />
+			<param index="0" name="line" type="int" />
+			<param index="1" name="bookmarked" type="bool" />
+			<description>
+			</description>
+		</method>
+		<method name="set_line_as_breakpoint">
+			<return type="void" />
+			<param index="0" name="line" type="int" />
+			<param index="1" name="breakpointed" type="bool" />
+			<description>
+			</description>
+		</method>
+		<method name="set_line_as_executing">
+			<return type="void" />
+			<param index="0" name="line" type="int" />
+			<param index="1" name="executing" type="bool" />
+			<description>
+			</description>
+		</method>
+		<method name="set_symbol_lookup_word_as_valid">
+			<return type="void" />
+			<param index="0" name="valid" type="bool" />
+			<description>
+			</description>
+		</method>
+		<method name="toggle_foldable_line">
+			<return type="void" />
+			<param index="0" name="line" type="int" />
+			<description>
+			</description>
+		</method>
+		<method name="unfold_all_lines">
+			<return type="void" />
+			<description>
+			</description>
+		</method>
+		<method name="unfold_line">
+			<return type="void" />
+			<param index="0" name="line" type="int" />
+			<description>
+			</description>
+		</method>
+		<method name="unindent_lines">
+			<return type="void" />
+			<description>
+			</description>
+		</method>
+		<method name="update_code_completion_options">
+			<return type="void" />
+			<param index="0" name="force" type="bool" />
+			<description>
+			</description>
+		</method>
+	</methods>
+	<members>
+		<member name="auto_brace_completion_enabled" type="bool" setter="set_auto_brace_completion_enabled" getter="is_auto_brace_completion_enabled" default="false">
+		</member>
+		<member name="auto_brace_completion_highlight_matching" type="bool" setter="set_highlight_matching_braces_enabled" getter="is_highlight_matching_braces_enabled" default="false">
+		</member>
+		<member name="auto_brace_completion_pairs" type="Dictionary" setter="set_auto_brace_completion_pairs" getter="get_auto_brace_completion_pairs" default="{ &quot;\&quot;&quot;: &quot;\&quot;&quot;, &quot;&apos;&quot;: &quot;&apos;&quot;, &quot;(&quot;: &quot;)&quot;, &quot;[&quot;: &quot;]&quot;, &quot;{&quot;: &quot;}&quot; }">
+		</member>
+		<member name="code_completion_enabled" type="bool" setter="set_code_completion_enabled" getter="is_code_completion_enabled" default="false">
+		</member>
+		<member name="code_completion_prefixes" type="String[]" setter="set_code_completion_prefixes" getter="get_code_completion_prefixes" default="[]">
+		</member>
+		<member name="delimiter_comments" type="String[]" setter="set_comment_delimiters" getter="get_comment_delimiters" default="[]">
+		</member>
+		<member name="delimiter_strings" type="String[]" setter="set_string_delimiters" getter="get_string_delimiters" default="[&quot;&apos; &apos;&quot;, &quot;\&quot; \&quot;&quot;]">
+		</member>
+		<member name="gutters_draw_bookmarks" type="bool" setter="set_draw_bookmarks_gutter" getter="is_drawing_bookmarks_gutter" default="false">
+		</member>
+		<member name="gutters_draw_breakpoints_gutter" type="bool" setter="set_draw_breakpoints_gutter" getter="is_drawing_breakpoints_gutter" default="false">
+		</member>
+		<member name="gutters_draw_executing_lines" type="bool" setter="set_draw_executing_lines_gutter" getter="is_drawing_executing_lines_gutter" default="false">
+		</member>
+		<member name="gutters_draw_fold_gutter" type="bool" setter="set_draw_fold_gutter" getter="is_drawing_fold_gutter" default="false">
+		</member>
+		<member name="gutters_draw_line_numbers" type="bool" setter="set_draw_line_numbers" getter="is_draw_line_numbers_enabled" default="false">
+		</member>
+		<member name="gutters_zero_pad_line_numbers" type="bool" setter="set_line_numbers_zero_padded" getter="is_line_numbers_zero_padded" default="false">
+		</member>
+		<member name="indent_automatic" type="bool" setter="set_auto_indent_enabled" getter="is_auto_indent_enabled" default="false">
+		</member>
+		<member name="indent_automatic_prefixes" type="String[]" setter="set_auto_indent_prefixes" getter="get_auto_indent_prefixes" default="[&quot;:&quot;, &quot;{&quot;, &quot;[&quot;, &quot;(&quot;]">
+		</member>
+		<member name="indent_size" type="int" setter="set_indent_size" getter="get_indent_size" default="4">
+		</member>
+		<member name="indent_use_spaces" type="bool" setter="set_indent_using_spaces" getter="is_indent_using_spaces" default="false">
+		</member>
+		<member name="layout_direction" type="int" setter="set_layout_direction" getter="get_layout_direction" overrides="Control" enum="Control.LayoutDirection" default="2" />
+		<member name="line_folding" type="bool" setter="set_line_folding_enabled" getter="is_line_folding_enabled" default="false">
+		</member>
+		<member name="line_length_guidelines" type="int[]" setter="set_line_length_guidelines" getter="get_line_length_guidelines" default="[]">
+		</member>
+		<member name="symbol_lookup_on_click" type="bool" setter="set_symbol_lookup_on_click_enabled" getter="is_symbol_lookup_on_click_enabled" default="false">
+		</member>
+		<member name="text_direction" type="int" setter="set_text_direction" getter="get_text_direction" overrides="TextEdit" enum="Control.TextDirection" default="1" />
+	</members>
+	<signals>
+		<signal name="breakpoint_toggled">
+			<param index="0" name="line" type="int" />
+			<description>
+			</description>
+		</signal>
+		<signal name="code_completion_requested">
+			<description>
+			</description>
+		</signal>
+		<signal name="symbol_lookup">
+			<param index="0" name="symbol" type="String" />
+			<param index="1" name="line" type="int" />
+			<param index="2" name="column" type="int" />
+			<description>
+			</description>
+		</signal>
+		<signal name="symbol_validate">
+			<param index="0" name="symbol" type="String" />
+			<description>
+			</description>
+		</signal>
+	</signals>
+	<constants>
+		<constant name="KIND_CLASS" value="0" enum="CodeCompletionKind">
+		</constant>
+		<constant name="KIND_FUNCTION" value="1" enum="CodeCompletionKind">
+		</constant>
+		<constant name="KIND_SIGNAL" value="2" enum="CodeCompletionKind">
+		</constant>
+		<constant name="KIND_VARIABLE" value="3" enum="CodeCompletionKind">
+		</constant>
+		<constant name="KIND_MEMBER" value="4" enum="CodeCompletionKind">
+		</constant>
+		<constant name="KIND_ENUM" value="5" enum="CodeCompletionKind">
+		</constant>
+		<constant name="KIND_CONSTANT" value="6" enum="CodeCompletionKind">
+		</constant>
+		<constant name="KIND_NODE_PATH" value="7" enum="CodeCompletionKind">
+		</constant>
+		<constant name="KIND_FILE_PATH" value="8" enum="CodeCompletionKind">
+		</constant>
+		<constant name="KIND_PLAIN_TEXT" value="9" enum="CodeCompletionKind">
+		</constant>
+		<constant name="LOCATION_LOCAL" value="0" enum="CodeCompletionLocation">
+		</constant>
+		<constant name="LOCATION_PARENT_MASK" value="256" enum="CodeCompletionLocation">
+		</constant>
+		<constant name="LOCATION_OTHER_USER_CODE" value="512" enum="CodeCompletionLocation">
+		</constant>
+		<constant name="LOCATION_OTHER" value="1024" enum="CodeCompletionLocation">
+		</constant>
+	</constants>
+	<theme_items>
+		<theme_item name="bookmark_color" data_type="color" type="Color" default="Color(0.5, 0.64, 1, 0.8)">
+		</theme_item>
+		<theme_item name="brace_mismatch_color" data_type="color" type="Color" default="Color(1, 0.2, 0.2, 1)">
+		</theme_item>
+		<theme_item name="breakpoint_color" data_type="color" type="Color" default="Color(0.9, 0.29, 0.3, 1)">
+		</theme_item>
+		<theme_item name="code_folding_color" data_type="color" type="Color" default="Color(0.8, 0.8, 0.8, 0.8)">
+		</theme_item>
+		<theme_item name="completion_background_color" data_type="color" type="Color" default="Color(0.17, 0.16, 0.2, 1)">
+		</theme_item>
+		<theme_item name="completion_existing_color" data_type="color" type="Color" default="Color(0.87, 0.87, 0.87, 0.13)">
+		</theme_item>
+		<theme_item name="completion_scroll_color" data_type="color" type="Color" default="Color(1, 1, 1, 0.29)">
+		</theme_item>
+		<theme_item name="completion_scroll_hovered_color" data_type="color" type="Color" default="Color(1, 1, 1, 0.4)">
+		</theme_item>
+		<theme_item name="completion_selected_color" data_type="color" type="Color" default="Color(0.26, 0.26, 0.27, 1)">
+		</theme_item>
+		<theme_item name="executing_line_color" data_type="color" type="Color" default="Color(0.98, 0.89, 0.27, 1)">
+		</theme_item>
+		<theme_item name="folded_code_region_color" data_type="color" type="Color" default="Color(0.68, 0.46, 0.77, 0.2)">
+		</theme_item>
+		<theme_item name="line_length_guideline_color" data_type="color" type="Color" default="Color(0.3, 0.5, 0.8, 0.1)">
+		</theme_item>
+		<theme_item name="line_number_color" data_type="color" type="Color" default="Color(0.67, 0.67, 0.67, 0.4)">
+		</theme_item>
+		<theme_item name="completion_lines" data_type="constant" type="int" default="7">
+		</theme_item>
+		<theme_item name="completion_max_width" data_type="constant" type="int" default="50">
+		</theme_item>
+		<theme_item name="completion_scroll_width" data_type="constant" type="int" default="6">
+		</theme_item>
+		<theme_item name="bookmark" data_type="icon" type="Texture2D">
+		</theme_item>
+		<theme_item name="breakpoint" data_type="icon" type="Texture2D">
+		</theme_item>
+		<theme_item name="can_fold" data_type="icon" type="Texture2D">
+		</theme_item>
+		<theme_item name="can_fold_code_region" data_type="icon" type="Texture2D">
+		</theme_item>
+		<theme_item name="executing_line" data_type="icon" type="Texture2D">
+		</theme_item>
+		<theme_item name="folded" data_type="icon" type="Texture2D">
+		</theme_item>
+		<theme_item name="folded_code_region" data_type="icon" type="Texture2D">
+		</theme_item>
+		<theme_item name="folded_eol_icon" data_type="icon" type="Texture2D">
+		</theme_item>
+		<theme_item name="completion" data_type="style" type="StyleBox">
+		</theme_item>
+	</theme_items>
+</class>

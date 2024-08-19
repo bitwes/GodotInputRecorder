@@ -1,0 +1,266 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<class name="CPUParticles2D" inherits="Node2D" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../class.xsd">
+	<brief_description>
+	</brief_description>
+	<description>
+	</description>
+	<tutorials>
+	</tutorials>
+	<methods>
+		<method name="convert_from_particles">
+			<return type="void" />
+			<param index="0" name="particles" type="Node" />
+			<description>
+			</description>
+		</method>
+		<method name="get_param_curve" qualifiers="const">
+			<return type="Curve" />
+			<param index="0" name="param" type="int" enum="CPUParticles2D.Parameter" />
+			<description>
+			</description>
+		</method>
+		<method name="get_param_max" qualifiers="const">
+			<return type="float" />
+			<param index="0" name="param" type="int" enum="CPUParticles2D.Parameter" />
+			<description>
+			</description>
+		</method>
+		<method name="get_param_min" qualifiers="const">
+			<return type="float" />
+			<param index="0" name="param" type="int" enum="CPUParticles2D.Parameter" />
+			<description>
+			</description>
+		</method>
+		<method name="get_particle_flag" qualifiers="const">
+			<return type="bool" />
+			<param index="0" name="particle_flag" type="int" enum="CPUParticles2D.ParticleFlags" />
+			<description>
+			</description>
+		</method>
+		<method name="restart">
+			<return type="void" />
+			<description>
+			</description>
+		</method>
+		<method name="set_param_curve">
+			<return type="void" />
+			<param index="0" name="param" type="int" enum="CPUParticles2D.Parameter" />
+			<param index="1" name="curve" type="Curve" />
+			<description>
+			</description>
+		</method>
+		<method name="set_param_max">
+			<return type="void" />
+			<param index="0" name="param" type="int" enum="CPUParticles2D.Parameter" />
+			<param index="1" name="value" type="float" />
+			<description>
+			</description>
+		</method>
+		<method name="set_param_min">
+			<return type="void" />
+			<param index="0" name="param" type="int" enum="CPUParticles2D.Parameter" />
+			<param index="1" name="value" type="float" />
+			<description>
+			</description>
+		</method>
+		<method name="set_particle_flag">
+			<return type="void" />
+			<param index="0" name="particle_flag" type="int" enum="CPUParticles2D.ParticleFlags" />
+			<param index="1" name="enable" type="bool" />
+			<description>
+			</description>
+		</method>
+	</methods>
+	<members>
+		<member name="amount" type="int" setter="set_amount" getter="get_amount" default="8">
+		</member>
+		<member name="angle_curve" type="Curve" setter="set_param_curve" getter="get_param_curve">
+		</member>
+		<member name="angle_max" type="float" setter="set_param_max" getter="get_param_max" default="0.0">
+		</member>
+		<member name="angle_min" type="float" setter="set_param_min" getter="get_param_min" default="0.0">
+		</member>
+		<member name="angular_velocity_curve" type="Curve" setter="set_param_curve" getter="get_param_curve">
+		</member>
+		<member name="angular_velocity_max" type="float" setter="set_param_max" getter="get_param_max" default="0.0">
+		</member>
+		<member name="angular_velocity_min" type="float" setter="set_param_min" getter="get_param_min" default="0.0">
+		</member>
+		<member name="anim_offset_curve" type="Curve" setter="set_param_curve" getter="get_param_curve">
+		</member>
+		<member name="anim_offset_max" type="float" setter="set_param_max" getter="get_param_max" default="0.0">
+		</member>
+		<member name="anim_offset_min" type="float" setter="set_param_min" getter="get_param_min" default="0.0">
+		</member>
+		<member name="anim_speed_curve" type="Curve" setter="set_param_curve" getter="get_param_curve">
+		</member>
+		<member name="anim_speed_max" type="float" setter="set_param_max" getter="get_param_max" default="0.0">
+		</member>
+		<member name="anim_speed_min" type="float" setter="set_param_min" getter="get_param_min" default="0.0">
+		</member>
+		<member name="color" type="Color" setter="set_color" getter="get_color" default="Color(1, 1, 1, 1)">
+		</member>
+		<member name="color_initial_ramp" type="Gradient" setter="set_color_initial_ramp" getter="get_color_initial_ramp">
+		</member>
+		<member name="color_ramp" type="Gradient" setter="set_color_ramp" getter="get_color_ramp">
+		</member>
+		<member name="damping_curve" type="Curve" setter="set_param_curve" getter="get_param_curve">
+		</member>
+		<member name="damping_max" type="float" setter="set_param_max" getter="get_param_max" default="0.0">
+		</member>
+		<member name="damping_min" type="float" setter="set_param_min" getter="get_param_min" default="0.0">
+		</member>
+		<member name="direction" type="Vector2" setter="set_direction" getter="get_direction" default="Vector2(1, 0)">
+		</member>
+		<member name="draw_order" type="int" setter="set_draw_order" getter="get_draw_order" enum="CPUParticles2D.DrawOrder" default="0">
+		</member>
+		<member name="emission_colors" type="PackedColorArray" setter="set_emission_colors" getter="get_emission_colors">
+		</member>
+		<member name="emission_normals" type="PackedVector2Array" setter="set_emission_normals" getter="get_emission_normals">
+		</member>
+		<member name="emission_points" type="PackedVector2Array" setter="set_emission_points" getter="get_emission_points">
+		</member>
+		<member name="emission_rect_extents" type="Vector2" setter="set_emission_rect_extents" getter="get_emission_rect_extents">
+		</member>
+		<member name="emission_shape" type="int" setter="set_emission_shape" getter="get_emission_shape" enum="CPUParticles2D.EmissionShape" default="0">
+		</member>
+		<member name="emission_sphere_radius" type="float" setter="set_emission_sphere_radius" getter="get_emission_sphere_radius">
+		</member>
+		<member name="emitting" type="bool" setter="set_emitting" getter="is_emitting" default="true">
+		</member>
+		<member name="explosiveness" type="float" setter="set_explosiveness_ratio" getter="get_explosiveness_ratio" default="0.0">
+		</member>
+		<member name="fixed_fps" type="int" setter="set_fixed_fps" getter="get_fixed_fps" default="0">
+		</member>
+		<member name="fract_delta" type="bool" setter="set_fractional_delta" getter="get_fractional_delta" default="true">
+		</member>
+		<member name="gravity" type="Vector2" setter="set_gravity" getter="get_gravity" default="Vector2(0, 980)">
+		</member>
+		<member name="hue_variation_curve" type="Curve" setter="set_param_curve" getter="get_param_curve">
+		</member>
+		<member name="hue_variation_max" type="float" setter="set_param_max" getter="get_param_max" default="0.0">
+		</member>
+		<member name="hue_variation_min" type="float" setter="set_param_min" getter="get_param_min" default="0.0">
+		</member>
+		<member name="initial_velocity_max" type="float" setter="set_param_max" getter="get_param_max" default="0.0">
+		</member>
+		<member name="initial_velocity_min" type="float" setter="set_param_min" getter="get_param_min" default="0.0">
+		</member>
+		<member name="lifetime" type="float" setter="set_lifetime" getter="get_lifetime" default="1.0">
+		</member>
+		<member name="lifetime_randomness" type="float" setter="set_lifetime_randomness" getter="get_lifetime_randomness" default="0.0">
+		</member>
+		<member name="linear_accel_curve" type="Curve" setter="set_param_curve" getter="get_param_curve">
+		</member>
+		<member name="linear_accel_max" type="float" setter="set_param_max" getter="get_param_max" default="0.0">
+		</member>
+		<member name="linear_accel_min" type="float" setter="set_param_min" getter="get_param_min" default="0.0">
+		</member>
+		<member name="local_coords" type="bool" setter="set_use_local_coordinates" getter="get_use_local_coordinates" default="false">
+		</member>
+		<member name="one_shot" type="bool" setter="set_one_shot" getter="get_one_shot" default="false">
+		</member>
+		<member name="orbit_velocity_curve" type="Curve" setter="set_param_curve" getter="get_param_curve">
+		</member>
+		<member name="orbit_velocity_max" type="float" setter="set_param_max" getter="get_param_max" default="0.0">
+		</member>
+		<member name="orbit_velocity_min" type="float" setter="set_param_min" getter="get_param_min" default="0.0">
+		</member>
+		<member name="particle_flag_align_y" type="bool" setter="set_particle_flag" getter="get_particle_flag" default="false">
+		</member>
+		<member name="preprocess" type="float" setter="set_pre_process_time" getter="get_pre_process_time" default="0.0">
+		</member>
+		<member name="radial_accel_curve" type="Curve" setter="set_param_curve" getter="get_param_curve">
+		</member>
+		<member name="radial_accel_max" type="float" setter="set_param_max" getter="get_param_max" default="0.0">
+		</member>
+		<member name="radial_accel_min" type="float" setter="set_param_min" getter="get_param_min" default="0.0">
+		</member>
+		<member name="randomness" type="float" setter="set_randomness_ratio" getter="get_randomness_ratio" default="0.0">
+		</member>
+		<member name="scale_amount_curve" type="Curve" setter="set_param_curve" getter="get_param_curve">
+		</member>
+		<member name="scale_amount_max" type="float" setter="set_param_max" getter="get_param_max" default="1.0">
+		</member>
+		<member name="scale_amount_min" type="float" setter="set_param_min" getter="get_param_min" default="1.0">
+		</member>
+		<member name="scale_curve_x" type="Curve" setter="set_scale_curve_x" getter="get_scale_curve_x">
+		</member>
+		<member name="scale_curve_y" type="Curve" setter="set_scale_curve_y" getter="get_scale_curve_y">
+		</member>
+		<member name="speed_scale" type="float" setter="set_speed_scale" getter="get_speed_scale" default="1.0">
+		</member>
+		<member name="split_scale" type="bool" setter="set_split_scale" getter="get_split_scale" default="false">
+		</member>
+		<member name="spread" type="float" setter="set_spread" getter="get_spread" default="45.0">
+		</member>
+		<member name="tangential_accel_curve" type="Curve" setter="set_param_curve" getter="get_param_curve">
+		</member>
+		<member name="tangential_accel_max" type="float" setter="set_param_max" getter="get_param_max" default="0.0">
+		</member>
+		<member name="tangential_accel_min" type="float" setter="set_param_min" getter="get_param_min" default="0.0">
+		</member>
+		<member name="texture" type="Texture2D" setter="set_texture" getter="get_texture">
+		</member>
+	</members>
+	<signals>
+		<signal name="finished">
+			<description>
+			</description>
+		</signal>
+	</signals>
+	<constants>
+		<constant name="DRAW_ORDER_INDEX" value="0" enum="DrawOrder">
+		</constant>
+		<constant name="DRAW_ORDER_LIFETIME" value="1" enum="DrawOrder">
+		</constant>
+		<constant name="PARAM_INITIAL_LINEAR_VELOCITY" value="0" enum="Parameter">
+		</constant>
+		<constant name="PARAM_ANGULAR_VELOCITY" value="1" enum="Parameter">
+		</constant>
+		<constant name="PARAM_ORBIT_VELOCITY" value="2" enum="Parameter">
+		</constant>
+		<constant name="PARAM_LINEAR_ACCEL" value="3" enum="Parameter">
+		</constant>
+		<constant name="PARAM_RADIAL_ACCEL" value="4" enum="Parameter">
+		</constant>
+		<constant name="PARAM_TANGENTIAL_ACCEL" value="5" enum="Parameter">
+		</constant>
+		<constant name="PARAM_DAMPING" value="6" enum="Parameter">
+		</constant>
+		<constant name="PARAM_ANGLE" value="7" enum="Parameter">
+		</constant>
+		<constant name="PARAM_SCALE" value="8" enum="Parameter">
+		</constant>
+		<constant name="PARAM_HUE_VARIATION" value="9" enum="Parameter">
+		</constant>
+		<constant name="PARAM_ANIM_SPEED" value="10" enum="Parameter">
+		</constant>
+		<constant name="PARAM_ANIM_OFFSET" value="11" enum="Parameter">
+		</constant>
+		<constant name="PARAM_MAX" value="12" enum="Parameter">
+		</constant>
+		<constant name="PARTICLE_FLAG_ALIGN_Y_TO_VELOCITY" value="0" enum="ParticleFlags">
+		</constant>
+		<constant name="PARTICLE_FLAG_ROTATE_Y" value="1" enum="ParticleFlags">
+		</constant>
+		<constant name="PARTICLE_FLAG_DISABLE_Z" value="2" enum="ParticleFlags">
+		</constant>
+		<constant name="PARTICLE_FLAG_MAX" value="3" enum="ParticleFlags">
+		</constant>
+		<constant name="EMISSION_SHAPE_POINT" value="0" enum="EmissionShape">
+		</constant>
+		<constant name="EMISSION_SHAPE_SPHERE" value="1" enum="EmissionShape">
+		</constant>
+		<constant name="EMISSION_SHAPE_SPHERE_SURFACE" value="2" enum="EmissionShape">
+		</constant>
+		<constant name="EMISSION_SHAPE_RECTANGLE" value="3" enum="EmissionShape">
+		</constant>
+		<constant name="EMISSION_SHAPE_POINTS" value="4" enum="EmissionShape">
+		</constant>
+		<constant name="EMISSION_SHAPE_DIRECTED_POINTS" value="5" enum="EmissionShape">
+		</constant>
+		<constant name="EMISSION_SHAPE_MAX" value="6" enum="EmissionShape">
+		</constant>
+	</constants>
+</class>

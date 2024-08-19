@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<class name="EditorScript" inherits="RefCounted" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../class.xsd">
+	<brief_description>
+	</brief_description>
+	<description>
+	</description>
+	<tutorials>
+	</tutorials>
+	<methods>
+		<method name="_run" qualifiers="virtual">
+			<return type="void" />
+			<description>
+			</description>
+		</method>
+		<method name="add_root_node">
+			<return type="void" />
+			<param index="0" name="node" type="Node" />
+			<description>
+			</description>
+		</method>
+		<method name="get_editor_interface" qualifiers="const">
+			<return type="EditorInterface" />
+			<description>
+			</description>
+		</method>
+		<method name="get_scene" qualifiers="const">
+			<return type="Node" />
+			<description>
+			</description>
+		</method>
+	</methods>
+</class>

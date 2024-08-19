@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<class name="RenderSceneBuffersExtension" inherits="RenderSceneBuffers" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../class.xsd">
+	<brief_description>
+	</brief_description>
+	<description>
+	</description>
+	<tutorials>
+	</tutorials>
+	<methods>
+		<method name="_configure" qualifiers="virtual">
+			<return type="void" />
+			<param index="0" name="config" type="RenderSceneBuffersConfiguration" />
+			<description>
+			</description>
+		</method>
+		<method name="_set_fsr_sharpness" qualifiers="virtual">
+			<return type="void" />
+			<param index="0" name="fsr_sharpness" type="float" />
+			<description>
+			</description>
+		</method>
+		<method name="_set_texture_mipmap_bias" qualifiers="virtual">
+			<return type="void" />
+			<param index="0" name="texture_mipmap_bias" type="float" />
+			<description>
+			</description>
+		</method>
+		<method name="_set_use_debanding" qualifiers="virtual">
+			<return type="void" />
+			<param index="0" name="use_debanding" type="bool" />
+			<description>
+			</description>
+		</method>
+	</methods>
+</class>

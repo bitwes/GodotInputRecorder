@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<class name="FogVolume" inherits="VisualInstance3D" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../class.xsd">
+	<brief_description>
+	</brief_description>
+	<description>
+	</description>
+	<tutorials>
+	</tutorials>
+	<members>
+		<member name="material" type="Material" setter="set_material" getter="get_material">
+		</member>
+		<member name="shape" type="int" setter="set_shape" getter="get_shape" enum="RenderingServer.FogVolumeShape" default="3">
+		</member>
+		<member name="size" type="Vector3" setter="set_size" getter="get_size" default="Vector3(2, 2, 2)">
+		</member>
+	</members>
+</class>

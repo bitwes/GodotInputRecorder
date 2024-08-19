@@ -1,0 +1,230 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<class name="EditorExportPlugin" inherits="RefCounted" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../class.xsd">
+	<brief_description>
+	</brief_description>
+	<description>
+	</description>
+	<tutorials>
+	</tutorials>
+	<methods>
+		<method name="_begin_customize_resources" qualifiers="virtual const">
+			<return type="bool" />
+			<param index="0" name="platform" type="EditorExportPlatform" />
+			<param index="1" name="features" type="PackedStringArray" />
+			<description>
+			</description>
+		</method>
+		<method name="_begin_customize_scenes" qualifiers="virtual const">
+			<return type="bool" />
+			<param index="0" name="platform" type="EditorExportPlatform" />
+			<param index="1" name="features" type="PackedStringArray" />
+			<description>
+			</description>
+		</method>
+		<method name="_customize_resource" qualifiers="virtual">
+			<return type="Resource" />
+			<param index="0" name="resource" type="Resource" />
+			<param index="1" name="path" type="String" />
+			<description>
+			</description>
+		</method>
+		<method name="_customize_scene" qualifiers="virtual">
+			<return type="Node" />
+			<param index="0" name="scene" type="Node" />
+			<param index="1" name="path" type="String" />
+			<description>
+			</description>
+		</method>
+		<method name="_end_customize_resources" qualifiers="virtual">
+			<return type="void" />
+			<description>
+			</description>
+		</method>
+		<method name="_end_customize_scenes" qualifiers="virtual">
+			<return type="void" />
+			<description>
+			</description>
+		</method>
+		<method name="_export_begin" qualifiers="virtual">
+			<return type="void" />
+			<param index="0" name="features" type="PackedStringArray" />
+			<param index="1" name="is_debug" type="bool" />
+			<param index="2" name="path" type="String" />
+			<param index="3" name="flags" type="int" />
+			<description>
+			</description>
+		</method>
+		<method name="_export_end" qualifiers="virtual">
+			<return type="void" />
+			<description>
+			</description>
+		</method>
+		<method name="_export_file" qualifiers="virtual">
+			<return type="void" />
+			<param index="0" name="path" type="String" />
+			<param index="1" name="type" type="String" />
+			<param index="2" name="features" type="PackedStringArray" />
+			<description>
+			</description>
+		</method>
+		<method name="_get_android_dependencies" qualifiers="virtual const">
+			<return type="PackedStringArray" />
+			<param index="0" name="platform" type="EditorExportPlatform" />
+			<param index="1" name="debug" type="bool" />
+			<description>
+			</description>
+		</method>
+		<method name="_get_android_dependencies_maven_repos" qualifiers="virtual const">
+			<return type="PackedStringArray" />
+			<param index="0" name="platform" type="EditorExportPlatform" />
+			<param index="1" name="debug" type="bool" />
+			<description>
+			</description>
+		</method>
+		<method name="_get_android_libraries" qualifiers="virtual const">
+			<return type="PackedStringArray" />
+			<param index="0" name="platform" type="EditorExportPlatform" />
+			<param index="1" name="debug" type="bool" />
+			<description>
+			</description>
+		</method>
+		<method name="_get_android_manifest_activity_element_contents" qualifiers="virtual const">
+			<return type="String" />
+			<param index="0" name="platform" type="EditorExportPlatform" />
+			<param index="1" name="debug" type="bool" />
+			<description>
+			</description>
+		</method>
+		<method name="_get_android_manifest_application_element_contents" qualifiers="virtual const">
+			<return type="String" />
+			<param index="0" name="platform" type="EditorExportPlatform" />
+			<param index="1" name="debug" type="bool" />
+			<description>
+			</description>
+		</method>
+		<method name="_get_android_manifest_element_contents" qualifiers="virtual const">
+			<return type="String" />
+			<param index="0" name="platform" type="EditorExportPlatform" />
+			<param index="1" name="debug" type="bool" />
+			<description>
+			</description>
+		</method>
+		<method name="_get_customization_configuration_hash" qualifiers="virtual const">
+			<return type="int" />
+			<description>
+			</description>
+		</method>
+		<method name="_get_export_features" qualifiers="virtual const">
+			<return type="PackedStringArray" />
+			<param index="0" name="platform" type="EditorExportPlatform" />
+			<param index="1" name="debug" type="bool" />
+			<description>
+			</description>
+		</method>
+		<method name="_get_export_option_warning" qualifiers="virtual const">
+			<return type="String" />
+			<param index="0" name="platform" type="EditorExportPlatform" />
+			<param index="1" name="option" type="String" />
+			<description>
+			</description>
+		</method>
+		<method name="_get_export_options" qualifiers="virtual const">
+			<return type="Dictionary[]" />
+			<param index="0" name="platform" type="EditorExportPlatform" />
+			<description>
+			</description>
+		</method>
+		<method name="_get_name" qualifiers="virtual const">
+			<return type="String" />
+			<description>
+			</description>
+		</method>
+		<method name="_should_update_export_options" qualifiers="virtual const">
+			<return type="bool" />
+			<param index="0" name="platform" type="EditorExportPlatform" />
+			<description>
+			</description>
+		</method>
+		<method name="_supports_platform" qualifiers="virtual const">
+			<return type="bool" />
+			<param index="0" name="platform" type="EditorExportPlatform" />
+			<description>
+			</description>
+		</method>
+		<method name="add_file">
+			<return type="void" />
+			<param index="0" name="path" type="String" />
+			<param index="1" name="file" type="PackedByteArray" />
+			<param index="2" name="remap" type="bool" />
+			<description>
+			</description>
+		</method>
+		<method name="add_ios_bundle_file">
+			<return type="void" />
+			<param index="0" name="path" type="String" />
+			<description>
+			</description>
+		</method>
+		<method name="add_ios_cpp_code">
+			<return type="void" />
+			<param index="0" name="code" type="String" />
+			<description>
+			</description>
+		</method>
+		<method name="add_ios_embedded_framework">
+			<return type="void" />
+			<param index="0" name="path" type="String" />
+			<description>
+			</description>
+		</method>
+		<method name="add_ios_framework">
+			<return type="void" />
+			<param index="0" name="path" type="String" />
+			<description>
+			</description>
+		</method>
+		<method name="add_ios_linker_flags">
+			<return type="void" />
+			<param index="0" name="flags" type="String" />
+			<description>
+			</description>
+		</method>
+		<method name="add_ios_plist_content">
+			<return type="void" />
+			<param index="0" name="plist_content" type="String" />
+			<description>
+			</description>
+		</method>
+		<method name="add_ios_project_static_lib">
+			<return type="void" />
+			<param index="0" name="path" type="String" />
+			<description>
+			</description>
+		</method>
+		<method name="add_macos_plugin_file">
+			<return type="void" />
+			<param index="0" name="path" type="String" />
+			<description>
+			</description>
+		</method>
+		<method name="add_shared_object">
+			<return type="void" />
+			<param index="0" name="path" type="String" />
+			<param index="1" name="tags" type="PackedStringArray" />
+			<param index="2" name="target" type="String" />
+			<description>
+			</description>
+		</method>
+		<method name="get_option" qualifiers="const">
+			<return type="Variant" />
+			<param index="0" name="name" type="StringName" />
+			<description>
+			</description>
+		</method>
+		<method name="skip">
+			<return type="void" />
+			<description>
+			</description>
+		</method>
+	</methods>
+</class>

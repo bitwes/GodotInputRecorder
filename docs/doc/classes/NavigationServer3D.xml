@@ -1,0 +1,804 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<class name="NavigationServer3D" inherits="Object" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../class.xsd">
+	<brief_description>
+	</brief_description>
+	<description>
+	</description>
+	<tutorials>
+	</tutorials>
+	<methods>
+		<method name="agent_create">
+			<return type="RID" />
+			<description>
+			</description>
+		</method>
+		<method name="agent_get_avoidance_enabled" qualifiers="const">
+			<return type="bool" />
+			<param index="0" name="agent" type="RID" />
+			<description>
+			</description>
+		</method>
+		<method name="agent_get_map" qualifiers="const">
+			<return type="RID" />
+			<param index="0" name="agent" type="RID" />
+			<description>
+			</description>
+		</method>
+		<method name="agent_get_paused" qualifiers="const">
+			<return type="bool" />
+			<param index="0" name="agent" type="RID" />
+			<description>
+			</description>
+		</method>
+		<method name="agent_get_use_3d_avoidance" qualifiers="const">
+			<return type="bool" />
+			<param index="0" name="agent" type="RID" />
+			<description>
+			</description>
+		</method>
+		<method name="agent_is_map_changed" qualifiers="const">
+			<return type="bool" />
+			<param index="0" name="agent" type="RID" />
+			<description>
+			</description>
+		</method>
+		<method name="agent_set_avoidance_callback">
+			<return type="void" />
+			<param index="0" name="agent" type="RID" />
+			<param index="1" name="callback" type="Callable" />
+			<description>
+			</description>
+		</method>
+		<method name="agent_set_avoidance_enabled">
+			<return type="void" />
+			<param index="0" name="agent" type="RID" />
+			<param index="1" name="enabled" type="bool" />
+			<description>
+			</description>
+		</method>
+		<method name="agent_set_avoidance_layers">
+			<return type="void" />
+			<param index="0" name="agent" type="RID" />
+			<param index="1" name="layers" type="int" />
+			<description>
+			</description>
+		</method>
+		<method name="agent_set_avoidance_mask">
+			<return type="void" />
+			<param index="0" name="agent" type="RID" />
+			<param index="1" name="mask" type="int" />
+			<description>
+			</description>
+		</method>
+		<method name="agent_set_avoidance_priority">
+			<return type="void" />
+			<param index="0" name="agent" type="RID" />
+			<param index="1" name="priority" type="float" />
+			<description>
+			</description>
+		</method>
+		<method name="agent_set_height">
+			<return type="void" />
+			<param index="0" name="agent" type="RID" />
+			<param index="1" name="height" type="float" />
+			<description>
+			</description>
+		</method>
+		<method name="agent_set_map">
+			<return type="void" />
+			<param index="0" name="agent" type="RID" />
+			<param index="1" name="map" type="RID" />
+			<description>
+			</description>
+		</method>
+		<method name="agent_set_max_neighbors">
+			<return type="void" />
+			<param index="0" name="agent" type="RID" />
+			<param index="1" name="count" type="int" />
+			<description>
+			</description>
+		</method>
+		<method name="agent_set_max_speed">
+			<return type="void" />
+			<param index="0" name="agent" type="RID" />
+			<param index="1" name="max_speed" type="float" />
+			<description>
+			</description>
+		</method>
+		<method name="agent_set_neighbor_distance">
+			<return type="void" />
+			<param index="0" name="agent" type="RID" />
+			<param index="1" name="distance" type="float" />
+			<description>
+			</description>
+		</method>
+		<method name="agent_set_paused">
+			<return type="void" />
+			<param index="0" name="agent" type="RID" />
+			<param index="1" name="paused" type="bool" />
+			<description>
+			</description>
+		</method>
+		<method name="agent_set_position">
+			<return type="void" />
+			<param index="0" name="agent" type="RID" />
+			<param index="1" name="position" type="Vector3" />
+			<description>
+			</description>
+		</method>
+		<method name="agent_set_radius">
+			<return type="void" />
+			<param index="0" name="agent" type="RID" />
+			<param index="1" name="radius" type="float" />
+			<description>
+			</description>
+		</method>
+		<method name="agent_set_time_horizon_agents">
+			<return type="void" />
+			<param index="0" name="agent" type="RID" />
+			<param index="1" name="time_horizon" type="float" />
+			<description>
+			</description>
+		</method>
+		<method name="agent_set_time_horizon_obstacles">
+			<return type="void" />
+			<param index="0" name="agent" type="RID" />
+			<param index="1" name="time_horizon" type="float" />
+			<description>
+			</description>
+		</method>
+		<method name="agent_set_use_3d_avoidance">
+			<return type="void" />
+			<param index="0" name="agent" type="RID" />
+			<param index="1" name="enabled" type="bool" />
+			<description>
+			</description>
+		</method>
+		<method name="agent_set_velocity">
+			<return type="void" />
+			<param index="0" name="agent" type="RID" />
+			<param index="1" name="velocity" type="Vector3" />
+			<description>
+			</description>
+		</method>
+		<method name="agent_set_velocity_forced">
+			<return type="void" />
+			<param index="0" name="agent" type="RID" />
+			<param index="1" name="velocity" type="Vector3" />
+			<description>
+			</description>
+		</method>
+		<method name="bake_from_source_geometry_data">
+			<return type="void" />
+			<param index="0" name="navigation_mesh" type="NavigationMesh" />
+			<param index="1" name="source_geometry_data" type="NavigationMeshSourceGeometryData3D" />
+			<param index="2" name="callback" type="Callable" default="Callable()" />
+			<description>
+			</description>
+		</method>
+		<method name="bake_from_source_geometry_data_async">
+			<return type="void" />
+			<param index="0" name="navigation_mesh" type="NavigationMesh" />
+			<param index="1" name="source_geometry_data" type="NavigationMeshSourceGeometryData3D" />
+			<param index="2" name="callback" type="Callable" default="Callable()" />
+			<description>
+			</description>
+		</method>
+		<method name="free_rid">
+			<return type="void" />
+			<param index="0" name="rid" type="RID" />
+			<description>
+			</description>
+		</method>
+		<method name="get_debug_enabled" qualifiers="const">
+			<return type="bool" />
+			<description>
+			</description>
+		</method>
+		<method name="get_maps" qualifiers="const">
+			<return type="RID[]" />
+			<description>
+			</description>
+		</method>
+		<method name="get_process_info" qualifiers="const">
+			<return type="int" />
+			<param index="0" name="process_info" type="int" enum="NavigationServer3D.ProcessInfo" />
+			<description>
+			</description>
+		</method>
+		<method name="link_create">
+			<return type="RID" />
+			<description>
+			</description>
+		</method>
+		<method name="link_get_enabled" qualifiers="const">
+			<return type="bool" />
+			<param index="0" name="link" type="RID" />
+			<description>
+			</description>
+		</method>
+		<method name="link_get_end_position" qualifiers="const">
+			<return type="Vector3" />
+			<param index="0" name="link" type="RID" />
+			<description>
+			</description>
+		</method>
+		<method name="link_get_enter_cost" qualifiers="const">
+			<return type="float" />
+			<param index="0" name="link" type="RID" />
+			<description>
+			</description>
+		</method>
+		<method name="link_get_map" qualifiers="const">
+			<return type="RID" />
+			<param index="0" name="link" type="RID" />
+			<description>
+			</description>
+		</method>
+		<method name="link_get_navigation_layers" qualifiers="const">
+			<return type="int" />
+			<param index="0" name="link" type="RID" />
+			<description>
+			</description>
+		</method>
+		<method name="link_get_owner_id" qualifiers="const">
+			<return type="int" />
+			<param index="0" name="link" type="RID" />
+			<description>
+			</description>
+		</method>
+		<method name="link_get_start_position" qualifiers="const">
+			<return type="Vector3" />
+			<param index="0" name="link" type="RID" />
+			<description>
+			</description>
+		</method>
+		<method name="link_get_travel_cost" qualifiers="const">
+			<return type="float" />
+			<param index="0" name="link" type="RID" />
+			<description>
+			</description>
+		</method>
+		<method name="link_is_bidirectional" qualifiers="const">
+			<return type="bool" />
+			<param index="0" name="link" type="RID" />
+			<description>
+			</description>
+		</method>
+		<method name="link_set_bidirectional">
+			<return type="void" />
+			<param index="0" name="link" type="RID" />
+			<param index="1" name="bidirectional" type="bool" />
+			<description>
+			</description>
+		</method>
+		<method name="link_set_enabled">
+			<return type="void" />
+			<param index="0" name="link" type="RID" />
+			<param index="1" name="enabled" type="bool" />
+			<description>
+			</description>
+		</method>
+		<method name="link_set_end_position">
+			<return type="void" />
+			<param index="0" name="link" type="RID" />
+			<param index="1" name="position" type="Vector3" />
+			<description>
+			</description>
+		</method>
+		<method name="link_set_enter_cost">
+			<return type="void" />
+			<param index="0" name="link" type="RID" />
+			<param index="1" name="enter_cost" type="float" />
+			<description>
+			</description>
+		</method>
+		<method name="link_set_map">
+			<return type="void" />
+			<param index="0" name="link" type="RID" />
+			<param index="1" name="map" type="RID" />
+			<description>
+			</description>
+		</method>
+		<method name="link_set_navigation_layers">
+			<return type="void" />
+			<param index="0" name="link" type="RID" />
+			<param index="1" name="navigation_layers" type="int" />
+			<description>
+			</description>
+		</method>
+		<method name="link_set_owner_id">
+			<return type="void" />
+			<param index="0" name="link" type="RID" />
+			<param index="1" name="owner_id" type="int" />
+			<description>
+			</description>
+		</method>
+		<method name="link_set_start_position">
+			<return type="void" />
+			<param index="0" name="link" type="RID" />
+			<param index="1" name="position" type="Vector3" />
+			<description>
+			</description>
+		</method>
+		<method name="link_set_travel_cost">
+			<return type="void" />
+			<param index="0" name="link" type="RID" />
+			<param index="1" name="travel_cost" type="float" />
+			<description>
+			</description>
+		</method>
+		<method name="map_create">
+			<return type="RID" />
+			<description>
+			</description>
+		</method>
+		<method name="map_force_update">
+			<return type="void" />
+			<param index="0" name="map" type="RID" />
+			<description>
+			</description>
+		</method>
+		<method name="map_get_agents" qualifiers="const">
+			<return type="RID[]" />
+			<param index="0" name="map" type="RID" />
+			<description>
+			</description>
+		</method>
+		<method name="map_get_cell_height" qualifiers="const">
+			<return type="float" />
+			<param index="0" name="map" type="RID" />
+			<description>
+			</description>
+		</method>
+		<method name="map_get_cell_size" qualifiers="const">
+			<return type="float" />
+			<param index="0" name="map" type="RID" />
+			<description>
+			</description>
+		</method>
+		<method name="map_get_closest_point" qualifiers="const">
+			<return type="Vector3" />
+			<param index="0" name="map" type="RID" />
+			<param index="1" name="to_point" type="Vector3" />
+			<description>
+			</description>
+		</method>
+		<method name="map_get_closest_point_normal" qualifiers="const">
+			<return type="Vector3" />
+			<param index="0" name="map" type="RID" />
+			<param index="1" name="to_point" type="Vector3" />
+			<description>
+			</description>
+		</method>
+		<method name="map_get_closest_point_owner" qualifiers="const">
+			<return type="RID" />
+			<param index="0" name="map" type="RID" />
+			<param index="1" name="to_point" type="Vector3" />
+			<description>
+			</description>
+		</method>
+		<method name="map_get_closest_point_to_segment" qualifiers="const">
+			<return type="Vector3" />
+			<param index="0" name="map" type="RID" />
+			<param index="1" name="start" type="Vector3" />
+			<param index="2" name="end" type="Vector3" />
+			<param index="3" name="use_collision" type="bool" default="false" />
+			<description>
+			</description>
+		</method>
+		<method name="map_get_edge_connection_margin" qualifiers="const">
+			<return type="float" />
+			<param index="0" name="map" type="RID" />
+			<description>
+			</description>
+		</method>
+		<method name="map_get_link_connection_radius" qualifiers="const">
+			<return type="float" />
+			<param index="0" name="map" type="RID" />
+			<description>
+			</description>
+		</method>
+		<method name="map_get_links" qualifiers="const">
+			<return type="RID[]" />
+			<param index="0" name="map" type="RID" />
+			<description>
+			</description>
+		</method>
+		<method name="map_get_obstacles" qualifiers="const">
+			<return type="RID[]" />
+			<param index="0" name="map" type="RID" />
+			<description>
+			</description>
+		</method>
+		<method name="map_get_path" qualifiers="const">
+			<return type="PackedVector3Array" />
+			<param index="0" name="map" type="RID" />
+			<param index="1" name="origin" type="Vector3" />
+			<param index="2" name="destination" type="Vector3" />
+			<param index="3" name="optimize" type="bool" />
+			<param index="4" name="navigation_layers" type="int" default="1" />
+			<description>
+			</description>
+		</method>
+		<method name="map_get_regions" qualifiers="const">
+			<return type="RID[]" />
+			<param index="0" name="map" type="RID" />
+			<description>
+			</description>
+		</method>
+		<method name="map_get_up" qualifiers="const">
+			<return type="Vector3" />
+			<param index="0" name="map" type="RID" />
+			<description>
+			</description>
+		</method>
+		<method name="map_get_use_edge_connections" qualifiers="const">
+			<return type="bool" />
+			<param index="0" name="map" type="RID" />
+			<description>
+			</description>
+		</method>
+		<method name="map_is_active" qualifiers="const">
+			<return type="bool" />
+			<param index="0" name="map" type="RID" />
+			<description>
+			</description>
+		</method>
+		<method name="map_set_active">
+			<return type="void" />
+			<param index="0" name="map" type="RID" />
+			<param index="1" name="active" type="bool" />
+			<description>
+			</description>
+		</method>
+		<method name="map_set_cell_height">
+			<return type="void" />
+			<param index="0" name="map" type="RID" />
+			<param index="1" name="cell_height" type="float" />
+			<description>
+			</description>
+		</method>
+		<method name="map_set_cell_size">
+			<return type="void" />
+			<param index="0" name="map" type="RID" />
+			<param index="1" name="cell_size" type="float" />
+			<description>
+			</description>
+		</method>
+		<method name="map_set_edge_connection_margin">
+			<return type="void" />
+			<param index="0" name="map" type="RID" />
+			<param index="1" name="margin" type="float" />
+			<description>
+			</description>
+		</method>
+		<method name="map_set_link_connection_radius">
+			<return type="void" />
+			<param index="0" name="map" type="RID" />
+			<param index="1" name="radius" type="float" />
+			<description>
+			</description>
+		</method>
+		<method name="map_set_up">
+			<return type="void" />
+			<param index="0" name="map" type="RID" />
+			<param index="1" name="up" type="Vector3" />
+			<description>
+			</description>
+		</method>
+		<method name="map_set_use_edge_connections">
+			<return type="void" />
+			<param index="0" name="map" type="RID" />
+			<param index="1" name="enabled" type="bool" />
+			<description>
+			</description>
+		</method>
+		<method name="obstacle_create">
+			<return type="RID" />
+			<description>
+			</description>
+		</method>
+		<method name="obstacle_get_avoidance_enabled" qualifiers="const">
+			<return type="bool" />
+			<param index="0" name="obstacle" type="RID" />
+			<description>
+			</description>
+		</method>
+		<method name="obstacle_get_map" qualifiers="const">
+			<return type="RID" />
+			<param index="0" name="obstacle" type="RID" />
+			<description>
+			</description>
+		</method>
+		<method name="obstacle_get_paused" qualifiers="const">
+			<return type="bool" />
+			<param index="0" name="obstacle" type="RID" />
+			<description>
+			</description>
+		</method>
+		<method name="obstacle_get_use_3d_avoidance" qualifiers="const">
+			<return type="bool" />
+			<param index="0" name="obstacle" type="RID" />
+			<description>
+			</description>
+		</method>
+		<method name="obstacle_set_avoidance_enabled">
+			<return type="void" />
+			<param index="0" name="obstacle" type="RID" />
+			<param index="1" name="enabled" type="bool" />
+			<description>
+			</description>
+		</method>
+		<method name="obstacle_set_avoidance_layers">
+			<return type="void" />
+			<param index="0" name="obstacle" type="RID" />
+			<param index="1" name="layers" type="int" />
+			<description>
+			</description>
+		</method>
+		<method name="obstacle_set_height">
+			<return type="void" />
+			<param index="0" name="obstacle" type="RID" />
+			<param index="1" name="height" type="float" />
+			<description>
+			</description>
+		</method>
+		<method name="obstacle_set_map">
+			<return type="void" />
+			<param index="0" name="obstacle" type="RID" />
+			<param index="1" name="map" type="RID" />
+			<description>
+			</description>
+		</method>
+		<method name="obstacle_set_paused">
+			<return type="void" />
+			<param index="0" name="obstacle" type="RID" />
+			<param index="1" name="paused" type="bool" />
+			<description>
+			</description>
+		</method>
+		<method name="obstacle_set_position">
+			<return type="void" />
+			<param index="0" name="obstacle" type="RID" />
+			<param index="1" name="position" type="Vector3" />
+			<description>
+			</description>
+		</method>
+		<method name="obstacle_set_radius">
+			<return type="void" />
+			<param index="0" name="obstacle" type="RID" />
+			<param index="1" name="radius" type="float" />
+			<description>
+			</description>
+		</method>
+		<method name="obstacle_set_use_3d_avoidance">
+			<return type="void" />
+			<param index="0" name="obstacle" type="RID" />
+			<param index="1" name="enabled" type="bool" />
+			<description>
+			</description>
+		</method>
+		<method name="obstacle_set_velocity">
+			<return type="void" />
+			<param index="0" name="obstacle" type="RID" />
+			<param index="1" name="velocity" type="Vector3" />
+			<description>
+			</description>
+		</method>
+		<method name="obstacle_set_vertices">
+			<return type="void" />
+			<param index="0" name="obstacle" type="RID" />
+			<param index="1" name="vertices" type="PackedVector3Array" />
+			<description>
+			</description>
+		</method>
+		<method name="parse_source_geometry_data">
+			<return type="void" />
+			<param index="0" name="navigation_mesh" type="NavigationMesh" />
+			<param index="1" name="source_geometry_data" type="NavigationMeshSourceGeometryData3D" />
+			<param index="2" name="root_node" type="Node" />
+			<param index="3" name="callback" type="Callable" default="Callable()" />
+			<description>
+			</description>
+		</method>
+		<method name="query_path" qualifiers="const">
+			<return type="void" />
+			<param index="0" name="parameters" type="NavigationPathQueryParameters3D" />
+			<param index="1" name="result" type="NavigationPathQueryResult3D" />
+			<description>
+			</description>
+		</method>
+		<method name="region_bake_navigation_mesh">
+			<return type="void" />
+			<param index="0" name="navigation_mesh" type="NavigationMesh" />
+			<param index="1" name="root_node" type="Node" />
+			<description>
+			</description>
+		</method>
+		<method name="region_create">
+			<return type="RID" />
+			<description>
+			</description>
+		</method>
+		<method name="region_get_connection_pathway_end" qualifiers="const">
+			<return type="Vector3" />
+			<param index="0" name="region" type="RID" />
+			<param index="1" name="connection" type="int" />
+			<description>
+			</description>
+		</method>
+		<method name="region_get_connection_pathway_start" qualifiers="const">
+			<return type="Vector3" />
+			<param index="0" name="region" type="RID" />
+			<param index="1" name="connection" type="int" />
+			<description>
+			</description>
+		</method>
+		<method name="region_get_connections_count" qualifiers="const">
+			<return type="int" />
+			<param index="0" name="region" type="RID" />
+			<description>
+			</description>
+		</method>
+		<method name="region_get_enabled" qualifiers="const">
+			<return type="bool" />
+			<param index="0" name="region" type="RID" />
+			<description>
+			</description>
+		</method>
+		<method name="region_get_enter_cost" qualifiers="const">
+			<return type="float" />
+			<param index="0" name="region" type="RID" />
+			<description>
+			</description>
+		</method>
+		<method name="region_get_map" qualifiers="const">
+			<return type="RID" />
+			<param index="0" name="region" type="RID" />
+			<description>
+			</description>
+		</method>
+		<method name="region_get_navigation_layers" qualifiers="const">
+			<return type="int" />
+			<param index="0" name="region" type="RID" />
+			<description>
+			</description>
+		</method>
+		<method name="region_get_owner_id" qualifiers="const">
+			<return type="int" />
+			<param index="0" name="region" type="RID" />
+			<description>
+			</description>
+		</method>
+		<method name="region_get_travel_cost" qualifiers="const">
+			<return type="float" />
+			<param index="0" name="region" type="RID" />
+			<description>
+			</description>
+		</method>
+		<method name="region_get_use_edge_connections" qualifiers="const">
+			<return type="bool" />
+			<param index="0" name="region" type="RID" />
+			<description>
+			</description>
+		</method>
+		<method name="region_owns_point" qualifiers="const">
+			<return type="bool" />
+			<param index="0" name="region" type="RID" />
+			<param index="1" name="point" type="Vector3" />
+			<description>
+			</description>
+		</method>
+		<method name="region_set_enabled">
+			<return type="void" />
+			<param index="0" name="region" type="RID" />
+			<param index="1" name="enabled" type="bool" />
+			<description>
+			</description>
+		</method>
+		<method name="region_set_enter_cost">
+			<return type="void" />
+			<param index="0" name="region" type="RID" />
+			<param index="1" name="enter_cost" type="float" />
+			<description>
+			</description>
+		</method>
+		<method name="region_set_map">
+			<return type="void" />
+			<param index="0" name="region" type="RID" />
+			<param index="1" name="map" type="RID" />
+			<description>
+			</description>
+		</method>
+		<method name="region_set_navigation_layers">
+			<return type="void" />
+			<param index="0" name="region" type="RID" />
+			<param index="1" name="navigation_layers" type="int" />
+			<description>
+			</description>
+		</method>
+		<method name="region_set_navigation_mesh">
+			<return type="void" />
+			<param index="0" name="region" type="RID" />
+			<param index="1" name="navigation_mesh" type="NavigationMesh" />
+			<description>
+			</description>
+		</method>
+		<method name="region_set_owner_id">
+			<return type="void" />
+			<param index="0" name="region" type="RID" />
+			<param index="1" name="owner_id" type="int" />
+			<description>
+			</description>
+		</method>
+		<method name="region_set_transform">
+			<return type="void" />
+			<param index="0" name="region" type="RID" />
+			<param index="1" name="transform" type="Transform3D" />
+			<description>
+			</description>
+		</method>
+		<method name="region_set_travel_cost">
+			<return type="void" />
+			<param index="0" name="region" type="RID" />
+			<param index="1" name="travel_cost" type="float" />
+			<description>
+			</description>
+		</method>
+		<method name="region_set_use_edge_connections">
+			<return type="void" />
+			<param index="0" name="region" type="RID" />
+			<param index="1" name="enabled" type="bool" />
+			<description>
+			</description>
+		</method>
+		<method name="set_active">
+			<return type="void" />
+			<param index="0" name="active" type="bool" />
+			<description>
+			</description>
+		</method>
+		<method name="set_debug_enabled">
+			<return type="void" />
+			<param index="0" name="enabled" type="bool" />
+			<description>
+			</description>
+		</method>
+	</methods>
+	<signals>
+		<signal name="avoidance_debug_changed">
+			<description>
+			</description>
+		</signal>
+		<signal name="map_changed">
+			<param index="0" name="map" type="RID" />
+			<description>
+			</description>
+		</signal>
+		<signal name="navigation_debug_changed">
+			<description>
+			</description>
+		</signal>
+	</signals>
+	<constants>
+		<constant name="INFO_ACTIVE_MAPS" value="0" enum="ProcessInfo">
+		</constant>
+		<constant name="INFO_REGION_COUNT" value="1" enum="ProcessInfo">
+		</constant>
+		<constant name="INFO_AGENT_COUNT" value="2" enum="ProcessInfo">
+		</constant>
+		<constant name="INFO_LINK_COUNT" value="3" enum="ProcessInfo">
+		</constant>
+		<constant name="INFO_POLYGON_COUNT" value="4" enum="ProcessInfo">
+		</constant>
+		<constant name="INFO_EDGE_COUNT" value="5" enum="ProcessInfo">
+		</constant>
+		<constant name="INFO_EDGE_MERGE_COUNT" value="6" enum="ProcessInfo">
+		</constant>
+		<constant name="INFO_EDGE_CONNECTION_COUNT" value="7" enum="ProcessInfo">
+		</constant>
+		<constant name="INFO_EDGE_FREE_COUNT" value="8" enum="ProcessInfo">
+		</constant>
+	</constants>
+</class>

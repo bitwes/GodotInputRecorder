@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<class name="AudioStreamWAV" inherits="AudioStream" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../class.xsd">
+	<brief_description>
+	</brief_description>
+	<description>
+	</description>
+	<tutorials>
+	</tutorials>
+	<methods>
+		<method name="save_to_wav">
+			<return type="int" enum="Error" />
+			<param index="0" name="path" type="String" />
+			<description>
+			</description>
+		</method>
+	</methods>
+	<members>
+		<member name="data" type="PackedByteArray" setter="set_data" getter="get_data" default="PackedByteArray()">
+		</member>
+		<member name="format" type="int" setter="set_format" getter="get_format" enum="AudioStreamWAV.Format" default="0">
+		</member>
+		<member name="loop_begin" type="int" setter="set_loop_begin" getter="get_loop_begin" default="0">
+		</member>
+		<member name="loop_end" type="int" setter="set_loop_end" getter="get_loop_end" default="0">
+		</member>
+		<member name="loop_mode" type="int" setter="set_loop_mode" getter="get_loop_mode" enum="AudioStreamWAV.LoopMode" default="0">
+		</member>
+		<member name="mix_rate" type="int" setter="set_mix_rate" getter="get_mix_rate" default="44100">
+		</member>
+		<member name="stereo" type="bool" setter="set_stereo" getter="is_stereo" default="false">
+		</member>
+	</members>
+	<constants>
+		<constant name="FORMAT_8_BITS" value="0" enum="Format">
+		</constant>
+		<constant name="FORMAT_16_BITS" value="1" enum="Format">
+		</constant>
+		<constant name="FORMAT_IMA_ADPCM" value="2" enum="Format">
+		</constant>
+		<constant name="LOOP_DISABLED" value="0" enum="LoopMode">
+		</constant>
+		<constant name="LOOP_FORWARD" value="1" enum="LoopMode">
+		</constant>
+		<constant name="LOOP_PINGPONG" value="2" enum="LoopMode">
+		</constant>
+		<constant name="LOOP_BACKWARD" value="3" enum="LoopMode">
+		</constant>
+	</constants>
+</class>

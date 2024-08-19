@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<class name="SceneTreeTimer" inherits="RefCounted" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../class.xsd">
+	<brief_description>
+	</brief_description>
+	<description>
+	</description>
+	<tutorials>
+	</tutorials>
+	<members>
+		<member name="time_left" type="float" setter="set_time_left" getter="get_time_left">
+		</member>
+	</members>
+	<signals>
+		<signal name="timeout">
+			<description>
+			</description>
+		</signal>
+	</signals>
+</class>

@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<class name="VehicleBody3D" inherits="RigidBody3D" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../class.xsd">
+	<brief_description>
+	</brief_description>
+	<description>
+	</description>
+	<tutorials>
+	</tutorials>
+	<members>
+		<member name="brake" type="float" setter="set_brake" getter="get_brake" default="0.0">
+		</member>
+		<member name="engine_force" type="float" setter="set_engine_force" getter="get_engine_force" default="0.0">
+		</member>
+		<member name="mass" type="float" setter="set_mass" getter="get_mass" overrides="RigidBody3D" default="40.0" />
+		<member name="steering" type="float" setter="set_steering" getter="get_steering" default="0.0">
+		</member>
+	</members>
+</class>

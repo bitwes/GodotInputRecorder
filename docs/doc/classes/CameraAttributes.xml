@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<class name="CameraAttributes" inherits="Resource" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../class.xsd">
+	<brief_description>
+	</brief_description>
+	<description>
+	</description>
+	<tutorials>
+	</tutorials>
+	<members>
+		<member name="auto_exposure_enabled" type="bool" setter="set_auto_exposure_enabled" getter="is_auto_exposure_enabled" default="false">
+		</member>
+		<member name="auto_exposure_scale" type="float" setter="set_auto_exposure_scale" getter="get_auto_exposure_scale" default="0.4">
+		</member>
+		<member name="auto_exposure_speed" type="float" setter="set_auto_exposure_speed" getter="get_auto_exposure_speed" default="0.5">
+		</member>
+		<member name="exposure_multiplier" type="float" setter="set_exposure_multiplier" getter="get_exposure_multiplier" default="1.0">
+		</member>
+		<member name="exposure_sensitivity" type="float" setter="set_exposure_sensitivity" getter="get_exposure_sensitivity" default="100.0">
+		</member>
+	</members>
+</class>

@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<class name="InputEventJoypadMotion" inherits="InputEvent" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../class.xsd">
+	<brief_description>
+	</brief_description>
+	<description>
+	</description>
+	<tutorials>
+	</tutorials>
+	<members>
+		<member name="axis" type="int" setter="set_axis" getter="get_axis" enum="JoyAxis" default="0">
+		</member>
+		<member name="axis_value" type="float" setter="set_axis_value" getter="get_axis_value" default="0.0">
+		</member>
+	</members>
+</class>

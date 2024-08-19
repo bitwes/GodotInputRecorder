@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<class name="Container" inherits="Control" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../class.xsd">
+	<brief_description>
+	</brief_description>
+	<description>
+	</description>
+	<tutorials>
+	</tutorials>
+	<methods>
+		<method name="_get_allowed_size_flags_horizontal" qualifiers="virtual const">
+			<return type="PackedInt32Array" />
+			<description>
+			</description>
+		</method>
+		<method name="_get_allowed_size_flags_vertical" qualifiers="virtual const">
+			<return type="PackedInt32Array" />
+			<description>
+			</description>
+		</method>
+		<method name="fit_child_in_rect">
+			<return type="void" />
+			<param index="0" name="child" type="Control" />
+			<param index="1" name="rect" type="Rect2" />
+			<description>
+			</description>
+		</method>
+		<method name="queue_sort">
+			<return type="void" />
+			<description>
+			</description>
+		</method>
+	</methods>
+	<members>
+		<member name="mouse_filter" type="int" setter="set_mouse_filter" getter="get_mouse_filter" overrides="Control" enum="Control.MouseFilter" default="1" />
+	</members>
+	<signals>
+		<signal name="pre_sort_children">
+			<description>
+			</description>
+		</signal>
+		<signal name="sort_children">
+			<description>
+			</description>
+		</signal>
+	</signals>
+	<constants>
+		<constant name="NOTIFICATION_PRE_SORT_CHILDREN" value="50">
+		</constant>
+		<constant name="NOTIFICATION_SORT_CHILDREN" value="51">
+		</constant>
+	</constants>
+</class>

@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<class name="Sky" inherits="Resource" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../class.xsd">
+	<brief_description>
+	</brief_description>
+	<description>
+	</description>
+	<tutorials>
+	</tutorials>
+	<members>
+		<member name="process_mode" type="int" setter="set_process_mode" getter="get_process_mode" enum="Sky.ProcessMode" default="0">
+		</member>
+		<member name="radiance_size" type="int" setter="set_radiance_size" getter="get_radiance_size" enum="Sky.RadianceSize" default="3">
+		</member>
+		<member name="sky_material" type="Material" setter="set_material" getter="get_material">
+		</member>
+	</members>
+	<constants>
+		<constant name="RADIANCE_SIZE_32" value="0" enum="RadianceSize">
+		</constant>
+		<constant name="RADIANCE_SIZE_64" value="1" enum="RadianceSize">
+		</constant>
+		<constant name="RADIANCE_SIZE_128" value="2" enum="RadianceSize">
+		</constant>
+		<constant name="RADIANCE_SIZE_256" value="3" enum="RadianceSize">
+		</constant>
+		<constant name="RADIANCE_SIZE_512" value="4" enum="RadianceSize">
+		</constant>
+		<constant name="RADIANCE_SIZE_1024" value="5" enum="RadianceSize">
+		</constant>
+		<constant name="RADIANCE_SIZE_2048" value="6" enum="RadianceSize">
+		</constant>
+		<constant name="RADIANCE_SIZE_MAX" value="7" enum="RadianceSize">
+		</constant>
+		<constant name="PROCESS_MODE_AUTOMATIC" value="0" enum="ProcessMode">
+		</constant>
+		<constant name="PROCESS_MODE_QUALITY" value="1" enum="ProcessMode">
+		</constant>
+		<constant name="PROCESS_MODE_INCREMENTAL" value="2" enum="ProcessMode">
+		</constant>
+		<constant name="PROCESS_MODE_REALTIME" value="3" enum="ProcessMode">
+		</constant>
+	</constants>
+</class>

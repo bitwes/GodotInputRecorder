@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<class name="Timer" inherits="Node" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../class.xsd">
+	<brief_description>
+	</brief_description>
+	<description>
+	</description>
+	<tutorials>
+	</tutorials>
+	<methods>
+		<method name="is_stopped" qualifiers="const">
+			<return type="bool" />
+			<description>
+			</description>
+		</method>
+		<method name="start">
+			<return type="void" />
+			<param index="0" name="time_sec" type="float" default="-1" />
+			<description>
+			</description>
+		</method>
+		<method name="stop">
+			<return type="void" />
+			<description>
+			</description>
+		</method>
+	</methods>
+	<members>
+		<member name="autostart" type="bool" setter="set_autostart" getter="has_autostart" default="false">
+		</member>
+		<member name="one_shot" type="bool" setter="set_one_shot" getter="is_one_shot" default="false">
+		</member>
+		<member name="paused" type="bool" setter="set_paused" getter="is_paused">
+		</member>
+		<member name="process_callback" type="int" setter="set_timer_process_callback" getter="get_timer_process_callback" enum="Timer.TimerProcessCallback" default="1">
+		</member>
+		<member name="time_left" type="float" setter="" getter="get_time_left">
+		</member>
+		<member name="wait_time" type="float" setter="set_wait_time" getter="get_wait_time" default="1.0">
+		</member>
+	</members>
+	<signals>
+		<signal name="timeout">
+			<description>
+			</description>
+		</signal>
+	</signals>
+	<constants>
+		<constant name="TIMER_PROCESS_PHYSICS" value="0" enum="TimerProcessCallback">
+		</constant>
+		<constant name="TIMER_PROCESS_IDLE" value="1" enum="TimerProcessCallback">
+		</constant>
+	</constants>
+</class>

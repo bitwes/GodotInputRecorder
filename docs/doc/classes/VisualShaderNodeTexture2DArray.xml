@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<class name="VisualShaderNodeTexture2DArray" inherits="VisualShaderNodeSample3D" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../class.xsd">
+	<brief_description>
+	</brief_description>
+	<description>
+	</description>
+	<tutorials>
+	</tutorials>
+	<members>
+		<member name="texture_array" type="Texture2DArray" setter="set_texture_array" getter="get_texture_array">
+		</member>
+	</members>
+</class>

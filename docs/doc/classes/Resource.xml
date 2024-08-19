@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<class name="Resource" inherits="RefCounted" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../class.xsd">
+	<brief_description>
+	</brief_description>
+	<description>
+	</description>
+	<tutorials>
+	</tutorials>
+	<methods>
+		<method name="_get_rid" qualifiers="virtual">
+			<return type="RID" />
+			<description>
+			</description>
+		</method>
+		<method name="_setup_local_to_scene" qualifiers="virtual">
+			<return type="void" />
+			<description>
+			</description>
+		</method>
+		<method name="duplicate" qualifiers="const">
+			<return type="Resource" />
+			<param index="0" name="subresources" type="bool" default="false" />
+			<description>
+			</description>
+		</method>
+		<method name="emit_changed">
+			<return type="void" />
+			<description>
+			</description>
+		</method>
+		<method name="get_local_scene" qualifiers="const">
+			<return type="Node" />
+			<description>
+			</description>
+		</method>
+		<method name="get_rid" qualifiers="const">
+			<return type="RID" />
+			<description>
+			</description>
+		</method>
+		<method name="setup_local_to_scene">
+			<return type="void" />
+			<description>
+			</description>
+		</method>
+		<method name="take_over_path">
+			<return type="void" />
+			<param index="0" name="path" type="String" />
+			<description>
+			</description>
+		</method>
+	</methods>
+	<members>
+		<member name="resource_local_to_scene" type="bool" setter="set_local_to_scene" getter="is_local_to_scene" default="false">
+		</member>
+		<member name="resource_name" type="String" setter="set_name" getter="get_name" default="&quot;&quot;">
+		</member>
+		<member name="resource_path" type="String" setter="set_path" getter="get_path" default="&quot;&quot;">
+		</member>
+	</members>
+	<signals>
+		<signal name="changed">
+			<description>
+			</description>
+		</signal>
+		<signal name="setup_local_to_scene_requested">
+			<description>
+			</description>
+		</signal>
+	</signals>
+</class>

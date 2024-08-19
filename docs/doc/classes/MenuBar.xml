@@ -1,0 +1,143 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<class name="MenuBar" inherits="Control" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../class.xsd">
+	<brief_description>
+	</brief_description>
+	<description>
+	</description>
+	<tutorials>
+	</tutorials>
+	<methods>
+		<method name="get_menu_count" qualifiers="const">
+			<return type="int" />
+			<description>
+			</description>
+		</method>
+		<method name="get_menu_popup" qualifiers="const">
+			<return type="PopupMenu" />
+			<param index="0" name="menu" type="int" />
+			<description>
+			</description>
+		</method>
+		<method name="get_menu_title" qualifiers="const">
+			<return type="String" />
+			<param index="0" name="menu" type="int" />
+			<description>
+			</description>
+		</method>
+		<method name="get_menu_tooltip" qualifiers="const">
+			<return type="String" />
+			<param index="0" name="menu" type="int" />
+			<description>
+			</description>
+		</method>
+		<method name="is_menu_disabled" qualifiers="const">
+			<return type="bool" />
+			<param index="0" name="menu" type="int" />
+			<description>
+			</description>
+		</method>
+		<method name="is_menu_hidden" qualifiers="const">
+			<return type="bool" />
+			<param index="0" name="menu" type="int" />
+			<description>
+			</description>
+		</method>
+		<method name="is_native_menu" qualifiers="const">
+			<return type="bool" />
+			<description>
+			</description>
+		</method>
+		<method name="set_disable_shortcuts">
+			<return type="void" />
+			<param index="0" name="disabled" type="bool" />
+			<description>
+			</description>
+		</method>
+		<method name="set_menu_disabled">
+			<return type="void" />
+			<param index="0" name="menu" type="int" />
+			<param index="1" name="disabled" type="bool" />
+			<description>
+			</description>
+		</method>
+		<method name="set_menu_hidden">
+			<return type="void" />
+			<param index="0" name="menu" type="int" />
+			<param index="1" name="hidden" type="bool" />
+			<description>
+			</description>
+		</method>
+		<method name="set_menu_title">
+			<return type="void" />
+			<param index="0" name="menu" type="int" />
+			<param index="1" name="title" type="String" />
+			<description>
+			</description>
+		</method>
+		<method name="set_menu_tooltip">
+			<return type="void" />
+			<param index="0" name="menu" type="int" />
+			<param index="1" name="tooltip" type="String" />
+			<description>
+			</description>
+		</method>
+	</methods>
+	<members>
+		<member name="flat" type="bool" setter="set_flat" getter="is_flat" default="false">
+		</member>
+		<member name="language" type="String" setter="set_language" getter="get_language" default="&quot;&quot;">
+		</member>
+		<member name="prefer_global_menu" type="bool" setter="set_prefer_global_menu" getter="is_prefer_global_menu" default="true">
+		</member>
+		<member name="start_index" type="int" setter="set_start_index" getter="get_start_index" default="-1">
+		</member>
+		<member name="switch_on_hover" type="bool" setter="set_switch_on_hover" getter="is_switch_on_hover" default="true">
+		</member>
+		<member name="text_direction" type="int" setter="set_text_direction" getter="get_text_direction" enum="Control.TextDirection" default="0">
+		</member>
+	</members>
+	<theme_items>
+		<theme_item name="font_color" data_type="color" type="Color" default="Color(0.875, 0.875, 0.875, 1)">
+		</theme_item>
+		<theme_item name="font_disabled_color" data_type="color" type="Color" default="Color(0.875, 0.875, 0.875, 0.5)">
+		</theme_item>
+		<theme_item name="font_focus_color" data_type="color" type="Color" default="Color(0.95, 0.95, 0.95, 1)">
+		</theme_item>
+		<theme_item name="font_hover_color" data_type="color" type="Color" default="Color(0.95, 0.95, 0.95, 1)">
+		</theme_item>
+		<theme_item name="font_hover_pressed_color" data_type="color" type="Color" default="Color(1, 1, 1, 1)">
+		</theme_item>
+		<theme_item name="font_outline_color" data_type="color" type="Color" default="Color(1, 1, 1, 1)">
+		</theme_item>
+		<theme_item name="font_pressed_color" data_type="color" type="Color" default="Color(1, 1, 1, 1)">
+		</theme_item>
+		<theme_item name="h_separation" data_type="constant" type="int" default="4">
+		</theme_item>
+		<theme_item name="outline_size" data_type="constant" type="int" default="0">
+		</theme_item>
+		<theme_item name="font" data_type="font" type="Font">
+		</theme_item>
+		<theme_item name="font_size" data_type="font_size" type="int">
+		</theme_item>
+		<theme_item name="disabled" data_type="style" type="StyleBox">
+		</theme_item>
+		<theme_item name="disabled_mirrored" data_type="style" type="StyleBox">
+		</theme_item>
+		<theme_item name="hover" data_type="style" type="StyleBox">
+		</theme_item>
+		<theme_item name="hover_mirrored" data_type="style" type="StyleBox">
+		</theme_item>
+		<theme_item name="hover_pressed" data_type="style" type="StyleBox">
+		</theme_item>
+		<theme_item name="hover_pressed_mirrored" data_type="style" type="StyleBox">
+		</theme_item>
+		<theme_item name="normal" data_type="style" type="StyleBox">
+		</theme_item>
+		<theme_item name="normal_mirrored" data_type="style" type="StyleBox">
+		</theme_item>
+		<theme_item name="pressed" data_type="style" type="StyleBox">
+		</theme_item>
+		<theme_item name="pressed_mirrored" data_type="style" type="StyleBox">
+		</theme_item>
+	</theme_items>
+</class>

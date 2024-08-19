@@ -71,6 +71,7 @@ text = "Warp Mouse"
 layout_mode = 2
 
 [node name="FPS" type="Label" parent="Layout/Row2_5"]
+visible = false
 layout_mode = 2
 text = "fps:  99"
 

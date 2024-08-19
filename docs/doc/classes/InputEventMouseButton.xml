@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<class name="InputEventMouseButton" inherits="InputEventMouse" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../class.xsd">
+	<brief_description>
+	</brief_description>
+	<description>
+	</description>
+	<tutorials>
+	</tutorials>
+	<members>
+		<member name="button_index" type="int" setter="set_button_index" getter="get_button_index" enum="MouseButton" default="0">
+		</member>
+		<member name="canceled" type="bool" setter="set_canceled" getter="is_canceled" default="false">
+		</member>
+		<member name="double_click" type="bool" setter="set_double_click" getter="is_double_click" default="false">
+		</member>
+		<member name="factor" type="float" setter="set_factor" getter="get_factor" default="1.0">
+		</member>
+		<member name="pressed" type="bool" setter="set_pressed" getter="is_pressed" default="false">
+		</member>
+	</members>
+</class>

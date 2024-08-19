@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<class name="ResourcePreloader" inherits="Node" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../class.xsd">
+	<brief_description>
+	</brief_description>
+	<description>
+	</description>
+	<tutorials>
+	</tutorials>
+	<methods>
+		<method name="add_resource">
+			<return type="void" />
+			<param index="0" name="name" type="StringName" />
+			<param index="1" name="resource" type="Resource" />
+			<description>
+			</description>
+		</method>
+		<method name="get_resource" qualifiers="const">
+			<return type="Resource" />
+			<param index="0" name="name" type="StringName" />
+			<description>
+			</description>
+		</method>
+		<method name="get_resource_list" qualifiers="const">
+			<return type="PackedStringArray" />
+			<description>
+			</description>
+		</method>
+		<method name="has_resource" qualifiers="const">
+			<return type="bool" />
+			<param index="0" name="name" type="StringName" />
+			<description>
+			</description>
+		</method>
+		<method name="remove_resource">
+			<return type="void" />
+			<param index="0" name="name" type="StringName" />
+			<description>
+			</description>
+		</method>
+		<method name="rename_resource">
+			<return type="void" />
+			<param index="0" name="name" type="StringName" />
+			<param index="1" name="newname" type="StringName" />
+			<description>
+			</description>
+		</method>
+	</methods>
+</class>

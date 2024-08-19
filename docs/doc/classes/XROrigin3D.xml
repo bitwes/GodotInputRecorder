@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<class name="XROrigin3D" inherits="Node3D" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../class.xsd">
+	<brief_description>
+	</brief_description>
+	<description>
+	</description>
+	<tutorials>
+	</tutorials>
+	<members>
+		<member name="current" type="bool" setter="set_current" getter="is_current" default="false">
+		</member>
+		<member name="world_scale" type="float" setter="set_world_scale" getter="get_world_scale" default="1.0">
+		</member>
+	</members>
+</class>

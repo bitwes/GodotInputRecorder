@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<class name="SubViewportContainer" inherits="Container" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../class.xsd">
+	<brief_description>
+	</brief_description>
+	<description>
+	</description>
+	<tutorials>
+	</tutorials>
+	<methods>
+		<method name="_propagate_input_event" qualifiers="virtual const">
+			<return type="bool" />
+			<param index="0" name="event" type="InputEvent" />
+			<description>
+			</description>
+		</method>
+	</methods>
+	<members>
+		<member name="focus_mode" type="int" setter="set_focus_mode" getter="get_focus_mode" overrides="Control" enum="Control.FocusMode" default="1" />
+		<member name="stretch" type="bool" setter="set_stretch" getter="is_stretch_enabled" default="false">
+		</member>
+		<member name="stretch_shrink" type="int" setter="set_stretch_shrink" getter="get_stretch_shrink" default="1">
+		</member>
+	</members>
+</class>

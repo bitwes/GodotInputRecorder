@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<class name="VoxelGI" inherits="VisualInstance3D" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../class.xsd">
+	<brief_description>
+	</brief_description>
+	<description>
+	</description>
+	<tutorials>
+	</tutorials>
+	<methods>
+		<method name="bake">
+			<return type="void" />
+			<param index="0" name="from_node" type="Node" default="null" />
+			<param index="1" name="create_visual_debug" type="bool" default="false" />
+			<description>
+			</description>
+		</method>
+		<method name="debug_bake">
+			<return type="void" />
+			<description>
+			</description>
+		</method>
+	</methods>
+	<members>
+		<member name="camera_attributes" type="CameraAttributes" setter="set_camera_attributes" getter="get_camera_attributes">
+		</member>
+		<member name="data" type="VoxelGIData" setter="set_probe_data" getter="get_probe_data">
+		</member>
+		<member name="size" type="Vector3" setter="set_size" getter="get_size" default="Vector3(20, 20, 20)">
+		</member>
+		<member name="subdiv" type="int" setter="set_subdiv" getter="get_subdiv" enum="VoxelGI.Subdiv" default="1">
+		</member>
+	</members>
+	<constants>
+		<constant name="SUBDIV_64" value="0" enum="Subdiv">
+		</constant>
+		<constant name="SUBDIV_128" value="1" enum="Subdiv">
+		</constant>
+		<constant name="SUBDIV_256" value="2" enum="Subdiv">
+		</constant>
+		<constant name="SUBDIV_512" value="3" enum="Subdiv">
+		</constant>
+		<constant name="SUBDIV_MAX" value="4" enum="Subdiv">
+		</constant>
+	</constants>
+</class>

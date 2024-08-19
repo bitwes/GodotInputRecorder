@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<class name="Light3D" inherits="VisualInstance3D" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../class.xsd">
+	<brief_description>
+	</brief_description>
+	<description>
+	</description>
+	<tutorials>
+	</tutorials>
+	<methods>
+		<method name="get_correlated_color" qualifiers="const">
+			<return type="Color" />
+			<description>
+			</description>
+		</method>
+		<method name="get_param" qualifiers="const">
+			<return type="float" />
+			<param index="0" name="param" type="int" enum="Light3D.Param" />
+			<description>
+			</description>
+		</method>
+		<method name="set_param">
+			<return type="void" />
+			<param index="0" name="param" type="int" enum="Light3D.Param" />
+			<param index="1" name="value" type="float" />
+			<description>
+			</description>
+		</method>
+	</methods>
+	<members>
+		<member name="distance_fade_begin" type="float" setter="set_distance_fade_begin" getter="get_distance_fade_begin" default="40.0">
+		</member>
+		<member name="distance_fade_enabled" type="bool" setter="set_enable_distance_fade" getter="is_distance_fade_enabled" default="false">
+		</member>
+		<member name="distance_fade_length" type="float" setter="set_distance_fade_length" getter="get_distance_fade_length" default="10.0">
+		</member>
+		<member name="distance_fade_shadow" type="float" setter="set_distance_fade_shadow" getter="get_distance_fade_shadow" default="50.0">
+		</member>
+		<member name="editor_only" type="bool" setter="set_editor_only" getter="is_editor_only" default="false">
+		</member>
+		<member name="light_angular_distance" type="float" setter="set_param" getter="get_param" default="0.0">
+		</member>
+		<member name="light_bake_mode" type="int" setter="set_bake_mode" getter="get_bake_mode" enum="Light3D.BakeMode" default="2">
+		</member>
+		<member name="light_color" type="Color" setter="set_color" getter="get_color" default="Color(1, 1, 1, 1)">
+		</member>
+		<member name="light_cull_mask" type="int" setter="set_cull_mask" getter="get_cull_mask" default="4294967295">
+		</member>
+		<member name="light_energy" type="float" setter="set_param" getter="get_param" default="1.0">
+		</member>
+		<member name="light_indirect_energy" type="float" setter="set_param" getter="get_param" default="1.0">
+		</member>
+		<member name="light_intensity_lumens" type="float" setter="set_param" getter="get_param">
+		</member>
+		<member name="light_intensity_lux" type="float" setter="set_param" getter="get_param">
+		</member>
+		<member name="light_negative" type="bool" setter="set_negative" getter="is_negative" default="false">
+		</member>
+		<member name="light_projector" type="Texture2D" setter="set_projector" getter="get_projector">
+		</member>
+		<member name="light_size" type="float" setter="set_param" getter="get_param" default="0.0">
+		</member>
+		<member name="light_specular" type="float" setter="set_param" getter="get_param" default="0.5">
+		</member>
+		<member name="light_temperature" type="float" setter="set_temperature" getter="get_temperature">
+		</member>
+		<member name="light_volumetric_fog_energy" type="float" setter="set_param" getter="get_param" default="1.0">
+		</member>
+		<member name="shadow_bias" type="float" setter="set_param" getter="get_param" default="0.1">
+		</member>
+		<member name="shadow_blur" type="float" setter="set_param" getter="get_param" default="1.0">
+		</member>
+		<member name="shadow_enabled" type="bool" setter="set_shadow" getter="has_shadow" default="false">
+		</member>
+		<member name="shadow_normal_bias" type="float" setter="set_param" getter="get_param" default="2.0">
+		</member>
+		<member name="shadow_opacity" type="float" setter="set_param" getter="get_param" default="1.0">
+		</member>
+		<member name="shadow_reverse_cull_face" type="bool" setter="set_shadow_reverse_cull_face" getter="get_shadow_reverse_cull_face" default="false">
+		</member>
+		<member name="shadow_transmittance_bias" type="float" setter="set_param" getter="get_param" default="0.05">
+		</member>
+	</members>
+	<constants>
+		<constant name="PARAM_ENERGY" value="0" enum="Param">
+		</constant>
+		<constant name="PARAM_INDIRECT_ENERGY" value="1" enum="Param">
+		</constant>
+		<constant name="PARAM_VOLUMETRIC_FOG_ENERGY" value="2" enum="Param">
+		</constant>
+		<constant name="PARAM_SPECULAR" value="3" enum="Param">
+		</constant>
+		<constant name="PARAM_RANGE" value="4" enum="Param">
+		</constant>
+		<constant name="PARAM_SIZE" value="5" enum="Param">
+		</constant>
+		<constant name="PARAM_ATTENUATION" value="6" enum="Param">
+		</constant>
+		<constant name="PARAM_SPOT_ANGLE" value="7" enum="Param">
+		</constant>
+		<constant name="PARAM_SPOT_ATTENUATION" value="8" enum="Param">
+		</constant>
+		<constant name="PARAM_SHADOW_MAX_DISTANCE" value="9" enum="Param">
+		</constant>
+		<constant name="PARAM_SHADOW_SPLIT_1_OFFSET" value="10" enum="Param">
+		</constant>
+		<constant name="PARAM_SHADOW_SPLIT_2_OFFSET" value="11" enum="Param">
+		</constant>
+		<constant name="PARAM_SHADOW_SPLIT_3_OFFSET" value="12" enum="Param">
+		</constant>
+		<constant name="PARAM_SHADOW_FADE_START" value="13" enum="Param">
+		</constant>
+		<constant name="PARAM_SHADOW_NORMAL_BIAS" value="14" enum="Param">
+		</constant>
+		<constant name="PARAM_SHADOW_BIAS" value="15" enum="Param">
+		</constant>
+		<constant name="PARAM_SHADOW_PANCAKE_SIZE" value="16" enum="Param">
+		</constant>
+		<constant name="PARAM_SHADOW_OPACITY" value="17" enum="Param">
+		</constant>
+		<constant name="PARAM_SHADOW_BLUR" value="18" enum="Param">
+		</constant>
+		<constant name="PARAM_TRANSMITTANCE_BIAS" value="19" enum="Param">
+		</constant>
+		<constant name="PARAM_INTENSITY" value="20" enum="Param">
+		</constant>
+		<constant name="PARAM_MAX" value="21" enum="Param">
+		</constant>
+		<constant name="BAKE_DISABLED" value="0" enum="BakeMode">
+		</constant>
+		<constant name="BAKE_STATIC" value="1" enum="BakeMode">
+		</constant>
+		<constant name="BAKE_DYNAMIC" value="2" enum="BakeMode">
+		</constant>
+	</constants>
+</class>

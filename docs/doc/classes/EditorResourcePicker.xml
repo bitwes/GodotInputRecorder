@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<class name="EditorResourcePicker" inherits="HBoxContainer" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../class.xsd">
+	<brief_description>
+	</brief_description>
+	<description>
+	</description>
+	<tutorials>
+	</tutorials>
+	<methods>
+		<method name="_handle_menu_selected" qualifiers="virtual">
+			<return type="bool" />
+			<param index="0" name="id" type="int" />
+			<description>
+			</description>
+		</method>
+		<method name="_set_create_options" qualifiers="virtual">
+			<return type="void" />
+			<param index="0" name="menu_node" type="Object" />
+			<description>
+			</description>
+		</method>
+		<method name="get_allowed_types" qualifiers="const">
+			<return type="PackedStringArray" />
+			<description>
+			</description>
+		</method>
+		<method name="set_toggle_pressed">
+			<return type="void" />
+			<param index="0" name="pressed" type="bool" />
+			<description>
+			</description>
+		</method>
+	</methods>
+	<members>
+		<member name="base_type" type="String" setter="set_base_type" getter="get_base_type" default="&quot;&quot;">
+		</member>
+		<member name="editable" type="bool" setter="set_editable" getter="is_editable" default="true">
+		</member>
+		<member name="edited_resource" type="Resource" setter="set_edited_resource" getter="get_edited_resource">
+		</member>
+		<member name="toggle_mode" type="bool" setter="set_toggle_mode" getter="is_toggle_mode" default="false">
+		</member>
+	</members>
+	<signals>
+		<signal name="resource_changed">
+			<param index="0" name="resource" type="Resource" />
+			<description>
+			</description>
+		</signal>
+		<signal name="resource_selected">
+			<param index="0" name="resource" type="Resource" />
+			<param index="1" name="inspect" type="bool" />
+			<description>
+			</description>
+		</signal>
+	</signals>
+</class>

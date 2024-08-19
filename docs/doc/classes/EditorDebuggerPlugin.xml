@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<class name="EditorDebuggerPlugin" inherits="RefCounted" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../class.xsd">
+	<brief_description>
+	</brief_description>
+	<description>
+	</description>
+	<tutorials>
+	</tutorials>
+	<methods>
+		<method name="_capture" qualifiers="virtual">
+			<return type="bool" />
+			<param index="0" name="message" type="String" />
+			<param index="1" name="data" type="Array" />
+			<param index="2" name="session_id" type="int" />
+			<description>
+			</description>
+		</method>
+		<method name="_has_capture" qualifiers="virtual const">
+			<return type="bool" />
+			<param index="0" name="capture" type="String" />
+			<description>
+			</description>
+		</method>
+		<method name="_setup_session" qualifiers="virtual">
+			<return type="void" />
+			<param index="0" name="session_id" type="int" />
+			<description>
+			</description>
+		</method>
+		<method name="get_session">
+			<return type="EditorDebuggerSession" />
+			<param index="0" name="id" type="int" />
+			<description>
+			</description>
+		</method>
+		<method name="get_sessions">
+			<return type="Array" />
+			<description>
+			</description>
+		</method>
+	</methods>
+</class>

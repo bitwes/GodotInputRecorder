@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<class name="CollisionPolygon3D" inherits="Node3D" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../class.xsd">
+	<brief_description>
+	</brief_description>
+	<description>
+	</description>
+	<tutorials>
+	</tutorials>
+	<members>
+		<member name="depth" type="float" setter="set_depth" getter="get_depth" default="1.0">
+		</member>
+		<member name="disabled" type="bool" setter="set_disabled" getter="is_disabled" default="false">
+		</member>
+		<member name="margin" type="float" setter="set_margin" getter="get_margin" default="0.04">
+		</member>
+		<member name="polygon" type="PackedVector2Array" setter="set_polygon" getter="get_polygon" default="PackedVector2Array()">
+		</member>
+	</members>
+</class>

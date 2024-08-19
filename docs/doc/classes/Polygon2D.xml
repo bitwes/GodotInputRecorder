@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<class name="Polygon2D" inherits="Node2D" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../class.xsd">
+	<brief_description>
+	</brief_description>
+	<description>
+	</description>
+	<tutorials>
+	</tutorials>
+	<methods>
+		<method name="add_bone">
+			<return type="void" />
+			<param index="0" name="path" type="NodePath" />
+			<param index="1" name="weights" type="PackedFloat32Array" />
+			<description>
+			</description>
+		</method>
+		<method name="clear_bones">
+			<return type="void" />
+			<description>
+			</description>
+		</method>
+		<method name="erase_bone">
+			<return type="void" />
+			<param index="0" name="index" type="int" />
+			<description>
+			</description>
+		</method>
+		<method name="get_bone_count" qualifiers="const">
+			<return type="int" />
+			<description>
+			</description>
+		</method>
+		<method name="get_bone_path" qualifiers="const">
+			<return type="NodePath" />
+			<param index="0" name="index" type="int" />
+			<description>
+			</description>
+		</method>
+		<method name="get_bone_weights" qualifiers="const">
+			<return type="PackedFloat32Array" />
+			<param index="0" name="index" type="int" />
+			<description>
+			</description>
+		</method>
+		<method name="set_bone_path">
+			<return type="void" />
+			<param index="0" name="index" type="int" />
+			<param index="1" name="path" type="NodePath" />
+			<description>
+			</description>
+		</method>
+		<method name="set_bone_weights">
+			<return type="void" />
+			<param index="0" name="index" type="int" />
+			<param index="1" name="weights" type="PackedFloat32Array" />
+			<description>
+			</description>
+		</method>
+	</methods>
+	<members>
+		<member name="antialiased" type="bool" setter="set_antialiased" getter="get_antialiased" default="false">
+		</member>
+		<member name="bones" type="Array" setter="_set_bones" getter="_get_bones" default="[]">
+		</member>
+		<member name="color" type="Color" setter="set_color" getter="get_color" default="Color(1, 1, 1, 1)">
+		</member>
+		<member name="internal_vertex_count" type="int" setter="set_internal_vertex_count" getter="get_internal_vertex_count" default="0">
+		</member>
+		<member name="invert_border" type="float" setter="set_invert_border" getter="get_invert_border" default="100.0">
+		</member>
+		<member name="invert_enabled" type="bool" setter="set_invert_enabled" getter="get_invert_enabled" default="false">
+		</member>
+		<member name="offset" type="Vector2" setter="set_offset" getter="get_offset" default="Vector2(0, 0)">
+		</member>
+		<member name="polygon" type="PackedVector2Array" setter="set_polygon" getter="get_polygon" default="PackedVector2Array()">
+		</member>
+		<member name="polygons" type="Array" setter="set_polygons" getter="get_polygons" default="[]">
+		</member>
+		<member name="skeleton" type="NodePath" setter="set_skeleton" getter="get_skeleton" default="NodePath(&quot;&quot;)">
+		</member>
+		<member name="texture" type="Texture2D" setter="set_texture" getter="get_texture">
+		</member>
+		<member name="texture_offset" type="Vector2" setter="set_texture_offset" getter="get_texture_offset" default="Vector2(0, 0)">
+		</member>
+		<member name="texture_rotation" type="float" setter="set_texture_rotation" getter="get_texture_rotation" default="0.0">
+		</member>
+		<member name="texture_scale" type="Vector2" setter="set_texture_scale" getter="get_texture_scale" default="Vector2(1, 1)">
+		</member>
+		<member name="uv" type="PackedVector2Array" setter="set_uv" getter="get_uv" default="PackedVector2Array()">
+		</member>
+		<member name="vertex_colors" type="PackedColorArray" setter="set_vertex_colors" getter="get_vertex_colors" default="PackedColorArray()">
+		</member>
+	</members>
+</class>

@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<class name="VisualShaderNode" inherits="Resource" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../class.xsd">
+	<brief_description>
+	</brief_description>
+	<description>
+	</description>
+	<tutorials>
+	</tutorials>
+	<methods>
+		<method name="clear_default_input_values">
+			<return type="void" />
+			<description>
+			</description>
+		</method>
+		<method name="get_default_input_port" qualifiers="const">
+			<return type="int" />
+			<param index="0" name="type" type="int" enum="VisualShaderNode.PortType" />
+			<description>
+			</description>
+		</method>
+		<method name="get_default_input_values" qualifiers="const">
+			<return type="Array" />
+			<description>
+			</description>
+		</method>
+		<method name="get_input_port_default_value" qualifiers="const">
+			<return type="Variant" />
+			<param index="0" name="port" type="int" />
+			<description>
+			</description>
+		</method>
+		<method name="remove_input_port_default_value">
+			<return type="void" />
+			<param index="0" name="port" type="int" />
+			<description>
+			</description>
+		</method>
+		<method name="set_default_input_values">
+			<return type="void" />
+			<param index="0" name="values" type="Array" />
+			<description>
+			</description>
+		</method>
+		<method name="set_input_port_default_value">
+			<return type="void" />
+			<param index="0" name="port" type="int" />
+			<param index="1" name="value" type="Variant" />
+			<param index="2" name="prev_value" type="Variant" default="null" />
+			<description>
+			</description>
+		</method>
+	</methods>
+	<members>
+		<member name="output_port_for_preview" type="int" setter="set_output_port_for_preview" getter="get_output_port_for_preview" default="-1">
+		</member>
+	</members>
+	<constants>
+		<constant name="PORT_TYPE_SCALAR" value="0" enum="PortType">
+		</constant>
+		<constant name="PORT_TYPE_SCALAR_INT" value="1" enum="PortType">
+		</constant>
+		<constant name="PORT_TYPE_SCALAR_UINT" value="2" enum="PortType">
+		</constant>
+		<constant name="PORT_TYPE_VECTOR_2D" value="3" enum="PortType">
+		</constant>
+		<constant name="PORT_TYPE_VECTOR_3D" value="4" enum="PortType">
+		</constant>
+		<constant name="PORT_TYPE_VECTOR_4D" value="5" enum="PortType">
+		</constant>
+		<constant name="PORT_TYPE_BOOLEAN" value="6" enum="PortType">
+		</constant>
+		<constant name="PORT_TYPE_TRANSFORM" value="7" enum="PortType">
+		</constant>
+		<constant name="PORT_TYPE_SAMPLER" value="8" enum="PortType">
+		</constant>
+		<constant name="PORT_TYPE_MAX" value="9" enum="PortType">
+		</constant>
+	</constants>
+</class>

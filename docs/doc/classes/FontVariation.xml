@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<class name="FontVariation" inherits="Font" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../class.xsd">
+	<brief_description>
+	</brief_description>
+	<description>
+	</description>
+	<tutorials>
+	</tutorials>
+	<methods>
+		<method name="set_spacing">
+			<return type="void" />
+			<param index="0" name="spacing" type="int" enum="TextServer.SpacingType" />
+			<param index="1" name="value" type="int" />
+			<description>
+			</description>
+		</method>
+	</methods>
+	<members>
+		<member name="base_font" type="Font" setter="set_base_font" getter="get_base_font">
+		</member>
+		<member name="opentype_features" type="Dictionary" setter="set_opentype_features" getter="get_opentype_features" default="{}">
+		</member>
+		<member name="spacing_bottom" type="int" setter="set_spacing" getter="get_spacing" default="0">
+		</member>
+		<member name="spacing_glyph" type="int" setter="set_spacing" getter="get_spacing" default="0">
+		</member>
+		<member name="spacing_space" type="int" setter="set_spacing" getter="get_spacing" default="0">
+		</member>
+		<member name="spacing_top" type="int" setter="set_spacing" getter="get_spacing" default="0">
+		</member>
+		<member name="variation_embolden" type="float" setter="set_variation_embolden" getter="get_variation_embolden" default="0.0">
+		</member>
+		<member name="variation_face_index" type="int" setter="set_variation_face_index" getter="get_variation_face_index" default="0">
+		</member>
+		<member name="variation_opentype" type="Dictionary" setter="set_variation_opentype" getter="get_variation_opentype" default="{}">
+		</member>
+		<member name="variation_transform" type="Transform2D" setter="set_variation_transform" getter="get_variation_transform" default="Transform2D(1, 0, 0, 1, 0, 0)">
+		</member>
+	</members>
+</class>

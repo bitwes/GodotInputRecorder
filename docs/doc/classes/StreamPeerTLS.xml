@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<class name="StreamPeerTLS" inherits="StreamPeer" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../class.xsd">
+	<brief_description>
+	</brief_description>
+	<description>
+	</description>
+	<tutorials>
+	</tutorials>
+	<methods>
+		<method name="accept_stream">
+			<return type="int" enum="Error" />
+			<param index="0" name="stream" type="StreamPeer" />
+			<param index="1" name="server_options" type="TLSOptions" />
+			<description>
+			</description>
+		</method>
+		<method name="connect_to_stream">
+			<return type="int" enum="Error" />
+			<param index="0" name="stream" type="StreamPeer" />
+			<param index="1" name="common_name" type="String" />
+			<param index="2" name="client_options" type="TLSOptions" default="null" />
+			<description>
+			</description>
+		</method>
+		<method name="disconnect_from_stream">
+			<return type="void" />
+			<description>
+			</description>
+		</method>
+		<method name="get_status" qualifiers="const">
+			<return type="int" enum="StreamPeerTLS.Status" />
+			<description>
+			</description>
+		</method>
+		<method name="get_stream" qualifiers="const">
+			<return type="StreamPeer" />
+			<description>
+			</description>
+		</method>
+		<method name="poll">
+			<return type="void" />
+			<description>
+			</description>
+		</method>
+	</methods>
+	<constants>
+		<constant name="STATUS_DISCONNECTED" value="0" enum="Status">
+		</constant>
+		<constant name="STATUS_HANDSHAKING" value="1" enum="Status">
+		</constant>
+		<constant name="STATUS_CONNECTED" value="2" enum="Status">
+		</constant>
+		<constant name="STATUS_ERROR" value="3" enum="Status">
+		</constant>
+		<constant name="STATUS_ERROR_HOSTNAME_MISMATCH" value="4" enum="Status">
+		</constant>
+	</constants>
+</class>

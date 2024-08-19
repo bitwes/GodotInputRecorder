@@ -1,0 +1,146 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<class name="NavigationPolygon" inherits="Resource" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../class.xsd">
+	<brief_description>
+	</brief_description>
+	<description>
+	</description>
+	<tutorials>
+	</tutorials>
+	<methods>
+		<method name="add_outline">
+			<return type="void" />
+			<param index="0" name="outline" type="PackedVector2Array" />
+			<description>
+			</description>
+		</method>
+		<method name="add_outline_at_index">
+			<return type="void" />
+			<param index="0" name="outline" type="PackedVector2Array" />
+			<param index="1" name="index" type="int" />
+			<description>
+			</description>
+		</method>
+		<method name="add_polygon">
+			<return type="void" />
+			<param index="0" name="polygon" type="PackedInt32Array" />
+			<description>
+			</description>
+		</method>
+		<method name="clear">
+			<return type="void" />
+			<description>
+			</description>
+		</method>
+		<method name="clear_outlines">
+			<return type="void" />
+			<description>
+			</description>
+		</method>
+		<method name="clear_polygons">
+			<return type="void" />
+			<description>
+			</description>
+		</method>
+		<method name="get_navigation_mesh">
+			<return type="NavigationMesh" />
+			<description>
+			</description>
+		</method>
+		<method name="get_outline" qualifiers="const">
+			<return type="PackedVector2Array" />
+			<param index="0" name="idx" type="int" />
+			<description>
+			</description>
+		</method>
+		<method name="get_outline_count" qualifiers="const">
+			<return type="int" />
+			<description>
+			</description>
+		</method>
+		<method name="get_parsed_collision_mask_value" qualifiers="const">
+			<return type="bool" />
+			<param index="0" name="layer_number" type="int" />
+			<description>
+			</description>
+		</method>
+		<method name="get_polygon">
+			<return type="PackedInt32Array" />
+			<param index="0" name="idx" type="int" />
+			<description>
+			</description>
+		</method>
+		<method name="get_polygon_count" qualifiers="const">
+			<return type="int" />
+			<description>
+			</description>
+		</method>
+		<method name="get_vertices" qualifiers="const">
+			<return type="PackedVector2Array" />
+			<description>
+			</description>
+		</method>
+		<method name="make_polygons_from_outlines">
+			<return type="void" />
+			<description>
+			</description>
+		</method>
+		<method name="remove_outline">
+			<return type="void" />
+			<param index="0" name="idx" type="int" />
+			<description>
+			</description>
+		</method>
+		<method name="set_outline">
+			<return type="void" />
+			<param index="0" name="idx" type="int" />
+			<param index="1" name="outline" type="PackedVector2Array" />
+			<description>
+			</description>
+		</method>
+		<method name="set_parsed_collision_mask_value">
+			<return type="void" />
+			<param index="0" name="layer_number" type="int" />
+			<param index="1" name="value" type="bool" />
+			<description>
+			</description>
+		</method>
+		<method name="set_vertices">
+			<return type="void" />
+			<param index="0" name="vertices" type="PackedVector2Array" />
+			<description>
+			</description>
+		</method>
+	</methods>
+	<members>
+		<member name="agent_radius" type="float" setter="set_agent_radius" getter="get_agent_radius" default="10.0">
+		</member>
+		<member name="cell_size" type="float" setter="set_cell_size" getter="get_cell_size" default="1.0">
+		</member>
+		<member name="parsed_collision_mask" type="int" setter="set_parsed_collision_mask" getter="get_parsed_collision_mask" default="4294967295">
+		</member>
+		<member name="parsed_geometry_type" type="int" setter="set_parsed_geometry_type" getter="get_parsed_geometry_type" enum="NavigationPolygon.ParsedGeometryType" default="2">
+		</member>
+		<member name="source_geometry_group_name" type="StringName" setter="set_source_geometry_group_name" getter="get_source_geometry_group_name" default="&amp;&quot;navigation_polygon_source_geometry_group&quot;">
+		</member>
+		<member name="source_geometry_mode" type="int" setter="set_source_geometry_mode" getter="get_source_geometry_mode" enum="NavigationPolygon.SourceGeometryMode" default="0">
+		</member>
+	</members>
+	<constants>
+		<constant name="PARSED_GEOMETRY_MESH_INSTANCES" value="0" enum="ParsedGeometryType">
+		</constant>
+		<constant name="PARSED_GEOMETRY_STATIC_COLLIDERS" value="1" enum="ParsedGeometryType">
+		</constant>
+		<constant name="PARSED_GEOMETRY_BOTH" value="2" enum="ParsedGeometryType">
+		</constant>
+		<constant name="PARSED_GEOMETRY_MAX" value="3" enum="ParsedGeometryType">
+		</constant>
+		<constant name="SOURCE_GEOMETRY_ROOT_NODE_CHILDREN" value="0" enum="SourceGeometryMode">
+		</constant>
+		<constant name="SOURCE_GEOMETRY_GROUPS_WITH_CHILDREN" value="1" enum="SourceGeometryMode">
+		</constant>
+		<constant name="SOURCE_GEOMETRY_GROUPS_EXPLICIT" value="2" enum="SourceGeometryMode">
+		</constant>
+		<constant name="SOURCE_GEOMETRY_MAX" value="3" enum="SourceGeometryMode">
+		</constant>
+	</constants>
+</class>

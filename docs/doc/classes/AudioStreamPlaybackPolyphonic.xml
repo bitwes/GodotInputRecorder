@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<class name="AudioStreamPlaybackPolyphonic" inherits="AudioStreamPlayback" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../class.xsd">
+	<brief_description>
+	</brief_description>
+	<description>
+	</description>
+	<tutorials>
+	</tutorials>
+	<methods>
+		<method name="is_stream_playing" qualifiers="const">
+			<return type="bool" />
+			<param index="0" name="stream" type="int" />
+			<description>
+			</description>
+		</method>
+		<method name="play_stream">
+			<return type="int" />
+			<param index="0" name="stream" type="AudioStream" />
+			<param index="1" name="from_offset" type="float" default="0" />
+			<param index="2" name="volume_db" type="float" default="0" />
+			<param index="3" name="pitch_scale" type="float" default="1.0" />
+			<description>
+			</description>
+		</method>
+		<method name="set_stream_pitch_scale">
+			<return type="void" />
+			<param index="0" name="stream" type="int" />
+			<param index="1" name="pitch_scale" type="float" />
+			<description>
+			</description>
+		</method>
+		<method name="set_stream_volume">
+			<return type="void" />
+			<param index="0" name="stream" type="int" />
+			<param index="1" name="volume_db" type="float" />
+			<description>
+			</description>
+		</method>
+		<method name="stop_stream">
+			<return type="void" />
+			<param index="0" name="stream" type="int" />
+			<description>
+			</description>
+		</method>
+	</methods>
+	<constants>
+		<constant name="INVALID_ID" value="-1">
+		</constant>
+	</constants>
+</class>

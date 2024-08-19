@@ -1,0 +1,234 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<class name="EditorVCSInterface" inherits="Object" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../class.xsd">
+	<brief_description>
+	</brief_description>
+	<description>
+	</description>
+	<tutorials>
+	</tutorials>
+	<methods>
+		<method name="_checkout_branch" qualifiers="virtual">
+			<return type="bool" />
+			<param index="0" name="branch_name" type="String" />
+			<description>
+			</description>
+		</method>
+		<method name="_commit" qualifiers="virtual">
+			<return type="void" />
+			<param index="0" name="msg" type="String" />
+			<description>
+			</description>
+		</method>
+		<method name="_create_branch" qualifiers="virtual">
+			<return type="void" />
+			<param index="0" name="branch_name" type="String" />
+			<description>
+			</description>
+		</method>
+		<method name="_create_remote" qualifiers="virtual">
+			<return type="void" />
+			<param index="0" name="remote_name" type="String" />
+			<param index="1" name="remote_url" type="String" />
+			<description>
+			</description>
+		</method>
+		<method name="_discard_file" qualifiers="virtual">
+			<return type="void" />
+			<param index="0" name="file_path" type="String" />
+			<description>
+			</description>
+		</method>
+		<method name="_fetch" qualifiers="virtual">
+			<return type="void" />
+			<param index="0" name="remote" type="String" />
+			<description>
+			</description>
+		</method>
+		<method name="_get_branch_list" qualifiers="virtual">
+			<return type="String[]" />
+			<description>
+			</description>
+		</method>
+		<method name="_get_current_branch_name" qualifiers="virtual">
+			<return type="String" />
+			<description>
+			</description>
+		</method>
+		<method name="_get_diff" qualifiers="virtual">
+			<return type="Dictionary[]" />
+			<param index="0" name="identifier" type="String" />
+			<param index="1" name="area" type="int" />
+			<description>
+			</description>
+		</method>
+		<method name="_get_line_diff" qualifiers="virtual">
+			<return type="Dictionary[]" />
+			<param index="0" name="file_path" type="String" />
+			<param index="1" name="text" type="String" />
+			<description>
+			</description>
+		</method>
+		<method name="_get_modified_files_data" qualifiers="virtual">
+			<return type="Dictionary[]" />
+			<description>
+			</description>
+		</method>
+		<method name="_get_previous_commits" qualifiers="virtual">
+			<return type="Dictionary[]" />
+			<param index="0" name="max_commits" type="int" />
+			<description>
+			</description>
+		</method>
+		<method name="_get_remotes" qualifiers="virtual">
+			<return type="String[]" />
+			<description>
+			</description>
+		</method>
+		<method name="_get_vcs_name" qualifiers="virtual">
+			<return type="String" />
+			<description>
+			</description>
+		</method>
+		<method name="_initialize" qualifiers="virtual">
+			<return type="bool" />
+			<param index="0" name="project_path" type="String" />
+			<description>
+			</description>
+		</method>
+		<method name="_pull" qualifiers="virtual">
+			<return type="void" />
+			<param index="0" name="remote" type="String" />
+			<description>
+			</description>
+		</method>
+		<method name="_push" qualifiers="virtual">
+			<return type="void" />
+			<param index="0" name="remote" type="String" />
+			<param index="1" name="force" type="bool" />
+			<description>
+			</description>
+		</method>
+		<method name="_remove_branch" qualifiers="virtual">
+			<return type="void" />
+			<param index="0" name="branch_name" type="String" />
+			<description>
+			</description>
+		</method>
+		<method name="_remove_remote" qualifiers="virtual">
+			<return type="void" />
+			<param index="0" name="remote_name" type="String" />
+			<description>
+			</description>
+		</method>
+		<method name="_set_credentials" qualifiers="virtual">
+			<return type="void" />
+			<param index="0" name="username" type="String" />
+			<param index="1" name="password" type="String" />
+			<param index="2" name="ssh_public_key_path" type="String" />
+			<param index="3" name="ssh_private_key_path" type="String" />
+			<param index="4" name="ssh_passphrase" type="String" />
+			<description>
+			</description>
+		</method>
+		<method name="_shut_down" qualifiers="virtual">
+			<return type="bool" />
+			<description>
+			</description>
+		</method>
+		<method name="_stage_file" qualifiers="virtual">
+			<return type="void" />
+			<param index="0" name="file_path" type="String" />
+			<description>
+			</description>
+		</method>
+		<method name="_unstage_file" qualifiers="virtual">
+			<return type="void" />
+			<param index="0" name="file_path" type="String" />
+			<description>
+			</description>
+		</method>
+		<method name="add_diff_hunks_into_diff_file">
+			<return type="Dictionary" />
+			<param index="0" name="diff_file" type="Dictionary" />
+			<param index="1" name="diff_hunks" type="Dictionary[]" />
+			<description>
+			</description>
+		</method>
+		<method name="add_line_diffs_into_diff_hunk">
+			<return type="Dictionary" />
+			<param index="0" name="diff_hunk" type="Dictionary" />
+			<param index="1" name="line_diffs" type="Dictionary[]" />
+			<description>
+			</description>
+		</method>
+		<method name="create_commit">
+			<return type="Dictionary" />
+			<param index="0" name="msg" type="String" />
+			<param index="1" name="author" type="String" />
+			<param index="2" name="id" type="String" />
+			<param index="3" name="unix_timestamp" type="int" />
+			<param index="4" name="offset_minutes" type="int" />
+			<description>
+			</description>
+		</method>
+		<method name="create_diff_file">
+			<return type="Dictionary" />
+			<param index="0" name="new_file" type="String" />
+			<param index="1" name="old_file" type="String" />
+			<description>
+			</description>
+		</method>
+		<method name="create_diff_hunk">
+			<return type="Dictionary" />
+			<param index="0" name="old_start" type="int" />
+			<param index="1" name="new_start" type="int" />
+			<param index="2" name="old_lines" type="int" />
+			<param index="3" name="new_lines" type="int" />
+			<description>
+			</description>
+		</method>
+		<method name="create_diff_line">
+			<return type="Dictionary" />
+			<param index="0" name="new_line_no" type="int" />
+			<param index="1" name="old_line_no" type="int" />
+			<param index="2" name="content" type="String" />
+			<param index="3" name="status" type="String" />
+			<description>
+			</description>
+		</method>
+		<method name="create_status_file">
+			<return type="Dictionary" />
+			<param index="0" name="file_path" type="String" />
+			<param index="1" name="change_type" type="int" enum="EditorVCSInterface.ChangeType" />
+			<param index="2" name="area" type="int" enum="EditorVCSInterface.TreeArea" />
+			<description>
+			</description>
+		</method>
+		<method name="popup_error">
+			<return type="void" />
+			<param index="0" name="msg" type="String" />
+			<description>
+			</description>
+		</method>
+	</methods>
+	<constants>
+		<constant name="CHANGE_TYPE_NEW" value="0" enum="ChangeType">
+		</constant>
+		<constant name="CHANGE_TYPE_MODIFIED" value="1" enum="ChangeType">
+		</constant>
+		<constant name="CHANGE_TYPE_RENAMED" value="2" enum="ChangeType">
+		</constant>
+		<constant name="CHANGE_TYPE_DELETED" value="3" enum="ChangeType">
+		</constant>
+		<constant name="CHANGE_TYPE_TYPECHANGE" value="4" enum="ChangeType">
+		</constant>
+		<constant name="CHANGE_TYPE_UNMERGED" value="5" enum="ChangeType">
+		</constant>
+		<constant name="TREE_AREA_COMMIT" value="0" enum="TreeArea">
+		</constant>
+		<constant name="TREE_AREA_STAGED" value="1" enum="TreeArea">
+		</constant>
+		<constant name="TREE_AREA_UNSTAGED" value="2" enum="TreeArea">
+		</constant>
+	</constants>
+</class>

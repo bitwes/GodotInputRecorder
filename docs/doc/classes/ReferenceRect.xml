@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<class name="ReferenceRect" inherits="Control" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../class.xsd">
+	<brief_description>
+	</brief_description>
+	<description>
+	</description>
+	<tutorials>
+	</tutorials>
+	<members>
+		<member name="border_color" type="Color" setter="set_border_color" getter="get_border_color" default="Color(1, 0, 0, 1)">
+		</member>
+		<member name="border_width" type="float" setter="set_border_width" getter="get_border_width" default="1.0">
+		</member>
+		<member name="editor_only" type="bool" setter="set_editor_only" getter="get_editor_only" default="true">
+		</member>
+	</members>
+</class>

@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<class name="InstancePlaceholder" inherits="Node" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../class.xsd">
+	<brief_description>
+	</brief_description>
+	<description>
+	</description>
+	<tutorials>
+	</tutorials>
+	<methods>
+		<method name="create_instance">
+			<return type="Node" />
+			<param index="0" name="replace" type="bool" default="false" />
+			<param index="1" name="custom_scene" type="PackedScene" default="null" />
+			<description>
+			</description>
+		</method>
+		<method name="get_instance_path" qualifiers="const">
+			<return type="String" />
+			<description>
+			</description>
+		</method>
+		<method name="get_stored_values">
+			<return type="Dictionary" />
+			<param index="0" name="with_order" type="bool" default="false" />
+			<description>
+			</description>
+		</method>
+	</methods>
+</class>

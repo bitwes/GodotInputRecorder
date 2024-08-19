@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<class name="MeshConvexDecompositionSettings" inherits="RefCounted" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../class.xsd">
+	<brief_description>
+	</brief_description>
+	<description>
+	</description>
+	<tutorials>
+	</tutorials>
+	<members>
+		<member name="convex_hull_approximation" type="bool" setter="set_convex_hull_approximation" getter="get_convex_hull_approximation" default="true">
+		</member>
+		<member name="convex_hull_downsampling" type="int" setter="set_convex_hull_downsampling" getter="get_convex_hull_downsampling" default="4">
+		</member>
+		<member name="max_concavity" type="float" setter="set_max_concavity" getter="get_max_concavity" default="1.0">
+		</member>
+		<member name="max_convex_hulls" type="int" setter="set_max_convex_hulls" getter="get_max_convex_hulls" default="1">
+		</member>
+		<member name="max_num_vertices_per_convex_hull" type="int" setter="set_max_num_vertices_per_convex_hull" getter="get_max_num_vertices_per_convex_hull" default="32">
+		</member>
+		<member name="min_volume_per_convex_hull" type="float" setter="set_min_volume_per_convex_hull" getter="get_min_volume_per_convex_hull" default="0.0001">
+		</member>
+		<member name="mode" type="int" setter="set_mode" getter="get_mode" enum="MeshConvexDecompositionSettings.Mode" default="0">
+		</member>
+		<member name="normalize_mesh" type="bool" setter="set_normalize_mesh" getter="get_normalize_mesh" default="false">
+		</member>
+		<member name="plane_downsampling" type="int" setter="set_plane_downsampling" getter="get_plane_downsampling" default="4">
+		</member>
+		<member name="project_hull_vertices" type="bool" setter="set_project_hull_vertices" getter="get_project_hull_vertices" default="true">
+		</member>
+		<member name="resolution" type="int" setter="set_resolution" getter="get_resolution" default="10000">
+		</member>
+		<member name="revolution_axes_clipping_bias" type="float" setter="set_revolution_axes_clipping_bias" getter="get_revolution_axes_clipping_bias" default="0.05">
+		</member>
+		<member name="symmetry_planes_clipping_bias" type="float" setter="set_symmetry_planes_clipping_bias" getter="get_symmetry_planes_clipping_bias" default="0.05">
+		</member>
+	</members>
+	<constants>
+		<constant name="CONVEX_DECOMPOSITION_MODE_VOXEL" value="0" enum="Mode">
+		</constant>
+		<constant name="CONVEX_DECOMPOSITION_MODE_TETRAHEDRON" value="1" enum="Mode">
+		</constant>
+	</constants>
+</class>

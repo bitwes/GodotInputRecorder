@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<class name="TLSOptions" inherits="RefCounted" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../class.xsd">
+	<brief_description>
+	</brief_description>
+	<description>
+	</description>
+	<tutorials>
+	</tutorials>
+	<methods>
+		<method name="client" qualifiers="static">
+			<return type="TLSOptions" />
+			<param index="0" name="trusted_chain" type="X509Certificate" default="null" />
+			<param index="1" name="common_name_override" type="String" default="&quot;&quot;" />
+			<description>
+			</description>
+		</method>
+		<method name="client_unsafe" qualifiers="static">
+			<return type="TLSOptions" />
+			<param index="0" name="trusted_chain" type="X509Certificate" default="null" />
+			<description>
+			</description>
+		</method>
+		<method name="server" qualifiers="static">
+			<return type="TLSOptions" />
+			<param index="0" name="key" type="CryptoKey" />
+			<param index="1" name="certificate" type="X509Certificate" />
+			<description>
+			</description>
+		</method>
+	</methods>
+</class>

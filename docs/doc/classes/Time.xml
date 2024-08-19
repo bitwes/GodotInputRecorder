@@ -1,0 +1,177 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<class name="Time" inherits="Object" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../class.xsd">
+	<brief_description>
+	</brief_description>
+	<description>
+	</description>
+	<tutorials>
+	</tutorials>
+	<methods>
+		<method name="get_date_dict_from_system" qualifiers="const">
+			<return type="Dictionary" />
+			<param index="0" name="utc" type="bool" default="false" />
+			<description>
+			</description>
+		</method>
+		<method name="get_date_dict_from_unix_time" qualifiers="const">
+			<return type="Dictionary" />
+			<param index="0" name="unix_time_val" type="int" />
+			<description>
+			</description>
+		</method>
+		<method name="get_date_string_from_system" qualifiers="const">
+			<return type="String" />
+			<param index="0" name="utc" type="bool" default="false" />
+			<description>
+			</description>
+		</method>
+		<method name="get_date_string_from_unix_time" qualifiers="const">
+			<return type="String" />
+			<param index="0" name="unix_time_val" type="int" />
+			<description>
+			</description>
+		</method>
+		<method name="get_datetime_dict_from_datetime_string" qualifiers="const">
+			<return type="Dictionary" />
+			<param index="0" name="datetime" type="String" />
+			<param index="1" name="weekday" type="bool" />
+			<description>
+			</description>
+		</method>
+		<method name="get_datetime_dict_from_system" qualifiers="const">
+			<return type="Dictionary" />
+			<param index="0" name="utc" type="bool" default="false" />
+			<description>
+			</description>
+		</method>
+		<method name="get_datetime_dict_from_unix_time" qualifiers="const">
+			<return type="Dictionary" />
+			<param index="0" name="unix_time_val" type="int" />
+			<description>
+			</description>
+		</method>
+		<method name="get_datetime_string_from_datetime_dict" qualifiers="const">
+			<return type="String" />
+			<param index="0" name="datetime" type="Dictionary" />
+			<param index="1" name="use_space" type="bool" />
+			<description>
+			</description>
+		</method>
+		<method name="get_datetime_string_from_system" qualifiers="const">
+			<return type="String" />
+			<param index="0" name="utc" type="bool" default="false" />
+			<param index="1" name="use_space" type="bool" default="false" />
+			<description>
+			</description>
+		</method>
+		<method name="get_datetime_string_from_unix_time" qualifiers="const">
+			<return type="String" />
+			<param index="0" name="unix_time_val" type="int" />
+			<param index="1" name="use_space" type="bool" default="false" />
+			<description>
+			</description>
+		</method>
+		<method name="get_offset_string_from_offset_minutes" qualifiers="const">
+			<return type="String" />
+			<param index="0" name="offset_minutes" type="int" />
+			<description>
+			</description>
+		</method>
+		<method name="get_ticks_msec" qualifiers="const">
+			<return type="int" />
+			<description>
+			</description>
+		</method>
+		<method name="get_ticks_usec" qualifiers="const">
+			<return type="int" />
+			<description>
+			</description>
+		</method>
+		<method name="get_time_dict_from_system" qualifiers="const">
+			<return type="Dictionary" />
+			<param index="0" name="utc" type="bool" default="false" />
+			<description>
+			</description>
+		</method>
+		<method name="get_time_dict_from_unix_time" qualifiers="const">
+			<return type="Dictionary" />
+			<param index="0" name="unix_time_val" type="int" />
+			<description>
+			</description>
+		</method>
+		<method name="get_time_string_from_system" qualifiers="const">
+			<return type="String" />
+			<param index="0" name="utc" type="bool" default="false" />
+			<description>
+			</description>
+		</method>
+		<method name="get_time_string_from_unix_time" qualifiers="const">
+			<return type="String" />
+			<param index="0" name="unix_time_val" type="int" />
+			<description>
+			</description>
+		</method>
+		<method name="get_time_zone_from_system" qualifiers="const">
+			<return type="Dictionary" />
+			<description>
+			</description>
+		</method>
+		<method name="get_unix_time_from_datetime_dict" qualifiers="const">
+			<return type="int" />
+			<param index="0" name="datetime" type="Dictionary" />
+			<description>
+			</description>
+		</method>
+		<method name="get_unix_time_from_datetime_string" qualifiers="const">
+			<return type="int" />
+			<param index="0" name="datetime" type="String" />
+			<description>
+			</description>
+		</method>
+		<method name="get_unix_time_from_system" qualifiers="const">
+			<return type="float" />
+			<description>
+			</description>
+		</method>
+	</methods>
+	<constants>
+		<constant name="MONTH_JANUARY" value="1" enum="Month">
+		</constant>
+		<constant name="MONTH_FEBRUARY" value="2" enum="Month">
+		</constant>
+		<constant name="MONTH_MARCH" value="3" enum="Month">
+		</constant>
+		<constant name="MONTH_APRIL" value="4" enum="Month">
+		</constant>
+		<constant name="MONTH_MAY" value="5" enum="Month">
+		</constant>
+		<constant name="MONTH_JUNE" value="6" enum="Month">
+		</constant>
+		<constant name="MONTH_JULY" value="7" enum="Month">
+		</constant>
+		<constant name="MONTH_AUGUST" value="8" enum="Month">
+		</constant>
+		<constant name="MONTH_SEPTEMBER" value="9" enum="Month">
+		</constant>
+		<constant name="MONTH_OCTOBER" value="10" enum="Month">
+		</constant>
+		<constant name="MONTH_NOVEMBER" value="11" enum="Month">
+		</constant>
+		<constant name="MONTH_DECEMBER" value="12" enum="Month">
+		</constant>
+		<constant name="WEEKDAY_SUNDAY" value="0" enum="Weekday">
+		</constant>
+		<constant name="WEEKDAY_MONDAY" value="1" enum="Weekday">
+		</constant>
+		<constant name="WEEKDAY_TUESDAY" value="2" enum="Weekday">
+		</constant>
+		<constant name="WEEKDAY_WEDNESDAY" value="3" enum="Weekday">
+		</constant>
+		<constant name="WEEKDAY_THURSDAY" value="4" enum="Weekday">
+		</constant>
+		<constant name="WEEKDAY_FRIDAY" value="5" enum="Weekday">
+		</constant>
+		<constant name="WEEKDAY_SATURDAY" value="6" enum="Weekday">
+		</constant>
+	</constants>
+</class>

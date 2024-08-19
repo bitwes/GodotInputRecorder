@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<class name="NavigationPathQueryResult2D" inherits="RefCounted" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../class.xsd">
+	<brief_description>
+	</brief_description>
+	<description>
+	</description>
+	<tutorials>
+	</tutorials>
+	<methods>
+		<method name="reset">
+			<return type="void" />
+			<description>
+			</description>
+		</method>
+	</methods>
+	<members>
+		<member name="path" type="PackedVector2Array" setter="set_path" getter="get_path" default="PackedVector2Array()">
+		</member>
+		<member name="path_owner_ids" type="PackedInt64Array" setter="set_path_owner_ids" getter="get_path_owner_ids" default="PackedInt64Array()">
+		</member>
+		<member name="path_rids" type="RID[]" setter="set_path_rids" getter="get_path_rids" default="[]">
+		</member>
+		<member name="path_types" type="PackedInt32Array" setter="set_path_types" getter="get_path_types" default="PackedInt32Array()">
+		</member>
+	</members>
+	<constants>
+		<constant name="PATH_SEGMENT_TYPE_REGION" value="0" enum="PathSegmentType">
+		</constant>
+		<constant name="PATH_SEGMENT_TYPE_LINK" value="1" enum="PathSegmentType">
+		</constant>
+	</constants>
+</class>

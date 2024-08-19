@@ -1,0 +1,186 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<class name="AnimationMixer" inherits="Node" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../class.xsd">
+	<brief_description>
+	</brief_description>
+	<description>
+	</description>
+	<tutorials>
+	</tutorials>
+	<methods>
+		<method name="_post_process_key_value" qualifiers="virtual const">
+			<return type="Variant" />
+			<param index="0" name="animation" type="Animation" />
+			<param index="1" name="track" type="int" />
+			<param index="2" name="value" type="Variant" />
+			<param index="3" name="object" type="Object" />
+			<param index="4" name="object_idx" type="int" />
+			<description>
+			</description>
+		</method>
+		<method name="add_animation_library">
+			<return type="int" enum="Error" />
+			<param index="0" name="name" type="StringName" />
+			<param index="1" name="library" type="AnimationLibrary" />
+			<description>
+			</description>
+		</method>
+		<method name="advance">
+			<return type="void" />
+			<param index="0" name="delta" type="float" />
+			<description>
+			</description>
+		</method>
+		<method name="clear_caches">
+			<return type="void" />
+			<description>
+			</description>
+		</method>
+		<method name="find_animation" qualifiers="const">
+			<return type="StringName" />
+			<param index="0" name="animation" type="Animation" />
+			<description>
+			</description>
+		</method>
+		<method name="find_animation_library" qualifiers="const">
+			<return type="StringName" />
+			<param index="0" name="animation" type="Animation" />
+			<description>
+			</description>
+		</method>
+		<method name="get_animation" qualifiers="const">
+			<return type="Animation" />
+			<param index="0" name="name" type="StringName" />
+			<description>
+			</description>
+		</method>
+		<method name="get_animation_library" qualifiers="const">
+			<return type="AnimationLibrary" />
+			<param index="0" name="name" type="StringName" />
+			<description>
+			</description>
+		</method>
+		<method name="get_animation_library_list" qualifiers="const">
+			<return type="StringName[]" />
+			<description>
+			</description>
+		</method>
+		<method name="get_animation_list" qualifiers="const">
+			<return type="PackedStringArray" />
+			<description>
+			</description>
+		</method>
+		<method name="get_root_motion_position" qualifiers="const">
+			<return type="Vector3" />
+			<description>
+			</description>
+		</method>
+		<method name="get_root_motion_position_accumulator" qualifiers="const">
+			<return type="Vector3" />
+			<description>
+			</description>
+		</method>
+		<method name="get_root_motion_rotation" qualifiers="const">
+			<return type="Quaternion" />
+			<description>
+			</description>
+		</method>
+		<method name="get_root_motion_rotation_accumulator" qualifiers="const">
+			<return type="Quaternion" />
+			<description>
+			</description>
+		</method>
+		<method name="get_root_motion_scale" qualifiers="const">
+			<return type="Vector3" />
+			<description>
+			</description>
+		</method>
+		<method name="get_root_motion_scale_accumulator" qualifiers="const">
+			<return type="Vector3" />
+			<description>
+			</description>
+		</method>
+		<method name="has_animation" qualifiers="const">
+			<return type="bool" />
+			<param index="0" name="name" type="StringName" />
+			<description>
+			</description>
+		</method>
+		<method name="has_animation_library" qualifiers="const">
+			<return type="bool" />
+			<param index="0" name="name" type="StringName" />
+			<description>
+			</description>
+		</method>
+		<method name="remove_animation_library">
+			<return type="void" />
+			<param index="0" name="name" type="StringName" />
+			<description>
+			</description>
+		</method>
+		<method name="rename_animation_library">
+			<return type="void" />
+			<param index="0" name="name" type="StringName" />
+			<param index="1" name="newname" type="StringName" />
+			<description>
+			</description>
+		</method>
+	</methods>
+	<members>
+		<member name="active" type="bool" setter="set_active" getter="is_active" default="true">
+		</member>
+		<member name="audio_max_polyphony" type="int" setter="set_audio_max_polyphony" getter="get_audio_max_polyphony" default="32">
+		</member>
+		<member name="callback_mode_method" type="int" setter="set_callback_mode_method" getter="get_callback_mode_method" enum="AnimationMixer.AnimationCallbackModeMethod" default="0">
+		</member>
+		<member name="callback_mode_process" type="int" setter="set_callback_mode_process" getter="get_callback_mode_process" enum="AnimationMixer.AnimationCallbackModeProcess" default="1">
+		</member>
+		<member name="deterministic" type="bool" setter="set_deterministic" getter="is_deterministic" default="false">
+		</member>
+		<member name="reset_on_save" type="bool" setter="set_reset_on_save_enabled" getter="is_reset_on_save_enabled" default="true">
+		</member>
+		<member name="root_motion_track" type="NodePath" setter="set_root_motion_track" getter="get_root_motion_track" default="NodePath(&quot;&quot;)">
+		</member>
+		<member name="root_node" type="NodePath" setter="set_root_node" getter="get_root_node" default="NodePath(&quot;..&quot;)">
+		</member>
+	</members>
+	<signals>
+		<signal name="animation_finished">
+			<param index="0" name="anim_name" type="StringName" />
+			<description>
+			</description>
+		</signal>
+		<signal name="animation_libraries_updated">
+			<description>
+			</description>
+		</signal>
+		<signal name="animation_list_changed">
+			<description>
+			</description>
+		</signal>
+		<signal name="animation_started">
+			<param index="0" name="anim_name" type="StringName" />
+			<description>
+			</description>
+		</signal>
+		<signal name="caches_cleared">
+			<description>
+			</description>
+		</signal>
+		<signal name="mixer_updated">
+			<description>
+			</description>
+		</signal>
+	</signals>
+	<constants>
+		<constant name="ANIMATION_CALLBACK_MODE_PROCESS_PHYSICS" value="0" enum="AnimationCallbackModeProcess">
+		</constant>
+		<constant name="ANIMATION_CALLBACK_MODE_PROCESS_IDLE" value="1" enum="AnimationCallbackModeProcess">
+		</constant>
+		<constant name="ANIMATION_CALLBACK_MODE_PROCESS_MANUAL" value="2" enum="AnimationCallbackModeProcess">
+		</constant>
+		<constant name="ANIMATION_CALLBACK_MODE_METHOD_DEFERRED" value="0" enum="AnimationCallbackModeMethod">
+		</constant>
+		<constant name="ANIMATION_CALLBACK_MODE_METHOD_IMMEDIATE" value="1" enum="AnimationCallbackModeMethod">
+		</constant>
+	</constants>
+</class>

@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<class name="AnimatedSprite3D" inherits="SpriteBase3D" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../class.xsd">
+	<brief_description>
+	</brief_description>
+	<description>
+	</description>
+	<tutorials>
+	</tutorials>
+	<methods>
+		<method name="get_playing_speed" qualifiers="const">
+			<return type="float" />
+			<description>
+			</description>
+		</method>
+		<method name="is_playing" qualifiers="const">
+			<return type="bool" />
+			<description>
+			</description>
+		</method>
+		<method name="pause">
+			<return type="void" />
+			<description>
+			</description>
+		</method>
+		<method name="play">
+			<return type="void" />
+			<param index="0" name="name" type="StringName" default="&amp;&quot;&quot;" />
+			<param index="1" name="custom_speed" type="float" default="1.0" />
+			<param index="2" name="from_end" type="bool" default="false" />
+			<description>
+			</description>
+		</method>
+		<method name="play_backwards">
+			<return type="void" />
+			<param index="0" name="name" type="StringName" default="&amp;&quot;&quot;" />
+			<description>
+			</description>
+		</method>
+		<method name="set_frame_and_progress">
+			<return type="void" />
+			<param index="0" name="frame" type="int" />
+			<param index="1" name="progress" type="float" />
+			<description>
+			</description>
+		</method>
+		<method name="stop">
+			<return type="void" />
+			<description>
+			</description>
+		</method>
+	</methods>
+	<members>
+		<member name="animation" type="StringName" setter="set_animation" getter="get_animation" default="&amp;&quot;default&quot;">
+		</member>
+		<member name="autoplay" type="String" setter="set_autoplay" getter="get_autoplay" default="&quot;&quot;">
+		</member>
+		<member name="frame" type="int" setter="set_frame" getter="get_frame" default="0">
+		</member>
+		<member name="frame_progress" type="float" setter="set_frame_progress" getter="get_frame_progress" default="0.0">
+		</member>
+		<member name="speed_scale" type="float" setter="set_speed_scale" getter="get_speed_scale" default="1.0">
+		</member>
+		<member name="sprite_frames" type="SpriteFrames" setter="set_sprite_frames" getter="get_sprite_frames">
+		</member>
+	</members>
+	<signals>
+		<signal name="animation_changed">
+			<description>
+			</description>
+		</signal>
+		<signal name="animation_finished">
+			<description>
+			</description>
+		</signal>
+		<signal name="animation_looped">
+			<description>
+			</description>
+		</signal>
+		<signal name="frame_changed">
+			<description>
+			</description>
+		</signal>
+		<signal name="sprite_frames_changed">
+			<description>
+			</description>
+		</signal>
+	</signals>
+</class>

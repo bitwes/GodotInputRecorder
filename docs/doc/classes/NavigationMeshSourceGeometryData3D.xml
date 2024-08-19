@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<class name="NavigationMeshSourceGeometryData3D" inherits="Resource" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../class.xsd">
+	<brief_description>
+	</brief_description>
+	<description>
+	</description>
+	<tutorials>
+	</tutorials>
+	<methods>
+		<method name="add_faces">
+			<return type="void" />
+			<param index="0" name="faces" type="PackedVector3Array" />
+			<param index="1" name="xform" type="Transform3D" />
+			<description>
+			</description>
+		</method>
+		<method name="add_mesh">
+			<return type="void" />
+			<param index="0" name="mesh" type="Mesh" />
+			<param index="1" name="xform" type="Transform3D" />
+			<description>
+			</description>
+		</method>
+		<method name="add_mesh_array">
+			<return type="void" />
+			<param index="0" name="mesh_array" type="Array" />
+			<param index="1" name="xform" type="Transform3D" />
+			<description>
+			</description>
+		</method>
+		<method name="clear">
+			<return type="void" />
+			<description>
+			</description>
+		</method>
+		<method name="get_indices" qualifiers="const">
+			<return type="PackedInt32Array" />
+			<description>
+			</description>
+		</method>
+		<method name="get_vertices" qualifiers="const">
+			<return type="PackedFloat32Array" />
+			<description>
+			</description>
+		</method>
+		<method name="has_data">
+			<return type="bool" />
+			<description>
+			</description>
+		</method>
+		<method name="set_indices">
+			<return type="void" />
+			<param index="0" name="indices" type="PackedInt32Array" />
+			<description>
+			</description>
+		</method>
+		<method name="set_vertices">
+			<return type="void" />
+			<param index="0" name="vertices" type="PackedFloat32Array" />
+			<description>
+			</description>
+		</method>
+	</methods>
+</class>

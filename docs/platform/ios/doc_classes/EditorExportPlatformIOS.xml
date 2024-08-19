@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<class name="EditorExportPlatformIOS" inherits="EditorExportPlatform" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../class.xsd">
+	<brief_description>
+	</brief_description>
+	<description>
+	</description>
+	<tutorials>
+	</tutorials>
+	<members>
+		<member name="application/app_store_team_id" type="String" setter="" getter="">
+		</member>
+		<member name="application/bundle_identifier" type="String" setter="" getter="">
+		</member>
+		<member name="application/code_sign_identity_debug" type="String" setter="" getter="">
+		</member>
+		<member name="application/code_sign_identity_release" type="String" setter="" getter="">
+		</member>
+		<member name="application/export_method_debug" type="int" setter="" getter="">
+		</member>
+		<member name="application/export_method_release" type="int" setter="" getter="">
+		</member>
+		<member name="application/export_project_only" type="bool" setter="" getter="">
+		</member>
+		<member name="application/icon_interpolation" type="int" setter="" getter="">
+		</member>
+		<member name="application/launch_screens_interpolation" type="int" setter="" getter="">
+		</member>
+		<member name="application/provisioning_profile_uuid_debug" type="String" setter="" getter="">
+		</member>
+		<member name="application/provisioning_profile_uuid_release" type="String" setter="" getter="">
+		</member>
+		<member name="application/short_version" type="String" setter="" getter="">
+		</member>
+		<member name="application/signature" type="String" setter="" getter="">
+		</member>
+		<member name="application/targeted_device_family" type="int" setter="" getter="">
+		</member>
+		<member name="application/version" type="String" setter="" getter="">
+		</member>
+		<member name="architectures/arm64" type="bool" setter="" getter="">
+		</member>
+		<member name="capabilities/access_wifi" type="bool" setter="" getter="">
+		</member>
+		<member name="capabilities/push_notifications" type="bool" setter="" getter="">
+		</member>
+		<member name="custom_template/debug" type="String" setter="" getter="">
+		</member>
+		<member name="custom_template/release" type="String" setter="" getter="">
+		</member>
+		<member name="icons/app_store_1024x1024" type="String" setter="" getter="">
+		</member>
+		<member name="icons/ipad_76x76" type="String" setter="" getter="">
+		</member>
+		<member name="icons/ipad_152x152" type="String" setter="" getter="">
+		</member>
+		<member name="icons/ipad_167x167" type="String" setter="" getter="">
+		</member>
+		<member name="icons/iphone_120x120" type="String" setter="" getter="">
+		</member>
+		<member name="icons/iphone_180x180" type="String" setter="" getter="">
+		</member>
+		<member name="icons/notification_40x40" type="String" setter="" getter="">
+		</member>
+		<member name="icons/notification_60x60" type="String" setter="" getter="">
+		</member>
+		<member name="icons/settings_58x58" type="String" setter="" getter="">
+		</member>
+		<member name="icons/settings_87x87" type="String" setter="" getter="">
+		</member>
+		<member name="icons/spotlight_40x40" type="String" setter="" getter="">
+		</member>
+		<member name="icons/spotlight_80x80" type="String" setter="" getter="">
+		</member>
+		<member name="landscape_launch_screens/ipad_1024x768" type="String" setter="" getter="">
+		</member>
+		<member name="landscape_launch_screens/ipad_2048x1536" type="String" setter="" getter="">
+		</member>
+		<member name="landscape_launch_screens/iphone_2208x1242" type="String" setter="" getter="">
+		</member>
+		<member name="landscape_launch_screens/iphone_2436x1125" type="String" setter="" getter="">
+		</member>
+		<member name="portrait_launch_screens/ipad_768x1024" type="String" setter="" getter="">
+		</member>
+		<member name="portrait_launch_screens/ipad_1536x2048" type="String" setter="" getter="">
+		</member>
+		<member name="portrait_launch_screens/iphone_640x960" type="String" setter="" getter="">
+		</member>
+		<member name="portrait_launch_screens/iphone_640x1136" type="String" setter="" getter="">
+		</member>
+		<member name="portrait_launch_screens/iphone_750x1334" type="String" setter="" getter="">
+		</member>
+		<member name="portrait_launch_screens/iphone_1125x2436" type="String" setter="" getter="">
+		</member>
+		<member name="portrait_launch_screens/iphone_1242x2208" type="String" setter="" getter="">
+		</member>
+		<member name="privacy/camera_usage_description" type="String" setter="" getter="">
+		</member>
+		<member name="privacy/camera_usage_description_localized" type="Dictionary" setter="" getter="">
+		</member>
+		<member name="privacy/microphone_usage_description" type="String" setter="" getter="">
+		</member>
+		<member name="privacy/microphone_usage_description_localized" type="Dictionary" setter="" getter="">
+		</member>
+		<member name="privacy/photolibrary_usage_description" type="String" setter="" getter="">
+		</member>
+		<member name="privacy/photolibrary_usage_description_localized" type="Dictionary" setter="" getter="">
+		</member>
+		<member name="storyboard/custom_bg_color" type="Color" setter="" getter="">
+		</member>
+		<member name="storyboard/custom_image@2x" type="String" setter="" getter="">
+		</member>
+		<member name="storyboard/custom_image@3x" type="String" setter="" getter="">
+		</member>
+		<member name="storyboard/image_scale_mode" type="int" setter="" getter="">
+		</member>
+		<member name="storyboard/use_custom_bg_color" type="bool" setter="" getter="">
+		</member>
+		<member name="storyboard/use_launch_screen_storyboard" type="bool" setter="" getter="">
+		</member>
+		<member name="user_data/accessible_from_files_app" type="bool" setter="" getter="">
+		</member>
+		<member name="user_data/accessible_from_itunes_sharing" type="bool" setter="" getter="">
+		</member>
+	</members>
+</class>

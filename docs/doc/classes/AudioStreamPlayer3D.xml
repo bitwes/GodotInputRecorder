@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<class name="AudioStreamPlayer3D" inherits="Node3D" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../class.xsd">
+	<brief_description>
+	</brief_description>
+	<description>
+	</description>
+	<tutorials>
+	</tutorials>
+	<methods>
+		<method name="get_playback_position">
+			<return type="float" />
+			<description>
+			</description>
+		</method>
+		<method name="get_stream_playback">
+			<return type="AudioStreamPlayback" />
+			<description>
+			</description>
+		</method>
+		<method name="has_stream_playback">
+			<return type="bool" />
+			<description>
+			</description>
+		</method>
+		<method name="play">
+			<return type="void" />
+			<param index="0" name="from_position" type="float" default="0.0" />
+			<description>
+			</description>
+		</method>
+		<method name="seek">
+			<return type="void" />
+			<param index="0" name="to_position" type="float" />
+			<description>
+			</description>
+		</method>
+		<method name="stop">
+			<return type="void" />
+			<description>
+			</description>
+		</method>
+	</methods>
+	<members>
+		<member name="area_mask" type="int" setter="set_area_mask" getter="get_area_mask" default="1">
+		</member>
+		<member name="attenuation_filter_cutoff_hz" type="float" setter="set_attenuation_filter_cutoff_hz" getter="get_attenuation_filter_cutoff_hz" default="5000.0">
+		</member>
+		<member name="attenuation_filter_db" type="float" setter="set_attenuation_filter_db" getter="get_attenuation_filter_db" default="-24.0">
+		</member>
+		<member name="attenuation_model" type="int" setter="set_attenuation_model" getter="get_attenuation_model" enum="AudioStreamPlayer3D.AttenuationModel" default="0">
+		</member>
+		<member name="autoplay" type="bool" setter="set_autoplay" getter="is_autoplay_enabled" default="false">
+		</member>
+		<member name="bus" type="StringName" setter="set_bus" getter="get_bus" default="&amp;&quot;Master&quot;">
+		</member>
+		<member name="doppler_tracking" type="int" setter="set_doppler_tracking" getter="get_doppler_tracking" enum="AudioStreamPlayer3D.DopplerTracking" default="0">
+		</member>
+		<member name="emission_angle_degrees" type="float" setter="set_emission_angle" getter="get_emission_angle" default="45.0">
+		</member>
+		<member name="emission_angle_enabled" type="bool" setter="set_emission_angle_enabled" getter="is_emission_angle_enabled" default="false">
+		</member>
+		<member name="emission_angle_filter_attenuation_db" type="float" setter="set_emission_angle_filter_attenuation_db" getter="get_emission_angle_filter_attenuation_db" default="-12.0">
+		</member>
+		<member name="max_db" type="float" setter="set_max_db" getter="get_max_db" default="3.0">
+		</member>
+		<member name="max_distance" type="float" setter="set_max_distance" getter="get_max_distance" default="0.0">
+		</member>
+		<member name="max_polyphony" type="int" setter="set_max_polyphony" getter="get_max_polyphony" default="1">
+		</member>
+		<member name="panning_strength" type="float" setter="set_panning_strength" getter="get_panning_strength" default="1.0">
+		</member>
+		<member name="pitch_scale" type="float" setter="set_pitch_scale" getter="get_pitch_scale" default="1.0">
+		</member>
+		<member name="playing" type="bool" setter="_set_playing" getter="is_playing" default="false">
+		</member>
+		<member name="stream" type="AudioStream" setter="set_stream" getter="get_stream">
+		</member>
+		<member name="stream_paused" type="bool" setter="set_stream_paused" getter="get_stream_paused" default="false">
+		</member>
+		<member name="unit_size" type="float" setter="set_unit_size" getter="get_unit_size" default="10.0">
+		</member>
+		<member name="volume_db" type="float" setter="set_volume_db" getter="get_volume_db" default="0.0">
+		</member>
+	</members>
+	<signals>
+		<signal name="finished">
+			<description>
+			</description>
+		</signal>
+	</signals>
+	<constants>
+		<constant name="ATTENUATION_INVERSE_DISTANCE" value="0" enum="AttenuationModel">
+		</constant>
+		<constant name="ATTENUATION_INVERSE_SQUARE_DISTANCE" value="1" enum="AttenuationModel">
+		</constant>
+		<constant name="ATTENUATION_LOGARITHMIC" value="2" enum="AttenuationModel">
+		</constant>
+		<constant name="ATTENUATION_DISABLED" value="3" enum="AttenuationModel">
+		</constant>
+		<constant name="DOPPLER_TRACKING_DISABLED" value="0" enum="DopplerTracking">
+		</constant>
+		<constant name="DOPPLER_TRACKING_IDLE_STEP" value="1" enum="DopplerTracking">
+		</constant>
+		<constant name="DOPPLER_TRACKING_PHYSICS_STEP" value="2" enum="DopplerTracking">
+		</constant>
+	</constants>
+</class>

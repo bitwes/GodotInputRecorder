@@ -1,0 +1,155 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<class name="RenderSceneBuffersRD" inherits="RenderSceneBuffers" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../class.xsd">
+	<brief_description>
+	</brief_description>
+	<description>
+	</description>
+	<tutorials>
+	</tutorials>
+	<methods>
+		<method name="clear_context">
+			<return type="void" />
+			<param index="0" name="context" type="StringName" />
+			<description>
+			</description>
+		</method>
+		<method name="create_texture">
+			<return type="RID" />
+			<param index="0" name="context" type="StringName" />
+			<param index="1" name="name" type="StringName" />
+			<param index="2" name="data_format" type="int" enum="RenderingDevice.DataFormat" />
+			<param index="3" name="usage_bits" type="int" />
+			<param index="4" name="texture_samples" type="int" enum="RenderingDevice.TextureSamples" />
+			<param index="5" name="size" type="Vector2i" />
+			<param index="6" name="layers" type="int" />
+			<param index="7" name="mipmaps" type="int" />
+			<param index="8" name="unique" type="bool" />
+			<description>
+			</description>
+		</method>
+		<method name="create_texture_from_format">
+			<return type="RID" />
+			<param index="0" name="context" type="StringName" />
+			<param index="1" name="name" type="StringName" />
+			<param index="2" name="format" type="RDTextureFormat" />
+			<param index="3" name="view" type="RDTextureView" />
+			<param index="4" name="unique" type="bool" />
+			<description>
+			</description>
+		</method>
+		<method name="create_texture_view">
+			<return type="RID" />
+			<param index="0" name="context" type="StringName" />
+			<param index="1" name="name" type="StringName" />
+			<param index="2" name="view_name" type="StringName" />
+			<param index="3" name="view" type="RDTextureView" />
+			<description>
+			</description>
+		</method>
+		<method name="get_color_layer">
+			<return type="RID" />
+			<param index="0" name="layer" type="int" />
+			<description>
+			</description>
+		</method>
+		<method name="get_color_texture">
+			<return type="RID" />
+			<description>
+			</description>
+		</method>
+		<method name="get_depth_layer">
+			<return type="RID" />
+			<param index="0" name="layer" type="int" />
+			<description>
+			</description>
+		</method>
+		<method name="get_depth_texture">
+			<return type="RID" />
+			<description>
+			</description>
+		</method>
+		<method name="get_internal_size" qualifiers="const">
+			<return type="Vector2i" />
+			<description>
+			</description>
+		</method>
+		<method name="get_render_target" qualifiers="const">
+			<return type="RID" />
+			<description>
+			</description>
+		</method>
+		<method name="get_texture" qualifiers="const">
+			<return type="RID" />
+			<param index="0" name="context" type="StringName" />
+			<param index="1" name="name" type="StringName" />
+			<description>
+			</description>
+		</method>
+		<method name="get_texture_format" qualifiers="const">
+			<return type="RDTextureFormat" />
+			<param index="0" name="context" type="StringName" />
+			<param index="1" name="name" type="StringName" />
+			<description>
+			</description>
+		</method>
+		<method name="get_texture_slice">
+			<return type="RID" />
+			<param index="0" name="context" type="StringName" />
+			<param index="1" name="name" type="StringName" />
+			<param index="2" name="layer" type="int" />
+			<param index="3" name="mipmap" type="int" />
+			<param index="4" name="layers" type="int" />
+			<param index="5" name="mipmaps" type="int" />
+			<description>
+			</description>
+		</method>
+		<method name="get_texture_slice_size">
+			<return type="Vector2i" />
+			<param index="0" name="context" type="StringName" />
+			<param index="1" name="name" type="StringName" />
+			<param index="2" name="mipmap" type="int" />
+			<description>
+			</description>
+		</method>
+		<method name="get_texture_slice_view">
+			<return type="RID" />
+			<param index="0" name="context" type="StringName" />
+			<param index="1" name="name" type="StringName" />
+			<param index="2" name="layer" type="int" />
+			<param index="3" name="mipmap" type="int" />
+			<param index="4" name="layers" type="int" />
+			<param index="5" name="mipmaps" type="int" />
+			<param index="6" name="view" type="RDTextureView" />
+			<description>
+			</description>
+		</method>
+		<method name="get_use_taa" qualifiers="const">
+			<return type="bool" />
+			<description>
+			</description>
+		</method>
+		<method name="get_velocity_layer">
+			<return type="RID" />
+			<param index="0" name="layer" type="int" />
+			<description>
+			</description>
+		</method>
+		<method name="get_velocity_texture">
+			<return type="RID" />
+			<description>
+			</description>
+		</method>
+		<method name="get_view_count" qualifiers="const">
+			<return type="int" />
+			<description>
+			</description>
+		</method>
+		<method name="has_texture" qualifiers="const">
+			<return type="bool" />
+			<param index="0" name="context" type="StringName" />
+			<param index="1" name="name" type="StringName" />
+			<description>
+			</description>
+		</method>
+	</methods>
+</class>

@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<class name="CollisionShape3D" inherits="Node3D" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../class.xsd">
+	<brief_description>
+	</brief_description>
+	<description>
+	</description>
+	<tutorials>
+	</tutorials>
+	<methods>
+		<method name="make_convex_from_siblings">
+			<return type="void" />
+			<description>
+			</description>
+		</method>
+		<method name="resource_changed">
+			<return type="void" />
+			<param index="0" name="resource" type="Resource" />
+			<description>
+			</description>
+		</method>
+	</methods>
+	<members>
+		<member name="disabled" type="bool" setter="set_disabled" getter="is_disabled" default="false">
+		</member>
+		<member name="shape" type="Shape3D" setter="set_shape" getter="get_shape">
+		</member>
+	</members>
+</class>

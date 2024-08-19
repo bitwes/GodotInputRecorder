@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<class name="NavigationPathQueryParameters2D" inherits="RefCounted" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../class.xsd">
+	<brief_description>
+	</brief_description>
+	<description>
+	</description>
+	<tutorials>
+	</tutorials>
+	<members>
+		<member name="map" type="RID" setter="set_map" getter="get_map" default="RID()">
+		</member>
+		<member name="metadata_flags" type="int" setter="set_metadata_flags" getter="get_metadata_flags" enum="NavigationPathQueryParameters2D.PathMetadataFlags" is_bitfield="true" default="7">
+		</member>
+		<member name="navigation_layers" type="int" setter="set_navigation_layers" getter="get_navigation_layers" default="1">
+		</member>
+		<member name="path_postprocessing" type="int" setter="set_path_postprocessing" getter="get_path_postprocessing" enum="NavigationPathQueryParameters2D.PathPostProcessing" default="0">
+		</member>
+		<member name="pathfinding_algorithm" type="int" setter="set_pathfinding_algorithm" getter="get_pathfinding_algorithm" enum="NavigationPathQueryParameters2D.PathfindingAlgorithm" default="0">
+		</member>
+		<member name="start_position" type="Vector2" setter="set_start_position" getter="get_start_position" default="Vector2(0, 0)">
+		</member>
+		<member name="target_position" type="Vector2" setter="set_target_position" getter="get_target_position" default="Vector2(0, 0)">
+		</member>
+	</members>
+	<constants>
+		<constant name="PATHFINDING_ALGORITHM_ASTAR" value="0" enum="PathfindingAlgorithm">
+		</constant>
+		<constant name="PATH_POSTPROCESSING_CORRIDORFUNNEL" value="0" enum="PathPostProcessing">
+		</constant>
+		<constant name="PATH_POSTPROCESSING_EDGECENTERED" value="1" enum="PathPostProcessing">
+		</constant>
+		<constant name="PATH_METADATA_INCLUDE_NONE" value="0" enum="PathMetadataFlags" is_bitfield="true">
+		</constant>
+		<constant name="PATH_METADATA_INCLUDE_TYPES" value="1" enum="PathMetadataFlags" is_bitfield="true">
+		</constant>
+		<constant name="PATH_METADATA_INCLUDE_RIDS" value="2" enum="PathMetadataFlags" is_bitfield="true">
+		</constant>
+		<constant name="PATH_METADATA_INCLUDE_OWNERS" value="4" enum="PathMetadataFlags" is_bitfield="true">
+		</constant>
+		<constant name="PATH_METADATA_INCLUDE_ALL" value="7" enum="PathMetadataFlags" is_bitfield="true">
+		</constant>
+	</constants>
+</class>

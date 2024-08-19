@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<class name="SpotLight3D" inherits="Light3D" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../class.xsd">
+	<brief_description>
+	</brief_description>
+	<description>
+	</description>
+	<tutorials>
+	</tutorials>
+	<members>
+		<member name="shadow_bias" type="float" setter="set_param" getter="get_param" overrides="Light3D" default="0.03" />
+		<member name="shadow_normal_bias" type="float" setter="set_param" getter="get_param" overrides="Light3D" default="1.0" />
+		<member name="spot_angle" type="float" setter="set_param" getter="get_param" default="45.0">
+		</member>
+		<member name="spot_angle_attenuation" type="float" setter="set_param" getter="get_param" default="1.0">
+		</member>
+		<member name="spot_attenuation" type="float" setter="set_param" getter="get_param" default="1.0">
+		</member>
+		<member name="spot_range" type="float" setter="set_param" getter="get_param" default="5.0">
+		</member>
+	</members>
+</class>

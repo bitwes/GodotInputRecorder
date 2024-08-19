@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<class name="CollisionPolygon2D" inherits="Node2D" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../class.xsd">
+	<brief_description>
+	</brief_description>
+	<description>
+	</description>
+	<tutorials>
+	</tutorials>
+	<members>
+		<member name="build_mode" type="int" setter="set_build_mode" getter="get_build_mode" enum="CollisionPolygon2D.BuildMode" default="0">
+		</member>
+		<member name="disabled" type="bool" setter="set_disabled" getter="is_disabled" default="false">
+		</member>
+		<member name="one_way_collision" type="bool" setter="set_one_way_collision" getter="is_one_way_collision_enabled" default="false">
+		</member>
+		<member name="one_way_collision_margin" type="float" setter="set_one_way_collision_margin" getter="get_one_way_collision_margin" default="1.0">
+		</member>
+		<member name="polygon" type="PackedVector2Array" setter="set_polygon" getter="get_polygon" default="PackedVector2Array()">
+		</member>
+	</members>
+	<constants>
+		<constant name="BUILD_SOLIDS" value="0" enum="BuildMode">
+		</constant>
+		<constant name="BUILD_SEGMENTS" value="1" enum="BuildMode">
+		</constant>
+	</constants>
+</class>

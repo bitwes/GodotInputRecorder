@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<class name="SkeletonModification2DTwoBoneIK" inherits="SkeletonModification2D" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../class.xsd">
+	<brief_description>
+	</brief_description>
+	<description>
+	</description>
+	<tutorials>
+	</tutorials>
+	<methods>
+		<method name="get_joint_one_bone2d_node" qualifiers="const">
+			<return type="NodePath" />
+			<description>
+			</description>
+		</method>
+		<method name="get_joint_one_bone_idx" qualifiers="const">
+			<return type="int" />
+			<description>
+			</description>
+		</method>
+		<method name="get_joint_two_bone2d_node" qualifiers="const">
+			<return type="NodePath" />
+			<description>
+			</description>
+		</method>
+		<method name="get_joint_two_bone_idx" qualifiers="const">
+			<return type="int" />
+			<description>
+			</description>
+		</method>
+		<method name="set_joint_one_bone2d_node">
+			<return type="void" />
+			<param index="0" name="bone2d_node" type="NodePath" />
+			<description>
+			</description>
+		</method>
+		<method name="set_joint_one_bone_idx">
+			<return type="void" />
+			<param index="0" name="bone_idx" type="int" />
+			<description>
+			</description>
+		</method>
+		<method name="set_joint_two_bone2d_node">
+			<return type="void" />
+			<param index="0" name="bone2d_node" type="NodePath" />
+			<description>
+			</description>
+		</method>
+		<method name="set_joint_two_bone_idx">
+			<return type="void" />
+			<param index="0" name="bone_idx" type="int" />
+			<description>
+			</description>
+		</method>
+	</methods>
+	<members>
+		<member name="flip_bend_direction" type="bool" setter="set_flip_bend_direction" getter="get_flip_bend_direction" default="false">
+		</member>
+		<member name="target_maximum_distance" type="float" setter="set_target_maximum_distance" getter="get_target_maximum_distance" default="0.0">
+		</member>
+		<member name="target_minimum_distance" type="float" setter="set_target_minimum_distance" getter="get_target_minimum_distance" default="0.0">
+		</member>
+		<member name="target_nodepath" type="NodePath" setter="set_target_node" getter="get_target_node" default="NodePath(&quot;&quot;)">
+		</member>
+	</members>
+</class>

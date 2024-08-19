@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<class name="RemoteTransform2D" inherits="Node2D" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../class.xsd">
+	<brief_description>
+	</brief_description>
+	<description>
+	</description>
+	<tutorials>
+	</tutorials>
+	<methods>
+		<method name="force_update_cache">
+			<return type="void" />
+			<description>
+			</description>
+		</method>
+	</methods>
+	<members>
+		<member name="remote_path" type="NodePath" setter="set_remote_node" getter="get_remote_node" default="NodePath(&quot;&quot;)">
+		</member>
+		<member name="update_position" type="bool" setter="set_update_position" getter="get_update_position" default="true">
+		</member>
+		<member name="update_rotation" type="bool" setter="set_update_rotation" getter="get_update_rotation" default="true">
+		</member>
+		<member name="update_scale" type="bool" setter="set_update_scale" getter="get_update_scale" default="true">
+		</member>
+		<member name="use_global_coordinates" type="bool" setter="set_use_global_coordinates" getter="get_use_global_coordinates" default="true">
+		</member>
+	</members>
+</class>

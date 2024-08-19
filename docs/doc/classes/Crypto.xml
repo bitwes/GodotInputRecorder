@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<class name="Crypto" inherits="RefCounted" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../class.xsd">
+	<brief_description>
+	</brief_description>
+	<description>
+	</description>
+	<tutorials>
+	</tutorials>
+	<methods>
+		<method name="constant_time_compare">
+			<return type="bool" />
+			<param index="0" name="trusted" type="PackedByteArray" />
+			<param index="1" name="received" type="PackedByteArray" />
+			<description>
+			</description>
+		</method>
+		<method name="decrypt">
+			<return type="PackedByteArray" />
+			<param index="0" name="key" type="CryptoKey" />
+			<param index="1" name="ciphertext" type="PackedByteArray" />
+			<description>
+			</description>
+		</method>
+		<method name="encrypt">
+			<return type="PackedByteArray" />
+			<param index="0" name="key" type="CryptoKey" />
+			<param index="1" name="plaintext" type="PackedByteArray" />
+			<description>
+			</description>
+		</method>
+		<method name="generate_random_bytes">
+			<return type="PackedByteArray" />
+			<param index="0" name="size" type="int" />
+			<description>
+			</description>
+		</method>
+		<method name="generate_rsa">
+			<return type="CryptoKey" />
+			<param index="0" name="size" type="int" />
+			<description>
+			</description>
+		</method>
+		<method name="generate_self_signed_certificate">
+			<return type="X509Certificate" />
+			<param index="0" name="key" type="CryptoKey" />
+			<param index="1" name="issuer_name" type="String" default="&quot;CN=myserver,O=myorganisation,C=IT&quot;" />
+			<param index="2" name="not_before" type="String" default="&quot;20140101000000&quot;" />
+			<param index="3" name="not_after" type="String" default="&quot;20340101000000&quot;" />
+			<description>
+			</description>
+		</method>
+		<method name="hmac_digest">
+			<return type="PackedByteArray" />
+			<param index="0" name="hash_type" type="int" enum="HashingContext.HashType" />
+			<param index="1" name="key" type="PackedByteArray" />
+			<param index="2" name="msg" type="PackedByteArray" />
+			<description>
+			</description>
+		</method>
+		<method name="sign">
+			<return type="PackedByteArray" />
+			<param index="0" name="hash_type" type="int" enum="HashingContext.HashType" />
+			<param index="1" name="hash" type="PackedByteArray" />
+			<param index="2" name="key" type="CryptoKey" />
+			<description>
+			</description>
+		</method>
+		<method name="verify">
+			<return type="bool" />
+			<param index="0" name="hash_type" type="int" enum="HashingContext.HashType" />
+			<param index="1" name="hash" type="PackedByteArray" />
+			<param index="2" name="signature" type="PackedByteArray" />
+			<param index="3" name="key" type="CryptoKey" />
+			<description>
+			</description>
+		</method>
+	</methods>
+</class>

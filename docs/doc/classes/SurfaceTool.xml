@@ -1,0 +1,232 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<class name="SurfaceTool" inherits="RefCounted" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../class.xsd">
+	<brief_description>
+	</brief_description>
+	<description>
+	</description>
+	<tutorials>
+	</tutorials>
+	<methods>
+		<method name="add_index">
+			<return type="void" />
+			<param index="0" name="index" type="int" />
+			<description>
+			</description>
+		</method>
+		<method name="add_triangle_fan">
+			<return type="void" />
+			<param index="0" name="vertices" type="PackedVector3Array" />
+			<param index="1" name="uvs" type="PackedVector2Array" default="PackedVector2Array()" />
+			<param index="2" name="colors" type="PackedColorArray" default="PackedColorArray()" />
+			<param index="3" name="uv2s" type="PackedVector2Array" default="PackedVector2Array()" />
+			<param index="4" name="normals" type="PackedVector3Array" default="PackedVector3Array()" />
+			<param index="5" name="tangents" type="Plane[]" default="[]" />
+			<description>
+			</description>
+		</method>
+		<method name="add_vertex">
+			<return type="void" />
+			<param index="0" name="vertex" type="Vector3" />
+			<description>
+			</description>
+		</method>
+		<method name="append_from">
+			<return type="void" />
+			<param index="0" name="existing" type="Mesh" />
+			<param index="1" name="surface" type="int" />
+			<param index="2" name="transform" type="Transform3D" />
+			<description>
+			</description>
+		</method>
+		<method name="begin">
+			<return type="void" />
+			<param index="0" name="primitive" type="int" enum="Mesh.PrimitiveType" />
+			<description>
+			</description>
+		</method>
+		<method name="clear">
+			<return type="void" />
+			<description>
+			</description>
+		</method>
+		<method name="commit">
+			<return type="ArrayMesh" />
+			<param index="0" name="existing" type="ArrayMesh" default="null" />
+			<param index="1" name="flags" type="int" default="0" />
+			<description>
+			</description>
+		</method>
+		<method name="commit_to_arrays">
+			<return type="Array" />
+			<description>
+			</description>
+		</method>
+		<method name="create_from">
+			<return type="void" />
+			<param index="0" name="existing" type="Mesh" />
+			<param index="1" name="surface" type="int" />
+			<description>
+			</description>
+		</method>
+		<method name="create_from_blend_shape">
+			<return type="void" />
+			<param index="0" name="existing" type="Mesh" />
+			<param index="1" name="surface" type="int" />
+			<param index="2" name="blend_shape" type="String" />
+			<description>
+			</description>
+		</method>
+		<method name="deindex">
+			<return type="void" />
+			<description>
+			</description>
+		</method>
+		<method name="generate_lod">
+			<return type="PackedInt32Array" />
+			<param index="0" name="nd_threshold" type="float" />
+			<param index="1" name="target_index_count" type="int" default="3" />
+			<description>
+			</description>
+		</method>
+		<method name="generate_normals">
+			<return type="void" />
+			<param index="0" name="flip" type="bool" default="false" />
+			<description>
+			</description>
+		</method>
+		<method name="generate_tangents">
+			<return type="void" />
+			<description>
+			</description>
+		</method>
+		<method name="get_aabb" qualifiers="const">
+			<return type="AABB" />
+			<description>
+			</description>
+		</method>
+		<method name="get_custom_format" qualifiers="const">
+			<return type="int" enum="SurfaceTool.CustomFormat" />
+			<param index="0" name="channel_index" type="int" />
+			<description>
+			</description>
+		</method>
+		<method name="get_primitive_type" qualifiers="const">
+			<return type="int" enum="Mesh.PrimitiveType" />
+			<description>
+			</description>
+		</method>
+		<method name="get_skin_weight_count" qualifiers="const">
+			<return type="int" enum="SurfaceTool.SkinWeightCount" />
+			<description>
+			</description>
+		</method>
+		<method name="index">
+			<return type="void" />
+			<description>
+			</description>
+		</method>
+		<method name="optimize_indices_for_cache">
+			<return type="void" />
+			<description>
+			</description>
+		</method>
+		<method name="set_bones">
+			<return type="void" />
+			<param index="0" name="bones" type="PackedInt32Array" />
+			<description>
+			</description>
+		</method>
+		<method name="set_color">
+			<return type="void" />
+			<param index="0" name="color" type="Color" />
+			<description>
+			</description>
+		</method>
+		<method name="set_custom">
+			<return type="void" />
+			<param index="0" name="channel_index" type="int" />
+			<param index="1" name="custom_color" type="Color" />
+			<description>
+			</description>
+		</method>
+		<method name="set_custom_format">
+			<return type="void" />
+			<param index="0" name="channel_index" type="int" />
+			<param index="1" name="format" type="int" enum="SurfaceTool.CustomFormat" />
+			<description>
+			</description>
+		</method>
+		<method name="set_material">
+			<return type="void" />
+			<param index="0" name="material" type="Material" />
+			<description>
+			</description>
+		</method>
+		<method name="set_normal">
+			<return type="void" />
+			<param index="0" name="normal" type="Vector3" />
+			<description>
+			</description>
+		</method>
+		<method name="set_skin_weight_count">
+			<return type="void" />
+			<param index="0" name="count" type="int" enum="SurfaceTool.SkinWeightCount" />
+			<description>
+			</description>
+		</method>
+		<method name="set_smooth_group">
+			<return type="void" />
+			<param index="0" name="index" type="int" />
+			<description>
+			</description>
+		</method>
+		<method name="set_tangent">
+			<return type="void" />
+			<param index="0" name="tangent" type="Plane" />
+			<description>
+			</description>
+		</method>
+		<method name="set_uv">
+			<return type="void" />
+			<param index="0" name="uv" type="Vector2" />
+			<description>
+			</description>
+		</method>
+		<method name="set_uv2">
+			<return type="void" />
+			<param index="0" name="uv2" type="Vector2" />
+			<description>
+			</description>
+		</method>
+		<method name="set_weights">
+			<return type="void" />
+			<param index="0" name="weights" type="PackedFloat32Array" />
+			<description>
+			</description>
+		</method>
+	</methods>
+	<constants>
+		<constant name="CUSTOM_RGBA8_UNORM" value="0" enum="CustomFormat">
+		</constant>
+		<constant name="CUSTOM_RGBA8_SNORM" value="1" enum="CustomFormat">
+		</constant>
+		<constant name="CUSTOM_RG_HALF" value="2" enum="CustomFormat">
+		</constant>
+		<constant name="CUSTOM_RGBA_HALF" value="3" enum="CustomFormat">
+		</constant>
+		<constant name="CUSTOM_R_FLOAT" value="4" enum="CustomFormat">
+		</constant>
+		<constant name="CUSTOM_RG_FLOAT" value="5" enum="CustomFormat">
+		</constant>
+		<constant name="CUSTOM_RGB_FLOAT" value="6" enum="CustomFormat">
+		</constant>
+		<constant name="CUSTOM_RGBA_FLOAT" value="7" enum="CustomFormat">
+		</constant>
+		<constant name="CUSTOM_MAX" value="8" enum="CustomFormat">
+		</constant>
+		<constant name="SKIN_4_WEIGHTS" value="0" enum="SkinWeightCount">
+		</constant>
+		<constant name="SKIN_8_WEIGHTS" value="1" enum="SkinWeightCount">
+		</constant>
+	</constants>
+</class>

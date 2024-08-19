@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<class name="AnimationNodeBlendSpace1D" inherits="AnimationRootNode" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../class.xsd">
+	<brief_description>
+	</brief_description>
+	<description>
+	</description>
+	<tutorials>
+	</tutorials>
+	<methods>
+		<method name="add_blend_point">
+			<return type="void" />
+			<param index="0" name="node" type="AnimationRootNode" />
+			<param index="1" name="pos" type="float" />
+			<param index="2" name="at_index" type="int" default="-1" />
+			<description>
+			</description>
+		</method>
+		<method name="get_blend_point_count" qualifiers="const">
+			<return type="int" />
+			<description>
+			</description>
+		</method>
+		<method name="get_blend_point_node" qualifiers="const">
+			<return type="AnimationRootNode" />
+			<param index="0" name="point" type="int" />
+			<description>
+			</description>
+		</method>
+		<method name="get_blend_point_position" qualifiers="const">
+			<return type="float" />
+			<param index="0" name="point" type="int" />
+			<description>
+			</description>
+		</method>
+		<method name="remove_blend_point">
+			<return type="void" />
+			<param index="0" name="point" type="int" />
+			<description>
+			</description>
+		</method>
+		<method name="set_blend_point_node">
+			<return type="void" />
+			<param index="0" name="point" type="int" />
+			<param index="1" name="node" type="AnimationRootNode" />
+			<description>
+			</description>
+		</method>
+		<method name="set_blend_point_position">
+			<return type="void" />
+			<param index="0" name="point" type="int" />
+			<param index="1" name="pos" type="float" />
+			<description>
+			</description>
+		</method>
+	</methods>
+	<members>
+		<member name="blend_mode" type="int" setter="set_blend_mode" getter="get_blend_mode" enum="AnimationNodeBlendSpace1D.BlendMode" default="0">
+		</member>
+		<member name="max_space" type="float" setter="set_max_space" getter="get_max_space" default="1.0">
+		</member>
+		<member name="min_space" type="float" setter="set_min_space" getter="get_min_space" default="-1.0">
+		</member>
+		<member name="snap" type="float" setter="set_snap" getter="get_snap" default="0.1">
+		</member>
+		<member name="sync" type="bool" setter="set_use_sync" getter="is_using_sync" default="false">
+		</member>
+		<member name="value_label" type="String" setter="set_value_label" getter="get_value_label" default="&quot;value&quot;">
+		</member>
+	</members>
+	<constants>
+		<constant name="BLEND_MODE_INTERPOLATED" value="0" enum="BlendMode">
+		</constant>
+		<constant name="BLEND_MODE_DISCRETE" value="1" enum="BlendMode">
+		</constant>
+		<constant name="BLEND_MODE_DISCRETE_CARRY" value="2" enum="BlendMode">
+		</constant>
+	</constants>
+</class>

@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<class name="ShaderMaterial" inherits="Material" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../class.xsd">
+	<brief_description>
+	</brief_description>
+	<description>
+	</description>
+	<tutorials>
+	</tutorials>
+	<methods>
+		<method name="get_shader_parameter" qualifiers="const">
+			<return type="Variant" />
+			<param index="0" name="param" type="StringName" />
+			<description>
+			</description>
+		</method>
+		<method name="set_shader_parameter">
+			<return type="void" />
+			<param index="0" name="param" type="StringName" />
+			<param index="1" name="value" type="Variant" />
+			<description>
+			</description>
+		</method>
+	</methods>
+	<members>
+		<member name="shader" type="Shader" setter="set_shader" getter="get_shader">
+		</member>
+	</members>
+</class>

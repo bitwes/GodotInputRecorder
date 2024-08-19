@@ -1,0 +1,193 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<class name="DirAccess" inherits="RefCounted" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../class.xsd">
+	<brief_description>
+	</brief_description>
+	<description>
+	</description>
+	<tutorials>
+	</tutorials>
+	<methods>
+		<method name="change_dir">
+			<return type="int" enum="Error" />
+			<param index="0" name="to_dir" type="String" />
+			<description>
+			</description>
+		</method>
+		<method name="copy">
+			<return type="int" enum="Error" />
+			<param index="0" name="from" type="String" />
+			<param index="1" name="to" type="String" />
+			<param index="2" name="chmod_flags" type="int" default="-1" />
+			<description>
+			</description>
+		</method>
+		<method name="copy_absolute" qualifiers="static">
+			<return type="int" enum="Error" />
+			<param index="0" name="from" type="String" />
+			<param index="1" name="to" type="String" />
+			<param index="2" name="chmod_flags" type="int" default="-1" />
+			<description>
+			</description>
+		</method>
+		<method name="current_is_dir" qualifiers="const">
+			<return type="bool" />
+			<description>
+			</description>
+		</method>
+		<method name="dir_exists">
+			<return type="bool" />
+			<param index="0" name="path" type="String" />
+			<description>
+			</description>
+		</method>
+		<method name="dir_exists_absolute" qualifiers="static">
+			<return type="bool" />
+			<param index="0" name="path" type="String" />
+			<description>
+			</description>
+		</method>
+		<method name="file_exists">
+			<return type="bool" />
+			<param index="0" name="path" type="String" />
+			<description>
+			</description>
+		</method>
+		<method name="get_current_dir" qualifiers="const">
+			<return type="String" />
+			<param index="0" name="include_drive" type="bool" default="true" />
+			<description>
+			</description>
+		</method>
+		<method name="get_current_drive">
+			<return type="int" />
+			<description>
+			</description>
+		</method>
+		<method name="get_directories">
+			<return type="PackedStringArray" />
+			<description>
+			</description>
+		</method>
+		<method name="get_directories_at" qualifiers="static">
+			<return type="PackedStringArray" />
+			<param index="0" name="path" type="String" />
+			<description>
+			</description>
+		</method>
+		<method name="get_drive_count" qualifiers="static">
+			<return type="int" />
+			<description>
+			</description>
+		</method>
+		<method name="get_drive_name" qualifiers="static">
+			<return type="String" />
+			<param index="0" name="idx" type="int" />
+			<description>
+			</description>
+		</method>
+		<method name="get_files">
+			<return type="PackedStringArray" />
+			<description>
+			</description>
+		</method>
+		<method name="get_files_at" qualifiers="static">
+			<return type="PackedStringArray" />
+			<param index="0" name="path" type="String" />
+			<description>
+			</description>
+		</method>
+		<method name="get_next">
+			<return type="String" />
+			<description>
+			</description>
+		</method>
+		<method name="get_open_error" qualifiers="static">
+			<return type="int" enum="Error" />
+			<description>
+			</description>
+		</method>
+		<method name="get_space_left">
+			<return type="int" />
+			<description>
+			</description>
+		</method>
+		<method name="is_case_sensitive" qualifiers="const">
+			<return type="bool" />
+			<param index="0" name="path" type="String" />
+			<description>
+			</description>
+		</method>
+		<method name="list_dir_begin">
+			<return type="int" enum="Error" />
+			<description>
+			</description>
+		</method>
+		<method name="list_dir_end">
+			<return type="void" />
+			<description>
+			</description>
+		</method>
+		<method name="make_dir">
+			<return type="int" enum="Error" />
+			<param index="0" name="path" type="String" />
+			<description>
+			</description>
+		</method>
+		<method name="make_dir_absolute" qualifiers="static">
+			<return type="int" enum="Error" />
+			<param index="0" name="path" type="String" />
+			<description>
+			</description>
+		</method>
+		<method name="make_dir_recursive">
+			<return type="int" enum="Error" />
+			<param index="0" name="path" type="String" />
+			<description>
+			</description>
+		</method>
+		<method name="make_dir_recursive_absolute" qualifiers="static">
+			<return type="int" enum="Error" />
+			<param index="0" name="path" type="String" />
+			<description>
+			</description>
+		</method>
+		<method name="open" qualifiers="static">
+			<return type="DirAccess" />
+			<param index="0" name="path" type="String" />
+			<description>
+			</description>
+		</method>
+		<method name="remove">
+			<return type="int" enum="Error" />
+			<param index="0" name="path" type="String" />
+			<description>
+			</description>
+		</method>
+		<method name="remove_absolute" qualifiers="static">
+			<return type="int" enum="Error" />
+			<param index="0" name="path" type="String" />
+			<description>
+			</description>
+		</method>
+		<method name="rename">
+			<return type="int" enum="Error" />
+			<param index="0" name="from" type="String" />
+			<param index="1" name="to" type="String" />
+			<description>
+			</description>
+		</method>
+		<method name="rename_absolute" qualifiers="static">
+			<return type="int" enum="Error" />
+			<param index="0" name="from" type="String" />
+			<param index="1" name="to" type="String" />
+			<description>
+			</description>
+		</method>
+	</methods>
+	<members>
+		<member name="include_hidden" type="bool" setter="set_include_hidden" getter="get_include_hidden">
+		</member>
+		<member name="include_navigational" type="bool" setter="set_include_navigational" getter="get_include_navigational">
+		</member>
+	</members>
+</class>

@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<class name="SpinBox" inherits="Range" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../class.xsd">
+	<brief_description>
+	</brief_description>
+	<description>
+	</description>
+	<tutorials>
+	</tutorials>
+	<methods>
+		<method name="apply">
+			<return type="void" />
+			<description>
+			</description>
+		</method>
+		<method name="get_line_edit">
+			<return type="LineEdit" />
+			<description>
+			</description>
+		</method>
+	</methods>
+	<members>
+		<member name="alignment" type="int" setter="set_horizontal_alignment" getter="get_horizontal_alignment" enum="HorizontalAlignment" default="0">
+		</member>
+		<member name="custom_arrow_step" type="float" setter="set_custom_arrow_step" getter="get_custom_arrow_step" default="0.0">
+		</member>
+		<member name="editable" type="bool" setter="set_editable" getter="is_editable" default="true">
+		</member>
+		<member name="prefix" type="String" setter="set_prefix" getter="get_prefix" default="&quot;&quot;">
+		</member>
+		<member name="select_all_on_focus" type="bool" setter="set_select_all_on_focus" getter="is_select_all_on_focus" default="false">
+		</member>
+		<member name="size_flags_vertical" type="int" setter="set_v_size_flags" getter="get_v_size_flags" overrides="Control" enum="Control.SizeFlags" is_bitfield="true" default="1" />
+		<member name="step" type="float" setter="set_step" getter="get_step" overrides="Range" default="1.0" />
+		<member name="suffix" type="String" setter="set_suffix" getter="get_suffix" default="&quot;&quot;">
+		</member>
+		<member name="update_on_text_changed" type="bool" setter="set_update_on_text_changed" getter="get_update_on_text_changed" default="false">
+		</member>
+	</members>
+	<theme_items>
+		<theme_item name="updown" data_type="icon" type="Texture2D">
+		</theme_item>
+	</theme_items>
+</class>

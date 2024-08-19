@@ -1,0 +1,182 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<class name="EditorNode3DGizmoPlugin" inherits="Resource" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../class.xsd">
+	<brief_description>
+	</brief_description>
+	<description>
+	</description>
+	<tutorials>
+	</tutorials>
+	<methods>
+		<method name="_begin_handle_action" qualifiers="virtual">
+			<return type="void" />
+			<param index="0" name="gizmo" type="EditorNode3DGizmo" />
+			<param index="1" name="handle_id" type="int" />
+			<param index="2" name="secondary" type="bool" />
+			<description>
+			</description>
+		</method>
+		<method name="_can_be_hidden" qualifiers="virtual const">
+			<return type="bool" />
+			<description>
+			</description>
+		</method>
+		<method name="_commit_handle" qualifiers="virtual">
+			<return type="void" />
+			<param index="0" name="gizmo" type="EditorNode3DGizmo" />
+			<param index="1" name="handle_id" type="int" />
+			<param index="2" name="secondary" type="bool" />
+			<param index="3" name="restore" type="Variant" />
+			<param index="4" name="cancel" type="bool" />
+			<description>
+			</description>
+		</method>
+		<method name="_commit_subgizmos" qualifiers="virtual">
+			<return type="void" />
+			<param index="0" name="gizmo" type="EditorNode3DGizmo" />
+			<param index="1" name="ids" type="PackedInt32Array" />
+			<param index="2" name="restores" type="Transform3D[]" />
+			<param index="3" name="cancel" type="bool" />
+			<description>
+			</description>
+		</method>
+		<method name="_create_gizmo" qualifiers="virtual const">
+			<return type="EditorNode3DGizmo" />
+			<param index="0" name="for_node_3d" type="Node3D" />
+			<description>
+			</description>
+		</method>
+		<method name="_get_gizmo_name" qualifiers="virtual const">
+			<return type="String" />
+			<description>
+			</description>
+		</method>
+		<method name="_get_handle_name" qualifiers="virtual const">
+			<return type="String" />
+			<param index="0" name="gizmo" type="EditorNode3DGizmo" />
+			<param index="1" name="handle_id" type="int" />
+			<param index="2" name="secondary" type="bool" />
+			<description>
+			</description>
+		</method>
+		<method name="_get_handle_value" qualifiers="virtual const">
+			<return type="Variant" />
+			<param index="0" name="gizmo" type="EditorNode3DGizmo" />
+			<param index="1" name="handle_id" type="int" />
+			<param index="2" name="secondary" type="bool" />
+			<description>
+			</description>
+		</method>
+		<method name="_get_priority" qualifiers="virtual const">
+			<return type="int" />
+			<description>
+			</description>
+		</method>
+		<method name="_get_subgizmo_transform" qualifiers="virtual const">
+			<return type="Transform3D" />
+			<param index="0" name="gizmo" type="EditorNode3DGizmo" />
+			<param index="1" name="subgizmo_id" type="int" />
+			<description>
+			</description>
+		</method>
+		<method name="_has_gizmo" qualifiers="virtual const">
+			<return type="bool" />
+			<param index="0" name="for_node_3d" type="Node3D" />
+			<description>
+			</description>
+		</method>
+		<method name="_is_handle_highlighted" qualifiers="virtual const">
+			<return type="bool" />
+			<param index="0" name="gizmo" type="EditorNode3DGizmo" />
+			<param index="1" name="handle_id" type="int" />
+			<param index="2" name="secondary" type="bool" />
+			<description>
+			</description>
+		</method>
+		<method name="_is_selectable_when_hidden" qualifiers="virtual const">
+			<return type="bool" />
+			<description>
+			</description>
+		</method>
+		<method name="_redraw" qualifiers="virtual">
+			<return type="void" />
+			<param index="0" name="gizmo" type="EditorNode3DGizmo" />
+			<description>
+			</description>
+		</method>
+		<method name="_set_handle" qualifiers="virtual">
+			<return type="void" />
+			<param index="0" name="gizmo" type="EditorNode3DGizmo" />
+			<param index="1" name="handle_id" type="int" />
+			<param index="2" name="secondary" type="bool" />
+			<param index="3" name="camera" type="Camera3D" />
+			<param index="4" name="screen_pos" type="Vector2" />
+			<description>
+			</description>
+		</method>
+		<method name="_set_subgizmo_transform" qualifiers="virtual">
+			<return type="void" />
+			<param index="0" name="gizmo" type="EditorNode3DGizmo" />
+			<param index="1" name="subgizmo_id" type="int" />
+			<param index="2" name="transform" type="Transform3D" />
+			<description>
+			</description>
+		</method>
+		<method name="_subgizmos_intersect_frustum" qualifiers="virtual const">
+			<return type="PackedInt32Array" />
+			<param index="0" name="gizmo" type="EditorNode3DGizmo" />
+			<param index="1" name="camera" type="Camera3D" />
+			<param index="2" name="frustum_planes" type="Plane[]" />
+			<description>
+			</description>
+		</method>
+		<method name="_subgizmos_intersect_ray" qualifiers="virtual const">
+			<return type="int" />
+			<param index="0" name="gizmo" type="EditorNode3DGizmo" />
+			<param index="1" name="camera" type="Camera3D" />
+			<param index="2" name="screen_pos" type="Vector2" />
+			<description>
+			</description>
+		</method>
+		<method name="add_material">
+			<return type="void" />
+			<param index="0" name="name" type="String" />
+			<param index="1" name="material" type="StandardMaterial3D" />
+			<description>
+			</description>
+		</method>
+		<method name="create_handle_material">
+			<return type="void" />
+			<param index="0" name="name" type="String" />
+			<param index="1" name="billboard" type="bool" default="false" />
+			<param index="2" name="texture" type="Texture2D" default="null" />
+			<description>
+			</description>
+		</method>
+		<method name="create_icon_material">
+			<return type="void" />
+			<param index="0" name="name" type="String" />
+			<param index="1" name="texture" type="Texture2D" />
+			<param index="2" name="on_top" type="bool" default="false" />
+			<param index="3" name="color" type="Color" default="Color(1, 1, 1, 1)" />
+			<description>
+			</description>
+		</method>
+		<method name="create_material">
+			<return type="void" />
+			<param index="0" name="name" type="String" />
+			<param index="1" name="color" type="Color" />
+			<param index="2" name="billboard" type="bool" default="false" />
+			<param index="3" name="on_top" type="bool" default="false" />
+			<param index="4" name="use_vertex_color" type="bool" default="false" />
+			<description>
+			</description>
+		</method>
+		<method name="get_material">
+			<return type="StandardMaterial3D" />
+			<param index="0" name="name" type="String" />
+			<param index="1" name="gizmo" type="EditorNode3DGizmo" default="null" />
+			<description>
+			</description>
+		</method>
+	</methods>
+</class>

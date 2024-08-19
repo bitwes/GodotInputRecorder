@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<class name="JavaScriptBridge" inherits="Object" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../class.xsd">
+	<brief_description>
+	</brief_description>
+	<description>
+	</description>
+	<tutorials>
+	</tutorials>
+	<methods>
+		<method name="create_callback">
+			<return type="JavaScriptObject" />
+			<param index="0" name="callable" type="Callable" />
+			<description>
+			</description>
+		</method>
+		<method name="create_object" qualifiers="vararg">
+			<return type="Variant" />
+			<param index="0" name="object" type="String" />
+			<description>
+			</description>
+		</method>
+		<method name="download_buffer">
+			<return type="void" />
+			<param index="0" name="buffer" type="PackedByteArray" />
+			<param index="1" name="name" type="String" />
+			<param index="2" name="mime" type="String" default="&quot;application/octet-stream&quot;" />
+			<description>
+			</description>
+		</method>
+		<method name="eval">
+			<return type="Variant" />
+			<param index="0" name="code" type="String" />
+			<param index="1" name="use_global_execution_context" type="bool" default="false" />
+			<description>
+			</description>
+		</method>
+		<method name="force_fs_sync">
+			<return type="void" />
+			<description>
+			</description>
+		</method>
+		<method name="get_interface">
+			<return type="JavaScriptObject" />
+			<param index="0" name="interface" type="String" />
+			<description>
+			</description>
+		</method>
+		<method name="pwa_needs_update" qualifiers="const">
+			<return type="bool" />
+			<description>
+			</description>
+		</method>
+		<method name="pwa_update">
+			<return type="int" enum="Error" />
+			<description>
+			</description>
+		</method>
+	</methods>
+	<signals>
+		<signal name="pwa_update_available">
+			<description>
+			</description>
+		</signal>
+	</signals>
+</class>

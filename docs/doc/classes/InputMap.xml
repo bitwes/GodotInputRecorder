@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<class name="InputMap" inherits="Object" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../class.xsd">
+	<brief_description>
+	</brief_description>
+	<description>
+	</description>
+	<tutorials>
+	</tutorials>
+	<methods>
+		<method name="action_add_event">
+			<return type="void" />
+			<param index="0" name="action" type="StringName" />
+			<param index="1" name="event" type="InputEvent" />
+			<description>
+			</description>
+		</method>
+		<method name="action_erase_event">
+			<return type="void" />
+			<param index="0" name="action" type="StringName" />
+			<param index="1" name="event" type="InputEvent" />
+			<description>
+			</description>
+		</method>
+		<method name="action_erase_events">
+			<return type="void" />
+			<param index="0" name="action" type="StringName" />
+			<description>
+			</description>
+		</method>
+		<method name="action_get_deadzone">
+			<return type="float" />
+			<param index="0" name="action" type="StringName" />
+			<description>
+			</description>
+		</method>
+		<method name="action_get_events">
+			<return type="InputEvent[]" />
+			<param index="0" name="action" type="StringName" />
+			<description>
+			</description>
+		</method>
+		<method name="action_has_event">
+			<return type="bool" />
+			<param index="0" name="action" type="StringName" />
+			<param index="1" name="event" type="InputEvent" />
+			<description>
+			</description>
+		</method>
+		<method name="action_set_deadzone">
+			<return type="void" />
+			<param index="0" name="action" type="StringName" />
+			<param index="1" name="deadzone" type="float" />
+			<description>
+			</description>
+		</method>
+		<method name="add_action">
+			<return type="void" />
+			<param index="0" name="action" type="StringName" />
+			<param index="1" name="deadzone" type="float" default="0.5" />
+			<description>
+			</description>
+		</method>
+		<method name="erase_action">
+			<return type="void" />
+			<param index="0" name="action" type="StringName" />
+			<description>
+			</description>
+		</method>
+		<method name="event_is_action" qualifiers="const">
+			<return type="bool" />
+			<param index="0" name="event" type="InputEvent" />
+			<param index="1" name="action" type="StringName" />
+			<param index="2" name="exact_match" type="bool" default="false" />
+			<description>
+			</description>
+		</method>
+		<method name="get_actions">
+			<return type="StringName[]" />
+			<description>
+			</description>
+		</method>
+		<method name="has_action" qualifiers="const">
+			<return type="bool" />
+			<param index="0" name="action" type="StringName" />
+			<description>
+			</description>
+		</method>
+		<method name="load_from_project_settings">
+			<return type="void" />
+			<description>
+			</description>
+		</method>
+	</methods>
+</class>

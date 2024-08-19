@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<class name="ResourceFormatLoader" inherits="RefCounted" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../class.xsd">
+	<brief_description>
+	</brief_description>
+	<description>
+	</description>
+	<tutorials>
+	</tutorials>
+	<methods>
+		<method name="_exists" qualifiers="virtual const">
+			<return type="bool" />
+			<param index="0" name="path" type="String" />
+			<description>
+			</description>
+		</method>
+		<method name="_get_classes_used" qualifiers="virtual const">
+			<return type="PackedStringArray" />
+			<param index="0" name="path" type="String" />
+			<description>
+			</description>
+		</method>
+		<method name="_get_dependencies" qualifiers="virtual const">
+			<return type="PackedStringArray" />
+			<param index="0" name="path" type="String" />
+			<param index="1" name="add_types" type="bool" />
+			<description>
+			</description>
+		</method>
+		<method name="_get_recognized_extensions" qualifiers="virtual const">
+			<return type="PackedStringArray" />
+			<description>
+			</description>
+		</method>
+		<method name="_get_resource_script_class" qualifiers="virtual const">
+			<return type="String" />
+			<param index="0" name="path" type="String" />
+			<description>
+			</description>
+		</method>
+		<method name="_get_resource_type" qualifiers="virtual const">
+			<return type="String" />
+			<param index="0" name="path" type="String" />
+			<description>
+			</description>
+		</method>
+		<method name="_get_resource_uid" qualifiers="virtual const">
+			<return type="int" />
+			<param index="0" name="path" type="String" />
+			<description>
+			</description>
+		</method>
+		<method name="_handles_type" qualifiers="virtual const">
+			<return type="bool" />
+			<param index="0" name="type" type="StringName" />
+			<description>
+			</description>
+		</method>
+		<method name="_load" qualifiers="virtual const">
+			<return type="Variant" />
+			<param index="0" name="path" type="String" />
+			<param index="1" name="original_path" type="String" />
+			<param index="2" name="use_sub_threads" type="bool" />
+			<param index="3" name="cache_mode" type="int" />
+			<description>
+			</description>
+		</method>
+		<method name="_recognize_path" qualifiers="virtual const">
+			<return type="bool" />
+			<param index="0" name="path" type="String" />
+			<param index="1" name="type" type="StringName" />
+			<description>
+			</description>
+		</method>
+		<method name="_rename_dependencies" qualifiers="virtual const">
+			<return type="int" enum="Error" />
+			<param index="0" name="path" type="String" />
+			<param index="1" name="renames" type="Dictionary" />
+			<description>
+			</description>
+		</method>
+	</methods>
+	<constants>
+		<constant name="CACHE_MODE_IGNORE" value="0" enum="CacheMode">
+		</constant>
+		<constant name="CACHE_MODE_REUSE" value="1" enum="CacheMode">
+		</constant>
+		<constant name="CACHE_MODE_REPLACE" value="2" enum="CacheMode">
+		</constant>
+	</constants>
+</class>

@@ -1,0 +1,331 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<class name="TabBar" inherits="Control" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../class.xsd">
+	<brief_description>
+	</brief_description>
+	<description>
+	</description>
+	<tutorials>
+	</tutorials>
+	<methods>
+		<method name="add_tab">
+			<return type="void" />
+			<param index="0" name="title" type="String" default="&quot;&quot;" />
+			<param index="1" name="icon" type="Texture2D" default="null" />
+			<description>
+			</description>
+		</method>
+		<method name="clear_tabs">
+			<return type="void" />
+			<description>
+			</description>
+		</method>
+		<method name="ensure_tab_visible">
+			<return type="void" />
+			<param index="0" name="idx" type="int" />
+			<description>
+			</description>
+		</method>
+		<method name="get_offset_buttons_visible" qualifiers="const">
+			<return type="bool" />
+			<description>
+			</description>
+		</method>
+		<method name="get_previous_tab" qualifiers="const">
+			<return type="int" />
+			<description>
+			</description>
+		</method>
+		<method name="get_tab_button_icon" qualifiers="const">
+			<return type="Texture2D" />
+			<param index="0" name="tab_idx" type="int" />
+			<description>
+			</description>
+		</method>
+		<method name="get_tab_icon" qualifiers="const">
+			<return type="Texture2D" />
+			<param index="0" name="tab_idx" type="int" />
+			<description>
+			</description>
+		</method>
+		<method name="get_tab_icon_max_width" qualifiers="const">
+			<return type="int" />
+			<param index="0" name="tab_idx" type="int" />
+			<description>
+			</description>
+		</method>
+		<method name="get_tab_idx_at_point" qualifiers="const">
+			<return type="int" />
+			<param index="0" name="point" type="Vector2" />
+			<description>
+			</description>
+		</method>
+		<method name="get_tab_language" qualifiers="const">
+			<return type="String" />
+			<param index="0" name="tab_idx" type="int" />
+			<description>
+			</description>
+		</method>
+		<method name="get_tab_metadata" qualifiers="const">
+			<return type="Variant" />
+			<param index="0" name="tab_idx" type="int" />
+			<description>
+			</description>
+		</method>
+		<method name="get_tab_offset" qualifiers="const">
+			<return type="int" />
+			<description>
+			</description>
+		</method>
+		<method name="get_tab_rect" qualifiers="const">
+			<return type="Rect2" />
+			<param index="0" name="tab_idx" type="int" />
+			<description>
+			</description>
+		</method>
+		<method name="get_tab_text_direction" qualifiers="const">
+			<return type="int" enum="Control.TextDirection" />
+			<param index="0" name="tab_idx" type="int" />
+			<description>
+			</description>
+		</method>
+		<method name="get_tab_title" qualifiers="const">
+			<return type="String" />
+			<param index="0" name="tab_idx" type="int" />
+			<description>
+			</description>
+		</method>
+		<method name="is_tab_disabled" qualifiers="const">
+			<return type="bool" />
+			<param index="0" name="tab_idx" type="int" />
+			<description>
+			</description>
+		</method>
+		<method name="is_tab_hidden" qualifiers="const">
+			<return type="bool" />
+			<param index="0" name="tab_idx" type="int" />
+			<description>
+			</description>
+		</method>
+		<method name="move_tab">
+			<return type="void" />
+			<param index="0" name="from" type="int" />
+			<param index="1" name="to" type="int" />
+			<description>
+			</description>
+		</method>
+		<method name="remove_tab">
+			<return type="void" />
+			<param index="0" name="tab_idx" type="int" />
+			<description>
+			</description>
+		</method>
+		<method name="select_next_available">
+			<return type="bool" />
+			<description>
+			</description>
+		</method>
+		<method name="select_previous_available">
+			<return type="bool" />
+			<description>
+			</description>
+		</method>
+		<method name="set_tab_button_icon">
+			<return type="void" />
+			<param index="0" name="tab_idx" type="int" />
+			<param index="1" name="icon" type="Texture2D" />
+			<description>
+			</description>
+		</method>
+		<method name="set_tab_disabled">
+			<return type="void" />
+			<param index="0" name="tab_idx" type="int" />
+			<param index="1" name="disabled" type="bool" />
+			<description>
+			</description>
+		</method>
+		<method name="set_tab_hidden">
+			<return type="void" />
+			<param index="0" name="tab_idx" type="int" />
+			<param index="1" name="hidden" type="bool" />
+			<description>
+			</description>
+		</method>
+		<method name="set_tab_icon">
+			<return type="void" />
+			<param index="0" name="tab_idx" type="int" />
+			<param index="1" name="icon" type="Texture2D" />
+			<description>
+			</description>
+		</method>
+		<method name="set_tab_icon_max_width">
+			<return type="void" />
+			<param index="0" name="tab_idx" type="int" />
+			<param index="1" name="width" type="int" />
+			<description>
+			</description>
+		</method>
+		<method name="set_tab_language">
+			<return type="void" />
+			<param index="0" name="tab_idx" type="int" />
+			<param index="1" name="language" type="String" />
+			<description>
+			</description>
+		</method>
+		<method name="set_tab_metadata">
+			<return type="void" />
+			<param index="0" name="tab_idx" type="int" />
+			<param index="1" name="metadata" type="Variant" />
+			<description>
+			</description>
+		</method>
+		<method name="set_tab_text_direction">
+			<return type="void" />
+			<param index="0" name="tab_idx" type="int" />
+			<param index="1" name="direction" type="int" enum="Control.TextDirection" />
+			<description>
+			</description>
+		</method>
+		<method name="set_tab_title">
+			<return type="void" />
+			<param index="0" name="tab_idx" type="int" />
+			<param index="1" name="title" type="String" />
+			<description>
+			</description>
+		</method>
+	</methods>
+	<members>
+		<member name="clip_tabs" type="bool" setter="set_clip_tabs" getter="get_clip_tabs" default="true">
+		</member>
+		<member name="current_tab" type="int" setter="set_current_tab" getter="get_current_tab" default="0">
+		</member>
+		<member name="drag_to_rearrange_enabled" type="bool" setter="set_drag_to_rearrange_enabled" getter="get_drag_to_rearrange_enabled" default="false">
+		</member>
+		<member name="focus_mode" type="int" setter="set_focus_mode" getter="get_focus_mode" overrides="Control" enum="Control.FocusMode" default="2" />
+		<member name="max_tab_width" type="int" setter="set_max_tab_width" getter="get_max_tab_width" default="0">
+		</member>
+		<member name="scroll_to_selected" type="bool" setter="set_scroll_to_selected" getter="get_scroll_to_selected" default="true">
+		</member>
+		<member name="scrolling_enabled" type="bool" setter="set_scrolling_enabled" getter="get_scrolling_enabled" default="true">
+		</member>
+		<member name="select_with_rmb" type="bool" setter="set_select_with_rmb" getter="get_select_with_rmb" default="false">
+		</member>
+		<member name="tab_alignment" type="int" setter="set_tab_alignment" getter="get_tab_alignment" enum="TabBar.AlignmentMode" default="0">
+		</member>
+		<member name="tab_close_display_policy" type="int" setter="set_tab_close_display_policy" getter="get_tab_close_display_policy" enum="TabBar.CloseButtonDisplayPolicy" default="0">
+		</member>
+		<member name="tab_count" type="int" setter="set_tab_count" getter="get_tab_count" default="0">
+		</member>
+		<member name="tabs_rearrange_group" type="int" setter="set_tabs_rearrange_group" getter="get_tabs_rearrange_group" default="-1">
+		</member>
+	</members>
+	<signals>
+		<signal name="active_tab_rearranged">
+			<param index="0" name="idx_to" type="int" />
+			<description>
+			</description>
+		</signal>
+		<signal name="tab_button_pressed">
+			<param index="0" name="tab" type="int" />
+			<description>
+			</description>
+		</signal>
+		<signal name="tab_changed">
+			<param index="0" name="tab" type="int" />
+			<description>
+			</description>
+		</signal>
+		<signal name="tab_clicked">
+			<param index="0" name="tab" type="int" />
+			<description>
+			</description>
+		</signal>
+		<signal name="tab_close_pressed">
+			<param index="0" name="tab" type="int" />
+			<description>
+			</description>
+		</signal>
+		<signal name="tab_hovered">
+			<param index="0" name="tab" type="int" />
+			<description>
+			</description>
+		</signal>
+		<signal name="tab_rmb_clicked">
+			<param index="0" name="tab" type="int" />
+			<description>
+			</description>
+		</signal>
+		<signal name="tab_selected">
+			<param index="0" name="tab" type="int" />
+			<description>
+			</description>
+		</signal>
+	</signals>
+	<constants>
+		<constant name="ALIGNMENT_LEFT" value="0" enum="AlignmentMode">
+		</constant>
+		<constant name="ALIGNMENT_CENTER" value="1" enum="AlignmentMode">
+		</constant>
+		<constant name="ALIGNMENT_RIGHT" value="2" enum="AlignmentMode">
+		</constant>
+		<constant name="ALIGNMENT_MAX" value="3" enum="AlignmentMode">
+		</constant>
+		<constant name="CLOSE_BUTTON_SHOW_NEVER" value="0" enum="CloseButtonDisplayPolicy">
+		</constant>
+		<constant name="CLOSE_BUTTON_SHOW_ACTIVE_ONLY" value="1" enum="CloseButtonDisplayPolicy">
+		</constant>
+		<constant name="CLOSE_BUTTON_SHOW_ALWAYS" value="2" enum="CloseButtonDisplayPolicy">
+		</constant>
+		<constant name="CLOSE_BUTTON_MAX" value="3" enum="CloseButtonDisplayPolicy">
+		</constant>
+	</constants>
+	<theme_items>
+		<theme_item name="drop_mark_color" data_type="color" type="Color" default="Color(1, 1, 1, 1)">
+		</theme_item>
+		<theme_item name="font_disabled_color" data_type="color" type="Color" default="Color(0.875, 0.875, 0.875, 0.5)">
+		</theme_item>
+		<theme_item name="font_hovered_color" data_type="color" type="Color" default="Color(0.95, 0.95, 0.95, 1)">
+		</theme_item>
+		<theme_item name="font_outline_color" data_type="color" type="Color" default="Color(1, 1, 1, 1)">
+		</theme_item>
+		<theme_item name="font_selected_color" data_type="color" type="Color" default="Color(0.95, 0.95, 0.95, 1)">
+		</theme_item>
+		<theme_item name="font_unselected_color" data_type="color" type="Color" default="Color(0.7, 0.7, 0.7, 1)">
+		</theme_item>
+		<theme_item name="h_separation" data_type="constant" type="int" default="4">
+		</theme_item>
+		<theme_item name="icon_max_width" data_type="constant" type="int" default="0">
+		</theme_item>
+		<theme_item name="outline_size" data_type="constant" type="int" default="0">
+		</theme_item>
+		<theme_item name="font" data_type="font" type="Font">
+		</theme_item>
+		<theme_item name="font_size" data_type="font_size" type="int">
+		</theme_item>
+		<theme_item name="close" data_type="icon" type="Texture2D">
+		</theme_item>
+		<theme_item name="decrement" data_type="icon" type="Texture2D">
+		</theme_item>
+		<theme_item name="decrement_highlight" data_type="icon" type="Texture2D">
+		</theme_item>
+		<theme_item name="drop_mark" data_type="icon" type="Texture2D">
+		</theme_item>
+		<theme_item name="increment" data_type="icon" type="Texture2D">
+		</theme_item>
+		<theme_item name="increment_highlight" data_type="icon" type="Texture2D">
+		</theme_item>
+		<theme_item name="button_highlight" data_type="style" type="StyleBox">
+		</theme_item>
+		<theme_item name="button_pressed" data_type="style" type="StyleBox">
+		</theme_item>
+		<theme_item name="tab_disabled" data_type="style" type="StyleBox">
+		</theme_item>
+		<theme_item name="tab_focus" data_type="style" type="StyleBox">
+		</theme_item>
+		<theme_item name="tab_hovered" data_type="style" type="StyleBox">
+		</theme_item>
+		<theme_item name="tab_selected" data_type="style" type="StyleBox">
+		</theme_item>
+		<theme_item name="tab_unselected" data_type="style" type="StyleBox">
+		</theme_item>
+	</theme_items>
+</class>

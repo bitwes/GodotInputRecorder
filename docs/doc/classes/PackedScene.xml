@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<class name="PackedScene" inherits="Resource" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../class.xsd">
+	<brief_description>
+	</brief_description>
+	<description>
+	</description>
+	<tutorials>
+	</tutorials>
+	<methods>
+		<method name="can_instantiate" qualifiers="const">
+			<return type="bool" />
+			<description>
+			</description>
+		</method>
+		<method name="get_state" qualifiers="const">
+			<return type="SceneState" />
+			<description>
+			</description>
+		</method>
+		<method name="instantiate" qualifiers="const">
+			<return type="Node" />
+			<param index="0" name="edit_state" type="int" enum="PackedScene.GenEditState" default="0" />
+			<description>
+			</description>
+		</method>
+		<method name="pack">
+			<return type="int" enum="Error" />
+			<param index="0" name="path" type="Node" />
+			<description>
+			</description>
+		</method>
+	</methods>
+	<members>
+		<member name="_bundled" type="Dictionary" setter="_set_bundled_scene" getter="_get_bundled_scene" default="{ &quot;conn_count&quot;: 0, &quot;conns&quot;: PackedInt32Array(), &quot;editable_instances&quot;: [], &quot;names&quot;: PackedStringArray(), &quot;node_count&quot;: 0, &quot;node_paths&quot;: [], &quot;nodes&quot;: PackedInt32Array(), &quot;variants&quot;: [], &quot;version&quot;: 3 }">
+		</member>
+	</members>
+	<constants>
+		<constant name="GEN_EDIT_STATE_DISABLED" value="0" enum="GenEditState">
+		</constant>
+		<constant name="GEN_EDIT_STATE_INSTANCE" value="1" enum="GenEditState">
+		</constant>
+		<constant name="GEN_EDIT_STATE_MAIN" value="2" enum="GenEditState">
+		</constant>
+		<constant name="GEN_EDIT_STATE_MAIN_INHERITED" value="3" enum="GenEditState">
+		</constant>
+	</constants>
+</class>

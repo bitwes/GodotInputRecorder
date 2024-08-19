@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<class name="RDFramebufferPass" inherits="RefCounted" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../class.xsd">
+	<brief_description>
+	</brief_description>
+	<description>
+	</description>
+	<tutorials>
+	</tutorials>
+	<members>
+		<member name="color_attachments" type="PackedInt32Array" setter="set_color_attachments" getter="get_color_attachments" default="PackedInt32Array()">
+		</member>
+		<member name="depth_attachment" type="int" setter="set_depth_attachment" getter="get_depth_attachment" default="-1">
+		</member>
+		<member name="input_attachments" type="PackedInt32Array" setter="set_input_attachments" getter="get_input_attachments" default="PackedInt32Array()">
+		</member>
+		<member name="preserve_attachments" type="PackedInt32Array" setter="set_preserve_attachments" getter="get_preserve_attachments" default="PackedInt32Array()">
+		</member>
+		<member name="resolve_attachments" type="PackedInt32Array" setter="set_resolve_attachments" getter="get_resolve_attachments" default="PackedInt32Array()">
+		</member>
+	</members>
+	<constants>
+		<constant name="ATTACHMENT_UNUSED" value="-1">
+		</constant>
+	</constants>
+</class>

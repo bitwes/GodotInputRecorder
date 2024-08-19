@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<class name="KinematicCollision2D" inherits="RefCounted" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../class.xsd">
+	<brief_description>
+	</brief_description>
+	<description>
+	</description>
+	<tutorials>
+	</tutorials>
+	<methods>
+		<method name="get_angle" qualifiers="const">
+			<return type="float" />
+			<param index="0" name="up_direction" type="Vector2" default="Vector2(0, -1)" />
+			<description>
+			</description>
+		</method>
+		<method name="get_collider" qualifiers="const">
+			<return type="Object" />
+			<description>
+			</description>
+		</method>
+		<method name="get_collider_id" qualifiers="const">
+			<return type="int" />
+			<description>
+			</description>
+		</method>
+		<method name="get_collider_rid" qualifiers="const">
+			<return type="RID" />
+			<description>
+			</description>
+		</method>
+		<method name="get_collider_shape" qualifiers="const">
+			<return type="Object" />
+			<description>
+			</description>
+		</method>
+		<method name="get_collider_shape_index" qualifiers="const">
+			<return type="int" />
+			<description>
+			</description>
+		</method>
+		<method name="get_collider_velocity" qualifiers="const">
+			<return type="Vector2" />
+			<description>
+			</description>
+		</method>
+		<method name="get_depth" qualifiers="const">
+			<return type="float" />
+			<description>
+			</description>
+		</method>
+		<method name="get_local_shape" qualifiers="const">
+			<return type="Object" />
+			<description>
+			</description>
+		</method>
+		<method name="get_normal" qualifiers="const">
+			<return type="Vector2" />
+			<description>
+			</description>
+		</method>
+		<method name="get_position" qualifiers="const">
+			<return type="Vector2" />
+			<description>
+			</description>
+		</method>
+		<method name="get_remainder" qualifiers="const">
+			<return type="Vector2" />
+			<description>
+			</description>
+		</method>
+		<method name="get_travel" qualifiers="const">
+			<return type="Vector2" />
+			<description>
+			</description>
+		</method>
+	</methods>
+</class>

@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<class name="TouchScreenButton" inherits="Node2D" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../class.xsd">
+	<brief_description>
+	</brief_description>
+	<description>
+	</description>
+	<tutorials>
+	</tutorials>
+	<methods>
+		<method name="is_pressed" qualifiers="const">
+			<return type="bool" />
+			<description>
+			</description>
+		</method>
+	</methods>
+	<members>
+		<member name="action" type="String" setter="set_action" getter="get_action" default="&quot;&quot;">
+		</member>
+		<member name="bitmask" type="BitMap" setter="set_bitmask" getter="get_bitmask">
+		</member>
+		<member name="passby_press" type="bool" setter="set_passby_press" getter="is_passby_press_enabled" default="false">
+		</member>
+		<member name="shape" type="Shape2D" setter="set_shape" getter="get_shape">
+		</member>
+		<member name="shape_centered" type="bool" setter="set_shape_centered" getter="is_shape_centered" default="true">
+		</member>
+		<member name="shape_visible" type="bool" setter="set_shape_visible" getter="is_shape_visible" default="true">
+		</member>
+		<member name="texture_normal" type="Texture2D" setter="set_texture_normal" getter="get_texture_normal">
+		</member>
+		<member name="texture_pressed" type="Texture2D" setter="set_texture_pressed" getter="get_texture_pressed">
+		</member>
+		<member name="visibility_mode" type="int" setter="set_visibility_mode" getter="get_visibility_mode" enum="TouchScreenButton.VisibilityMode" default="0">
+		</member>
+	</members>
+	<signals>
+		<signal name="pressed">
+			<description>
+			</description>
+		</signal>
+		<signal name="released">
+			<description>
+			</description>
+		</signal>
+	</signals>
+	<constants>
+		<constant name="VISIBILITY_ALWAYS" value="0" enum="VisibilityMode">
+		</constant>
+		<constant name="VISIBILITY_TOUCHSCREEN_ONLY" value="1" enum="VisibilityMode">
+		</constant>
+	</constants>
+</class>

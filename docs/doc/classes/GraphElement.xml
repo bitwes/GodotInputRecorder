@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<class name="GraphElement" inherits="Container" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../class.xsd">
+	<brief_description>
+	</brief_description>
+	<description>
+	</description>
+	<tutorials>
+	</tutorials>
+	<members>
+		<member name="draggable" type="bool" setter="set_draggable" getter="is_draggable" default="true">
+		</member>
+		<member name="position_offset" type="Vector2" setter="set_position_offset" getter="get_position_offset" default="Vector2(0, 0)">
+		</member>
+		<member name="resizable" type="bool" setter="set_resizable" getter="is_resizable" default="false">
+		</member>
+		<member name="selectable" type="bool" setter="set_selectable" getter="is_selectable" default="true">
+		</member>
+		<member name="selected" type="bool" setter="set_selected" getter="is_selected" default="false">
+		</member>
+	</members>
+	<signals>
+		<signal name="delete_request">
+			<description>
+			</description>
+		</signal>
+		<signal name="dragged">
+			<param index="0" name="from" type="Vector2" />
+			<param index="1" name="to" type="Vector2" />
+			<description>
+			</description>
+		</signal>
+		<signal name="node_deselected">
+			<description>
+			</description>
+		</signal>
+		<signal name="node_selected">
+			<description>
+			</description>
+		</signal>
+		<signal name="position_offset_changed">
+			<description>
+			</description>
+		</signal>
+		<signal name="raise_request">
+			<description>
+			</description>
+		</signal>
+		<signal name="resize_request">
+			<param index="0" name="new_minsize" type="Vector2" />
+			<description>
+			</description>
+		</signal>
+	</signals>
+	<theme_items>
+		<theme_item name="resizer" data_type="icon" type="Texture2D">
+		</theme_item>
+	</theme_items>
+</class>

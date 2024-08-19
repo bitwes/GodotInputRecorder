@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<class name="CharFXTransform" inherits="RefCounted" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../class.xsd">
+	<brief_description>
+	</brief_description>
+	<description>
+	</description>
+	<tutorials>
+	</tutorials>
+	<members>
+		<member name="color" type="Color" setter="set_color" getter="get_color" default="Color(0, 0, 0, 1)">
+		</member>
+		<member name="elapsed_time" type="float" setter="set_elapsed_time" getter="get_elapsed_time" default="0.0">
+		</member>
+		<member name="env" type="Dictionary" setter="set_environment" getter="get_environment" default="{}">
+		</member>
+		<member name="font" type="RID" setter="set_font" getter="get_font" default="RID()">
+		</member>
+		<member name="glyph_count" type="int" setter="set_glyph_count" getter="get_glyph_count" default="0">
+		</member>
+		<member name="glyph_flags" type="int" setter="set_glyph_flags" getter="get_glyph_flags" default="0">
+		</member>
+		<member name="glyph_index" type="int" setter="set_glyph_index" getter="get_glyph_index" default="0">
+		</member>
+		<member name="offset" type="Vector2" setter="set_offset" getter="get_offset" default="Vector2(0, 0)">
+		</member>
+		<member name="outline" type="bool" setter="set_outline" getter="is_outline" default="false">
+		</member>
+		<member name="range" type="Vector2i" setter="set_range" getter="get_range" default="Vector2i(0, 0)">
+		</member>
+		<member name="relative_index" type="int" setter="set_relative_index" getter="get_relative_index" default="0">
+		</member>
+		<member name="transform" type="Transform2D" setter="set_transform" getter="get_transform" default="Transform2D(1, 0, 0, 1, 0, 0)">
+		</member>
+		<member name="visible" type="bool" setter="set_visibility" getter="is_visible" default="true">
+		</member>
+	</members>
+</class>

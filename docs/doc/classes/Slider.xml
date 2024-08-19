@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<class name="Slider" inherits="Range" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../class.xsd">
+	<brief_description>
+	</brief_description>
+	<description>
+	</description>
+	<tutorials>
+	</tutorials>
+	<members>
+		<member name="editable" type="bool" setter="set_editable" getter="is_editable" default="true">
+		</member>
+		<member name="focus_mode" type="int" setter="set_focus_mode" getter="get_focus_mode" overrides="Control" enum="Control.FocusMode" default="2" />
+		<member name="scrollable" type="bool" setter="set_scrollable" getter="is_scrollable" default="true">
+		</member>
+		<member name="step" type="float" setter="set_step" getter="get_step" overrides="Range" default="1.0" />
+		<member name="tick_count" type="int" setter="set_ticks" getter="get_ticks" default="0">
+		</member>
+		<member name="ticks_on_borders" type="bool" setter="set_ticks_on_borders" getter="get_ticks_on_borders" default="false">
+		</member>
+	</members>
+	<signals>
+		<signal name="drag_ended">
+			<param index="0" name="value_changed" type="bool" />
+			<description>
+			</description>
+		</signal>
+		<signal name="drag_started">
+			<description>
+			</description>
+		</signal>
+	</signals>
+	<theme_items>
+		<theme_item name="center_grabber" data_type="constant" type="int" default="0">
+		</theme_item>
+		<theme_item name="grabber_offset" data_type="constant" type="int" default="0">
+		</theme_item>
+		<theme_item name="grabber" data_type="icon" type="Texture2D">
+		</theme_item>
+		<theme_item name="grabber_disabled" data_type="icon" type="Texture2D">
+		</theme_item>
+		<theme_item name="grabber_highlight" data_type="icon" type="Texture2D">
+		</theme_item>
+		<theme_item name="tick" data_type="icon" type="Texture2D">
+		</theme_item>
+		<theme_item name="grabber_area" data_type="style" type="StyleBox">
+		</theme_item>
+		<theme_item name="grabber_area_highlight" data_type="style" type="StyleBox">
+		</theme_item>
+		<theme_item name="slider" data_type="style" type="StyleBox">
+		</theme_item>
+	</theme_items>
+</class>

@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<class name="ThemeDB" inherits="Object" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../class.xsd">
+	<brief_description>
+	</brief_description>
+	<description>
+	</description>
+	<tutorials>
+	</tutorials>
+	<methods>
+		<method name="get_default_theme">
+			<return type="Theme" />
+			<description>
+			</description>
+		</method>
+		<method name="get_project_theme">
+			<return type="Theme" />
+			<description>
+			</description>
+		</method>
+	</methods>
+	<members>
+		<member name="fallback_base_scale" type="float" setter="set_fallback_base_scale" getter="get_fallback_base_scale" default="1.0">
+		</member>
+		<member name="fallback_font" type="Font" setter="set_fallback_font" getter="get_fallback_font">
+		</member>
+		<member name="fallback_font_size" type="int" setter="set_fallback_font_size" getter="get_fallback_font_size" default="16">
+		</member>
+		<member name="fallback_icon" type="Texture2D" setter="set_fallback_icon" getter="get_fallback_icon">
+		</member>
+		<member name="fallback_stylebox" type="StyleBox" setter="set_fallback_stylebox" getter="get_fallback_stylebox">
+		</member>
+	</members>
+	<signals>
+		<signal name="fallback_changed">
+			<description>
+			</description>
+		</signal>
+	</signals>
+</class>

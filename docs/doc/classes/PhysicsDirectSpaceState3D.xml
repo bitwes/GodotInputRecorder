@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<class name="PhysicsDirectSpaceState3D" inherits="Object" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../class.xsd">
+	<brief_description>
+	</brief_description>
+	<description>
+	</description>
+	<tutorials>
+	</tutorials>
+	<methods>
+		<method name="cast_motion">
+			<return type="PackedFloat32Array" />
+			<param index="0" name="parameters" type="PhysicsShapeQueryParameters3D" />
+			<description>
+			</description>
+		</method>
+		<method name="collide_shape">
+			<return type="Vector3[]" />
+			<param index="0" name="parameters" type="PhysicsShapeQueryParameters3D" />
+			<param index="1" name="max_results" type="int" default="32" />
+			<description>
+			</description>
+		</method>
+		<method name="get_rest_info">
+			<return type="Dictionary" />
+			<param index="0" name="parameters" type="PhysicsShapeQueryParameters3D" />
+			<description>
+			</description>
+		</method>
+		<method name="intersect_point">
+			<return type="Dictionary[]" />
+			<param index="0" name="parameters" type="PhysicsPointQueryParameters3D" />
+			<param index="1" name="max_results" type="int" default="32" />
+			<description>
+			</description>
+		</method>
+		<method name="intersect_ray">
+			<return type="Dictionary" />
+			<param index="0" name="parameters" type="PhysicsRayQueryParameters3D" />
+			<description>
+			</description>
+		</method>
+		<method name="intersect_shape">
+			<return type="Dictionary[]" />
+			<param index="0" name="parameters" type="PhysicsShapeQueryParameters3D" />
+			<param index="1" name="max_results" type="int" default="32" />
+			<description>
+			</description>
+		</method>
+	</methods>
+</class>

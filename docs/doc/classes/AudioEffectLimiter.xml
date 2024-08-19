@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<class name="AudioEffectLimiter" inherits="AudioEffect" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../class.xsd">
+	<brief_description>
+	</brief_description>
+	<description>
+	</description>
+	<tutorials>
+	</tutorials>
+	<members>
+		<member name="ceiling_db" type="float" setter="set_ceiling_db" getter="get_ceiling_db" default="-0.1">
+		</member>
+		<member name="soft_clip_db" type="float" setter="set_soft_clip_db" getter="get_soft_clip_db" default="2.0">
+		</member>
+		<member name="soft_clip_ratio" type="float" setter="set_soft_clip_ratio" getter="get_soft_clip_ratio" default="10.0">
+		</member>
+		<member name="threshold_db" type="float" setter="set_threshold_db" getter="get_threshold_db" default="0.0">
+		</member>
+	</members>
+</class>

@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<class name="AudioEffectDistortion" inherits="AudioEffect" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../class.xsd">
+	<brief_description>
+	</brief_description>
+	<description>
+	</description>
+	<tutorials>
+	</tutorials>
+	<members>
+		<member name="drive" type="float" setter="set_drive" getter="get_drive" default="0.0">
+		</member>
+		<member name="keep_hf_hz" type="float" setter="set_keep_hf_hz" getter="get_keep_hf_hz" default="16000.0">
+		</member>
+		<member name="mode" type="int" setter="set_mode" getter="get_mode" enum="AudioEffectDistortion.Mode" default="0">
+		</member>
+		<member name="post_gain" type="float" setter="set_post_gain" getter="get_post_gain" default="0.0">
+		</member>
+		<member name="pre_gain" type="float" setter="set_pre_gain" getter="get_pre_gain" default="0.0">
+		</member>
+	</members>
+	<constants>
+		<constant name="MODE_CLIP" value="0" enum="Mode">
+		</constant>
+		<constant name="MODE_ATAN" value="1" enum="Mode">
+		</constant>
+		<constant name="MODE_LOFI" value="2" enum="Mode">
+		</constant>
+		<constant name="MODE_OVERDRIVE" value="3" enum="Mode">
+		</constant>
+		<constant name="MODE_WAVESHAPE" value="4" enum="Mode">
+		</constant>
+	</constants>
+</class>

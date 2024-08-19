@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<class name="AnimationNodeTransition" inherits="AnimationNodeSync" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../class.xsd">
+	<brief_description>
+	</brief_description>
+	<description>
+	</description>
+	<tutorials>
+	</tutorials>
+	<methods>
+		<method name="is_input_reset" qualifiers="const">
+			<return type="bool" />
+			<param index="0" name="input" type="int" />
+			<description>
+			</description>
+		</method>
+		<method name="is_input_set_as_auto_advance" qualifiers="const">
+			<return type="bool" />
+			<param index="0" name="input" type="int" />
+			<description>
+			</description>
+		</method>
+		<method name="set_input_as_auto_advance">
+			<return type="void" />
+			<param index="0" name="input" type="int" />
+			<param index="1" name="enable" type="bool" />
+			<description>
+			</description>
+		</method>
+		<method name="set_input_reset">
+			<return type="void" />
+			<param index="0" name="input" type="int" />
+			<param index="1" name="enable" type="bool" />
+			<description>
+			</description>
+		</method>
+	</methods>
+	<members>
+		<member name="allow_transition_to_self" type="bool" setter="set_allow_transition_to_self" getter="is_allow_transition_to_self" default="false">
+		</member>
+		<member name="input_count" type="int" setter="set_input_count" getter="get_input_count" default="0">
+		</member>
+		<member name="xfade_curve" type="Curve" setter="set_xfade_curve" getter="get_xfade_curve">
+		</member>
+		<member name="xfade_time" type="float" setter="set_xfade_time" getter="get_xfade_time" default="0.0">
+		</member>
+	</members>
+</class>

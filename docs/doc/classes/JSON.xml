@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<class name="JSON" inherits="Resource" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../class.xsd">
+	<brief_description>
+	</brief_description>
+	<description>
+	</description>
+	<tutorials>
+	</tutorials>
+	<methods>
+		<method name="get_error_line" qualifiers="const">
+			<return type="int" />
+			<description>
+			</description>
+		</method>
+		<method name="get_error_message" qualifiers="const">
+			<return type="String" />
+			<description>
+			</description>
+		</method>
+		<method name="get_parsed_text" qualifiers="const">
+			<return type="String" />
+			<description>
+			</description>
+		</method>
+		<method name="parse">
+			<return type="int" enum="Error" />
+			<param index="0" name="json_text" type="String" />
+			<param index="1" name="keep_text" type="bool" default="false" />
+			<description>
+			</description>
+		</method>
+		<method name="parse_string" qualifiers="static">
+			<return type="Variant" />
+			<param index="0" name="json_string" type="String" />
+			<description>
+			</description>
+		</method>
+		<method name="stringify" qualifiers="static">
+			<return type="String" />
+			<param index="0" name="data" type="Variant" />
+			<param index="1" name="indent" type="String" default="&quot;&quot;" />
+			<param index="2" name="sort_keys" type="bool" default="true" />
+			<param index="3" name="full_precision" type="bool" default="false" />
+			<description>
+			</description>
+		</method>
+	</methods>
+	<members>
+		<member name="data" type="Variant" setter="set_data" getter="get_data" default="null">
+		</member>
+	</members>
+</class>

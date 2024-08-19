@@ -1,0 +1,249 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<class name="MeshDataTool" inherits="RefCounted" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../class.xsd">
+	<brief_description>
+	</brief_description>
+	<description>
+	</description>
+	<tutorials>
+	</tutorials>
+	<methods>
+		<method name="clear">
+			<return type="void" />
+			<description>
+			</description>
+		</method>
+		<method name="commit_to_surface">
+			<return type="int" enum="Error" />
+			<param index="0" name="mesh" type="ArrayMesh" />
+			<param index="1" name="compression_flags" type="int" default="0" />
+			<description>
+			</description>
+		</method>
+		<method name="create_from_surface">
+			<return type="int" enum="Error" />
+			<param index="0" name="mesh" type="ArrayMesh" />
+			<param index="1" name="surface" type="int" />
+			<description>
+			</description>
+		</method>
+		<method name="get_edge_count" qualifiers="const">
+			<return type="int" />
+			<description>
+			</description>
+		</method>
+		<method name="get_edge_faces" qualifiers="const">
+			<return type="PackedInt32Array" />
+			<param index="0" name="idx" type="int" />
+			<description>
+			</description>
+		</method>
+		<method name="get_edge_meta" qualifiers="const">
+			<return type="Variant" />
+			<param index="0" name="idx" type="int" />
+			<description>
+			</description>
+		</method>
+		<method name="get_edge_vertex" qualifiers="const">
+			<return type="int" />
+			<param index="0" name="idx" type="int" />
+			<param index="1" name="vertex" type="int" />
+			<description>
+			</description>
+		</method>
+		<method name="get_face_count" qualifiers="const">
+			<return type="int" />
+			<description>
+			</description>
+		</method>
+		<method name="get_face_edge" qualifiers="const">
+			<return type="int" />
+			<param index="0" name="idx" type="int" />
+			<param index="1" name="edge" type="int" />
+			<description>
+			</description>
+		</method>
+		<method name="get_face_meta" qualifiers="const">
+			<return type="Variant" />
+			<param index="0" name="idx" type="int" />
+			<description>
+			</description>
+		</method>
+		<method name="get_face_normal" qualifiers="const">
+			<return type="Vector3" />
+			<param index="0" name="idx" type="int" />
+			<description>
+			</description>
+		</method>
+		<method name="get_face_vertex" qualifiers="const">
+			<return type="int" />
+			<param index="0" name="idx" type="int" />
+			<param index="1" name="vertex" type="int" />
+			<description>
+			</description>
+		</method>
+		<method name="get_format" qualifiers="const">
+			<return type="int" />
+			<description>
+			</description>
+		</method>
+		<method name="get_material" qualifiers="const">
+			<return type="Material" />
+			<description>
+			</description>
+		</method>
+		<method name="get_vertex" qualifiers="const">
+			<return type="Vector3" />
+			<param index="0" name="idx" type="int" />
+			<description>
+			</description>
+		</method>
+		<method name="get_vertex_bones" qualifiers="const">
+			<return type="PackedInt32Array" />
+			<param index="0" name="idx" type="int" />
+			<description>
+			</description>
+		</method>
+		<method name="get_vertex_color" qualifiers="const">
+			<return type="Color" />
+			<param index="0" name="idx" type="int" />
+			<description>
+			</description>
+		</method>
+		<method name="get_vertex_count" qualifiers="const">
+			<return type="int" />
+			<description>
+			</description>
+		</method>
+		<method name="get_vertex_edges" qualifiers="const">
+			<return type="PackedInt32Array" />
+			<param index="0" name="idx" type="int" />
+			<description>
+			</description>
+		</method>
+		<method name="get_vertex_faces" qualifiers="const">
+			<return type="PackedInt32Array" />
+			<param index="0" name="idx" type="int" />
+			<description>
+			</description>
+		</method>
+		<method name="get_vertex_meta" qualifiers="const">
+			<return type="Variant" />
+			<param index="0" name="idx" type="int" />
+			<description>
+			</description>
+		</method>
+		<method name="get_vertex_normal" qualifiers="const">
+			<return type="Vector3" />
+			<param index="0" name="idx" type="int" />
+			<description>
+			</description>
+		</method>
+		<method name="get_vertex_tangent" qualifiers="const">
+			<return type="Plane" />
+			<param index="0" name="idx" type="int" />
+			<description>
+			</description>
+		</method>
+		<method name="get_vertex_uv" qualifiers="const">
+			<return type="Vector2" />
+			<param index="0" name="idx" type="int" />
+			<description>
+			</description>
+		</method>
+		<method name="get_vertex_uv2" qualifiers="const">
+			<return type="Vector2" />
+			<param index="0" name="idx" type="int" />
+			<description>
+			</description>
+		</method>
+		<method name="get_vertex_weights" qualifiers="const">
+			<return type="PackedFloat32Array" />
+			<param index="0" name="idx" type="int" />
+			<description>
+			</description>
+		</method>
+		<method name="set_edge_meta">
+			<return type="void" />
+			<param index="0" name="idx" type="int" />
+			<param index="1" name="meta" type="Variant" />
+			<description>
+			</description>
+		</method>
+		<method name="set_face_meta">
+			<return type="void" />
+			<param index="0" name="idx" type="int" />
+			<param index="1" name="meta" type="Variant" />
+			<description>
+			</description>
+		</method>
+		<method name="set_material">
+			<return type="void" />
+			<param index="0" name="material" type="Material" />
+			<description>
+			</description>
+		</method>
+		<method name="set_vertex">
+			<return type="void" />
+			<param index="0" name="idx" type="int" />
+			<param index="1" name="vertex" type="Vector3" />
+			<description>
+			</description>
+		</method>
+		<method name="set_vertex_bones">
+			<return type="void" />
+			<param index="0" name="idx" type="int" />
+			<param index="1" name="bones" type="PackedInt32Array" />
+			<description>
+			</description>
+		</method>
+		<method name="set_vertex_color">
+			<return type="void" />
+			<param index="0" name="idx" type="int" />
+			<param index="1" name="color" type="Color" />
+			<description>
+			</description>
+		</method>
+		<method name="set_vertex_meta">
+			<return type="void" />
+			<param index="0" name="idx" type="int" />
+			<param index="1" name="meta" type="Variant" />
+			<description>
+			</description>
+		</method>
+		<method name="set_vertex_normal">
+			<return type="void" />
+			<param index="0" name="idx" type="int" />
+			<param index="1" name="normal" type="Vector3" />
+			<description>
+			</description>
+		</method>
+		<method name="set_vertex_tangent">
+			<return type="void" />
+			<param index="0" name="idx" type="int" />
+			<param index="1" name="tangent" type="Plane" />
+			<description>
+			</description>
+		</method>
+		<method name="set_vertex_uv">
+			<return type="void" />
+			<param index="0" name="idx" type="int" />
+			<param index="1" name="uv" type="Vector2" />
+			<description>
+			</description>
+		</method>
+		<method name="set_vertex_uv2">
+			<return type="void" />
+			<param index="0" name="idx" type="int" />
+			<param index="1" name="uv2" type="Vector2" />
+			<description>
+			</description>
+		</method>
+		<method name="set_vertex_weights">
+			<return type="void" />
+			<param index="0" name="idx" type="int" />
+			<param index="1" name="weights" type="PackedFloat32Array" />
+			<description>
+			</description>
+		</method>
+	</methods>
+</class>

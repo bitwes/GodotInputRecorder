@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<class name="Script" inherits="Resource" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../class.xsd">
+	<brief_description>
+	</brief_description>
+	<description>
+	</description>
+	<tutorials>
+	</tutorials>
+	<methods>
+		<method name="can_instantiate" qualifiers="const">
+			<return type="bool" />
+			<description>
+			</description>
+		</method>
+		<method name="get_base_script" qualifiers="const">
+			<return type="Script" />
+			<description>
+			</description>
+		</method>
+		<method name="get_instance_base_type" qualifiers="const">
+			<return type="StringName" />
+			<description>
+			</description>
+		</method>
+		<method name="get_property_default_value">
+			<return type="Variant" />
+			<param index="0" name="property" type="StringName" />
+			<description>
+			</description>
+		</method>
+		<method name="get_script_constant_map">
+			<return type="Dictionary" />
+			<description>
+			</description>
+		</method>
+		<method name="get_script_method_list">
+			<return type="Dictionary[]" />
+			<description>
+			</description>
+		</method>
+		<method name="get_script_property_list">
+			<return type="Dictionary[]" />
+			<description>
+			</description>
+		</method>
+		<method name="get_script_signal_list">
+			<return type="Dictionary[]" />
+			<description>
+			</description>
+		</method>
+		<method name="has_script_signal" qualifiers="const">
+			<return type="bool" />
+			<param index="0" name="signal_name" type="StringName" />
+			<description>
+			</description>
+		</method>
+		<method name="has_source_code" qualifiers="const">
+			<return type="bool" />
+			<description>
+			</description>
+		</method>
+		<method name="instance_has" qualifiers="const">
+			<return type="bool" />
+			<param index="0" name="base_object" type="Object" />
+			<description>
+			</description>
+		</method>
+		<method name="is_abstract" qualifiers="const">
+			<return type="bool" />
+			<description>
+			</description>
+		</method>
+		<method name="is_tool" qualifiers="const">
+			<return type="bool" />
+			<description>
+			</description>
+		</method>
+		<method name="reload">
+			<return type="int" enum="Error" />
+			<param index="0" name="keep_state" type="bool" default="false" />
+			<description>
+			</description>
+		</method>
+	</methods>
+	<members>
+		<member name="source_code" type="String" setter="set_source_code" getter="get_source_code">
+		</member>
+	</members>
+</class>

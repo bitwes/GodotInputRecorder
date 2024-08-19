@@ -1,0 +1,522 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<class name="FontFile" inherits="Font" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../class.xsd">
+	<brief_description>
+	</brief_description>
+	<description>
+	</description>
+	<tutorials>
+	</tutorials>
+	<methods>
+		<method name="clear_cache">
+			<return type="void" />
+			<description>
+			</description>
+		</method>
+		<method name="clear_glyphs">
+			<return type="void" />
+			<param index="0" name="cache_index" type="int" />
+			<param index="1" name="size" type="Vector2i" />
+			<description>
+			</description>
+		</method>
+		<method name="clear_kerning_map">
+			<return type="void" />
+			<param index="0" name="cache_index" type="int" />
+			<param index="1" name="size" type="int" />
+			<description>
+			</description>
+		</method>
+		<method name="clear_size_cache">
+			<return type="void" />
+			<param index="0" name="cache_index" type="int" />
+			<description>
+			</description>
+		</method>
+		<method name="clear_textures">
+			<return type="void" />
+			<param index="0" name="cache_index" type="int" />
+			<param index="1" name="size" type="Vector2i" />
+			<description>
+			</description>
+		</method>
+		<method name="get_cache_ascent" qualifiers="const">
+			<return type="float" />
+			<param index="0" name="cache_index" type="int" />
+			<param index="1" name="size" type="int" />
+			<description>
+			</description>
+		</method>
+		<method name="get_cache_count" qualifiers="const">
+			<return type="int" />
+			<description>
+			</description>
+		</method>
+		<method name="get_cache_descent" qualifiers="const">
+			<return type="float" />
+			<param index="0" name="cache_index" type="int" />
+			<param index="1" name="size" type="int" />
+			<description>
+			</description>
+		</method>
+		<method name="get_cache_scale" qualifiers="const">
+			<return type="float" />
+			<param index="0" name="cache_index" type="int" />
+			<param index="1" name="size" type="int" />
+			<description>
+			</description>
+		</method>
+		<method name="get_cache_underline_position" qualifiers="const">
+			<return type="float" />
+			<param index="0" name="cache_index" type="int" />
+			<param index="1" name="size" type="int" />
+			<description>
+			</description>
+		</method>
+		<method name="get_cache_underline_thickness" qualifiers="const">
+			<return type="float" />
+			<param index="0" name="cache_index" type="int" />
+			<param index="1" name="size" type="int" />
+			<description>
+			</description>
+		</method>
+		<method name="get_char_from_glyph_index" qualifiers="const">
+			<return type="int" />
+			<param index="0" name="size" type="int" />
+			<param index="1" name="glyph_index" type="int" />
+			<description>
+			</description>
+		</method>
+		<method name="get_embolden" qualifiers="const">
+			<return type="float" />
+			<param index="0" name="cache_index" type="int" />
+			<description>
+			</description>
+		</method>
+		<method name="get_extra_spacing" qualifiers="const">
+			<return type="int" />
+			<param index="0" name="cache_index" type="int" />
+			<param index="1" name="spacing" type="int" enum="TextServer.SpacingType" />
+			<description>
+			</description>
+		</method>
+		<method name="get_face_index" qualifiers="const">
+			<return type="int" />
+			<param index="0" name="cache_index" type="int" />
+			<description>
+			</description>
+		</method>
+		<method name="get_glyph_advance" qualifiers="const">
+			<return type="Vector2" />
+			<param index="0" name="cache_index" type="int" />
+			<param index="1" name="size" type="int" />
+			<param index="2" name="glyph" type="int" />
+			<description>
+			</description>
+		</method>
+		<method name="get_glyph_index" qualifiers="const">
+			<return type="int" />
+			<param index="0" name="size" type="int" />
+			<param index="1" name="char" type="int" />
+			<param index="2" name="variation_selector" type="int" />
+			<description>
+			</description>
+		</method>
+		<method name="get_glyph_list" qualifiers="const">
+			<return type="PackedInt32Array" />
+			<param index="0" name="cache_index" type="int" />
+			<param index="1" name="size" type="Vector2i" />
+			<description>
+			</description>
+		</method>
+		<method name="get_glyph_offset" qualifiers="const">
+			<return type="Vector2" />
+			<param index="0" name="cache_index" type="int" />
+			<param index="1" name="size" type="Vector2i" />
+			<param index="2" name="glyph" type="int" />
+			<description>
+			</description>
+		</method>
+		<method name="get_glyph_size" qualifiers="const">
+			<return type="Vector2" />
+			<param index="0" name="cache_index" type="int" />
+			<param index="1" name="size" type="Vector2i" />
+			<param index="2" name="glyph" type="int" />
+			<description>
+			</description>
+		</method>
+		<method name="get_glyph_texture_idx" qualifiers="const">
+			<return type="int" />
+			<param index="0" name="cache_index" type="int" />
+			<param index="1" name="size" type="Vector2i" />
+			<param index="2" name="glyph" type="int" />
+			<description>
+			</description>
+		</method>
+		<method name="get_glyph_uv_rect" qualifiers="const">
+			<return type="Rect2" />
+			<param index="0" name="cache_index" type="int" />
+			<param index="1" name="size" type="Vector2i" />
+			<param index="2" name="glyph" type="int" />
+			<description>
+			</description>
+		</method>
+		<method name="get_kerning" qualifiers="const">
+			<return type="Vector2" />
+			<param index="0" name="cache_index" type="int" />
+			<param index="1" name="size" type="int" />
+			<param index="2" name="glyph_pair" type="Vector2i" />
+			<description>
+			</description>
+		</method>
+		<method name="get_kerning_list" qualifiers="const">
+			<return type="Vector2i[]" />
+			<param index="0" name="cache_index" type="int" />
+			<param index="1" name="size" type="int" />
+			<description>
+			</description>
+		</method>
+		<method name="get_language_support_override" qualifiers="const">
+			<return type="bool" />
+			<param index="0" name="language" type="String" />
+			<description>
+			</description>
+		</method>
+		<method name="get_language_support_overrides" qualifiers="const">
+			<return type="PackedStringArray" />
+			<description>
+			</description>
+		</method>
+		<method name="get_script_support_override" qualifiers="const">
+			<return type="bool" />
+			<param index="0" name="script" type="String" />
+			<description>
+			</description>
+		</method>
+		<method name="get_script_support_overrides" qualifiers="const">
+			<return type="PackedStringArray" />
+			<description>
+			</description>
+		</method>
+		<method name="get_size_cache_list" qualifiers="const">
+			<return type="Vector2i[]" />
+			<param index="0" name="cache_index" type="int" />
+			<description>
+			</description>
+		</method>
+		<method name="get_texture_count" qualifiers="const">
+			<return type="int" />
+			<param index="0" name="cache_index" type="int" />
+			<param index="1" name="size" type="Vector2i" />
+			<description>
+			</description>
+		</method>
+		<method name="get_texture_image" qualifiers="const">
+			<return type="Image" />
+			<param index="0" name="cache_index" type="int" />
+			<param index="1" name="size" type="Vector2i" />
+			<param index="2" name="texture_index" type="int" />
+			<description>
+			</description>
+		</method>
+		<method name="get_texture_offsets" qualifiers="const">
+			<return type="PackedInt32Array" />
+			<param index="0" name="cache_index" type="int" />
+			<param index="1" name="size" type="Vector2i" />
+			<param index="2" name="texture_index" type="int" />
+			<description>
+			</description>
+		</method>
+		<method name="get_transform" qualifiers="const">
+			<return type="Transform2D" />
+			<param index="0" name="cache_index" type="int" />
+			<description>
+			</description>
+		</method>
+		<method name="get_variation_coordinates" qualifiers="const">
+			<return type="Dictionary" />
+			<param index="0" name="cache_index" type="int" />
+			<description>
+			</description>
+		</method>
+		<method name="load_bitmap_font">
+			<return type="int" enum="Error" />
+			<param index="0" name="path" type="String" />
+			<description>
+			</description>
+		</method>
+		<method name="load_dynamic_font">
+			<return type="int" enum="Error" />
+			<param index="0" name="path" type="String" />
+			<description>
+			</description>
+		</method>
+		<method name="remove_cache">
+			<return type="void" />
+			<param index="0" name="cache_index" type="int" />
+			<description>
+			</description>
+		</method>
+		<method name="remove_glyph">
+			<return type="void" />
+			<param index="0" name="cache_index" type="int" />
+			<param index="1" name="size" type="Vector2i" />
+			<param index="2" name="glyph" type="int" />
+			<description>
+			</description>
+		</method>
+		<method name="remove_kerning">
+			<return type="void" />
+			<param index="0" name="cache_index" type="int" />
+			<param index="1" name="size" type="int" />
+			<param index="2" name="glyph_pair" type="Vector2i" />
+			<description>
+			</description>
+		</method>
+		<method name="remove_language_support_override">
+			<return type="void" />
+			<param index="0" name="language" type="String" />
+			<description>
+			</description>
+		</method>
+		<method name="remove_script_support_override">
+			<return type="void" />
+			<param index="0" name="script" type="String" />
+			<description>
+			</description>
+		</method>
+		<method name="remove_size_cache">
+			<return type="void" />
+			<param index="0" name="cache_index" type="int" />
+			<param index="1" name="size" type="Vector2i" />
+			<description>
+			</description>
+		</method>
+		<method name="remove_texture">
+			<return type="void" />
+			<param index="0" name="cache_index" type="int" />
+			<param index="1" name="size" type="Vector2i" />
+			<param index="2" name="texture_index" type="int" />
+			<description>
+			</description>
+		</method>
+		<method name="render_glyph">
+			<return type="void" />
+			<param index="0" name="cache_index" type="int" />
+			<param index="1" name="size" type="Vector2i" />
+			<param index="2" name="index" type="int" />
+			<description>
+			</description>
+		</method>
+		<method name="render_range">
+			<return type="void" />
+			<param index="0" name="cache_index" type="int" />
+			<param index="1" name="size" type="Vector2i" />
+			<param index="2" name="start" type="int" />
+			<param index="3" name="end" type="int" />
+			<description>
+			</description>
+		</method>
+		<method name="set_cache_ascent">
+			<return type="void" />
+			<param index="0" name="cache_index" type="int" />
+			<param index="1" name="size" type="int" />
+			<param index="2" name="ascent" type="float" />
+			<description>
+			</description>
+		</method>
+		<method name="set_cache_descent">
+			<return type="void" />
+			<param index="0" name="cache_index" type="int" />
+			<param index="1" name="size" type="int" />
+			<param index="2" name="descent" type="float" />
+			<description>
+			</description>
+		</method>
+		<method name="set_cache_scale">
+			<return type="void" />
+			<param index="0" name="cache_index" type="int" />
+			<param index="1" name="size" type="int" />
+			<param index="2" name="scale" type="float" />
+			<description>
+			</description>
+		</method>
+		<method name="set_cache_underline_position">
+			<return type="void" />
+			<param index="0" name="cache_index" type="int" />
+			<param index="1" name="size" type="int" />
+			<param index="2" name="underline_position" type="float" />
+			<description>
+			</description>
+		</method>
+		<method name="set_cache_underline_thickness">
+			<return type="void" />
+			<param index="0" name="cache_index" type="int" />
+			<param index="1" name="size" type="int" />
+			<param index="2" name="underline_thickness" type="float" />
+			<description>
+			</description>
+		</method>
+		<method name="set_embolden">
+			<return type="void" />
+			<param index="0" name="cache_index" type="int" />
+			<param index="1" name="strength" type="float" />
+			<description>
+			</description>
+		</method>
+		<method name="set_extra_spacing">
+			<return type="void" />
+			<param index="0" name="cache_index" type="int" />
+			<param index="1" name="spacing" type="int" enum="TextServer.SpacingType" />
+			<param index="2" name="value" type="int" />
+			<description>
+			</description>
+		</method>
+		<method name="set_face_index">
+			<return type="void" />
+			<param index="0" name="cache_index" type="int" />
+			<param index="1" name="face_index" type="int" />
+			<description>
+			</description>
+		</method>
+		<method name="set_glyph_advance">
+			<return type="void" />
+			<param index="0" name="cache_index" type="int" />
+			<param index="1" name="size" type="int" />
+			<param index="2" name="glyph" type="int" />
+			<param index="3" name="advance" type="Vector2" />
+			<description>
+			</description>
+		</method>
+		<method name="set_glyph_offset">
+			<return type="void" />
+			<param index="0" name="cache_index" type="int" />
+			<param index="1" name="size" type="Vector2i" />
+			<param index="2" name="glyph" type="int" />
+			<param index="3" name="offset" type="Vector2" />
+			<description>
+			</description>
+		</method>
+		<method name="set_glyph_size">
+			<return type="void" />
+			<param index="0" name="cache_index" type="int" />
+			<param index="1" name="size" type="Vector2i" />
+			<param index="2" name="glyph" type="int" />
+			<param index="3" name="gl_size" type="Vector2" />
+			<description>
+			</description>
+		</method>
+		<method name="set_glyph_texture_idx">
+			<return type="void" />
+			<param index="0" name="cache_index" type="int" />
+			<param index="1" name="size" type="Vector2i" />
+			<param index="2" name="glyph" type="int" />
+			<param index="3" name="texture_idx" type="int" />
+			<description>
+			</description>
+		</method>
+		<method name="set_glyph_uv_rect">
+			<return type="void" />
+			<param index="0" name="cache_index" type="int" />
+			<param index="1" name="size" type="Vector2i" />
+			<param index="2" name="glyph" type="int" />
+			<param index="3" name="uv_rect" type="Rect2" />
+			<description>
+			</description>
+		</method>
+		<method name="set_kerning">
+			<return type="void" />
+			<param index="0" name="cache_index" type="int" />
+			<param index="1" name="size" type="int" />
+			<param index="2" name="glyph_pair" type="Vector2i" />
+			<param index="3" name="kerning" type="Vector2" />
+			<description>
+			</description>
+		</method>
+		<method name="set_language_support_override">
+			<return type="void" />
+			<param index="0" name="language" type="String" />
+			<param index="1" name="supported" type="bool" />
+			<description>
+			</description>
+		</method>
+		<method name="set_script_support_override">
+			<return type="void" />
+			<param index="0" name="script" type="String" />
+			<param index="1" name="supported" type="bool" />
+			<description>
+			</description>
+		</method>
+		<method name="set_texture_image">
+			<return type="void" />
+			<param index="0" name="cache_index" type="int" />
+			<param index="1" name="size" type="Vector2i" />
+			<param index="2" name="texture_index" type="int" />
+			<param index="3" name="image" type="Image" />
+			<description>
+			</description>
+		</method>
+		<method name="set_texture_offsets">
+			<return type="void" />
+			<param index="0" name="cache_index" type="int" />
+			<param index="1" name="size" type="Vector2i" />
+			<param index="2" name="texture_index" type="int" />
+			<param index="3" name="offset" type="PackedInt32Array" />
+			<description>
+			</description>
+		</method>
+		<method name="set_transform">
+			<return type="void" />
+			<param index="0" name="cache_index" type="int" />
+			<param index="1" name="transform" type="Transform2D" />
+			<description>
+			</description>
+		</method>
+		<method name="set_variation_coordinates">
+			<return type="void" />
+			<param index="0" name="cache_index" type="int" />
+			<param index="1" name="variation_coordinates" type="Dictionary" />
+			<description>
+			</description>
+		</method>
+	</methods>
+	<members>
+		<member name="allow_system_fallback" type="bool" setter="set_allow_system_fallback" getter="is_allow_system_fallback" default="true">
+		</member>
+		<member name="antialiasing" type="int" setter="set_antialiasing" getter="get_antialiasing" enum="TextServer.FontAntialiasing" default="1">
+		</member>
+		<member name="data" type="PackedByteArray" setter="set_data" getter="get_data" default="PackedByteArray()">
+		</member>
+		<member name="fixed_size" type="int" setter="set_fixed_size" getter="get_fixed_size" default="0">
+		</member>
+		<member name="fixed_size_scale_mode" type="int" setter="set_fixed_size_scale_mode" getter="get_fixed_size_scale_mode" enum="TextServer.FixedSizeScaleMode" default="0">
+		</member>
+		<member name="font_name" type="String" setter="set_font_name" getter="get_font_name" default="&quot;&quot;">
+		</member>
+		<member name="font_stretch" type="int" setter="set_font_stretch" getter="get_font_stretch" default="100">
+		</member>
+		<member name="font_style" type="int" setter="set_font_style" getter="get_font_style" enum="TextServer.FontStyle" is_bitfield="true" default="0">
+		</member>
+		<member name="font_weight" type="int" setter="set_font_weight" getter="get_font_weight" default="400">
+		</member>
+		<member name="force_autohinter" type="bool" setter="set_force_autohinter" getter="is_force_autohinter" default="false">
+		</member>
+		<member name="generate_mipmaps" type="bool" setter="set_generate_mipmaps" getter="get_generate_mipmaps" default="false">
+		</member>
+		<member name="hinting" type="int" setter="set_hinting" getter="get_hinting" enum="TextServer.Hinting" default="1">
+		</member>
+		<member name="msdf_pixel_range" type="int" setter="set_msdf_pixel_range" getter="get_msdf_pixel_range" default="16">
+		</member>
+		<member name="msdf_size" type="int" setter="set_msdf_size" getter="get_msdf_size" default="48">
+		</member>
+		<member name="multichannel_signed_distance_field" type="bool" setter="set_multichannel_signed_distance_field" getter="is_multichannel_signed_distance_field" default="false">
+		</member>
+		<member name="opentype_feature_overrides" type="Dictionary" setter="set_opentype_feature_overrides" getter="get_opentype_feature_overrides" default="{}">
+		</member>
+		<member name="oversampling" type="float" setter="set_oversampling" getter="get_oversampling" default="0.0">
+		</member>
+		<member name="style_name" type="String" setter="set_font_style_name" getter="get_font_style_name" default="&quot;&quot;">
+		</member>
+		<member name="subpixel_positioning" type="int" setter="set_subpixel_positioning" getter="get_subpixel_positioning" enum="TextServer.SubpixelPositioning" default="1">
+		</member>
+	</members>
+</class>

@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<class name="StyleBoxFlat" inherits="StyleBox" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../class.xsd">
+	<brief_description>
+	</brief_description>
+	<description>
+	</description>
+	<tutorials>
+	</tutorials>
+	<methods>
+		<method name="get_border_width" qualifiers="const">
+			<return type="int" />
+			<param index="0" name="margin" type="int" enum="Side" />
+			<description>
+			</description>
+		</method>
+		<method name="get_border_width_min" qualifiers="const">
+			<return type="int" />
+			<description>
+			</description>
+		</method>
+		<method name="get_corner_radius" qualifiers="const">
+			<return type="int" />
+			<param index="0" name="corner" type="int" enum="Corner" />
+			<description>
+			</description>
+		</method>
+		<method name="get_expand_margin" qualifiers="const">
+			<return type="float" />
+			<param index="0" name="margin" type="int" enum="Side" />
+			<description>
+			</description>
+		</method>
+		<method name="set_border_width">
+			<return type="void" />
+			<param index="0" name="margin" type="int" enum="Side" />
+			<param index="1" name="width" type="int" />
+			<description>
+			</description>
+		</method>
+		<method name="set_border_width_all">
+			<return type="void" />
+			<param index="0" name="width" type="int" />
+			<description>
+			</description>
+		</method>
+		<method name="set_corner_radius">
+			<return type="void" />
+			<param index="0" name="corner" type="int" enum="Corner" />
+			<param index="1" name="radius" type="int" />
+			<description>
+			</description>
+		</method>
+		<method name="set_corner_radius_all">
+			<return type="void" />
+			<param index="0" name="radius" type="int" />
+			<description>
+			</description>
+		</method>
+		<method name="set_expand_margin">
+			<return type="void" />
+			<param index="0" name="margin" type="int" enum="Side" />
+			<param index="1" name="size" type="float" />
+			<description>
+			</description>
+		</method>
+		<method name="set_expand_margin_all">
+			<return type="void" />
+			<param index="0" name="size" type="float" />
+			<description>
+			</description>
+		</method>
+	</methods>
+	<members>
+		<member name="anti_aliasing" type="bool" setter="set_anti_aliased" getter="is_anti_aliased" default="true">
+		</member>
+		<member name="anti_aliasing_size" type="float" setter="set_aa_size" getter="get_aa_size" default="1.0">
+		</member>
+		<member name="bg_color" type="Color" setter="set_bg_color" getter="get_bg_color" default="Color(0.6, 0.6, 0.6, 1)">
+		</member>
+		<member name="border_blend" type="bool" setter="set_border_blend" getter="get_border_blend" default="false">
+		</member>
+		<member name="border_color" type="Color" setter="set_border_color" getter="get_border_color" default="Color(0.8, 0.8, 0.8, 1)">
+		</member>
+		<member name="border_width_bottom" type="int" setter="set_border_width" getter="get_border_width" default="0">
+		</member>
+		<member name="border_width_left" type="int" setter="set_border_width" getter="get_border_width" default="0">
+		</member>
+		<member name="border_width_right" type="int" setter="set_border_width" getter="get_border_width" default="0">
+		</member>
+		<member name="border_width_top" type="int" setter="set_border_width" getter="get_border_width" default="0">
+		</member>
+		<member name="corner_detail" type="int" setter="set_corner_detail" getter="get_corner_detail" default="8">
+		</member>
+		<member name="corner_radius_bottom_left" type="int" setter="set_corner_radius" getter="get_corner_radius" default="0">
+		</member>
+		<member name="corner_radius_bottom_right" type="int" setter="set_corner_radius" getter="get_corner_radius" default="0">
+		</member>
+		<member name="corner_radius_top_left" type="int" setter="set_corner_radius" getter="get_corner_radius" default="0">
+		</member>
+		<member name="corner_radius_top_right" type="int" setter="set_corner_radius" getter="get_corner_radius" default="0">
+		</member>
+		<member name="draw_center" type="bool" setter="set_draw_center" getter="is_draw_center_enabled" default="true">
+		</member>
+		<member name="expand_margin_bottom" type="float" setter="set_expand_margin" getter="get_expand_margin" default="0.0">
+		</member>
+		<member name="expand_margin_left" type="float" setter="set_expand_margin" getter="get_expand_margin" default="0.0">
+		</member>
+		<member name="expand_margin_right" type="float" setter="set_expand_margin" getter="get_expand_margin" default="0.0">
+		</member>
+		<member name="expand_margin_top" type="float" setter="set_expand_margin" getter="get_expand_margin" default="0.0">
+		</member>
+		<member name="shadow_color" type="Color" setter="set_shadow_color" getter="get_shadow_color" default="Color(0, 0, 0, 0.6)">
+		</member>
+		<member name="shadow_offset" type="Vector2" setter="set_shadow_offset" getter="get_shadow_offset" default="Vector2(0, 0)">
+		</member>
+		<member name="shadow_size" type="int" setter="set_shadow_size" getter="get_shadow_size" default="0">
+		</member>
+		<member name="skew" type="Vector2" setter="set_skew" getter="get_skew" default="Vector2(0, 0)">
+		</member>
+	</members>
+</class>

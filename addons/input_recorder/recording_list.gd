@@ -1,7 +1,11 @@
 extends Control
 
+
+
 class RecordingListEntry:
 	extends Control
+	
+	static var select_button_group = ButtonGroup.new()
 
 	signal delete(rec_name)
 	signal rename(old_name, new_name)
@@ -29,8 +33,10 @@ class RecordingListEntry:
 		btn_select.toggled.connect(_on_select_toggled)
 		btn_select.gui_input.connect(func(event):
 			if(event is InputEventMouseButton):
-				if(event.double_click and event.button_index == MOUSE_BUTTON_LEFT):
+				if(event.button_index == MOUSE_BUTTON_RIGHT):
+					btn_select.button_pressed = true
 					play.emit(recording_name))
+		btn_select.button_group = select_button_group
 		_edit_buttons(false)
 
 	func _edit_buttons(editable):
@@ -45,7 +51,7 @@ class RecordingListEntry:
 	func _start_edit():
 		_edit_buttons(true)
 		txt_name.grab_focus()
-		
+
 
 	func _end_edit():
 		_edit_buttons(false)
@@ -73,6 +79,7 @@ class RecordingListEntry:
 
 	func _on_delete_pressed():
 		delete.emit(recording_name)
+
 
 	func _on_select_toggled(toggled_on):
 		if(toggled_on):
@@ -116,6 +123,7 @@ func _new_entry(display_name):
 	new_ctrl.delete.connect(_on_entry_deleted)
 	new_ctrl.selected.connect(_on_entry_selected)
 	new_ctrl.play.connect(_on_entry_play)
+	
 	return new_ctrl
 
 
@@ -136,14 +144,16 @@ func _on_entry_renamed(old_name, new_name):
 	input_recorders.erase(old_name)
 	changed.emit()
 
+
 var _to_delete = '__not_set__'
 func _on_entry_deleted(recording_name):
 	_to_delete = recording_name
 	_dlg_delete.popup_centered(Vector2(200, 100))
-	
+
 
 func _on_delete_dialog_confirmed():
 	delete_recording(_to_delete)
+	_to_delete = '__not_set__'
 	changed.emit()
 
 
@@ -153,6 +163,8 @@ func _on_entry_selected(recording_name):
 
 func _on_entry_play(recording_name):
 	recorder_activated.emit(input_recorders[recording_name])
+
+
 # ------------------
 # Public
 # ------------------
@@ -164,7 +176,8 @@ func new_recorder():
 		counter += 1
 		key = str(default_name, counter)
 	input_recorders[key] = r
-	_new_entry(key)
+	var entry = _new_entry(key)
+	entry.btn_select.button_pressed = true
 	return r
 
 
@@ -201,3 +214,9 @@ func delete_recording(recording_name):
 	refresh()
 
 
+func has_selected():
+	var to_return = RecordingListEntry.select_button_group.get_pressed_button()
+	if(to_return != null and !to_return.is_inside_tree()):
+		to_return = null
+		
+	return to_return != null

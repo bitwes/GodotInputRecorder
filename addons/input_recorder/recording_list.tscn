@@ -1,6 +1,9 @@
-[gd_scene load_steps=3 format=3 uid="uid://yf8tt17rywbr"]
+[gd_scene load_steps=4 format=3 uid="uid://yf8tt17rywbr"]
 
 [ext_resource type="Script" path="res://addons/input_recorder/recording_list.gd" id="1_mxdxh"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_0uqru"]
+bg_color = Color(0.387389, 0.387389, 0.387389, 1)
 
 [sub_resource type="ButtonGroup" id="ButtonGroup_3dk46"]
 
@@ -38,6 +41,7 @@ offset_bottom = -152.0
 [node name="SelectButton" type="Button" parent="Entry"]
 layout_mode = 2
 size_flags_horizontal = 3
+theme_override_styles/pressed = SubResource("StyleBoxFlat_0uqru")
 toggle_mode = true
 button_group = SubResource("ButtonGroup_3dk46")
 alignment = 0

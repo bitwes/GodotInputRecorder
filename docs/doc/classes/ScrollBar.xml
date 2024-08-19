@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<class name="ScrollBar" inherits="Range" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../class.xsd">
+	<brief_description>
+	</brief_description>
+	<description>
+	</description>
+	<tutorials>
+	</tutorials>
+	<members>
+		<member name="custom_step" type="float" setter="set_custom_step" getter="get_custom_step" default="-1.0">
+		</member>
+		<member name="step" type="float" setter="set_step" getter="get_step" overrides="Range" default="0.0" />
+	</members>
+	<signals>
+		<signal name="scrolling">
+			<description>
+			</description>
+		</signal>
+	</signals>
+	<theme_items>
+		<theme_item name="decrement" data_type="icon" type="Texture2D">
+		</theme_item>
+		<theme_item name="decrement_highlight" data_type="icon" type="Texture2D">
+		</theme_item>
+		<theme_item name="decrement_pressed" data_type="icon" type="Texture2D">
+		</theme_item>
+		<theme_item name="increment" data_type="icon" type="Texture2D">
+		</theme_item>
+		<theme_item name="increment_highlight" data_type="icon" type="Texture2D">
+		</theme_item>
+		<theme_item name="increment_pressed" data_type="icon" type="Texture2D">
+		</theme_item>
+		<theme_item name="grabber" data_type="style" type="StyleBox">
+		</theme_item>
+		<theme_item name="grabber_highlight" data_type="style" type="StyleBox">
+		</theme_item>
+		<theme_item name="grabber_pressed" data_type="style" type="StyleBox">
+		</theme_item>
+		<theme_item name="scroll" data_type="style" type="StyleBox">
+		</theme_item>
+		<theme_item name="scroll_focus" data_type="style" type="StyleBox">
+		</theme_item>
+	</theme_items>
+</class>

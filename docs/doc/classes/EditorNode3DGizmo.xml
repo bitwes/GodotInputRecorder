@@ -1,0 +1,183 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<class name="EditorNode3DGizmo" inherits="Node3DGizmo" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../class.xsd">
+	<brief_description>
+	</brief_description>
+	<description>
+	</description>
+	<tutorials>
+	</tutorials>
+	<methods>
+		<method name="_begin_handle_action" qualifiers="virtual">
+			<return type="void" />
+			<param index="0" name="id" type="int" />
+			<param index="1" name="secondary" type="bool" />
+			<description>
+			</description>
+		</method>
+		<method name="_commit_handle" qualifiers="virtual">
+			<return type="void" />
+			<param index="0" name="id" type="int" />
+			<param index="1" name="secondary" type="bool" />
+			<param index="2" name="restore" type="Variant" />
+			<param index="3" name="cancel" type="bool" />
+			<description>
+			</description>
+		</method>
+		<method name="_commit_subgizmos" qualifiers="virtual">
+			<return type="void" />
+			<param index="0" name="ids" type="PackedInt32Array" />
+			<param index="1" name="restores" type="Transform3D[]" />
+			<param index="2" name="cancel" type="bool" />
+			<description>
+			</description>
+		</method>
+		<method name="_get_handle_name" qualifiers="virtual const">
+			<return type="String" />
+			<param index="0" name="id" type="int" />
+			<param index="1" name="secondary" type="bool" />
+			<description>
+			</description>
+		</method>
+		<method name="_get_handle_value" qualifiers="virtual const">
+			<return type="Variant" />
+			<param index="0" name="id" type="int" />
+			<param index="1" name="secondary" type="bool" />
+			<description>
+			</description>
+		</method>
+		<method name="_get_subgizmo_transform" qualifiers="virtual const">
+			<return type="Transform3D" />
+			<param index="0" name="id" type="int" />
+			<description>
+			</description>
+		</method>
+		<method name="_is_handle_highlighted" qualifiers="virtual const">
+			<return type="bool" />
+			<param index="0" name="id" type="int" />
+			<param index="1" name="secondary" type="bool" />
+			<description>
+			</description>
+		</method>
+		<method name="_redraw" qualifiers="virtual">
+			<return type="void" />
+			<description>
+			</description>
+		</method>
+		<method name="_set_handle" qualifiers="virtual">
+			<return type="void" />
+			<param index="0" name="id" type="int" />
+			<param index="1" name="secondary" type="bool" />
+			<param index="2" name="camera" type="Camera3D" />
+			<param index="3" name="point" type="Vector2" />
+			<description>
+			</description>
+		</method>
+		<method name="_set_subgizmo_transform" qualifiers="virtual">
+			<return type="void" />
+			<param index="0" name="id" type="int" />
+			<param index="1" name="transform" type="Transform3D" />
+			<description>
+			</description>
+		</method>
+		<method name="_subgizmos_intersect_frustum" qualifiers="virtual const">
+			<return type="PackedInt32Array" />
+			<param index="0" name="camera" type="Camera3D" />
+			<param index="1" name="frustum" type="Plane[]" />
+			<description>
+			</description>
+		</method>
+		<method name="_subgizmos_intersect_ray" qualifiers="virtual const">
+			<return type="int" />
+			<param index="0" name="camera" type="Camera3D" />
+			<param index="1" name="point" type="Vector2" />
+			<description>
+			</description>
+		</method>
+		<method name="add_collision_segments">
+			<return type="void" />
+			<param index="0" name="segments" type="PackedVector3Array" />
+			<description>
+			</description>
+		</method>
+		<method name="add_collision_triangles">
+			<return type="void" />
+			<param index="0" name="triangles" type="TriangleMesh" />
+			<description>
+			</description>
+		</method>
+		<method name="add_handles">
+			<return type="void" />
+			<param index="0" name="handles" type="PackedVector3Array" />
+			<param index="1" name="material" type="Material" />
+			<param index="2" name="ids" type="PackedInt32Array" />
+			<param index="3" name="billboard" type="bool" default="false" />
+			<param index="4" name="secondary" type="bool" default="false" />
+			<description>
+			</description>
+		</method>
+		<method name="add_lines">
+			<return type="void" />
+			<param index="0" name="lines" type="PackedVector3Array" />
+			<param index="1" name="material" type="Material" />
+			<param index="2" name="billboard" type="bool" default="false" />
+			<param index="3" name="modulate" type="Color" default="Color(1, 1, 1, 1)" />
+			<description>
+			</description>
+		</method>
+		<method name="add_mesh">
+			<return type="void" />
+			<param index="0" name="mesh" type="Mesh" />
+			<param index="1" name="material" type="Material" default="null" />
+			<param index="2" name="transform" type="Transform3D" default="Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)" />
+			<param index="3" name="skeleton" type="SkinReference" default="null" />
+			<description>
+			</description>
+		</method>
+		<method name="add_unscaled_billboard">
+			<return type="void" />
+			<param index="0" name="material" type="Material" />
+			<param index="1" name="default_scale" type="float" default="1" />
+			<param index="2" name="modulate" type="Color" default="Color(1, 1, 1, 1)" />
+			<description>
+			</description>
+		</method>
+		<method name="clear">
+			<return type="void" />
+			<description>
+			</description>
+		</method>
+		<method name="get_node_3d" qualifiers="const">
+			<return type="Node3D" />
+			<description>
+			</description>
+		</method>
+		<method name="get_plugin" qualifiers="const">
+			<return type="EditorNode3DGizmoPlugin" />
+			<description>
+			</description>
+		</method>
+		<method name="get_subgizmo_selection" qualifiers="const">
+			<return type="PackedInt32Array" />
+			<description>
+			</description>
+		</method>
+		<method name="is_subgizmo_selected" qualifiers="const">
+			<return type="bool" />
+			<param index="0" name="id" type="int" />
+			<description>
+			</description>
+		</method>
+		<method name="set_hidden">
+			<return type="void" />
+			<param index="0" name="hidden" type="bool" />
+			<description>
+			</description>
+		</method>
+		<method name="set_node_3d">
+			<return type="void" />
+			<param index="0" name="node" type="Node" />
+			<description>
+			</description>
+		</method>
+	</methods>
+</class>
