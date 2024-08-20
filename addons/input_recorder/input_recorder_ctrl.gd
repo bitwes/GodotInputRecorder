@@ -44,6 +44,23 @@ var reset_method : Callable = func(): pass
 @export var save_path : String = ""
 
 
+# This value is only used to check the checkbox, after that, the checkbox is used.
+## Whether mouse motions/buttons are recorded when recording.
+@export var record_mouse : bool = true :
+	set(val):
+		if(is_inside_tree() and !Engine.is_editor_hint()):
+			_controls.chk_record_mouse.button_pressed = val
+		record_mouse = val
+
+# This value is only used to check the checkbox, after that, the checkbox is used.
+## Whether the mouse is moved when playing back a recording.  See 
+## [member DisplayServer.warp_mouse].
+@export var warp_mouse : bool = true :
+	set(val):
+		if(is_inside_tree() and !Engine.is_editor_hint()):
+			_controls.chk_warp_mouse.button_pressed = val
+		warp_mouse = val
+
 ## Emitted when playing a recording has finished.
 signal playback_done
 
@@ -90,7 +107,13 @@ func _ready_runtime():
 	if(save_path.get_file() == ""):
 		save_path = save_path.path_join(_save_path_from_parent_filename())
 
-	_playback.warp_mouse = true
+	
+	
+	# apply design time values
+	warp_mouse = warp_mouse
+	record_mouse = record_mouse
+
+	_playback.warp_mouse = warp_mouse
 	_playback.mouse_draw = _mouse_draw
 	load_config_file(save_path)
 
@@ -121,11 +144,7 @@ func _is_doing_something():
 
 
 func _update_buttons():
-	# _controls.btn_stop.disabled = _is_idle()
 	_controls.btn_play.disabled = !_recorders.has_selected() or _is_doing_something()
-	#_controls.btn_play_fast.disabled = _controls.btn_play.disabled
-	# _controls.btn_record.disabled = !_controls.btn_stop.disabled
-	# _controls.tree_row.visible = _controls.btn_stop.disabled
 
 
 func _autosave():
@@ -206,6 +225,15 @@ func _on_save_as(path):
 func play_current(rec_name=""):
 	if(_recorder == null):
 		return
+	
+	var display_name = rec_name
+	if(display_name == ""):
+		display_name = _recorders.get_selected_name()
+	
+	if(_recorder.duration() == 0):
+		var err = str("Recording [", display_name, "] is empty.")
+		push_error(err)
+		return
 
 	if(draw_mouse_when_playing):
 		_mouse_draw.disabled = false
@@ -215,10 +243,8 @@ func play_current(rec_name=""):
 
 	_update_buttons()
 	_controls.progress.value = 0.0
-	if(rec_name == ""):
-		_controls.display_play(_recorders.get_selected_name())
-	else:
-		_controls.display_play(rec_name)
+	
+	_controls.display_play(display_name)
 
 
 ## Start a new recording.  This will be added to the list when recording

@@ -79,5 +79,5 @@ func to_s():
 func duration():
 	var to_return = 0
 	if(queue.size() > 0):
-		to_return =  queue.keys()[-1] - queue.keys()[0]
+		to_return =  queue.keys()[-1]
 	return to_return

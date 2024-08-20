@@ -67,7 +67,7 @@ class RecordingListEntry:
 	# --------------
 	func _on_select_button_gui_event(event):
 		if(event is InputEventMouseButton):
-			if(event.button_index == MOUSE_BUTTON_RIGHT):
+			if(event.button_index == MOUSE_BUTTON_RIGHT and event.pressed):
 				btn_select.button_pressed = true
 				play.emit(recording_name)
 		elif(event is InputEventKey and !event.pressed):
