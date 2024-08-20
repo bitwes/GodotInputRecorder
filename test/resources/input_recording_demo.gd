@@ -28,4 +28,3 @@ func reset_scene():
 	edit_2.clear()
 	$Things/Layout/RadioButtons/Radio1.button_pressed = true
 	gut_player.position = _orig_gut_player_position
-

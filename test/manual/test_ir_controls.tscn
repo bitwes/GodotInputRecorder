@@ -1,0 +1,44 @@
+[gd_scene load_steps=3 format=3 uid="uid://chlyqabc3alg2"]
+
+[ext_resource type="Script" path="res://test/manual/test_ir_controls.gd" id="1_v0vm4"]
+[ext_resource type="PackedScene" uid="uid://crkll8afh5da" path="res://addons/input_recorder/input_recorder_controls.tscn" id="2_j38db"]
+
+[node name="TestIRControls" type="Node2D"]
+script = ExtResource("1_v0vm4")
+
+[node name="InputRecorder" parent="." instance=ExtResource("2_j38db")]
+offset_left = 62.0
+offset_top = 78.0
+offset_right = 485.0
+offset_bottom = 525.0
+
+[node name="Controls" type="ColorRect" parent="."]
+offset_left = 602.0
+offset_top = 100.0
+offset_right = 828.0
+offset_bottom = 398.0
+color = Color(0.212297, 0.0306281, 0.057251, 1)
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Controls"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Normal" type="Button" parent="Controls/VBoxContainer"]
+layout_mode = 2
+text = "Normal"
+
+[node name="Record" type="Button" parent="Controls/VBoxContainer"]
+layout_mode = 2
+text = "Record"
+
+[node name="Play" type="Button" parent="Controls/VBoxContainer"]
+layout_mode = 2
+text = "Play"
+
+[connection signal="pressed" from="Controls/VBoxContainer/Normal" to="." method="_on_normal_pressed"]
+[connection signal="pressed" from="Controls/VBoxContainer/Record" to="." method="_on_record_pressed"]
+[connection signal="pressed" from="Controls/VBoxContainer/Play" to="." method="_on_play_pressed"]
