@@ -49,7 +49,6 @@ func _ready():
 
 	resized.connect(_on_resized)
 	save_path = save_path
-	_recorders = _controls.recording_list
 
 	add_child(_playback)
 	_playback.done.connect(_on_playback_done)
@@ -59,6 +58,8 @@ func _ready():
 
 
 func _ready_runtime():
+	_recorders = _controls.recording_list
+	
 	_controls.play.connect(_on_play_pressed)
 	_controls.record.connect(_on_record_pressed)
 	_controls.stop.connect(_on_stop_pressed)
@@ -288,4 +289,3 @@ func get_playback_time():
 	if(_recorder == null):
 		return 0.0
 	return float(_recorder.duration()) / float(Engine.physics_ticks_per_second)
-
