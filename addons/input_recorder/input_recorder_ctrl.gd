@@ -11,6 +11,7 @@ var _recorder : IR_Recorder = null
 var _playback := IR_Player.new()
 var _config_file := ConfigFile.new()
 var _parent_scene = null
+var _mouse_draw = null
 
 ## When set, changes to the list of recordings (add, delete, rename) will be
 ## automatically saved.  When false, there is a save button you have to press
@@ -19,6 +20,13 @@ var _parent_scene = null
 ## When autosave is disabled, quitting will lose all changes since last save.
 @export var autosave : bool = true
 
+## Draw mouse crosshair while recording.  This is an approximation of the mouse
+## mouse position and not necessarily where the mouse is in the recording.
+@export var draw_mouse_when_recording : bool = false
+
+## Draw mouse crosshair when playing a recording.  This will render all mouse 
+## events that were recorded.
+@export var draw_mouse_when_playing : bool = true
 
 ## A method that resets the scene the recorder is in.  This will be called
 ## before recording and playback to make sure the scene is in the same state
@@ -49,7 +57,6 @@ func _ready():
 
 	resized.connect(_on_resized)
 	save_path = save_path
-	_recorders = _controls.recording_list
 
 	add_child(_playback)
 	_playback.done.connect(_on_playback_done)
@@ -59,6 +66,11 @@ func _ready():
 
 
 func _ready_runtime():
+	_mouse_draw = load("res://addons/input_recorder/mouse_draw.gd").new()
+	add_child(_mouse_draw)
+	
+	_recorders = _controls.recording_list
+	
 	_controls.play.connect(_on_play_pressed)
 	_controls.record.connect(_on_record_pressed)
 	_controls.stop.connect(_on_stop_pressed)
@@ -79,6 +91,7 @@ func _ready_runtime():
 		save_path = save_path.path_join(_save_path_from_parent_filename())
 
 	_playback.warp_mouse = true
+	_playback.mouse_draw = _mouse_draw
 	load_config_file(save_path)
 	
 	_update_buttons()
@@ -138,6 +151,13 @@ func _active_display(should):
 	_controls.btn_record.visible = !should
 	_controls.tree_row.visible = !should
 
+
+func _recorder_totals_text():
+	return str(
+		"Number of events     ", _recorder.get_number_of_events(), "\n",
+		"Frames with events:  ", _recorder.size(), "\n",
+		"Duration             ", _recorder.duration(), " frames")
+
 # -------------
 # Events
 # -------------
@@ -146,6 +166,7 @@ func _on_resized():
 
 
 func _on_playback_done():
+	_mouse_draw.disabled = true
 	_controls.progress.value = 1.0
 	_update_buttons()
 	_controls.btn_stop.release_focus()
@@ -155,13 +176,6 @@ func _on_playback_done():
 
 func _on_record_pressed():
 	record()
-
-
-func _recorder_totals_text():
-	return str(
-		"Number of events     ", _recorder.get_number_of_events(), "\n",
-		"Frames with events:  ", _recorder.size(), "\n",
-		"Duration             ", _recorder.duration(), " frames")
 
 
 func _on_stop_pressed():
@@ -211,7 +225,10 @@ func _on_save_as(path):
 func play_current():
 	if(_recorder == null):
 		return
-
+	
+	if(draw_mouse_when_playing):
+		_mouse_draw.disabled = false
+		
 	_playback.warp_mouse = _controls.chk_warp_mouse.button_pressed
 	_playback.play_input_queue(_recorder)
 
@@ -224,6 +241,9 @@ func play_current():
 ## finishes
 func record():
 	await reset_method.call()
+	if(draw_mouse_when_recording):
+		_mouse_draw.disabled = false
+		_mouse_draw.live_draw = true
 	_recorder = _recorders.new_recorder()
 	add_child(_recorder)
 	_controls.btn_record.release_focus()
@@ -244,6 +264,8 @@ func stop():
 	elif(_playback.is_playing):
 		_playback.stop()
 
+	_mouse_draw.disabled = true
+	_mouse_draw.live_draw = false
 	_controls.btn_stop.release_focus()
 	_active_display(false)
 	_update_buttons()
@@ -288,4 +310,3 @@ func get_playback_time():
 	if(_recorder == null):
 		return 0.0
 	return float(_recorder.duration()) / float(Engine.physics_ticks_per_second)
-

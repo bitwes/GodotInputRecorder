@@ -2,6 +2,8 @@ class_name IR_Player
 extends Node
 
 
+# -------------------------------------------------------------------------------
+# -------------------------------------------------------------------------------
 var _frame_counter = 0
 var _is_playing = false
 var _queue = null
@@ -9,12 +11,14 @@ var _num_played = 0
 var _key_index = 0
 var _ff = false
 
+var mouse_draw = null
 var warp_mouse := true
 var is_playing = _is_playing :
 	get: return _is_playing
 	set(val): pass
 
 signal done
+
 
 func _physics_process(_delta):
 	if(_is_playing):
@@ -26,7 +30,14 @@ func _physics_process(_delta):
 
 
 func _play_events(events):
-	for event in events:
+	for original in events:
+		var event = original.duplicate()
+		if(event is InputEventMouse):
+			var xform = get_viewport().get_screen_transform()
+			event.position = xform.get_scale() * event.position + xform.get_origin()
+		
+		if(mouse_draw != null):
+			mouse_draw.draw_event(original)
 		Input.parse_input_event(event)
 		if(warp_mouse and event is InputEventMouse):
 			DisplayServer.warp_mouse(event.position)
@@ -83,5 +94,3 @@ func percent_complete():
 		return float(_key_index) / float(_queue.size() -1)
 	else:
 		return float(_frame_counter) / float(_queue.duration())
-
-

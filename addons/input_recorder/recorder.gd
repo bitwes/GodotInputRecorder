@@ -81,4 +81,3 @@ func duration():
 	if(queue.size() > 0):
 		to_return =  queue.keys()[-1] - queue.keys()[0]
 	return to_return
-
