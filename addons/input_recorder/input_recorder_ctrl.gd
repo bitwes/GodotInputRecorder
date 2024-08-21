@@ -106,8 +106,6 @@ func _ready_runtime():
 
 	if(save_path.get_file() == ""):
 		save_path = save_path.path_join(_save_path_from_parent_filename())
-
-	
 	
 	# apply design time values
 	warp_mouse = warp_mouse
