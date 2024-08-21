@@ -1,13 +1,12 @@
-[gd_scene load_steps=4 format=3 uid="uid://crkll8afh5da"]
+[gd_scene load_steps=3 format=3 uid="uid://crkll8afh5da"]
 
 [ext_resource type="Script" path="res://addons/input_recorder/input_recorder_controls.gd" id="1_mx71a"]
 [ext_resource type="PackedScene" uid="uid://yf8tt17rywbr" path="res://addons/input_recorder/recording_list.tscn" id="2_ah7fy"]
-[ext_resource type="FontFile" uid="uid://bnh0lslf4yh87" path="res://addons/gut/fonts/CourierPrime-Regular.ttf" id="3_nq28u"]
 
 [node name="InputRecorder" type="ColorRect"]
-custom_minimum_size = Vector2(271, 149)
-offset_right = 317.0
-offset_bottom = 253.0
+custom_minimum_size = Vector2(271, 200)
+offset_right = 271.0
+offset_bottom = 200.0
 color = Color(0.113049, 0.113049, 0.113049, 1)
 script = ExtResource("1_mx71a")
 
@@ -143,7 +142,6 @@ current_tab = 0
 [node name="EventOutput" type="TextEdit" parent="Output/Layout/TabContainer"]
 layout_mode = 2
 size_flags_vertical = 3
-theme_override_fonts/font = ExtResource("3_nq28u")
 editable = false
 autowrap_mode = 0
 metadata/_tab_index = 0
