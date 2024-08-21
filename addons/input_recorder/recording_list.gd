@@ -25,19 +25,18 @@ class RecordingListEntry:
 
 	var rename_callback : Callable
 
+
 	func _ready():
 		txt_name.text = 'Default Text'
 		txt_name.text_submitted.connect(_on_name_submitted)
 		btn_edit.toggled.connect(_on_edit_toggled)
 		btn_delete.pressed.connect(_on_delete_pressed)
 		btn_select.toggled.connect(_on_select_toggled)
-		btn_select.gui_input.connect(func(event):
-			if(event is InputEventMouseButton):
-				if(event.button_index == MOUSE_BUTTON_RIGHT):
-					btn_select.button_pressed = true
-					play.emit(recording_name))
+		btn_select.gui_input.connect(_on_select_button_gui_event)			
 		btn_select.button_group = select_button_group
+		
 		_edit_buttons(false)
+
 
 	func _edit_buttons(editable):
 		txt_name.editable = editable
@@ -66,6 +65,17 @@ class RecordingListEntry:
 	# --------------
 	# Events
 	# --------------
+	func _on_select_button_gui_event(event):
+		if(event is InputEventMouseButton):
+			if(event.button_index == MOUSE_BUTTON_RIGHT and event.pressed):
+				btn_select.button_pressed = true
+				play.emit(recording_name)
+		elif(event is InputEventKey and !event.pressed):
+			if(event.keycode == KEY_ENTER):
+				btn_select.button_pressed = true
+				selected.emit(recording_name)
+				play.emit(recording_name)
+
 	func _on_edit_toggled(toggled_on):
 		if(toggled_on):
 			_start_edit()
@@ -220,3 +230,9 @@ func has_selected():
 		to_return = null
 		
 	return to_return != null
+	
+func get_selected_name():
+	if(has_selected()):
+		return RecordingListEntry.select_button_group.get_pressed_button().text
+	else:
+		return ""

@@ -44,12 +44,12 @@ Some, or all of these things are probably true.
 
 # Using
 1.  Create your test scene with all your testable items.
-1.  Add an `IR_InputRecorderControl` to your scene.
+1.  Add an `IR_InputRecorderControl` to your scene using the + button.
 1.  Run the scene.
 1.  Hit the record button
 1.  Move the mouse around, drag/drop, type, and other input things.
 1.  Click the stop button.
-1.  Click the play button.
+1.  Select a recording and click the play button (or right click on a recording).
 1.  Rinse and repeat.
 
 
@@ -60,10 +60,11 @@ Some, or all of these things are probably true.
 extends GutTest
 
 # This scene has:
-#   - a player object named gut_player
-#   - an IR_InputRecorderControl instance named input_recorder that has
+#   - a Character2D object named the_character
+#   - an InputRecorder instance named input_recorder that has
 #     a recording named "Do A Thing".
 var DemoScene = load("res://test/resources/input_recording_demo.tscn")
+
 
 func test_demo_one():
 	# autoqfree b/c loaded recordings have to be queued free
@@ -71,19 +72,21 @@ func test_demo_one():
 	# not for the script (since they are eventually freed).
 	var inst = add_child_autoqfree(DemoScene.instantiate())
 
-	var orig_pos = inst.gut_player.global_position
+	var orig_pos = inst.the_character.global_position
 
+	# This assumes that the scene has exposed its InputRecorder as
+	# "input_recorder"
 	inst.input_recorder.play_recording("Do A Thing")
 
-    # Wait for the playback of input to finish, with an added assert to make
-    # sure that the playback finished.  wait_for_signal returns true if the
-    # signal was emitted before the timeout.
-    assert_true(await wait_for_signal(
+	# Wait for the playback of input to finish, with an added assert to make
+	# sure that the playback finished.  wait_for_signal returns true if the
+	# signal was emitted before the timeout.
+	assert_true(await wait_for_signal(
 		inst.input_recorder.playback_done,
 		# Add a second to the time to wait or the signal will not be
 		# emitted in time.
 		inst.input_recorder.get_playback_time() + 1.0),
 		'playback finished')
 
-	assert_ne(inst.gut_player.global_position, orig_pos, "playing input moved the player")
+	assert_ne(inst.the_character.global_position, orig_pos, "playing input moved the player")
 ```

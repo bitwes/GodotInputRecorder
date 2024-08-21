@@ -1,7 +1,7 @@
 extends GutTest
 
 # This scene has:
-#   - a player object named gut_player
+#   - a Character2D object named the_character
 #   - an InputRecorder instance named input_recorder that has
 #     a recording named "Do A Thing".
 var DemoScene = load("res://test/resources/input_recording_demo.tscn")
@@ -13,7 +13,7 @@ func test_demo_one():
 	# not for the script (since they are eventually freed).
 	var inst = add_child_autoqfree(DemoScene.instantiate())
 
-	var orig_pos = inst.gut_player.global_position
+	var orig_pos = inst.the_character.global_position
 
 	# This assumes that the scene has exposed its InputRecorder as
 	# "input_recorder"
@@ -29,7 +29,7 @@ func test_demo_one():
 		inst.input_recorder.get_playback_time() + 1.0),
 		'playback finished')
 
-	assert_ne(inst.gut_player.global_position, orig_pos, "playing input moved the player")
+	assert_ne(inst.the_character.global_position, orig_pos, "playing input moved the player")
 
 
 
@@ -80,12 +80,12 @@ func test_typing_in_box_does_not_cause_player_to_jump():
 	var inst = add_child_autoqfree(DemoScene.instantiate())
 	
 	var prop_monitor = add_child_autofree(PropertyMonitor.new())
-	prop_monitor.monitor(inst.gut_player, 'velocity')
+	prop_monitor.monitor(inst.the_character, 'velocity')
 	
 	inst.input_recorder.play_recording("Jump Typing")
 	await wait_for_signal(inst.input_recorder.playback_done, inst.input_recorder.get_playback_time() + 1.0)
 	
-	var num_above = prop_monitor.get_values(inst.gut_player, 'velocity')\
+	var num_above = prop_monitor.get_values(inst.the_character, 'velocity')\
 						.filter(func(v): return v.y < 0.0)\
 						.size()
 	assert_eq(num_above, 0, 'none should be below zero')

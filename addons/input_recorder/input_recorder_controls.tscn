@@ -7,7 +7,7 @@
 [node name="InputRecorder" type="ColorRect"]
 custom_minimum_size = Vector2(271, 149)
 offset_right = 317.0
-offset_bottom = 505.0
+offset_bottom = 253.0
 color = Color(0.113049, 0.113049, 0.113049, 1)
 script = ExtResource("1_mx71a")
 
@@ -67,6 +67,10 @@ layout_mode = 2
 button_pressed = true
 text = "Warp Mouse"
 
+[node name="RecordingName" type="Label" parent="Layout"]
+layout_mode = 2
+horizontal_alignment = 1
+
 [node name="Row2_5" type="HBoxContainer" parent="Layout"]
 layout_mode = 2
 
@@ -80,6 +84,7 @@ layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 1
 max_value = 1.0
+show_percentage = false
 
 [node name="Row3" type="VBoxContainer" parent="Layout"]
 layout_mode = 2
@@ -133,6 +138,7 @@ grow_vertical = 2
 [node name="TabContainer" type="TabContainer" parent="Output/Layout"]
 layout_mode = 2
 size_flags_vertical = 3
+current_tab = 0
 
 [node name="EventOutput" type="TextEdit" parent="Output/Layout/TabContainer"]
 layout_mode = 2
@@ -140,6 +146,7 @@ size_flags_vertical = 3
 theme_override_fonts/font = ExtResource("3_nq28u")
 editable = false
 autowrap_mode = 0
+metadata/_tab_index = 0
 
 [connection signal="pressed" from="Layout/Row1/Record" to="." method="_on_record_pressed"]
 [connection signal="pressed" from="Layout/Row1/Stop" to="." method="_on_stop_pressed"]
