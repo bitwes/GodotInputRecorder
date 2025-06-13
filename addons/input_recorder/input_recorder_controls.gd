@@ -103,7 +103,7 @@ func _on_recording_list_recorder_activated(input_recorder):
 
 func _on_recording_list_recorder_selected(input_recorder):
 	tabs.set_tab_disabled(1, false)
-	#recording_details.load_data(input_recorder.queue)
+	recording_details.load_data(input_recorder.recording)
 	recorder_selected.emit(input_recorder)
 
 

@@ -87,6 +87,7 @@ func test_get_enabled_frame_events_returns_data_when_enabled():
 
 	assert_eq(rec.get_enabled_frame_events(5).size(), 2)
 
+
 func test_get_enabled_frame_events_returns_empty_list_when_disabled():
 	var rec := IR_Recording.new()
 	rec.add_event(5, InputEventKey.new())

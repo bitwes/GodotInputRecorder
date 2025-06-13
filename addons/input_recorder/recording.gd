@@ -32,6 +32,10 @@ func get_frame_events(frame_index : int):
 	return entry.events
 
 
+func get_index_events(key_index):
+	return queue[queue.keys()[key_index]]
+
+
 func get_enabled_frame_events(frame_index : int):
 	var entry = queue.get(frame_index, {"disabled":false, "events":[]})
 	if(entry.disabled):
@@ -40,12 +44,16 @@ func get_enabled_frame_events(frame_index : int):
 		return entry.events
 
 
+func get_full_frame_entry(frame_index : int):
+	return queue.get(frame_index, {"disabled":false, "events":[]})
+
+
 func disable_frame(frame_index : int, should : bool):
 	if(queue.has(frame_index)):
 		queue[frame_index].disabled = should
 
 
-func is_fram_disabled(frame_index):
+func is_frame_disabled(frame_index):
 	if(queue.has(frame_index)):
 		return queue[frame_index].disabled
 	else:

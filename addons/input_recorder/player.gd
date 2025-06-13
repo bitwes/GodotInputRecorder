@@ -6,11 +6,12 @@ extends Node
 # -------------------------------------------------------------------------------
 var _frame_counter = 0
 var _is_playing = false
-var _queue = null
+var _queue : IR_Recording = null
 var _num_played = 0
 var _key_index = 0
-var _ff = false
+# var _ff = false
 
+var only_play_enabled = true
 var mouse_draw = null
 var warp_mouse := true
 var is_playing = _is_playing :
@@ -22,10 +23,11 @@ signal done
 
 func _physics_process(_delta):
 	if(_is_playing):
-		if(_ff):
-			_play_next()
-		else:
-			_play_real_time()
+		_play_real_time()
+		# if(_ff):
+		# 	_play_next()
+		# else:
+		# 	_play_real_time()
 		_frame_counter += 1
 
 
@@ -35,7 +37,7 @@ func _play_events(events):
 		if(event is InputEventMouse):
 			var xform = get_viewport().get_screen_transform()
 			event.position = xform.get_scale() * event.position + xform.get_origin()
-		
+
 		if(mouse_draw != null):
 			mouse_draw.draw_event(original)
 		Input.parse_input_event(event)
@@ -44,7 +46,7 @@ func _play_events(events):
 
 
 func _play_next():
-	var events = _queue.get_events_for_index(_key_index)
+	var events = _queue.get_index_events(_key_index)
 	_play_events(events)
 
 	_key_index += 1
@@ -54,7 +56,13 @@ func _play_next():
 
 
 func _play_real_time():
-	var events = _queue.get_events_for_frame(_frame_counter)
+	var events = []
+	var entry = _queue.get_full_frame_entry(_frame_counter)
+	if(only_play_enabled and !entry.disabled):
+		events = entry.events
+	else:
+		print("frame ", _frame_counter, " is disabled")
+	# var events = _queue.get_frame_events(_frame_counter)
 	_play_events(events)
 
 	if(events.size() > 0):
@@ -75,14 +83,14 @@ func _play_queue(iq):
 # -------------
 # Public
 # -------------
-func play_input_queue(iq):
-	_ff = false
+func play_input_queue(iq : IR_Recording):
+	# _ff = false
 	_play_queue(iq)
 
 
-func play_input_queue_quick(iq):
-	_ff = true
-	_play_queue(iq)
+# func play_input_queue_quick(iq  : IR_Recording):
+# 	_ff = true
+# 	_play_queue(iq)
 
 
 func stop():
@@ -90,7 +98,8 @@ func stop():
 
 
 func percent_complete():
-	if(_ff):
-		return float(_key_index) / float(_queue.size() -1)
-	else:
-		return float(_frame_counter) / float(_queue.duration())
+	# if(_ff):
+	# 	return float(_key_index) / float(_queue.size() -1)
+	# else:
+	# 	return float(_frame_counter) / float(_queue.get_duration())
+	return float(_frame_counter) / float(_queue.get_duration())

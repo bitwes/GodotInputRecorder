@@ -20,14 +20,14 @@ func _physics_process(_delta):
 func _input(event):
 	if(is_recording):
 		if(record_mouse or !(event is InputEventMouse)):
-			add(event)
+			recording.add_event(_frame_counter, event)
 
 
 # -------------
 # Public
 # -------------
-func add(event):
-	recording.add_event(_frame_counter, event)
+# func add(event):
+# 	recording.add_event(_frame_counter, event)
 
 
 func get_events_for_frame(frame):
@@ -35,7 +35,7 @@ func get_events_for_frame(frame):
 
 
 func get_events_for_index(idx):
-	return recording.queue[recording.queue.keys()[idx]]
+	return recording.get_index_events(idx)
 
 
 func record():

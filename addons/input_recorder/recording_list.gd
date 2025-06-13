@@ -99,7 +99,6 @@ func new_recorder():
 func save_to_config_file(config_file: ConfigFile):
 	for key in input_recorders:
 		input_recorders[key].recording.save_config_file_section(config_file, key)
-		# config_file.set_value(key, "recordings", input_recorders[key].queue)
 
 
 func load_from_config_file(config_file : ConfigFile):
@@ -107,7 +106,6 @@ func load_from_config_file(config_file : ConfigFile):
 	for section in config_file.get_sections():
 		var recorder = IR_Recorder.new()
 		recorder.recording.load_config_file_section(config_file, section)
-		# recorder.queue = config_file.get_value(section, "recordings")
 		input_recorders[section] = recorder
 	refresh()
 

@@ -53,7 +53,7 @@ var reset_method : Callable = func(): pass
 		record_mouse = val
 
 # This value is only used to check the checkbox, after that, the checkbox is used.
-## Whether the mouse is moved when playing back a recording.  See 
+## Whether the mouse is moved when playing back a recording.  See
 ## [member DisplayServer.warp_mouse].
 @export var warp_mouse : bool = true :
 	set(val):
@@ -106,7 +106,7 @@ func _ready_runtime():
 
 	if(save_path.get_file() == ""):
 		save_path = save_path.path_join(_save_path_from_parent_filename())
-	
+
 	# apply design time values
 	warp_mouse = warp_mouse
 	record_mouse = record_mouse
@@ -223,11 +223,11 @@ func _on_save_as(path):
 func play_current(rec_name=""):
 	if(_recorder == null):
 		return
-	
+
 	var display_name = rec_name
 	if(display_name == ""):
 		display_name = _recorders.get_selected_name()
-	
+
 	if(_recorder.duration() == 0):
 		var err = str("Recording [", display_name, "] is empty.")
 		push_error(err)
@@ -237,12 +237,12 @@ func play_current(rec_name=""):
 		_mouse_draw.disabled = false
 
 	_playback.warp_mouse = _controls.chk_warp_mouse.button_pressed
-	_playback.play_input_queue(_recorder)
+	_playback.play_input_queue(_recorder.recording)
 	#_playback.play_input_queue(_controls.get_enabled_inputs())
 
 	_update_buttons()
 	_controls.progress.value = 0.0
-	
+
 	_controls.display_play(display_name)
 
 

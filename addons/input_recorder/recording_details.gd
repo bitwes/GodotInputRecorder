@@ -37,8 +37,8 @@ class DetailEntry:
 		
 		_update_frame_label()
 		_update_input_label()
-		
-		
+	
+			
 	func _update_frame_label():
 		frame_label.text = str(frame)
 		
@@ -61,6 +61,7 @@ class DetailEntry:
 
 
 @onready var items = $Layout/ScrollContainer/Items
+var _recording : IR_Recording
 
 
 func _ready():	
@@ -76,8 +77,9 @@ func _draw() -> void:
 func _debug_ready():
 	var cf = ConfigFile.new()
 	cf.load("res://test/resources/input_recording_demo_input_recordings.cfg")
-	var data = cf.get_value("Do A Thing", "recordings")
-	load_data(data)
+	var recording := IR_Recording.new()
+	recording.load_config_file_section(cf, "Do A Thing")
+	load_data(recording)
 
 
 func _add_header():
@@ -90,19 +92,27 @@ func _add_header():
 	header_entry.input_label.text = "Inputs"
 	header_entry.include_chk.toggled.connect(func(val):
 		check_all(val))
-	
+
+
+func _on_chk_toggled(new_state, frame_index):
+	_recording.disable_frame(frame_index, new_state)
+
 
 func check_all(should):
 	for item in items.get_children():
 		item.include_chk.button_pressed = should
-	
+		
 
-func load_data(recording_data):
-	for key in recording_data:
+func load_data(recording_data : IR_Recording):
+	_recording = recording_data
+	clear()
+	for key in recording_data.queue:
 		var e = DetailEntry.new()
 		e.frame = key
-		e.inputs = recording_data[key]
+		e.inputs = recording_data.get_frame_events(key)
 		items.add_child(e)
+		e.include_chk.button_pressed = !recording_data.queue[key].disabled
+		e.include_chk.toggled.connect(_on_chk_toggled.bind(key))
 
 
 func clear():
