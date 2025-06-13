@@ -1,0 +1,49 @@
+[gd_scene load_steps=2 format=3 uid="uid://car7gy6l856ot"]
+
+[ext_resource type="Script" path="res://addons/input_recorder/play_control.gd" id="1_m5e8s"]
+
+[node name="PlayControl" type="ColorRect"]
+offset_right = 506.0
+offset_bottom = 128.0
+color = Color(2.04556e-07, 0.26934, 0.20074, 1)
+script = ExtResource("1_m5e8s")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Buttons" type="HBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="Stop" type="Button" parent="VBoxContainer/Buttons"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Stop"
+
+[node name="Pause" type="Button" parent="VBoxContainer/Buttons"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Pause"
+
+[node name="Resume" type="Button" parent="VBoxContainer/Buttons"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Resume"
+
+[node name="ProgressBar" type="ProgressBar" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+max_value = 1.0
+
+[node name="Name" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[connection signal="pressed" from="VBoxContainer/Buttons/Stop" to="." method="_on_stop_pressed"]
+[connection signal="pressed" from="VBoxContainer/Buttons/Pause" to="." method="_on_pause_pressed"]
+[connection signal="pressed" from="VBoxContainer/Buttons/Resume" to="." method="_on_resume_pressed"]

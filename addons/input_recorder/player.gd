@@ -1,9 +1,6 @@
 class_name IR_Player
 extends Node
 
-
-# -------------------------------------------------------------------------------
-# -------------------------------------------------------------------------------
 var _frame_counter = 0
 var _is_playing = false
 var _queue : IR_Recording = null
@@ -95,6 +92,15 @@ func play_input_queue(iq : IR_Recording):
 
 func stop():
 	_is_playing = false
+	done.emit()
+
+
+func pause():
+	_is_playing = false
+
+
+func resume():
+	_is_playing = true
 
 
 func percent_complete():

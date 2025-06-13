@@ -4,11 +4,13 @@ class_name IR_InputRecorderControl
 ## This is the control for recording input
 
 var _ControlsScene = load('res://addons/input_recorder/input_recorder_controls.tscn')
+var _PlayControlScene = load("res://addons/input_recorder/play_control.tscn")
 var _controls = null
+var _play_controls = null
 var _recorders = null
 
 var _recorder : IR_Recorder = null
-var _playback := IR_Player.new()
+var _playback : IR_Player
 var _config_file := ConfigFile.new()
 var _parent_scene = null
 var _mouse_draw = null
@@ -72,11 +74,14 @@ func _ready():
 	_controls.anchors_preset = PRESET_FULL_RECT
 	_controls.size = size
 
+	_play_controls = _PlayControlScene.instantiate()
+	add_child(_play_controls)
+	_play_controls.visible = false
+	_playback = _play_controls.player
+	_playback.done.connect(_on_playback_done)
+
 	resized.connect(_on_resized)
 	save_path = save_path
-
-	add_child(_playback)
-	_playback.done.connect(_on_playback_done)
 
 	if(!Engine.is_editor_hint()):
 		_ready_runtime()
@@ -128,9 +133,9 @@ func _save_path_from_parent_filename():
 		return "res://recordings/input_recorder.cfg"
 
 
-func _process(_delta):
-	if(_playback.is_playing):
-		_controls.progress.value = _playback.percent_complete()
+#func _process(_delta):
+	#if(_playback.is_playing):
+		#_controls.progress.value = _playback.percent_complete()
 
 
 func _is_idle():
@@ -165,11 +170,12 @@ func _on_resized():
 
 func _on_playback_done():
 	_mouse_draw.disabled = true
-	_controls.progress.value = 1.0
 	_update_buttons()
 	_controls.btn_stop.release_focus()
 	playback_done.emit()
-	_controls.display_normal()
+	#_controls.display_normal()
+	_play_controls.visible = false
+	_controls.visible = true
 
 
 func _on_record_pressed():
@@ -241,9 +247,12 @@ func play_current(rec_name=""):
 	#_playback.play_input_queue(_controls.get_enabled_inputs())
 
 	_update_buttons()
-	_controls.progress.value = 0.0
-
-	_controls.display_play(display_name)
+	_controls.visible = false
+	_play_controls.visible = true
+	_play_controls.play(_recorder.recording)
+	
+	#_controls.progress.value = 0.0
+	#_controls.display_play(display_name)
 
 
 ## Start a new recording.  This will be added to the list when recording

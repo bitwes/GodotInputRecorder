@@ -18,10 +18,10 @@ script = ExtResource("1_wxqnx")
 custom_minimum_size = Vector2(271, 200)
 layout_mode = 3
 anchors_preset = 0
-offset_left = 16.0
-offset_top = 17.0
-offset_right = 515.0
-offset_bottom = 366.0
+offset_left = 456.0
+offset_top = 178.0
+offset_right = 1050.0
+offset_bottom = 478.0
 script = ExtResource("3_lhsjx")
 autosave = false
 

@@ -1,27 +1,24 @@
-extends ColorRect
+extends Control
 
-@onready var btn_play = $Layout/Row1/PlayButtons/Play
-@onready var btn_play_fast = $Layout/Row1/PlayButtons/PlayFast
-@onready var btn_record = $Layout/Row1/Record
-@onready var btn_save = $Layout/Row3/Buttons/Save
-@onready var btn_stop = $Layout/Row1/Stop
-@onready var chk_record_mouse = $Layout/Row2/RecordMouse
-@onready var chk_warp_mouse = $Layout/Row2/WarpMouse
-@onready var event_output = $Output/Layout/TabContainer/EventOutput
-@onready var lbl_file_path = $Layout/Row3/FilePath
-@onready var lbl_fps = $Layout/Row2_5/FPS
-@onready var lbl_recording_name = $Layout/RecordingName
-@onready var play_buttons = $Layout/Row1/PlayButtons
-@onready var progress = $Layout/Row2_5/ProgressBar
-@onready var tabs = $Layout/Row3/TabContainer
-@onready var recording_list = $Layout/Row3/TabContainer/RecordingList
-@onready var recording_details = $Layout/Row3/TabContainer/RecordingDetails
+@onready var btn_play = $BaseControl/Layout/Row1/PlayButtons/Play
+@onready var btn_play_fast = $BaseControl/Layout/Row1/PlayButtons/PlayFast
+@onready var btn_record = $BaseControl/Layout/Row1/Record
+@onready var btn_save = $BaseControl/Layout/Row3/Buttons/Save
+@onready var btn_stop = $BaseControl/Layout/Row1/Stop
+@onready var chk_record_mouse = $BaseControl/Layout/Row2/RecordMouse
+@onready var chk_warp_mouse = $BaseControl/Layout/Row2/WarpMouse
+@onready var lbl_file_path = $BaseControl/Layout/Row3/FilePath
+@onready var play_buttons = $BaseControl/Layout/Row1/PlayButtons
+@onready var tabs = $BaseControl/Layout/Row3/TabContainer
+@onready var recording_list = $BaseControl/Layout/Row3/TabContainer/RecordingList
+@onready var recording_details = $BaseControl/Layout/Row3/TabContainer/RecordingDetails
 
-@onready var tree_row = $Layout/Row3
-@onready var row_2 = $Layout/Row2
-@onready var row_2_5 = $Layout/Row2_5
-@onready var row_3 = $Layout/Row3
+@onready var tree_row = $BaseControl/Layout/Row3
+@onready var row_2 = $BaseControl/Layout/Row2
+@onready var row_3 = $BaseControl/Layout/Row3
 
+@onready var play_ctrl = $PlayControl
+@onready var base_ctrl = $BaseControl
 
 signal play
 signal play_fast
@@ -50,11 +47,10 @@ func _ready():
 	add_child(_save_dlg)
 
 	# Hide these for now, maybe forever!
-	lbl_fps.visible = false
 	btn_play_fast.visible = false
 
-	display_normal()
-	
+	#display_normal()
+
 	tabs.set_tab_disabled(1, true)
 
 #func _process(_delta):
@@ -112,43 +108,51 @@ func _on_recording_list_recorder_selected(input_recorder):
 # Public
 # ----------------
 func display_normal():
-	row_2.visible = true
-	row_2_5.visible = false
-	row_3.visible = true
-	play_buttons.visible = true
-	btn_record.visible = true
-	btn_stop.visible = false
-	lbl_recording_name.visible = false
+	pass
+	# base_ctrl.visible = true
+	# play_ctrl.visible = false
+
+	#row_2.visible = true
+	#row_2_5.visible = false
+	#row_3.visible = true
+	#play_buttons.visible = true
+	#btn_record.visible = true
+	#btn_stop.visible = false
+	#lbl_recording_name.visible = false
 
 	#size = _normal_size
 
 
 func display_record(recording_name = ""):
-	if(_normal_size == Vector2.ZERO):
-		_normal_size = size
-	custom_minimum_size.y = btn_record.size.y
-	size = custom_minimum_size
-	row_2.visible = false
-	row_2_5.visible = false
-	row_3.visible = false
-	play_buttons.visible = false
-	btn_record.visible = false
-	btn_stop.visible = true
+	pass
+	# if(_normal_size == Vector2.ZERO):
+	# 	_normal_size = size
+	# custom_minimum_size.y = btn_record.size.y
+	# size = custom_minimum_size
+	# row_2.visible = false
+	# row_3.visible = false
+	# play_buttons.visible = false
+	# btn_record.visible = false
+	# btn_stop.visible = true
 
 
 func display_play(recording_name = ""):
-	if(_normal_size == Vector2.ZERO):
-		_normal_size = size
-	custom_minimum_size.y = btn_record.size.y + row_2_5.size.y + lbl_recording_name.size.y
-	size = custom_minimum_size
-	row_2.visible = false
-	row_2_5.visible = true
-	row_3.visible = false
-	play_buttons.visible = false
-	btn_record.visible = false
-	btn_stop.visible = true
-	lbl_recording_name.visible = true
-	lbl_recording_name.text = recording_name
+	pass
+	# base_ctrl.visible = false
+	# play_ctrl.visible = true
+
+	#if(_normal_size == Vector2.ZERO):
+		#_normal_size = size
+	#custom_minimum_size.y = btn_record.size.y + row_2_5.size.y + lbl_recording_name.size.y
+	#size = custom_minimum_size
+	#row_2.visible = false
+	#row_2_5.visible = true
+	#row_3.visible = false
+	#play_buttons.visible = false
+	#btn_record.visible = false
+	#btn_stop.visible = true
+	#lbl_recording_name.visible = true
+	#lbl_recording_name.text = recording_name
 
 
 func get_enabled_inputs():

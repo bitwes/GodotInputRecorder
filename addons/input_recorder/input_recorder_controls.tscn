@@ -1,18 +1,29 @@
-[gd_scene load_steps=5 format=3 uid="uid://crkll8afh5da"]
+[gd_scene load_steps=6 format=3 uid="uid://crkll8afh5da"]
 
 [ext_resource type="Script" path="res://addons/input_recorder/input_recorder_controls.gd" id="1_mx71a"]
 [ext_resource type="PackedScene" uid="uid://yf8tt17rywbr" path="res://addons/input_recorder/recording_list.tscn" id="2_ah7fy"]
 [ext_resource type="Script" path="res://addons/input_recorder/box_container_plus.gd" id="2_tgyf4"]
 [ext_resource type="PackedScene" uid="uid://d2lxa4q0001yo" path="res://addons/input_recorder/recording_details.tscn" id="4_tugyi"]
+[ext_resource type="PackedScene" uid="uid://car7gy6l856ot" path="res://addons/input_recorder/play_control.tscn" id="5_5h4p7"]
 
-[node name="InputRecorder" type="ColorRect"]
+[node name="InputRecorder" type="Control"]
 custom_minimum_size = Vector2(271, 200)
-offset_right = 952.0
-offset_bottom = 628.0
-color = Color(0.113049, 0.113049, 0.113049, 1)
+layout_mode = 3
+anchors_preset = 0
+offset_right = 958.0
+offset_bottom = 635.0
 script = ExtResource("1_mx71a")
 
-[node name="Layout" type="VBoxContainer" parent="."]
+[node name="BaseControl" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.457128, 0.235451, 1.92523e-07, 1)
+
+[node name="Layout" type="VBoxContainer" parent="BaseControl"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -20,158 +31,113 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="Row1" type="HBoxContainer" parent="Layout"]
+[node name="Row1" type="HBoxContainer" parent="BaseControl/Layout"]
 layout_mode = 2
 script = ExtResource("2_tgyf4")
 color = Color(1, 1, 1, 0.298039)
 
-[node name="Record" type="Button" parent="Layout/Row1"]
+[node name="Record" type="Button" parent="BaseControl/Layout/Row1"]
 layout_mode = 2
 size_flags_horizontal = 3
 text = "Record"
 
-[node name="Stop" type="Button" parent="Layout/Row1"]
+[node name="Stop" type="Button" parent="BaseControl/Layout/Row1"]
 layout_mode = 2
 size_flags_horizontal = 3
 text = "Stop
 "
 
-[node name="PlayButtons" type="VBoxContainer" parent="Layout/Row1"]
+[node name="PlayButtons" type="VBoxContainer" parent="BaseControl/Layout/Row1"]
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="Play" type="Button" parent="Layout/Row1/PlayButtons"]
+[node name="Play" type="Button" parent="BaseControl/Layout/Row1/PlayButtons"]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 text = "Play"
 
-[node name="PlayFast" type="Button" parent="Layout/Row1/PlayButtons"]
+[node name="PlayFast" type="Button" parent="BaseControl/Layout/Row1/PlayButtons"]
 visible = false
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 text = "Play Fast"
 
-[node name="Row2" type="HBoxContainer" parent="Layout"]
+[node name="Row2" type="HBoxContainer" parent="BaseControl/Layout"]
 layout_mode = 2
 script = ExtResource("2_tgyf4")
 color = Color(1, 1, 1, 0.278431)
 
-[node name="RecordMouse" type="CheckBox" parent="Layout/Row2"]
+[node name="RecordMouse" type="CheckBox" parent="BaseControl/Layout/Row2"]
 layout_mode = 2
 button_pressed = true
 text = "Record Mouse"
 
-[node name="CenterContainer" type="CenterContainer" parent="Layout/Row2"]
+[node name="CenterContainer" type="CenterContainer" parent="BaseControl/Layout/Row2"]
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="WarpMouse" type="CheckBox" parent="Layout/Row2"]
+[node name="WarpMouse" type="CheckBox" parent="BaseControl/Layout/Row2"]
 layout_mode = 2
 button_pressed = true
 text = "Warp Mouse"
 
-[node name="RecordingName" type="Label" parent="Layout"]
-layout_mode = 2
-horizontal_alignment = 1
-
-[node name="Row2_5" type="HBoxContainer" parent="Layout"]
-layout_mode = 2
-
-[node name="FPS" type="Label" parent="Layout/Row2_5"]
-visible = false
-layout_mode = 2
-text = "fps:  99"
-
-[node name="ProgressBar" type="ProgressBar" parent="Layout/Row2_5"]
-layout_mode = 2
-size_flags_horizontal = 3
-size_flags_vertical = 1
-max_value = 1.0
-show_percentage = false
-
-[node name="Row3" type="VBoxContainer" parent="Layout"]
+[node name="Row3" type="VBoxContainer" parent="BaseControl/Layout"]
 layout_mode = 2
 size_flags_vertical = 3
 
-[node name="FilePath" type="Label" parent="Layout/Row3"]
+[node name="FilePath" type="Label" parent="BaseControl/Layout/Row3"]
 layout_mode = 2
-horizontal_alignment = 2
+horizontal_alignment = 1
 
-[node name="TabContainer" type="TabContainer" parent="Layout/Row3"]
+[node name="TabContainer" type="TabContainer" parent="BaseControl/Layout/Row3"]
 layout_mode = 2
 size_flags_vertical = 3
 current_tab = 0
 
-[node name="RecordingList" parent="Layout/Row3/TabContainer" instance=ExtResource("2_ah7fy")]
+[node name="RecordingList" parent="BaseControl/Layout/Row3/TabContainer" instance=ExtResource("2_ah7fy")]
 layout_mode = 2
 size_flags_vertical = 3
 metadata/_tab_index = 0
 
-[node name="RecordingDetails" parent="Layout/Row3/TabContainer" instance=ExtResource("4_tugyi")]
+[node name="RecordingDetails" parent="BaseControl/Layout/Row3/TabContainer" instance=ExtResource("4_tugyi")]
 visible = false
 layout_mode = 2
 metadata/_tab_index = 1
 
-[node name="Buttons" type="HBoxContainer" parent="Layout/Row3"]
+[node name="Buttons" type="HBoxContainer" parent="BaseControl/Layout/Row3"]
 layout_mode = 2
 script = ExtResource("2_tgyf4")
 color = Color(1, 1, 1, 0.298039)
 
-[node name="Load" type="Button" parent="Layout/Row3/Buttons"]
-custom_minimum_size = Vector2(2.08165e-12, 50)
+[node name="Load" type="Button" parent="BaseControl/Layout/Row3/Buttons"]
 layout_mode = 2
 size_flags_horizontal = 3
 text = "Load"
 
-[node name="Save" type="Button" parent="Layout/Row3/Buttons"]
-custom_minimum_size = Vector2(2.08165e-12, 50)
+[node name="Save" type="Button" parent="BaseControl/Layout/Row3/Buttons"]
 layout_mode = 2
 size_flags_horizontal = 3
 text = "Save"
 
-[node name="SaveAs" type="Button" parent="Layout/Row3/Buttons"]
-custom_minimum_size = Vector2(2.08165e-12, 50)
+[node name="SaveAs" type="Button" parent="BaseControl/Layout/Row3/Buttons"]
 layout_mode = 2
 size_flags_horizontal = 3
 text = "Save As"
 
-[node name="Output" type="ColorRect" parent="."]
+[node name="PlayControl" parent="." instance=ExtResource("5_5h4p7")]
 visible = false
 layout_mode = 0
-offset_left = 380.0
-offset_top = 122.0
-offset_right = 992.0
-offset_bottom = 502.0
-color = Color(0.151276, 0.151276, 0.151276, 1)
+offset_right = 403.0
+offset_bottom = 109.0
 
-[node name="Layout" type="VBoxContainer" parent="Output"]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-
-[node name="TabContainer" type="TabContainer" parent="Output/Layout"]
-layout_mode = 2
-size_flags_vertical = 3
-current_tab = 0
-
-[node name="EventOutput" type="TextEdit" parent="Output/Layout/TabContainer"]
-layout_mode = 2
-size_flags_vertical = 3
-editable = false
-autowrap_mode = 0
-metadata/_tab_index = 0
-
-[connection signal="pressed" from="Layout/Row1/Record" to="." method="_on_record_pressed"]
-[connection signal="pressed" from="Layout/Row1/Stop" to="." method="_on_stop_pressed"]
-[connection signal="pressed" from="Layout/Row1/PlayButtons/Play" to="." method="_on_play_pressed"]
-[connection signal="pressed" from="Layout/Row1/PlayButtons/PlayFast" to="." method="_on_play_fast_pressed"]
-[connection signal="recorder_activated" from="Layout/Row3/TabContainer/RecordingList" to="." method="_on_recording_list_recorder_activated"]
-[connection signal="recorder_selected" from="Layout/Row3/TabContainer/RecordingList" to="." method="_on_recording_list_recorder_selected"]
-[connection signal="pressed" from="Layout/Row3/Buttons/Load" to="." method="_on_load_pressed"]
-[connection signal="pressed" from="Layout/Row3/Buttons/Save" to="." method="_on_save_pressed"]
-[connection signal="pressed" from="Layout/Row3/Buttons/SaveAs" to="." method="_on_save_as_pressed"]
+[connection signal="pressed" from="BaseControl/Layout/Row1/Record" to="." method="_on_record_pressed"]
+[connection signal="pressed" from="BaseControl/Layout/Row1/Stop" to="." method="_on_stop_pressed"]
+[connection signal="pressed" from="BaseControl/Layout/Row1/PlayButtons/Play" to="." method="_on_play_pressed"]
+[connection signal="pressed" from="BaseControl/Layout/Row1/PlayButtons/PlayFast" to="." method="_on_play_fast_pressed"]
+[connection signal="recorder_activated" from="BaseControl/Layout/Row3/TabContainer/RecordingList" to="." method="_on_recording_list_recorder_activated"]
+[connection signal="recorder_selected" from="BaseControl/Layout/Row3/TabContainer/RecordingList" to="." method="_on_recording_list_recorder_selected"]
+[connection signal="pressed" from="BaseControl/Layout/Row3/Buttons/Load" to="." method="_on_load_pressed"]
+[connection signal="pressed" from="BaseControl/Layout/Row3/Buttons/Save" to="." method="_on_save_pressed"]
+[connection signal="pressed" from="BaseControl/Layout/Row3/Buttons/SaveAs" to="." method="_on_save_as_pressed"]

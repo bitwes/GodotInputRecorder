@@ -11,12 +11,13 @@ class DetailEntry:
 	var input_label : Label
 	var count_label : Label
 	var include_chk : CheckBox
+	var bg_color = Color(1, 1, 1, 0)
 	
 	func _init() -> void:
 		size_flags_horizontal = SIZE_EXPAND_FILL
 	
-	#func _draw() -> void:
-		#draw_rect(Rect2(Vector2.ZERO, size), Color(0, 0, 1, .25))
+	func _draw() -> void:
+		draw_rect(Rect2(Vector2.ZERO, size), bg_color)
 	
 	func _ready():
 		include_chk = CheckBox.new()
@@ -87,6 +88,7 @@ func _add_header():
 	
 	$Layout.add_child(header_entry)
 	$Layout.move_child(header_entry, 0)
+	header_entry.bg_color = Color(0, 0, 0, .5)
 	header_entry.frame_label.text = "Frame"
 	header_entry.count_label.text = "#"
 	header_entry.input_label.text = "Inputs"
