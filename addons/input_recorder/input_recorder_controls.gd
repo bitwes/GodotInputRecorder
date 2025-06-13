@@ -13,7 +13,9 @@ extends ColorRect
 @onready var lbl_recording_name = $Layout/RecordingName
 @onready var play_buttons = $Layout/Row1/PlayButtons
 @onready var progress = $Layout/Row2_5/ProgressBar
-@onready var recording_list = $Layout/Row3/RecordingList
+@onready var tabs = $Layout/Row3/TabContainer
+@onready var recording_list = $Layout/Row3/TabContainer/RecordingList
+@onready var recording_details = $Layout/Row3/TabContainer/RecordingDetails
 
 @onready var tree_row = $Layout/Row3
 @onready var row_2 = $Layout/Row2
@@ -52,6 +54,8 @@ func _ready():
 	btn_play_fast.visible = false
 
 	display_normal()
+	
+	tabs.set_tab_disabled(1, true)
 
 #func _process(_delta):
 	#lbl_fps.text = str("fps: ", Engine.get_frames_per_second())
@@ -98,6 +102,8 @@ func _on_recording_list_recorder_activated(input_recorder):
 
 
 func _on_recording_list_recorder_selected(input_recorder):
+	tabs.set_tab_disabled(1, false)
+	#recording_details.load_data(input_recorder.queue)
 	recorder_selected.emit(input_recorder)
 
 
@@ -114,7 +120,7 @@ func display_normal():
 	btn_stop.visible = false
 	lbl_recording_name.visible = false
 
-	size = _normal_size
+	#size = _normal_size
 
 
 func display_record(recording_name = ""):
@@ -143,3 +149,7 @@ func display_play(recording_name = ""):
 	btn_stop.visible = true
 	lbl_recording_name.visible = true
 	lbl_recording_name.text = recording_name
+
+
+func get_enabled_inputs():
+	return recording_details.get_enabled_inputs()

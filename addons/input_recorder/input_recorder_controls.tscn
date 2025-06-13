@@ -1,12 +1,14 @@
-[gd_scene load_steps=3 format=3 uid="uid://crkll8afh5da"]
+[gd_scene load_steps=5 format=3 uid="uid://crkll8afh5da"]
 
 [ext_resource type="Script" path="res://addons/input_recorder/input_recorder_controls.gd" id="1_mx71a"]
 [ext_resource type="PackedScene" uid="uid://yf8tt17rywbr" path="res://addons/input_recorder/recording_list.tscn" id="2_ah7fy"]
+[ext_resource type="Script" path="res://addons/input_recorder/box_container_plus.gd" id="2_tgyf4"]
+[ext_resource type="PackedScene" uid="uid://d2lxa4q0001yo" path="res://addons/input_recorder/recording_details.tscn" id="4_tugyi"]
 
 [node name="InputRecorder" type="ColorRect"]
 custom_minimum_size = Vector2(271, 200)
-offset_right = 271.0
-offset_bottom = 200.0
+offset_right = 952.0
+offset_bottom = 628.0
 color = Color(0.113049, 0.113049, 0.113049, 1)
 script = ExtResource("1_mx71a")
 
@@ -20,6 +22,8 @@ grow_vertical = 2
 
 [node name="Row1" type="HBoxContainer" parent="Layout"]
 layout_mode = 2
+script = ExtResource("2_tgyf4")
+color = Color(1, 1, 1, 0.298039)
 
 [node name="Record" type="Button" parent="Layout/Row1"]
 layout_mode = 2
@@ -51,6 +55,8 @@ text = "Play Fast"
 
 [node name="Row2" type="HBoxContainer" parent="Layout"]
 layout_mode = 2
+script = ExtResource("2_tgyf4")
+color = Color(1, 1, 1, 0.278431)
 
 [node name="RecordMouse" type="CheckBox" parent="Layout/Row2"]
 layout_mode = 2
@@ -91,13 +97,27 @@ size_flags_vertical = 3
 
 [node name="FilePath" type="Label" parent="Layout/Row3"]
 layout_mode = 2
+horizontal_alignment = 2
 
-[node name="RecordingList" parent="Layout/Row3" instance=ExtResource("2_ah7fy")]
+[node name="TabContainer" type="TabContainer" parent="Layout/Row3"]
 layout_mode = 2
 size_flags_vertical = 3
+current_tab = 0
+
+[node name="RecordingList" parent="Layout/Row3/TabContainer" instance=ExtResource("2_ah7fy")]
+layout_mode = 2
+size_flags_vertical = 3
+metadata/_tab_index = 0
+
+[node name="RecordingDetails" parent="Layout/Row3/TabContainer" instance=ExtResource("4_tugyi")]
+visible = false
+layout_mode = 2
+metadata/_tab_index = 1
 
 [node name="Buttons" type="HBoxContainer" parent="Layout/Row3"]
 layout_mode = 2
+script = ExtResource("2_tgyf4")
+color = Color(1, 1, 1, 0.298039)
 
 [node name="Load" type="Button" parent="Layout/Row3/Buttons"]
 custom_minimum_size = Vector2(2.08165e-12, 50)
@@ -150,8 +170,8 @@ metadata/_tab_index = 0
 [connection signal="pressed" from="Layout/Row1/Stop" to="." method="_on_stop_pressed"]
 [connection signal="pressed" from="Layout/Row1/PlayButtons/Play" to="." method="_on_play_pressed"]
 [connection signal="pressed" from="Layout/Row1/PlayButtons/PlayFast" to="." method="_on_play_fast_pressed"]
-[connection signal="recorder_activated" from="Layout/Row3/RecordingList" to="." method="_on_recording_list_recorder_activated"]
-[connection signal="recorder_selected" from="Layout/Row3/RecordingList" to="." method="_on_recording_list_recorder_selected"]
+[connection signal="recorder_activated" from="Layout/Row3/TabContainer/RecordingList" to="." method="_on_recording_list_recorder_activated"]
+[connection signal="recorder_selected" from="Layout/Row3/TabContainer/RecordingList" to="." method="_on_recording_list_recorder_selected"]
 [connection signal="pressed" from="Layout/Row3/Buttons/Load" to="." method="_on_load_pressed"]
 [connection signal="pressed" from="Layout/Row3/Buttons/Save" to="." method="_on_save_pressed"]
 [connection signal="pressed" from="Layout/Row3/Buttons/SaveAs" to="." method="_on_save_as_pressed"]

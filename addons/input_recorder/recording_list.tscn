@@ -30,15 +30,18 @@ layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
-[node name="Entry" type="HBoxContainer" parent="."]
+[node name="Entry" type="VBoxContainer" parent="."]
 visible = false
 layout_mode = 0
 offset_left = 134.0
 offset_top = -206.0
 offset_right = 359.0
-offset_bottom = -152.0
+offset_bottom = -93.0
 
-[node name="SelectButton" type="Button" parent="Entry"]
+[node name="Rec" type="HBoxContainer" parent="Entry"]
+layout_mode = 2
+
+[node name="SelectButton" type="Button" parent="Entry/Rec"]
 layout_mode = 2
 size_flags_horizontal = 3
 theme_override_styles/pressed = SubResource("StyleBoxFlat_0uqru")
@@ -47,18 +50,18 @@ button_group = SubResource("ButtonGroup_3dk46")
 alignment = 0
 text_overrun_behavior = 1
 
-[node name="Name" type="LineEdit" parent="Entry"]
+[node name="Name" type="LineEdit" parent="Entry/Rec"]
 layout_mode = 2
 size_flags_horizontal = 3
 editable = false
 select_all_on_focus = true
 
-[node name="Delete" type="Button" parent="Entry"]
+[node name="Delete" type="Button" parent="Entry/Rec"]
 layout_mode = 2
 disabled = true
 text = "Delete"
 
-[node name="Edit" type="Button" parent="Entry"]
+[node name="Edit" type="Button" parent="Entry/Rec"]
 layout_mode = 2
 toggle_mode = true
 text = "Edit"

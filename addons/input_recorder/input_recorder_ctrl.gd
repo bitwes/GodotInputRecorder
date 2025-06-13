@@ -238,6 +238,7 @@ func play_current(rec_name=""):
 
 	_playback.warp_mouse = _controls.chk_warp_mouse.button_pressed
 	_playback.play_input_queue(_recorder)
+	#_playback.play_input_queue(_controls.get_enabled_inputs())
 
 	_update_buttons()
 	_controls.progress.value = 0.0

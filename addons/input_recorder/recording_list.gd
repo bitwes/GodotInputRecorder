@@ -1,105 +1,9 @@
 extends Control
 
-
-
-class RecordingListEntry:
-	extends Control
-	
-	static var select_button_group = ButtonGroup.new()
-
-	signal delete(rec_name)
-	signal rename(old_name, new_name)
-	signal selected(rec_name)
-	signal play(rec_name)
-
-	@onready var txt_name = $Name
-	@onready var btn_edit = $Edit
-	@onready var btn_delete = $Delete
-	@onready var btn_select = $SelectButton
-
-	var recording_name = '__not set__' :
-		set(val):
-			btn_select.text = val
-			txt_name.text = val
-			recording_name = val
-
-	var rename_callback : Callable
-
-
-	func _ready():
-		txt_name.text = 'Default Text'
-		txt_name.text_submitted.connect(_on_name_submitted)
-		btn_edit.toggled.connect(_on_edit_toggled)
-		btn_delete.pressed.connect(_on_delete_pressed)
-		btn_select.toggled.connect(_on_select_toggled)
-		btn_select.gui_input.connect(_on_select_button_gui_event)			
-		btn_select.button_group = select_button_group
-		
-		_edit_buttons(false)
-
-
-	func _edit_buttons(editable):
-		txt_name.editable = editable
-		txt_name.visible = editable
-		btn_delete.disabled = !editable
-		btn_delete.visible = editable
-		btn_select.visible = !editable
-		btn_edit.button_pressed = editable
-
-
-	func _start_edit():
-		_edit_buttons(true)
-		txt_name.grab_focus()
-
-
-	func _end_edit():
-		_edit_buttons(false)
-
-		if(recording_name != txt_name.text):
-			if(rename_callback):
-				var result = rename_callback.call(recording_name, txt_name.text)
-				if(result):
-					rename.emit(recording_name, txt_name.text)
-					recording_name = txt_name.text
-
-	# --------------
-	# Events
-	# --------------
-	func _on_select_button_gui_event(event):
-		if(event is InputEventMouseButton):
-			if(event.button_index == MOUSE_BUTTON_RIGHT and event.pressed):
-				btn_select.button_pressed = true
-				play.emit(recording_name)
-		elif(event is InputEventKey and !event.pressed):
-			if(event.keycode == KEY_ENTER):
-				btn_select.button_pressed = true
-				selected.emit(recording_name)
-				play.emit(recording_name)
-
-	func _on_edit_toggled(toggled_on):
-		if(toggled_on):
-			_start_edit()
-		else:
-			_end_edit()
-
-
-	func _on_name_submitted(_new_text):
-		_end_edit()
-
-
-	func _on_delete_pressed():
-		delete.emit(recording_name)
-
-
-	func _on_select_toggled(toggled_on):
-		if(toggled_on):
-			selected.emit(recording_name)
-
-
-# ------------------------------------------------------------------------------
-# ------------------------------------------------------------------------------
 var input_recorders = {}
 var default_name = 'Recording '
+var RecordingListEntry = load('res://addons/input_recorder/recording_entry.tscn')
+var select_button_group = ButtonGroup.new()
 
 @onready var _entry_control = $Entry
 @onready var _the_list = $Scroller/TheList
@@ -122,18 +26,19 @@ func _ready():
 
 
 func _new_entry(display_name):
-	var new_ctrl = _entry_control.duplicate()
-	new_ctrl.visible = true
-	new_ctrl.set_script(RecordingListEntry)
+	var new_ctrl = RecordingListEntry.instantiate()
+	new_ctrl.select_button_group = select_button_group
 	_the_list.add_child(new_ctrl)
+
 	new_ctrl.recording_name = display_name
 	new_ctrl.rename_callback = _can_change_name_of_entry
+	# new_ctrl.ctrl_details.load_data(input_recorders[display_name].queue)
 
 	new_ctrl.rename.connect(_on_entry_renamed)
 	new_ctrl.delete.connect(_on_entry_deleted)
 	new_ctrl.selected.connect(_on_entry_selected)
 	new_ctrl.play.connect(_on_entry_play)
-	
+
 	return new_ctrl
 
 
@@ -193,14 +98,16 @@ func new_recorder():
 
 func save_to_config_file(config_file: ConfigFile):
 	for key in input_recorders:
-		config_file.set_value(key, "recordings", input_recorders[key].queue)
+		input_recorders[key].recording.save_config_file_section(config_file, key)
+		# config_file.set_value(key, "recordings", input_recorders[key].queue)
 
 
 func load_from_config_file(config_file : ConfigFile):
 	reset()
 	for section in config_file.get_sections():
 		var recorder = IR_Recorder.new()
-		recorder.queue = config_file.get_value(section, "recordings")
+		recorder.recording.load_config_file_section(config_file, section)
+		# recorder.queue = config_file.get_value(section, "recordings")
 		input_recorders[section] = recorder
 	refresh()
 
@@ -225,14 +132,15 @@ func delete_recording(recording_name):
 
 
 func has_selected():
-	var to_return = RecordingListEntry.select_button_group.get_pressed_button()
+	var to_return = select_button_group.get_pressed_button()
 	if(to_return != null and !to_return.is_inside_tree()):
 		to_return = null
-		
+
 	return to_return != null
-	
+
+
 func get_selected_name():
 	if(has_selected()):
-		return RecordingListEntry.select_button_group.get_pressed_button().text
+		return select_button_group.get_pressed_button().text
 	else:
 		return ""

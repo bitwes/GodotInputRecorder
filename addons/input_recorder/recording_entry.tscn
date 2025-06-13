@@ -1,0 +1,52 @@
+[gd_scene load_steps=5 format=3 uid="uid://bymppxiqiro2q"]
+
+[ext_resource type="Script" path="res://addons/input_recorder/recording_entry.gd" id="1_ip0l0"]
+[ext_resource type="PackedScene" uid="uid://d2lxa4q0001yo" path="res://addons/input_recorder/recording_details.tscn" id="2_pve6k"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_2tr17"]
+bg_color = Color(0.387389, 0.387389, 0.387389, 1)
+
+[sub_resource type="ButtonGroup" id="ButtonGroup_xc703"]
+
+[node name="RecordingEntry" type="VBoxContainer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = -852.0
+offset_bottom = -594.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_ip0l0")
+
+[node name="Rec" type="HBoxContainer" parent="."]
+layout_mode = 2
+
+[node name="SelectButton" type="Button" parent="Rec"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_styles/pressed = SubResource("StyleBoxFlat_2tr17")
+toggle_mode = true
+button_group = SubResource("ButtonGroup_xc703")
+alignment = 0
+text_overrun_behavior = 1
+
+[node name="Name" type="LineEdit" parent="Rec"]
+layout_mode = 2
+size_flags_horizontal = 3
+editable = false
+select_all_on_focus = true
+
+[node name="Delete" type="Button" parent="Rec"]
+layout_mode = 2
+disabled = true
+text = "Delete"
+
+[node name="Edit" type="Button" parent="Rec"]
+layout_mode = 2
+toggle_mode = true
+text = "Edit"
+
+[node name="RecordingDetails" parent="." instance=ExtResource("2_pve6k")]
+visible = false
+custom_minimum_size = Vector2(0, 0)
+layout_mode = 2
