@@ -5,8 +5,12 @@ class_name IR_InputRecorderControl
 
 var _ControlsScene = load('res://addons/input_recorder/input_recorder_controls.tscn')
 var _PlayControlScene = load("res://addons/input_recorder/play_control.tscn")
+var _RecordControlScene = load("res://addons/input_recorder/record_control.tscn")
+
 var _controls = null
 var _play_controls = null
+var _record_controls = null
+
 var _recorders = null
 
 var _recorder : IR_Recorder = null
@@ -79,6 +83,11 @@ func _ready():
 	_play_controls.visible = false
 	_playback = _play_controls.player
 	_playback.done.connect(_on_playback_done)
+	
+	_record_controls = _RecordControlScene.instantiate()
+	add_child(_record_controls)
+	_record_controls.visible = false
+	_record_controls.stop.connect(_on_record_stopped)
 
 	resized.connect(_on_resized)
 	save_path = save_path
@@ -102,6 +111,7 @@ func _ready_runtime():
 	_controls.save_as.connect(_on_save_as)
 	_controls.load_file.connect(_on_load_file)
 	_controls.recording_list.changed.connect(_on_list_changed)
+	_controls.clear.connect(_on_clear)
 
 	_controls.btn_save.visible = !autosave
 
@@ -164,9 +174,17 @@ func _recorder_totals_text():
 # -------------
 # Events
 # -------------
+func _on_record_stopped():
+	_controls.visible = true
+	_record_controls.visible = false
+	stop()
+
+func _on_clear():
+	_controls.clear_gui()
+	clear()
+
 func _on_resized():
 	_controls.size = size
-
 
 func _on_playback_done():
 	_mouse_draw.disabled = true
@@ -268,21 +286,20 @@ func record():
 	_recorder.record_mouse = _controls.chk_record_mouse.button_pressed
 	_recorder.record()
 	_update_buttons()
-	_controls.display_record()
+	#_controls.display_record()
+	_controls.visible = false
+	_record_controls.visible = true
 
 
 ## Stop playing or recording, whichever is occurring.
 func stop():
 	if(_recorder.is_recording):
 		_recorder.stop()
-		# _controls.event_output.text = _recorder.to_s()
-		# _controls.event_output.text += "\n" + _recorder_totals_text()
 		_controls.recording_list.refresh()
 		_autosave()
 	elif(_playback.is_playing):
 		_playback.stop()
 
-	_controls.display_normal()
 	_mouse_draw.disabled = true
 	_mouse_draw.live_draw = false
 	_controls.btn_stop.release_focus()
@@ -329,3 +346,9 @@ func get_playback_time():
 	if(_recorder == null):
 		return 0.0
 	return float(_recorder.duration()) / float(Engine.physics_ticks_per_second)
+
+
+func clear():
+	_controls.clear_gui()
+	_config_file.clear()
+	save_path = ""

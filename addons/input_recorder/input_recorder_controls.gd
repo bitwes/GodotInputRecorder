@@ -28,6 +28,7 @@ signal recorder_selected(input_recorder)
 signal save
 signal save_as(path)
 signal load_file(path)
+signal clear
 
 var _load_dlg = null
 var _save_dlg = null
@@ -157,3 +158,13 @@ func display_play(recording_name = ""):
 
 func get_enabled_inputs():
 	return recording_details.get_enabled_inputs()
+	
+	
+func clear_gui():
+	recording_list.reset()
+	recording_details.clear()
+	lbl_file_path.text = ""
+
+
+func _on_clear_pressed() -> void:
+	clear.emit()

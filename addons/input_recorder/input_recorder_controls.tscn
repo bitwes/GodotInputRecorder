@@ -41,7 +41,13 @@ layout_mode = 2
 size_flags_horizontal = 3
 text = "Record"
 
+[node name="Clear" type="Button" parent="BaseControl/Layout/Row1"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Clear"
+
 [node name="Stop" type="Button" parent="BaseControl/Layout/Row1"]
+visible = false
 layout_mode = 2
 size_flags_horizontal = 3
 text = "Stop
@@ -133,6 +139,7 @@ offset_right = 403.0
 offset_bottom = 109.0
 
 [connection signal="pressed" from="BaseControl/Layout/Row1/Record" to="." method="_on_record_pressed"]
+[connection signal="pressed" from="BaseControl/Layout/Row1/Clear" to="." method="_on_clear_pressed"]
 [connection signal="pressed" from="BaseControl/Layout/Row1/Stop" to="." method="_on_stop_pressed"]
 [connection signal="pressed" from="BaseControl/Layout/Row1/PlayButtons/Play" to="." method="_on_play_pressed"]
 [connection signal="pressed" from="BaseControl/Layout/Row1/PlayButtons/PlayFast" to="." method="_on_play_fast_pressed"]
