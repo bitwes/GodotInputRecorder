@@ -11,6 +11,8 @@ var _orig_char_position = Vector2.ZERO
 func _ready():
 	_orig_char_position = the_character.position
 	input_recorder.reset_method = reset_scene
+	
+	print($Popup/InputRecorder.anchors_preset)
 
 
 func _on_reset_pressed():
@@ -28,3 +30,7 @@ func reset_scene():
 	edit_2.clear()
 	$Things/Layout/RadioButtons/Radio1.button_pressed = true
 	the_character.position = _orig_char_position
+
+
+func _on_popup_popup_hide() -> void:
+	print("Hiding")

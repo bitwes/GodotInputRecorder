@@ -70,6 +70,8 @@ var reset_method : Callable = func(): pass
 ## Emitted when playing a recording has finished.
 signal playback_done
 
+signal control_size_changed(new_size)
+
 
 func _ready():
 	_controls = _ControlsScene.instantiate()
@@ -171,12 +173,31 @@ func _recorder_totals_text():
 		"Frames with events:  ", _recorder.size(), "\n",
 		"Duration             ", _recorder.duration(), " frames")
 
+func _show_controls(which):
+	_controls.visible = _controls == which
+	_record_controls.visible = _record_controls == which
+	_play_controls.visible = _play_controls == which
+	
+	control_size_changed.emit(which.size)
+
+
+func _show_record():
+	_show_controls(_record_controls)
+	
+	
+func _show_play():
+	_show_controls(_play_controls)
+	
+	
+func _show_normal():
+	_show_controls(_controls)
+
+
 # -------------
 # Events
 # -------------
 func _on_record_stopped():
-	_controls.visible = true
-	_record_controls.visible = false
+	_show_normal()
 	stop()
 
 func _on_clear():
@@ -265,8 +286,7 @@ func play_current(rec_name=""):
 	#_playback.play_input_queue(_controls.get_enabled_inputs())
 
 	_update_buttons()
-	_controls.visible = false
-	_play_controls.visible = true
+	_show_play()
 	_play_controls.play(_recorder.recording)
 	
 	#_controls.progress.value = 0.0
@@ -287,9 +307,7 @@ func record():
 	_recorder.record()
 	_update_buttons()
 	#_controls.display_record()
-	_controls.visible = false
-	_record_controls.visible = true
-
+	_show_record()
 
 ## Stop playing or recording, whichever is occurring.
 func stop():

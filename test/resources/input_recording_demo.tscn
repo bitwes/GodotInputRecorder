@@ -15,6 +15,7 @@ script = ExtResource("1_wxqnx")
 [node name="SomeNode" type="Node" parent="."]
 
 [node name="InputRecorder" type="Control" parent="SomeNode"]
+visible = false
 custom_minimum_size = Vector2(271, 200)
 layout_mode = 3
 anchors_preset = 0
@@ -108,5 +109,21 @@ offset_right = 1140.0
 offset_bottom = 591.0
 text = "Reset
 "
+
+[node name="Popup" type="Window" parent="."]
+title = "The Title"
+position = Vector2i(30, 36)
+size = Vector2i(500, 500)
+
+[node name="InputRecorder" type="Control" parent="Popup"]
+custom_minimum_size = Vector2(271, 200)
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("3_lhsjx")
+autosave = false
 
 [connection signal="pressed" from="Reset" to="." method="_on_reset_pressed"]
