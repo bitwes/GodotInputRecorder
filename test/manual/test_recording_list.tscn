@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://cyu07teafbtwi"]
 
-[ext_resource type="Script" path="res://test/manual/test_recording_list.gd" id="1_4pjne"]
+[ext_resource type="Script" uid="uid://d2q2ua8u1xn1a" path="res://test/manual/test_recording_list.gd" id="1_4pjne"]
 [ext_resource type="PackedScene" uid="uid://yf8tt17rywbr" path="res://addons/input_recorder/recording_list.tscn" id="2_f2he8"]
 
 [node name="TestRecordingList" type="Node2D"]

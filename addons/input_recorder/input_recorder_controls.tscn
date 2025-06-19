@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://crkll8afh5da"]
 
-[ext_resource type="Script" path="res://addons/input_recorder/input_recorder_controls.gd" id="1_mx71a"]
+[ext_resource type="Script" uid="uid://bdsuj5ghk47uu" path="res://addons/input_recorder/input_recorder_controls.gd" id="1_mx71a"]
 [ext_resource type="PackedScene" uid="uid://yf8tt17rywbr" path="res://addons/input_recorder/recording_list.tscn" id="2_ah7fy"]
 
 [node name="InputRecorder" type="ColorRect"]

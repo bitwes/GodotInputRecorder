@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://chlyqabc3alg2"]
 
-[ext_resource type="Script" path="res://test/manual/test_ir_controls.gd" id="1_v0vm4"]
+[ext_resource type="Script" uid="uid://4s2a5aj85152" path="res://test/manual/test_ir_controls.gd" id="1_v0vm4"]
 [ext_resource type="PackedScene" uid="uid://crkll8afh5da" path="res://addons/input_recorder/input_recorder_controls.tscn" id="2_j38db"]
 
 [node name="TestIRControls" type="Node2D"]

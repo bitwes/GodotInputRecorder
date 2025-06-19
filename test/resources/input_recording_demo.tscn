@@ -1,8 +1,8 @@
 [gd_scene load_steps=6 format=3 uid="uid://cx8qsum1eb8w3"]
 
-[ext_resource type="Script" path="res://test/resources/input_recording_demo.gd" id="1_wxqnx"]
+[ext_resource type="Script" uid="uid://c3xqguu81dmlr" path="res://test/resources/input_recording_demo.gd" id="1_wxqnx"]
 [ext_resource type="PackedScene" uid="uid://gtmjxp2qk5wf" path="res://test/resources/gut_player.tscn" id="2_yl1el"]
-[ext_resource type="Script" path="res://addons/input_recorder/input_recorder_ctrl.gd" id="3_lhsjx"]
+[ext_resource type="Script" uid="uid://onarse8vk7q2" path="res://addons/input_recorder/input_recorder_ctrl.gd" id="3_lhsjx"]
 
 [sub_resource type="ButtonGroup" id="ButtonGroup_eaeau"]
 

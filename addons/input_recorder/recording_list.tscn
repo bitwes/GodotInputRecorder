@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=3 uid="uid://yf8tt17rywbr"]
 
-[ext_resource type="Script" path="res://addons/input_recorder/recording_list.gd" id="1_mxdxh"]
+[ext_resource type="Script" uid="uid://bvug5uv0j4bcr" path="res://addons/input_recorder/recording_list.gd" id="1_mxdxh"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_0uqru"]
 bg_color = Color(0.387389, 0.387389, 0.387389, 1)
