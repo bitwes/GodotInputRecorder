@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://cfrp3yuvuc12m"]
 
-[ext_resource type="Script" path="res://addons/input_recorder/record_control.gd" id="1_uh1u0"]
+[ext_resource type="Script" uid="uid://5dqs1f5k00sd" path="res://addons/input_recorder/record_control.gd" id="1_uh1u0"]
 
 [node name="RecordControl" type="ColorRect"]
 offset_right = 300.0

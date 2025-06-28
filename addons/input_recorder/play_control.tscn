@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://car7gy6l856ot"]
 
-[ext_resource type="Script" path="res://addons/input_recorder/play_control.gd" id="1_m5e8s"]
+[ext_resource type="Script" uid="uid://2tydeh43td1i" path="res://addons/input_recorder/play_control.gd" id="1_m5e8s"]
 
 [node name="PlayControl" type="ColorRect"]
 offset_right = 506.0

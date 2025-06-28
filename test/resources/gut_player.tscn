@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=3 uid="uid://gtmjxp2qk5wf"]
 
-[ext_resource type="Script" path="res://test/resources/gut_player.gd" id="1_3yvq5"]
+[ext_resource type="Script" uid="uid://co6p5yiw6shx5" path="res://test/resources/gut_player.gd" id="1_3yvq5"]
 [ext_resource type="Texture2D" uid="uid://bq0lgstdrf5n8" path="res://images/gut_icon_128x128.png" id="1_bcbnb"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_01fde"]

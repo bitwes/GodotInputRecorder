@@ -1,6 +1,6 @@
 [gd_scene load_steps=5 format=3 uid="uid://bymppxiqiro2q"]
 
-[ext_resource type="Script" path="res://addons/input_recorder/recording_entry.gd" id="1_ip0l0"]
+[ext_resource type="Script" uid="uid://i0x8pag7qi8w" path="res://addons/input_recorder/recording_entry.gd" id="1_ip0l0"]
 [ext_resource type="PackedScene" uid="uid://d2lxa4q0001yo" path="res://addons/input_recorder/recording_details.tscn" id="2_pve6k"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_2tr17"]
