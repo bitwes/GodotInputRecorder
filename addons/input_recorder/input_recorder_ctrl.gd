@@ -78,14 +78,15 @@ func _ready():
 	add_child(_controls)
 	custom_minimum_size = _controls.custom_minimum_size
 	_controls.anchors_preset = PRESET_FULL_RECT
-	_controls.size = size
+	# _controls.size = size
 
 	_play_controls = _PlayControlScene.instantiate()
 	add_child(_play_controls)
 	_play_controls.visible = false
 	_playback = _play_controls.player
 	_playback.done.connect(_on_playback_done)
-	
+
+
 	_record_controls = _RecordControlScene.instantiate()
 	add_child(_record_controls)
 	_record_controls.visible = false
@@ -177,18 +178,18 @@ func _show_controls(which):
 	_controls.visible = _controls == which
 	_record_controls.visible = _record_controls == which
 	_play_controls.visible = _play_controls == which
-	
+
 	control_size_changed.emit(which.size)
 
 
 func _show_record():
 	_show_controls(_record_controls)
-	
-	
+
+
 func _show_play():
 	_show_controls(_play_controls)
-	
-	
+
+
 func _show_normal():
 	_show_controls(_controls)
 
@@ -288,7 +289,7 @@ func play_current(rec_name=""):
 	_update_buttons()
 	_show_play()
 	_play_controls.play(_recorder.recording)
-	
+
 	#_controls.progress.value = 0.0
 	#_controls.display_play(display_name)
 
@@ -348,8 +349,8 @@ func save_config_file(path:=save_path):
 ## returned.  If the recording is not found, zero is returned.
 func play_recording(recording_name):
 	var to_play = _recorders.input_recorders.get(recording_name, null)
-	_controls.lbl_recording_name.text = recording_name
 	if(to_play != null):
+		# _controls.lbl_recording_name.text = recording_name
 		_recorder = to_play
 		play_current(recording_name)
 		return to_play.duration()
