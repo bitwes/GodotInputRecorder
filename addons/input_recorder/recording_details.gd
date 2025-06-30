@@ -3,22 +3,22 @@ extends Control
 
 class DetailEntry:
 	extends HBoxContainer
-	
+
 	var frame : int = 0
 	var inputs = []
-	
+
 	var frame_label : Label
 	var input_label : Label
 	var count_label : Label
 	var include_chk : CheckBox
 	var bg_color = Color(1, 1, 1, 0)
-	
+
 	func _init() -> void:
 		size_flags_horizontal = SIZE_EXPAND_FILL
-	
+
 	func _draw() -> void:
 		draw_rect(Rect2(Vector2.ZERO, size), bg_color)
-	
+
 	func _ready():
 		include_chk = CheckBox.new()
 		include_chk.button_pressed = true
@@ -27,7 +27,7 @@ class DetailEntry:
 		frame_label = Label.new()
 		frame_label.custom_minimum_size.x = 60
 		add_child(frame_label)
-		
+
 		count_label = Label.new()
 		count_label.custom_minimum_size.x = 40
 		add_child(count_label)
@@ -35,19 +35,19 @@ class DetailEntry:
 		input_label = Label.new()
 		input_label.size_flags_horizontal = Control.SIZE_EXPAND_FILL
 		add_child(input_label)
-		
+
 		_update_frame_label()
 		_update_input_label()
-	
-			
+
+
 	func _update_frame_label():
 		frame_label.text = str(frame)
-		
-		
+
+
 	func _update_input_label():
 		if(inputs.size() > 1):
 			count_label.text = str(inputs.size())
-		
+
 		var txt = ""
 		var first = true
 		for input in inputs:
@@ -65,7 +65,7 @@ class DetailEntry:
 var _recording : IR_Recording
 
 
-func _ready():	
+func _ready():
 	if(get_parent() == get_tree().root):
 		_debug_ready()
 	_add_header()
@@ -85,7 +85,7 @@ func _debug_ready():
 
 func _add_header():
 	var header_entry = DetailEntry.new()
-	
+
 	$Layout.add_child(header_entry)
 	$Layout.move_child(header_entry, 0)
 	header_entry.bg_color = Color(0, 0, 0, .5)
@@ -97,13 +97,13 @@ func _add_header():
 
 
 func _on_chk_toggled(new_state, frame_index):
-	_recording.disable_frame(frame_index, new_state)
+	_recording.disable_frame(frame_index, !new_state)
 
 
 func check_all(should):
 	for item in items.get_children():
 		item.include_chk.button_pressed = should
-		
+
 
 func load_data(recording_data : IR_Recording):
 	_recording = recording_data
@@ -128,11 +128,11 @@ func get_enabled_inputs():
 		if(child.include_chk):
 			to_return[child.frame] = child.inputs
 	return to_return
-	
-	
+
+
 func get_all_inputs():
 	var to_return = {}
 	for child in items.get_children():
 		to_return[child.frame] = child.inputs
 	return to_return
-	
+

@@ -12,7 +12,6 @@ var _play_controls = null
 var _record_controls = null
 
 var _recorders = null
-
 var _recorder : IR_Recorder = null
 var _playback : IR_Player
 var _config_file := ConfigFile.new()
@@ -85,7 +84,6 @@ func _ready():
 	_play_controls.visible = false
 	_playback = _play_controls.player
 	_playback.done.connect(_on_playback_done)
-
 
 	_record_controls = _RecordControlScene.instantiate()
 	add_child(_record_controls)
@@ -174,12 +172,14 @@ func _recorder_totals_text():
 		"Frames with events:  ", _recorder.size(), "\n",
 		"Duration             ", _recorder.duration(), " frames")
 
+
 func _show_controls(which):
 	_controls.visible = _controls == which
 	_record_controls.visible = _record_controls == which
 	_play_controls.visible = _play_controls == which
 
 	control_size_changed.emit(which.size)
+	
 
 
 func _show_record():
@@ -339,6 +339,7 @@ func load_config_file(path:=save_path):
 ## Defaults to the value in save_path.  Saves all recordings to a config file at the specified path.
 ## This does not set save_path when passed a value.
 func save_config_file(path:=save_path):
+	print('Saving to: ', save_path)
 	_config_file.clear()
 	_recorders.save_to_config_file(_config_file)
 	_config_file.save(path)

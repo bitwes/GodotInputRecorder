@@ -34,3 +34,8 @@ func reset_scene():
 
 func _on_popup_popup_hide() -> void:
 	print("Hiding")
+
+
+func _on_input_recorder_control_size_changed(new_size: Variant) -> void:
+	pass
+	#$Popup.size = new_size

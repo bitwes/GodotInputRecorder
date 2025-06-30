@@ -104,56 +104,22 @@ func _on_recording_list_recorder_selected(input_recorder):
 	recorder_selected.emit(input_recorder)
 
 
-
 # ----------------
 # Public
 # ----------------
 func display_normal():
+	push_error("DISPLAY_NORMAL DOES NOTHING")
 	pass
-	# base_ctrl.visible = true
-	# play_ctrl.visible = false
-
-	#row_2.visible = true
-	#row_2_5.visible = false
-	#row_3.visible = true
-	#play_buttons.visible = true
-	#btn_record.visible = true
-	#btn_stop.visible = false
-	#lbl_recording_name.visible = false
-
-	#size = _normal_size
 
 
 func display_record(recording_name = ""):
+	push_error("DISPLAY_RECORD DOES NOTHING")
 	pass
-	# if(_normal_size == Vector2.ZERO):
-	# 	_normal_size = size
-	# custom_minimum_size.y = btn_record.size.y
-	# size = custom_minimum_size
-	# row_2.visible = false
-	# row_3.visible = false
-	# play_buttons.visible = false
-	# btn_record.visible = false
-	# btn_stop.visible = true
 
 
 func display_play(recording_name = ""):
+	push_error("DISPLAY_PLAY DOES NOTHING")
 	pass
-	# base_ctrl.visible = false
-	# play_ctrl.visible = true
-
-	#if(_normal_size == Vector2.ZERO):
-		#_normal_size = size
-	#custom_minimum_size.y = btn_record.size.y + row_2_5.size.y + lbl_recording_name.size.y
-	#size = custom_minimum_size
-	#row_2.visible = false
-	#row_2_5.visible = true
-	#row_3.visible = false
-	#play_buttons.visible = false
-	#btn_record.visible = false
-	#btn_stop.visible = true
-	#lbl_recording_name.visible = true
-	#lbl_recording_name.text = recording_name
 
 
 func get_enabled_inputs():

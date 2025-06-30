@@ -127,3 +127,4 @@ script = ExtResource("3_lhsjx")
 autosave = false
 
 [connection signal="pressed" from="Reset" to="." method="_on_reset_pressed"]
+[connection signal="control_size_changed" from="Popup/InputRecorder" to="." method="_on_input_recorder_control_size_changed"]

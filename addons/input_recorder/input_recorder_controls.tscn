@@ -10,8 +10,8 @@
 custom_minimum_size = Vector2(271, 200)
 layout_mode = 3
 anchors_preset = 0
-offset_right = 958.0
-offset_bottom = 635.0
+offset_right = 384.0
+offset_bottom = 357.0
 script = ExtResource("1_mx71a")
 
 [node name="BaseControl" type="ColorRect" parent="."]
