@@ -1,7 +1,9 @@
 @tool
 extends Control
 class_name IR_InputRecorderControl
-## This is the control for recording input
+## This is the control for recording input.  The main one.  The one you use.  
+## The one that has all the other parts.  The parent one.  That one...that one
+## is this one. 
 
 var _ControlsScene = load('res://addons/input_recorder/input_recorder_controls.tscn')
 var _PlayControlScene = load("res://addons/input_recorder/play_control.tscn")
@@ -65,6 +67,11 @@ var reset_method : Callable = func(): pass
 		if(is_inside_tree() and !Engine.is_editor_hint()):
 			_controls.chk_warp_mouse.button_pressed = val
 		warp_mouse = val
+
+## Instances of IR_Recorder are added to the tree under this node.  This allows 
+## the control to be in a seperate viewport and still record key presses in 
+## another viewport (like when all the controls are in a popup).
+@export var record_input_parent : Node = null 
 
 ## Emitted when playing a recording has finished.
 signal playback_done
@@ -302,13 +309,17 @@ func record():
 		_mouse_draw.disabled = false
 		_mouse_draw.live_draw = true
 	_recorder = _recorders.new_recorder()
-	add_child(_recorder)
+	if(record_input_parent != null):
+		record_input_parent.add_child(_recorder)
+	else:
+		add_child(_recorder)
 	_controls.btn_record.release_focus()
 	_recorder.record_mouse = _controls.chk_record_mouse.button_pressed
 	_recorder.record()
 	_update_buttons()
 	#_controls.display_record()
 	_show_record()
+
 
 ## Stop playing or recording, whichever is occurring.
 func stop():

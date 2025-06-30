@@ -37,5 +37,4 @@ func _on_popup_popup_hide() -> void:
 
 
 func _on_input_recorder_control_size_changed(new_size: Variant) -> void:
-	pass
-	#$Popup.size = new_size
+	$Popup.size = new_size

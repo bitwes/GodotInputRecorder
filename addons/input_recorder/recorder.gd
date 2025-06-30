@@ -1,5 +1,12 @@
 class_name IR_Recorder
 extends Node
+## IR_Recorder
+##
+## This does the recording of input, creating a IR_Recording instance.  This
+## must be a child for a common viewport where the input needs to be recorded
+## for.  When I made the InputRecorder control a  window, it quit being able
+## to record keyboard input.
+
 
 var _frame_counter := 0
 
