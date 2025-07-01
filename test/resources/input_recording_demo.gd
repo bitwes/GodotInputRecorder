@@ -11,7 +11,6 @@ var _orig_char_position = Vector2.ZERO
 func _ready():
 	_orig_char_position = the_character.position
 	input_recorder.reset_method = reset_scene
-	
 	print($Popup/InputRecorder.anchors_preset)
 
 

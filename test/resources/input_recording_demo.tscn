@@ -127,6 +127,8 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("3_lhsjx")
 autosave = false
+record_mouse = false
+warp_mouse = false
 record_input_parent = NodePath("../..")
 
 [connection signal="pressed" from="Reset" to="." method="_on_reset_pressed"]

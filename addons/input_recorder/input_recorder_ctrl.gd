@@ -59,6 +59,7 @@ var reset_method : Callable = func(): pass
 			_controls.chk_record_mouse.button_pressed = val
 		record_mouse = val
 
+
 # This value is only used to check the checkbox, after that, the checkbox is used.
 ## Whether the mouse is moved when playing back a recording.  See
 ## [member DisplayServer.warp_mouse].
@@ -70,7 +71,7 @@ var reset_method : Callable = func(): pass
 
 ## Instances of IR_Recorder are added to the tree under this node.  This allows 
 ## the control to be in a seperate viewport and still record key presses in 
-## another viewport (like when all the controls are in a popup).
+## another viewport (like when this control is in a popup).
 @export var record_input_parent : Node = null 
 
 ## Emitted when playing a recording has finished.
