@@ -105,7 +105,127 @@ func test_disable_frame_disables_a_frame():
 
 	assert_true(rec.queue[93].disabled)
 
+
 func test_disable_frame_does_nothing_if_frame_does_not_exist():
 	var rec := IR_Recording.new()
 	rec.disable_frame(93, true)
 	pass_test('we got here')
+
+
+func test_can_duplicate_a_recording():
+	var source = IR_Recording.new()
+	source.add_event(1, InputEventKey.new())
+	source.add_event(1, InputEventAction.new())
+	source.add_event(5, InputEventKey.new())
+	source.add_event(10, InputEventAction.new())
+	source.add_event(15, InputEventMouseMotion.new())
+
+	var dupe = source.duplicate()
+	assert_is(dupe, IR_Recording)
+	var source_cf = ConfigFile.new()
+	source.save_config_file_section(source_cf, "test")
+
+	var dupe_cf = ConfigFile.new()
+	dupe.save_config_file_section(dupe_cf, "test")
+
+	# removing "&" because encode_to_text or event value conversions does not
+	# appear to be consistent when it puts them into the resulting string to
+	# represent string names.
+	assert_eq(dupe_cf.encode_to_text().replace('&"', '"'),
+		source_cf.encode_to_text().replace('&"', '"'))
+
+
+func test_duplicating_creates_instances_of_events():
+	var source = IR_Recording.new()
+	var event = InputEventKey.new()
+	event.keycode = 13
+	source.add_event(1, event)
+
+	var dupe = source.duplicate()
+	var dupe_event = dupe.queue[1].events[0]
+	dupe_event.keycode = 20
+
+	assert_ne(event.keycode, dupe_event.keycode)
+
+
+func test_ltrim_removes_disabled_leading_entries():
+	var source = IR_Recording.new()
+	source.add_event(1, InputEventKey.new())
+	source.add_event(5, InputEventAction.new())
+	source.add_event(10, InputEventKey.new())
+	source.add_event(15, InputEventAction.new())
+	source.add_event(20, InputEventMouseMotion.new())
+
+	source.disable_frame(1, true)
+	source.disable_frame(5, true)
+
+	source.ltrim()
+	assert_eq(source.get_frame_events(1), [], 'frame 1')
+	assert_eq(source.get_frame_events(5), [], 'frame 5')
+	assert_eq(source.queue.keys().size(), 3, 'queue size')
+
+
+
+func test_ltrim_updates_frames():
+	var source = IR_Recording.new()
+	source.add_event(1, InputEventKey.new())
+	source.add_event(5, InputEventAction.new())
+	var e10 = InputEventKey.new()
+	source.add_event(10, e10)
+	var e15 = InputEventAction.new()
+	source.add_event(15, e15)
+	var e20 = InputEventMouseMotion.new()
+	source.add_event(20, e20)
+
+	source.disable_frame(1, true)
+	source.disable_frame(5, true)
+	source.ltrim(true)
+
+	assert_eq(source.get_frame_events(1), [e10])
+	assert_eq(source.get_frame_events(6), [e15])
+	assert_eq(source.get_frame_events(11), [e20])
+
+	if(is_failing()):
+		GutUtils.pretty_print(source.queue)
+
+
+
+func test_rtrim_removes_disabled_trailing_entries():
+	var source = IR_Recording.new()
+	source.add_event(1, InputEventKey.new())
+	source.add_event(5, InputEventAction.new())
+	source.add_event(10, InputEventKey.new())
+	source.add_event(15, InputEventAction.new())
+	source.add_event(20, InputEventMouseMotion.new())
+
+	source.disable_frame(20, true)
+	source.disable_frame(15, true)
+
+	source.rtrim()
+	assert_eq(source.get_frame_events(20), [], 'frame 20')
+	assert_eq(source.get_frame_events(15), [], 'frame 15')
+	assert_eq(source.queue.keys().size(), 3, 'queue size')
+
+
+func test_trim_does_both():
+	var source = IR_Recording.new()
+	source.add_event(1, InputEventKey.new())
+	source.add_event(5, InputEventAction.new())
+	source.add_event(10, InputEventKey.new())
+	source.add_event(15, InputEventAction.new())
+	source.add_event(20, InputEventMouseMotion.new())
+
+	source.disable_frame(20, true)
+	source.disable_frame(15, true)
+	source.disable_frame(1, true)
+	source.disable_frame(5, true)
+
+	source.trim()
+
+	assert_eq(source.get_frame_events(1), [], 'frame 1')
+	assert_eq(source.get_frame_events(5), [], 'frame 5')
+
+	assert_eq(source.get_frame_events(20), [], 'frame 20')
+	assert_eq(source.get_frame_events(15), [], 'frame 15')
+
+	assert_eq(source.queue.keys().size(), 1, 'queue size')

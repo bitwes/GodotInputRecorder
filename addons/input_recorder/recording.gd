@@ -83,3 +83,68 @@ func get_duration():
 
 func clear():
 	queue.clear()
+
+
+func duplicate():
+	var to_return = IR_Recording.new()
+
+	for key in queue:
+		var entry = queue[key]
+		var new_entry = {
+			disabled = entry.disabled,
+			events = []
+		}
+		for event in entry.events:
+			new_entry.events.append(event.duplicate(true))
+
+		to_return.queue[key] = new_entry
+
+	return to_return
+
+
+
+func ltrim(adjust_frames=false):
+	var key_idx = 0
+	var done = false
+	var qkeys = queue.keys()
+
+	var start_key = qkeys[0]
+	var end_key = start_key
+
+	while key_idx < qkeys.size() and !done:
+		var key = qkeys[key_idx]
+		var entry = queue[key]
+		if(entry.disabled):
+			queue.erase(key)
+			key_idx += 1
+		else:
+			done = true
+			end_key = key
+
+	if(adjust_frames):
+		var new_queue = {}
+		qkeys = queue.keys()
+		for key in qkeys:
+			new_queue[key - (end_key - start_key)] = queue[key]
+
+		queue = new_queue
+
+
+func rtrim():
+	var done = false
+	var qkeys = queue.keys()
+	var key_idx = qkeys.size() -1
+
+	while key_idx >= 0 and !done:
+		var key = qkeys[key_idx]
+		var entry = queue[key]
+		if(entry.disabled):
+			queue.erase(key)
+			key_idx -= 1
+		else:
+			done = true
+
+
+func trim(adjust_frames=false):
+	ltrim(adjust_frames)
+	rtrim()

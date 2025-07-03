@@ -13,6 +13,7 @@ signal recorder_selected(input_recorder)
 signal recorder_activated(input_recorder)
 signal changed
 
+
 func _notification(what):
 	if(what == NOTIFICATION_PREDELETE):
 		for key in input_recorders:
@@ -50,6 +51,7 @@ func _clear_list_entries():
 	for child in _the_list.get_children():
 		_the_list.remove_child(child)
 		child.queue_free()
+
 
 # ------------------
 # Events
