@@ -39,6 +39,7 @@ func _new_entry(display_name):
 	new_ctrl.delete.connect(_on_entry_deleted)
 	new_ctrl.selected.connect(_on_entry_selected)
 	new_ctrl.play.connect(_on_entry_play)
+	new_ctrl.dupe.connect(_on_entry_duplicate)
 
 	return new_ctrl
 
@@ -81,7 +82,14 @@ func _on_entry_selected(recording_name):
 func _on_entry_play(recording_name):
 	recorder_activated.emit(input_recorders[recording_name])
 
-
+func _on_entry_duplicate(recording_name):
+	var dupe = input_recorders[recording_name].recording.duplicate()
+	var dupe_name = str(recording_name, " - dupe")
+	var new_ctrl = _new_entry(dupe_name)
+	input_recorders[dupe_name] = IR_Recorder.new()
+	input_recorders[dupe_name].recording = dupe
+	#input_recorders[]
+	
 # ------------------
 # Public
 # ------------------

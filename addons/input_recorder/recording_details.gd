@@ -62,6 +62,8 @@ class DetailEntry:
 
 
 @onready var items = $Layout/ScrollContainer/Items
+@onready var btn_trim = $Layout/Controls/Trim
+
 var _recording : IR_Recording
 
 
@@ -95,11 +97,21 @@ func _add_header():
 	header_entry.include_chk.toggled.connect(func(val):
 		check_all(val))
 
-
+# -----------------
+# Events
+# -----------------
 func _on_chk_toggled(new_state, frame_index):
 	_recording.disable_frame(frame_index, !new_state)
 
 
+func _on_trim_pressed() -> void:
+	_recording.trim()
+	load_data(_recording)
+
+
+# -----------------
+# Public
+# -----------------
 func check_all(should):
 	for item in items.get_children():
 		item.include_chk.button_pressed = should
@@ -135,4 +147,3 @@ func get_all_inputs():
 	for child in items.get_children():
 		to_return[child.frame] = child.inputs
 	return to_return
-

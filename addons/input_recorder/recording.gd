@@ -102,7 +102,6 @@ func duplicate():
 	return to_return
 
 
-
 func ltrim(adjust_frames=false):
 	var key_idx = 0
 	var done = false

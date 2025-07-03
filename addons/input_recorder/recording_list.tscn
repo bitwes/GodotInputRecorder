@@ -31,12 +31,11 @@ size_flags_horizontal = 3
 size_flags_vertical = 3
 
 [node name="Entry" type="VBoxContainer" parent="."]
-visible = false
 layout_mode = 0
 offset_left = 134.0
 offset_top = -206.0
-offset_right = 359.0
-offset_bottom = -93.0
+offset_right = 373.0
+offset_bottom = -175.0
 
 [node name="Rec" type="HBoxContainer" parent="Entry"]
 layout_mode = 2

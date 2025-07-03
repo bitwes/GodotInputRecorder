@@ -165,7 +165,6 @@ func test_ltrim_removes_disabled_leading_entries():
 	assert_eq(source.queue.keys().size(), 3, 'queue size')
 
 
-
 func test_ltrim_updates_frames():
 	var source = IR_Recording.new()
 	source.add_event(1, InputEventKey.new())

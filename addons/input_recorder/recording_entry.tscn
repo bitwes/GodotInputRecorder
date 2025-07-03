@@ -46,6 +46,10 @@ layout_mode = 2
 toggle_mode = true
 text = "Edit"
 
+[node name="Duplicate" type="Button" parent="Rec"]
+layout_mode = 2
+text = "Dupe"
+
 [node name="RecordingDetails" parent="." instance=ExtResource("2_pve6k")]
 visible = false
 custom_minimum_size = Vector2(0, 0)
