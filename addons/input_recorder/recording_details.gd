@@ -59,13 +59,12 @@ class DetailEntry:
 		input_label.text = txt
 
 
-
-
 @onready var items = $Layout/ScrollContainer/Items
 @onready var btn_trim = $Layout/Controls/Trim
 
 var _recording : IR_Recording
 
+signal changed
 
 func _ready():
 	if(get_parent() == get_tree().root):
@@ -105,9 +104,15 @@ func _on_chk_toggled(new_state, frame_index):
 
 
 func _on_trim_pressed() -> void:
-	_recording.trim()
+	_recording.trim(true)
 	load_data(_recording)
+	changed.emit()
 
+
+func _on_delete_disabled_pressed() -> void:
+	_recording.delete_disabled_frames()
+	load_data(_recording)
+	changed.emit()
 
 # -----------------
 # Public

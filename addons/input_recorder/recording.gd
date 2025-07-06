@@ -147,3 +147,15 @@ func rtrim():
 func trim(adjust_frames=false):
 	ltrim(adjust_frames)
 	rtrim()
+
+
+func delete_disabled_frames():
+	ltrim(true)
+	rtrim()
+
+	var qkeys = queue.keys()
+	for i in range(qkeys.size()):
+		var key = qkeys[i]
+		var entry = queue[key]
+		if(entry.disabled):
+			queue.erase(key)

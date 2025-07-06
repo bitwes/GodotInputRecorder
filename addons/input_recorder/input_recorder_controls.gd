@@ -29,6 +29,7 @@ signal save
 signal save_as(path)
 signal load_file(path)
 signal clear
+signal details_changed
 
 var _load_dlg = null
 var _save_dlg = null
@@ -134,3 +135,7 @@ func clear_gui():
 
 func _on_clear_pressed() -> void:
 	clear.emit()
+
+
+func _on_recording_details_changed() -> void:
+	details_changed.emit()

@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="InputRecorder"
-run/main_scene="res://test/resources/input_recording_demo.tscn"
+run/main_scene="uid://cx8qsum1eb8w3"
 config/features=PackedStringArray("4.4", "Forward Plus")
 config/icon="res://icon.svg"
 

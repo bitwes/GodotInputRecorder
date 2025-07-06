@@ -1,9 +1,9 @@
 @tool
 extends Control
 class_name IR_InputRecorderControl
-## This is the control for recording input.  The main one.  The one you use.  
+## This is the control for recording input.  The main one.  The one you use.
 ## The one that has all the other parts.  The parent one.  That one...that one
-## is this one. 
+## is this one.
 
 var _ControlsScene = load('res://addons/input_recorder/input_recorder_controls.tscn')
 var _PlayControlScene = load("res://addons/input_recorder/play_control.tscn")
@@ -25,7 +25,11 @@ var _mouse_draw = null
 ## to save changes.
 ## [br][br]
 ## When autosave is disabled, quitting will lose all changes since last save.
-@export var autosave : bool = true
+@export var autosave : bool = true :
+	set(val):
+		autosave = val
+		print('autosave = ', autosave)
+		print_stack()
 
 ## Draw mouse crosshair while recording.  This is an approximation of the mouse
 ## mouse position and not necessarily where the mouse is in the recording.
@@ -69,10 +73,10 @@ var reset_method : Callable = func(): pass
 			_controls.chk_warp_mouse.button_pressed = val
 		warp_mouse = val
 
-## Instances of IR_Recorder are added to the tree under this node.  This allows 
-## the control to be in a seperate viewport and still record key presses in 
+## Instances of IR_Recorder are added to the tree under this node.  This allows
+## the control to be in a seperate viewport and still record key presses in
 ## another viewport (like when this control is in a popup).
-@export var record_input_parent : Node = null 
+@export var record_input_parent : Node = null
 
 ## Emitted when playing a recording has finished.
 signal playback_done
@@ -121,6 +125,12 @@ func _ready_runtime():
 	_controls.load_file.connect(_on_load_file)
 	_controls.recording_list.changed.connect(_on_list_changed)
 	_controls.clear.connect(_on_clear)
+	_controls.details_changed.connect(_on_details_changed)
+
+	# apply design time values
+	warp_mouse = warp_mouse
+	record_mouse = record_mouse
+	autosave = autosave
 
 	_controls.btn_save.visible = !autosave
 
@@ -130,10 +140,6 @@ func _ready_runtime():
 
 	if(save_path.get_file() == ""):
 		save_path = save_path.path_join(_save_path_from_parent_filename())
-
-	# apply design time values
-	warp_mouse = warp_mouse
-	record_mouse = record_mouse
 
 	_playback.warp_mouse = warp_mouse
 	_playback.mouse_draw = _mouse_draw
@@ -187,7 +193,7 @@ func _show_controls(which):
 	_play_controls.visible = _play_controls == which
 
 	control_size_changed.emit(which.size)
-	
+
 
 
 func _show_record():
@@ -269,6 +275,9 @@ func _on_save_as(path):
 	save_config_file(path)
 	save_path = path
 
+
+func _on_details_changed():
+	_autosave()
 
 # -------------
 # Public

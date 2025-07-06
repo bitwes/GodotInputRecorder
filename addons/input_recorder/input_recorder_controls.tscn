@@ -144,6 +144,7 @@ offset_bottom = 109.0
 [connection signal="pressed" from="BaseControl/Layout/Row1/PlayButtons/PlayFast" to="." method="_on_play_fast_pressed"]
 [connection signal="recorder_activated" from="BaseControl/Layout/Row3/TabContainer/RecordingList" to="." method="_on_recording_list_recorder_activated"]
 [connection signal="recorder_selected" from="BaseControl/Layout/Row3/TabContainer/RecordingList" to="." method="_on_recording_list_recorder_selected"]
+[connection signal="changed" from="BaseControl/Layout/Row3/TabContainer/RecordingDetails" to="." method="_on_recording_details_changed"]
 [connection signal="pressed" from="BaseControl/Layout/Row3/Buttons/Load" to="." method="_on_load_pressed"]
 [connection signal="pressed" from="BaseControl/Layout/Row3/Buttons/Save" to="." method="_on_save_pressed"]
 [connection signal="pressed" from="BaseControl/Layout/Row3/Buttons/SaveAs" to="." method="_on_save_as_pressed"]
