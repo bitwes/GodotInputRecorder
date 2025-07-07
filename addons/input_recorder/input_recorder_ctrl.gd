@@ -28,7 +28,6 @@ var _mouse_draw = null
 @export var autosave : bool = true :
 	set(val):
 		autosave = val
-		print('autosave = ', autosave)
 		print_stack()
 
 ## Draw mouse crosshair while recording.  This is an approximation of the mouse
