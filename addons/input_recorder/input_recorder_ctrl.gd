@@ -25,10 +25,7 @@ var _mouse_draw = null
 ## to save changes.
 ## [br][br]
 ## When autosave is disabled, quitting will lose all changes since last save.
-@export var autosave : bool = true :
-	set(val):
-		autosave = val
-		print_stack()
+@export var autosave : bool = true
 
 ## Draw mouse crosshair while recording.  This is an approximation of the mouse
 ## mouse position and not necessarily where the mouse is in the recording.
