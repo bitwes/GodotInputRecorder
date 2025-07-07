@@ -39,6 +39,15 @@ class DetailEntry:
 		_update_frame_label()
 		_update_input_label()
 
+	# hex codes:  https://unicode.org/charts/nameslist/
+	var _u_ind = char(0x2191) #str("[", char(0x2191), "]")
+	var _d_ind = char(0x2193) #str("[", char(0x2193), "]")
+	func _event_to_string(event : InputEvent):
+		var to_return = event.as_text()
+		if(event is not InputEventMouseMotion):
+			to_return += _d_ind if event.is_pressed() else _u_ind
+		return to_return
+
 
 	func _update_frame_label():
 		frame_label.text = str(frame)
@@ -55,7 +64,8 @@ class DetailEntry:
 				txt += " + "
 			else:
 				first = false
-			txt += input.as_text()
+			txt += _event_to_string(input)
+			
 		input_label.text = txt
 
 

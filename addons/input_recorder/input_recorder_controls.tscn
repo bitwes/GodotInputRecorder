@@ -1,6 +1,6 @@
 [gd_scene load_steps=6 format=3 uid="uid://crkll8afh5da"]
 
-[ext_resource type="Script" uid="uid://buslqh7p0y74h" path="res://addons/input_recorder/input_recorder_controls.gd" id="1_mx71a"]
+[ext_resource type="Script" uid="uid://bdsuj5ghk47uu" path="res://addons/input_recorder/input_recorder_controls.gd" id="1_mx71a"]
 [ext_resource type="PackedScene" uid="uid://yf8tt17rywbr" path="res://addons/input_recorder/recording_list.tscn" id="2_ah7fy"]
 [ext_resource type="Script" uid="uid://d2la5v7avnmjs" path="res://addons/input_recorder/box_container_plus.gd" id="2_tgyf4"]
 [ext_resource type="PackedScene" uid="uid://d2lxa4q0001yo" path="res://addons/input_recorder/recording_details.tscn" id="4_tugyi"]
