@@ -1,8 +1,8 @@
-[gd_scene load_steps=2 format=3 uid="uid://d2lxa4q0001yo"]
+[gd_scene format=3 uid="uid://d2lxa4q0001yo"]
 
 [ext_resource type="Script" uid="uid://d07rkgpao270w" path="res://addons/input_recorder/recording_details.gd" id="1_dr2su"]
 
-[node name="RecordingDetails" type="Control"]
+[node name="RecordingDetails" type="Control" unique_id=930253827]
 custom_minimum_size = Vector2(0, 200)
 layout_mode = 3
 anchors_preset = 15
@@ -12,7 +12,7 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_dr2su")
 
-[node name="Layout" type="VBoxContainer" parent="."]
+[node name="Layout" type="VBoxContainer" parent="." unique_id=1042788576]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -20,22 +20,22 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="Controls" type="HBoxContainer" parent="Layout"]
+[node name="Controls" type="HBoxContainer" parent="Layout" unique_id=1848080717]
 layout_mode = 2
 
-[node name="Trim" type="Button" parent="Layout/Controls"]
+[node name="Trim" type="Button" parent="Layout/Controls" unique_id=919598518]
 layout_mode = 2
 text = "  Trim  "
 
-[node name="DeleteDisabled" type="Button" parent="Layout/Controls"]
+[node name="DeleteDisabled" type="Button" parent="Layout/Controls" unique_id=2060601733]
 layout_mode = 2
 text = "Delete Disabled"
 
-[node name="ScrollContainer" type="ScrollContainer" parent="Layout"]
+[node name="ScrollContainer" type="ScrollContainer" parent="Layout" unique_id=1460934278]
 layout_mode = 2
 size_flags_vertical = 3
 
-[node name="Items" type="VBoxContainer" parent="Layout/ScrollContainer"]
+[node name="Items" type="VBoxContainer" parent="Layout/ScrollContainer" unique_id=1832590936]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3

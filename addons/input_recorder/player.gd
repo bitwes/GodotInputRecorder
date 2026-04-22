@@ -16,6 +16,7 @@ var is_playing = _is_playing :
 	set(val): pass
 
 signal done
+signal play_frame(which)
 
 
 func _physics_process(_delta):
@@ -61,6 +62,8 @@ func _play_real_time():
 		print("frame ", _frame_counter, " is disabled")
 	# var events = _queue.get_frame_events(_frame_counter)
 	_play_events(events)
+	if(!events.is_empty()):
+		play_frame.emit(_frame_counter)
 
 	if(events.size() > 0):
 		_num_played += 1

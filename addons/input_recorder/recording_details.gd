@@ -11,13 +11,16 @@ class DetailEntry:
 	var input_label : Label
 	var count_label : Label
 	var include_chk : CheckBox
+	var highlight_color = Color.DARK_GREEN
 	var bg_color = Color(1, 1, 1, 0)
+	var _current_bg_color = Color.AZURE
 
 	func _init() -> void:
+		_current_bg_color = bg_color
 		size_flags_horizontal = SIZE_EXPAND_FILL
 
 	func _draw() -> void:
-		draw_rect(Rect2(Vector2.ZERO, size), bg_color)
+		draw_rect(Rect2(Vector2.ZERO, size), _current_bg_color)
 
 	func _ready():
 		include_chk = CheckBox.new()
@@ -67,10 +70,21 @@ class DetailEntry:
 			txt += _event_to_string(input)
 			
 		input_label.text = txt
+		
 
+	func highlight(should):
+		var was = _current_bg_color == highlight_color
+		if(should and include_chk.button_pressed):
+			_current_bg_color = highlight_color
+		else:
+			_current_bg_color = bg_color
+		
+		queue_redraw()
+			
 
 @onready var items = $Layout/ScrollContainer/Items
 @onready var btn_trim = $Layout/Controls/Trim
+@onready var scroll_cont : ScrollContainer = $Layout/ScrollContainer
 
 var _recording : IR_Recording
 
@@ -162,3 +176,24 @@ func get_all_inputs():
 	for child in items.get_children():
 		to_return[child.frame] = child.inputs
 	return to_return
+
+var _last_highlighted = null
+func highlight_frame(which):
+	for entry in items.get_children():
+		if(entry.frame == which):
+			entry.highlight(true)
+			if(_last_highlighted != null):
+				_last_highlighted.highlight(false)
+			
+			_last_highlighted = entry
+			scroll_cont.scroll_vertical = entry.position.y
+			queue_redraw()
+			scroll_cont.queue_redraw()
+			entry.queue_redraw()
+			return
+
+
+func highlight_none():
+	_last_highlighted = null
+	for entry in items.get_children():
+		entry.highlight(false)

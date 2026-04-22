@@ -17,7 +17,6 @@ extends Control
 @onready var row_2 = $BaseControl/Layout/Row2
 @onready var row_3 = $BaseControl/Layout/Row3
 
-@onready var play_ctrl = $PlayControl
 @onready var base_ctrl = $BaseControl
 
 signal play
@@ -105,6 +104,13 @@ func _on_recording_list_recorder_selected(input_recorder):
 	recorder_selected.emit(input_recorder)
 
 
+func _on_clear_pressed() -> void:
+	clear.emit()
+
+
+func _on_recording_details_changed() -> void:
+	details_changed.emit()
+
 # ----------------
 # Public
 # ----------------
@@ -133,9 +139,13 @@ func clear_gui():
 	lbl_file_path.text = ""
 
 
-func _on_clear_pressed() -> void:
-	clear.emit()
+func show_overlay(should):
+	%Overlay.visible = should
 
 
-func _on_recording_details_changed() -> void:
-	details_changed.emit()
+func show_recording_details():
+	tabs.current_tab = 1
+	
+
+func show_recording_list():
+	tabs.current_tab = 0

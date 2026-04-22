@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=3 uid="uid://cx8qsum1eb8w3"]
+[gd_scene format=3 uid="uid://cx8qsum1eb8w3"]
 
 [ext_resource type="Script" uid="uid://cyngimdnve4wg" path="res://test/resources/input_recording_demo.gd" id="1_wxqnx"]
 [ext_resource type="PackedScene" uid="uid://gtmjxp2qk5wf" path="res://test/resources/gut_player.tscn" id="2_yl1el"]
@@ -9,12 +9,12 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_yyhao"]
 size = Vector2(1193, 20)
 
-[node name="InputRecording" type="Node2D"]
+[node name="InputRecording" type="Node2D" unique_id=839181344]
 script = ExtResource("1_wxqnx")
 
-[node name="SomeNode" type="Node" parent="."]
+[node name="SomeNode" type="Node" parent="." unique_id=1515239022]
 
-[node name="InputRecorder" type="Control" parent="SomeNode"]
+[node name="InputRecorder" type="Control" parent="SomeNode" unique_id=88941067]
 visible = false
 layout_mode = 3
 anchors_preset = 0
@@ -25,7 +25,7 @@ offset_bottom = 414.0
 script = ExtResource("3_lhsjx")
 autosave = false
 
-[node name="Things" type="ColorRect" parent="."]
+[node name="Things" type="ColorRect" parent="." unique_id=1983207845]
 offset_left = 608.0
 offset_top = 17.0
 offset_right = 1120.0
@@ -33,7 +33,7 @@ offset_bottom = 121.0
 color = Color(0.277528, 0.277528, 0.277528, 1)
 metadata/_edit_group_ = true
 
-[node name="Layout" type="VBoxContainer" parent="Things"]
+[node name="Layout" type="VBoxContainer" parent="Things" unique_id=1484097061]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -41,26 +41,26 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="TextBoxes" type="HBoxContainer" parent="Things/Layout"]
+[node name="TextBoxes" type="HBoxContainer" parent="Things/Layout" unique_id=1773348317]
 layout_mode = 2
 size_flags_vertical = 3
 
-[node name="Edit1" type="TextEdit" parent="Things/Layout/TextBoxes"]
+[node name="Edit1" type="TextEdit" parent="Things/Layout/TextBoxes" unique_id=1166841135]
 layout_mode = 2
 size_flags_horizontal = 3
 wrap_mode = 1
 
-[node name="Edit2" type="TextEdit" parent="Things/Layout/TextBoxes"]
+[node name="Edit2" type="TextEdit" parent="Things/Layout/TextBoxes" unique_id=1378923886]
 layout_mode = 2
 size_flags_horizontal = 3
 wrap_mode = 1
 
-[node name="RadioButtons" type="HBoxContainer" parent="Things/Layout"]
+[node name="RadioButtons" type="HBoxContainer" parent="Things/Layout" unique_id=93341052]
 layout_mode = 2
 size_flags_vertical = 3
 size_flags_stretch_ratio = 0.35
 
-[node name="Radio1" type="Button" parent="Things/Layout/RadioButtons"]
+[node name="Radio1" type="Button" parent="Things/Layout/RadioButtons" unique_id=2004052166]
 layout_mode = 2
 size_flags_horizontal = 3
 toggle_mode = true
@@ -68,40 +68,40 @@ button_pressed = true
 button_group = SubResource("ButtonGroup_eaeau")
 text = "1"
 
-[node name="Radio2" type="Button" parent="Things/Layout/RadioButtons"]
+[node name="Radio2" type="Button" parent="Things/Layout/RadioButtons" unique_id=1506312061]
 layout_mode = 2
 size_flags_horizontal = 3
 toggle_mode = true
 button_group = SubResource("ButtonGroup_eaeau")
 text = "2"
 
-[node name="Radio3" type="Button" parent="Things/Layout/RadioButtons"]
+[node name="Radio3" type="Button" parent="Things/Layout/RadioButtons" unique_id=1139881026]
 layout_mode = 2
 size_flags_horizontal = 3
 toggle_mode = true
 button_group = SubResource("ButtonGroup_eaeau")
 text = "3"
 
-[node name="Radio4" type="Button" parent="Things/Layout/RadioButtons"]
+[node name="Radio4" type="Button" parent="Things/Layout/RadioButtons" unique_id=1991555014]
 layout_mode = 2
 size_flags_horizontal = 3
 toggle_mode = true
 button_group = SubResource("ButtonGroup_eaeau")
 text = "4"
 
-[node name="2DStuff" type="Node" parent="."]
+[node name="2DStuff" type="Node" parent="." unique_id=823041911]
 
-[node name="GutPlayer" parent="2DStuff" instance=ExtResource("2_yl1el")]
+[node name="GutPlayer" parent="2DStuff" unique_id=241175036 instance=ExtResource("2_yl1el")]
 position = Vector2(293, 512)
 
-[node name="StaticBody2D" type="StaticBody2D" parent="2DStuff"]
+[node name="StaticBody2D" type="StaticBody2D" parent="2DStuff" unique_id=755168973]
 position = Vector2(132, 617)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="2DStuff/StaticBody2D"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="2DStuff/StaticBody2D" unique_id=1618099528]
 position = Vector2(439, 3)
 shape = SubResource("RectangleShape2D_yyhao")
 
-[node name="Reset" type="Button" parent="."]
+[node name="Reset" type="Button" parent="." unique_id=1164032548]
 offset_left = 1023.0
 offset_top = 560.0
 offset_right = 1140.0
@@ -109,14 +109,15 @@ offset_bottom = 591.0
 text = "Reset
 "
 
-[node name="Popup" type="Window" parent="."]
+[node name="Popup" type="Window" parent="." unique_id=776376480]
 transparent_bg = true
+oversampling_override = 1.0
 title = "The Title"
 position = Vector2i(30, 36)
 size = Vector2i(500, 500)
 always_on_top = true
 
-[node name="InputRecorderInWindow" type="Control" parent="Popup" node_paths=PackedStringArray("record_input_parent")]
+[node name="InputRecorderInWindow" type="Control" parent="Popup" unique_id=774713568 node_paths=PackedStringArray("record_input_parent")]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0

@@ -1,14 +1,15 @@
-[gd_scene load_steps=2 format=3 uid="uid://car7gy6l856ot"]
+[gd_scene format=3 uid="uid://car7gy6l856ot"]
 
 [ext_resource type="Script" uid="uid://2tydeh43td1i" path="res://addons/input_recorder/play_control.gd" id="1_m5e8s"]
 
-[node name="PlayControl" type="ColorRect"]
+[node name="PlayControl" type="ColorRect" unique_id=2084862291]
+custom_minimum_size = Vector2(0, 128)
 offset_right = 506.0
 offset_bottom = 128.0
 color = Color(2.04556e-07, 0.26934, 0.20074, 1)
 script = ExtResource("1_m5e8s")
 
-[node name="VBoxContainer" type="VBoxContainer" parent="."]
+[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=1515057558]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -16,31 +17,31 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="Buttons" type="HBoxContainer" parent="VBoxContainer"]
+[node name="Buttons" type="HBoxContainer" parent="VBoxContainer" unique_id=779196742]
 layout_mode = 2
 size_flags_vertical = 3
 
-[node name="Stop" type="Button" parent="VBoxContainer/Buttons"]
+[node name="Stop" type="Button" parent="VBoxContainer/Buttons" unique_id=295693592]
 layout_mode = 2
 size_flags_horizontal = 3
 text = "Stop"
 
-[node name="Pause" type="Button" parent="VBoxContainer/Buttons"]
+[node name="Pause" type="Button" parent="VBoxContainer/Buttons" unique_id=1533819053]
 layout_mode = 2
 size_flags_horizontal = 3
 text = "Pause"
 
-[node name="Resume" type="Button" parent="VBoxContainer/Buttons"]
+[node name="Resume" type="Button" parent="VBoxContainer/Buttons" unique_id=960605651]
 layout_mode = 2
 size_flags_horizontal = 3
 text = "Resume"
 
-[node name="ProgressBar" type="ProgressBar" parent="VBoxContainer"]
+[node name="ProgressBar" type="ProgressBar" parent="VBoxContainer" unique_id=1249729830]
 layout_mode = 2
 size_flags_vertical = 3
 max_value = 1.0
 
-[node name="Name" type="Label" parent="VBoxContainer"]
+[node name="Name" type="Label" parent="VBoxContainer" unique_id=1420947693]
 layout_mode = 2
 size_flags_vertical = 3
 

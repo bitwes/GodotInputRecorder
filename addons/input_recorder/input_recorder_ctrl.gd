@@ -5,10 +5,12 @@ class_name IR_InputRecorderControl
 ## The one that has all the other parts.  The parent one.  That one...that one
 ## is this one.
 
-var _ControlsScene = load('res://addons/input_recorder/input_recorder_controls.tscn')
-var _PlayControlScene = load("res://addons/input_recorder/play_control.tscn")
-var _RecordControlScene = load("res://addons/input_recorder/record_control.tscn")
+var _AllControlsScene = load("res://addons/input_recorder/all_controls.tscn")
+#var _ControlsScene = load('res://addons/input_recorder/input_recorder_controls.tscn')
+#var _PlayControlScene = load("res://addons/input_recorder/play_control.tscn")
+#var _RecordControlScene = load("res://addons/input_recorder/record_control.tscn")
 
+var _all_controls : _IR_AllControls = null
 var _controls = null
 var _play_controls = null
 var _record_controls = null
@@ -81,21 +83,19 @@ signal control_size_changed(new_size)
 
 
 func _ready():
-	_controls = _ControlsScene.instantiate()
-	add_child(_controls)
-	custom_minimum_size = _controls.custom_minimum_size
-	_controls.anchors_preset = PRESET_FULL_RECT
-	# _controls.size = size
+	_all_controls = _AllControlsScene.instantiate()
+	add_child(_all_controls)
+	_all_controls.anchors_preset = PRESET_FULL_RECT
+	
+	_controls = _all_controls.recordings_control#_ControlsScene.instantiate()
 
-	_play_controls = _PlayControlScene.instantiate()
-	add_child(_play_controls)
-	_play_controls.visible = false
+	_play_controls = _all_controls.play_control#_PlayControlScene.instantiate()
+	#_play_controls.visible = false
 	_playback = _play_controls.player
 	_playback.done.connect(_on_playback_done)
 
-	_record_controls = _RecordControlScene.instantiate()
-	add_child(_record_controls)
-	_record_controls.visible = false
+	_record_controls = _all_controls.record_control#_RecordControlScene.instantiate()
+	#_record_controls.visible = false
 	_record_controls.stop.connect(_on_record_stopped)
 
 	resized.connect(_on_resized)
@@ -184,24 +184,25 @@ func _recorder_totals_text():
 
 
 func _show_controls(which):
-	_controls.visible = _controls == which
-	_record_controls.visible = _record_controls == which
-	_play_controls.visible = _play_controls == which
+	pass
+	#_controls.visible = _controls == which
+	#_record_controls.visible = _record_controls == which
+	#_play_controls.visible = _play_controls == which
 
-	control_size_changed.emit(which.size)
+	#control_size_changed.emit(which.size)
 
 
 
 func _show_record():
-	_show_controls(_record_controls)
+	_all_controls.record_mode()
 
 
 func _show_play():
-	_show_controls(_play_controls)
+	_all_controls.play_mode()
 
 
 func _show_normal():
-	_show_controls(_controls)
+	_all_controls.normal_mode()
 
 
 # -------------
@@ -224,8 +225,9 @@ func _on_playback_done():
 	_controls.btn_stop.release_focus()
 	playback_done.emit()
 	#_controls.display_normal()
-	_play_controls.visible = false
-	_controls.visible = true
+	_all_controls.normal_mode()
+	#_play_controls.visible = false
+	#_controls.visible = true
 
 
 func _on_record_pressed():
