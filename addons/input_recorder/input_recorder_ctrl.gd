@@ -128,7 +128,7 @@ func _ready_runtime():
 	record_mouse = record_mouse
 	autosave = autosave
 
-	_controls.btn_save.visible = !autosave
+	_controls.btn_save.visible = true
 
 	_parent_scene = get_parent()
 	while(_parent_scene.scene_file_path == ""):
